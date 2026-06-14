@@ -80,13 +80,13 @@ export default function Home() {
         <Aurora />
         <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
-            <Reveal>
+            <Reveal immediate>
               <span className="inline-flex items-center gap-2 rounded-full border border-iris-400/25 bg-iris-500/10 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-wider text-iris-300">
                 <span className="h-1.5 w-1.5 rounded-full bg-ember-400" />
                 Apply in seconds, not hours
               </span>
             </Reveal>
-            <Reveal delay={0.06}>
+            <Reveal delay={0.06} immediate>
               <h1 className="mt-6 font-display text-5xl font-extrabold leading-[0.98] tracking-tight text-cream sm:text-6xl lg:text-7xl balance">
                 Stop filling out
                 <br />
@@ -95,18 +95,18 @@ export default function Home() {
                 a hundred times.
               </h1>
             </Reveal>
-            <Reveal delay={0.12}>
+            <Reveal delay={0.12} immediate>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-iris-300/80">
                 Propel reads and fills job-application forms on whatever site you're on — and submits
                 them for you. One profile, every application, <span className="text-cream">hands-free</span>.
               </p>
             </Reveal>
-            <Reveal delay={0.18}>
+            <Reveal delay={0.18} immediate>
               <div className="mt-9">
                 <PrimaryDownload />
               </div>
             </Reveal>
-            <Reveal delay={0.24}>
+            <Reveal delay={0.24} immediate>
               <p className="mt-5 font-mono text-[12px] text-iris-300/50">
                 Free · Mac &amp; Windows · Your data never leaves your machine
               </p>
@@ -114,7 +114,7 @@ export default function Home() {
           </div>
 
           {/* live demo */}
-          <Reveal delay={0.2} className="flex justify-center lg:justify-end" id="demo">
+          <Reveal delay={0.2} className="flex justify-center lg:justify-end" id="demo" immediate>
             <div className="relative">
               <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-iris-500/10 blur-2xl" />
               <ApplyDemo />
