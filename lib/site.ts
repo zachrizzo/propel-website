@@ -5,7 +5,8 @@ export const site = {
   tagline: "Auto-apply to jobs, right inside your browser.",
   description:
     "Propel reads and fills job-application forms on whatever career site you're on — Workday, Greenhouse, Lever, company portals — so you apply in seconds, not hours. A desktop app plus a browser bridge that keeps your data on your own machine.",
-  url: "https://propel.app",
+  // Production domain — update to a custom domain here once you add one in Vercel.
+  url: "https://propel-website-pi.vercel.app",
   // TODO: replace with your real GitHub Releases asset URLs once published.
   downloads: {
     mac: "https://github.com/PROPEL_OWNER/propel/releases/latest",
