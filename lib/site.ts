@@ -7,15 +7,18 @@ export const site = {
     "Propel reads and fills job-application forms on whatever career site you're on — Workday, Greenhouse, Lever, company portals — so you apply in seconds, not hours. A desktop app plus a browser bridge that keeps your data on your own machine.",
   // Production domain — update to a custom domain here once you add one in Vercel.
   url: "https://propel-website-pi.vercel.app",
-  // TODO: replace with your real GitHub Releases asset URLs once published.
+  // Stable "latest release" asset URLs on the PUBLIC releases repo. electron-builder
+  // publishes Pilot.dmg (universal: Apple Silicon + Intel) and Pilot-Setup.exe under
+  // each release with these fixed names, so these links always serve the newest build.
+  // (They 404 until the first release is published to zachrizzo/propel-releases.)
   downloads: {
-    mac: "https://github.com/PROPEL_OWNER/propel/releases/latest",
-    windows: "https://github.com/PROPEL_OWNER/propel/releases/latest",
-    // TODO: replace with the Chrome Web Store listing URL once the item is approved.
-    chrome: "https://chrome.google.com/webstore/detail/imggbmnonbcnkfmdghfedfadijfjdfkj",
+    mac: "https://github.com/zachrizzo/propel-releases/releases/latest/download/Pilot.dmg",
+    windows: "https://github.com/zachrizzo/propel-releases/releases/latest/download/Pilot-Setup.exe",
+    chrome: "https://chromewebstore.google.com/detail/propel-bridge/imggbmnonbcnkfmdghfedfadijfjdfkj",
   },
   social: {
-    github: "https://github.com/PROPEL_OWNER/propel",
+    // Public releases repo (source is private).
+    github: "https://github.com/zachrizzo/propel-releases",
   },
   email: "zachcilwa@gmail.com",
 } as const;

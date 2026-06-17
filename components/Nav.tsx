@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Logo from "./Logo";
-import { site } from "@/lib/site";
 
 const links = [
   { href: "#how", label: "How it works" },
