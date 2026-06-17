@@ -48,8 +48,12 @@ const FAQ = [
     a: "No. Propel reads the application page and fills it using your locally-stored profile. The browser bridge talks only to the desktop app on your own machine over Chrome's native-messaging channel — never to a remote server.",
   },
   {
-    q: "The Mac download says it's from an unidentified developer — is that safe?",
-    a: "Early builds aren't yet code-signed by Apple/Microsoft, so your OS shows a one-time warning. On macOS, open System Settings → Privacy & Security → Open Anyway. On Windows, click More info → Run anyway.",
+    q: "Is the desktop app signed?",
+    a: "The Mac app is signed and notarized with Apple Developer ID. The Windows installer is published too; it may still show Microsoft SmartScreen while the new installer builds reputation.",
+  },
+  {
+    q: "Will Propel update itself?",
+    a: "Yes. The packaged desktop app checks the public release feed on launch, downloads newer builds in the background, and shows a Restart to update banner when the update is ready.",
   },
   {
     q: "Which sites does it work on?",
@@ -224,8 +228,8 @@ export default function Home() {
           </Reveal>
           <Reveal delay={0.22}>
             <p className="mx-auto mt-6 max-w-lg font-mono text-[12px] leading-relaxed text-iris-300/50">
-              Early builds aren't code-signed yet, so your OS shows a one-time prompt. macOS: Settings →
-              Privacy &amp; Security → Open Anyway. Windows: More info → Run anyway.
+              Mac is signed and notarized. Windows is available for Windows 10/11 and may show
+              SmartScreen while the installer builds reputation.
             </p>
           </Reveal>
         </div>

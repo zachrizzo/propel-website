@@ -1,5 +1,4 @@
-// Central config for the Propel marketing site. Update the download URLs once the
-// desktop installers are published to GitHub Releases and the extension is live.
+// Central config for the Propel marketing site.
 export const site = {
   name: "Propel",
   tagline: "Auto-apply to jobs, right inside your browser.",
@@ -10,7 +9,6 @@ export const site = {
   // Stable "latest release" asset URLs on the PUBLIC releases repo. electron-builder
   // publishes Pilot.dmg (universal: Apple Silicon + Intel) and Pilot-Setup.exe under
   // each release with these fixed names, so these links always serve the newest build.
-  // (They 404 until the first release is published to zachrizzo/propel-releases.)
   downloads: {
     mac: "https://github.com/zachrizzo/propel-releases/releases/latest/download/Pilot.dmg",
     windows: "https://github.com/zachrizzo/propel-releases/releases/latest/download/Pilot-Setup.exe",
