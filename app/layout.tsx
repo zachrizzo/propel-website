@@ -26,6 +26,7 @@ const mono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
+  applicationName: site.name,
   title: {
     default: `${site.name} — ${site.tagline}`,
     template: `%s · ${site.name}`,
@@ -40,9 +41,13 @@ export const metadata: Metadata = {
     "Greenhouse autofill",
     "job search tool",
     "AI job application assistant",
+    "Propel Bridge",
+    "supervised job application agent",
   ],
+  referrer: "origin-when-cross-origin",
   authors: [{ name: "Propel" }],
   creator: "Propel",
+  publisher: "Propel",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -50,6 +55,7 @@ export const metadata: Metadata = {
     title: `${site.name} — ${site.tagline}`,
     description: site.description,
     siteName: site.name,
+    locale: "en_US",
     images: [{ url: "/og.png", width: 1280, height: 800, alt: `${site.name} — auto-apply to jobs` }],
   },
   twitter: {
@@ -58,9 +64,22 @@ export const metadata: Metadata = {
     description: site.description,
     images: ["/og.png"],
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   icons: { icon: "/icon-128.png", apple: "/icon-128.png" },
   category: "technology",
+  other: {
+    "apple-mobile-web-app-title": site.name,
+  },
 };
 
 export const viewport: Viewport = {
@@ -71,13 +90,29 @@ export const viewport: Viewport = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: site.name,
-  applicationCategory: "BusinessApplication",
-  operatingSystem: "macOS, Windows",
-  description: site.description,
-  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-  url: site.url,
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${site.url}/#website`,
+      name: site.name,
+      url: site.url,
+      description: site.description,
+      inLanguage: "en-US",
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": `${site.url}/#software`,
+      name: site.name,
+      alternateName: "Propel Bridge",
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "macOS, Windows",
+      description: site.description,
+      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      downloadUrl: [site.downloads.mac, site.downloads.windows],
+      sameAs: [site.social.github, site.downloads.chrome],
+      url: site.url,
+    },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -4,11 +4,15 @@ import { readdir, readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 const releaseRepo = "zachrizzo/propel-releases";
-const requiredDownloads = {
-  mac: `https://github.com/${releaseRepo}/releases/latest/download/Pilot.dmg`,
-  windows: `https://github.com/${releaseRepo}/releases/latest/download/Pilot-Setup.exe`,
+const releaseBase = `https://github.com/${releaseRepo}/releases/latest/download`;
+const requiredRoutePaths = {
+  mac: "/download/mac",
+  windows: "/download/windows",
 };
-const requiredAssets = new Set(["Pilot.dmg", "Pilot-Setup.exe"]);
+const acceptedAssets = {
+  mac: ["Propel.dmg", "Pilot.dmg"],
+  windows: ["Propel-Setup.exe", "Pilot-Setup.exe"],
+};
 const sourceDirs = ["app", "components", "lib"];
 
 function fail(message) {
@@ -33,9 +37,9 @@ async function* walk(dir) {
 
 async function verifySiteConfig() {
   const siteConfig = await readText("lib/site.ts");
-  for (const [platform, url] of Object.entries(requiredDownloads)) {
-    if (!siteConfig.includes(url)) {
-      fail(`lib/site.ts must use the stable latest ${platform} URL: ${url}`);
+  for (const [platform, path] of Object.entries(requiredRoutePaths)) {
+    if (!siteConfig.includes(path)) {
+      fail(`lib/site.ts must use the website-owned ${platform} download route: ${path}`);
     }
   }
 }
@@ -64,13 +68,18 @@ async function verifyLatestReleaseAssets() {
 
   const release = await res.json();
   const names = new Set((release.assets ?? []).map((asset) => asset.name));
-  for (const name of requiredAssets) {
-    if (!names.has(name)) {
-      fail(`latest release ${release.tag_name ?? "(unknown)"} is missing ${name}`);
+  const selected = {};
+  for (const [platform, candidates] of Object.entries(acceptedAssets)) {
+    const found = candidates.find((name) => names.has(name));
+    if (found === undefined) {
+      fail(`latest release ${release.tag_name ?? "(unknown)"} is missing ${candidates.join(" or ")}`);
+    } else {
+      selected[platform] = found;
     }
   }
 
-  for (const [platform, url] of Object.entries(requiredDownloads)) {
+  for (const [platform, asset] of Object.entries(selected)) {
+    const url = `${releaseBase}/${asset}`;
     const head = await fetch(url, { method: "HEAD", redirect: "follow" });
     if (!head.ok) {
       fail(`${platform} stable download URL returned HTTP ${head.status}: ${url}`);
@@ -78,7 +87,9 @@ async function verifyLatestReleaseAssets() {
   }
 
   if (process.exitCode !== 1) {
-    console.log(`download verification passed: ${release.tag_name ?? "latest"} has Mac and Windows assets`);
+    console.log(
+      `download verification passed: ${release.tag_name ?? "latest"} has Mac and Windows assets (${selected.mac}, ${selected.windows})`,
+    );
   }
 }
 

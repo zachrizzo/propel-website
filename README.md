@@ -21,19 +21,18 @@ framework auto-detects as Next.js. No env vars required.
 
 Edit [`lib/site.ts`](lib/site.ts):
 - `url` — the production domain (used for canonical URLs, OG tags, sitemap)
-- `downloads.mac` / `downloads.windows` — GitHub Releases asset URLs for the desktop app
+- `downloads.mac` / `downloads.windows` — website-owned download routes for the desktop app
 - `downloads.chrome` — the Chrome Web Store listing URL
 
-The desktop download URLs must stay on GitHub's stable `releases/latest/download`
-endpoints:
+The website download routes must stay stable:
 
-- `https://github.com/zachrizzo/propel-releases/releases/latest/download/Pilot.dmg`
-- `https://github.com/zachrizzo/propel-releases/releases/latest/download/Pilot-Setup.exe`
+- `https://propel-website-pi.vercel.app/download/mac`
+- `https://propel-website-pi.vercel.app/download/windows`
 
-Those URLs redirect to whatever release is currently marked latest in the public
-`zachrizzo/propel-releases` repo, so publishing a new desktop release updates the
-website buttons without redeploying this site. Run `npm run verify:downloads`
-after release work to confirm the latest release has both assets and no site code
-was accidentally changed to a version-pinned `/releases/download/vX.Y.Z/...` URL.
+Those routes prefer the current Propel-named GitHub release assets and fall back
+to the pre-rename Pilot assets still present on older releases. Run
+`npm run verify:downloads` after release work to confirm the latest public release
+has Mac and Windows assets and no site code was accidentally changed to a
+version-pinned `/releases/download/vX.Y.Z/...` URL.
 
 The `/privacy` route doubles as the Chrome Web Store privacy-policy URL.
