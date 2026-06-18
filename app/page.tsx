@@ -10,8 +10,8 @@ const ATS = ["Workday", "Greenhouse", "Lever", "Ashby", "iCIMS", "Taleo", "Bambo
 const STEPS = [
   {
     n: "01",
-    title: "Install the desktop app",
-    body: "Propel's brain runs locally on your Mac or PC. It holds your profile, résumé, and the apply engine — nothing lives on our servers.",
+    title: "Add your profile once",
+    body: "Install the desktop app and set up your details and résumé a single time. Propel reuses them on every application from then on.",
   },
   {
     n: "02",
@@ -21,51 +21,24 @@ const STEPS = [
   {
     n: "03",
     title: "Apply, hands-free",
-    body: "Open any job posting and let Propel read the form, fill every field from your profile, and submit — in seconds.",
+    body: "Open any job posting and let Propel read the form, fill every field from your profile, and submit — you review and approve.",
   },
 ];
 
 const FEATURES = [
   { t: "Works on any career site", d: "Workday, Greenhouse, Lever, custom portals — if you can apply there, Propel can fill it.", i: "globe" },
-  { t: "Your data stays local", d: "Your profile and résumé live on your own machine. Nothing is sent to a remote server.", i: "lock" },
-  { t: "Reads the real form", d: "Propel parses each application like a human would, mapping your profile to the right fields.", i: "scan" },
+  { t: "Never answer twice", d: "Answer a screener question once and Propel remembers it — then fills it automatically on every application after.", i: "memory" },
+  { t: "Reads the real form", d: "Propel parses each application like a human would, mapping your profile to the right fields on the live page.", i: "scan" },
   { t: "Tailored answers", d: "Generates role-specific responses to “why are you a fit?” prompts from your background.", i: "spark" },
   { t: "You stay in control", d: "Review before submit, or let it run. Every application is yours to approve.", i: "check" },
-  { t: "Tracks everything", d: "See what you applied to, when, and where — without a spreadsheet.", i: "chart" },
-];
-
-const FAQ = [
-  {
-    q: "Is Propel free?",
-    a: "The desktop app and the Chrome bridge are free to download. Your data and résumé stay on your own computer.",
-  },
-  {
-    q: "Why do I need both a desktop app and an extension?",
-    a: "The extension can act inside your browser tab (the only place application forms live), while the desktop app runs the engine and keeps your data local. Together they automate applications without sending anything to a server.",
-  },
-  {
-    q: "Is my personal data sent anywhere?",
-    a: "No. Propel reads the application page and fills it using your locally-stored profile. The browser bridge talks only to the desktop app on your own machine over Chrome's native-messaging channel — never to a remote server.",
-  },
-  {
-    q: "Is the desktop app signed?",
-    a: "The Mac app is signed and notarized with Apple Developer ID. The Windows installer is published too; it may still show Microsoft SmartScreen while the new installer builds reputation.",
-  },
-  {
-    q: "Will Propel update itself?",
-    a: "Yes. The packaged desktop app checks the public release feed on launch, downloads newer builds in the background, and shows a Restart to update banner when the update is ready.",
-  },
-  {
-    q: "Which sites does it work on?",
-    a: "Propel works across the major applicant-tracking systems — Workday, Greenhouse, Lever, Ashby, iCIMS and more — plus most company career portals.",
-  },
+  { t: "Tracks everything", d: "See what you applied to, when, and where — without keeping a spreadsheet.", i: "chart" },
 ];
 
 function FeatureIcon({ name }: { name: string }) {
   const common = { width: 22, height: 22, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.7, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
   const paths: Record<string, JSX.Element> = {
     globe: <><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18" /></>,
-    lock: <><rect x="4.5" y="10.5" width="15" height="10" rx="2" /><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" /></>,
+    memory: <><path d="M12 3a9 9 0 1 0 9 9" /><path d="M12 7v5l3 2" /></>,
     scan: <><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2M7 12h10" /></>,
     spark: <><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18" /></>,
     check: <><circle cx="12" cy="12" r="9" /><path d="m8.5 12 2.5 2.5 4.5-5" /></>,
@@ -99,8 +72,10 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.12} immediate>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-iris-300/80">
-                Auto-apply to jobs in your browser. Propel finds openings, opens the real company
-                site, fills every field, and submits while you stay in control.
+                You shouldn't spend your week retyping the same details into job forms. Propel
+                auto-fills and submits applications on the real company site — you review and
+                approve — so your time goes to interviews, networking, and the work that actually
+                lands the offer.
               </p>
             </Reveal>
             <Reveal delay={0.18} immediate>
@@ -110,7 +85,7 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.24} immediate>
               <p className="mt-5 font-mono text-[12px] text-iris-300/50">
-                Free · Mac &amp; Windows · Your data never leaves your machine
+                Free · Mac &amp; Windows · You approve every application
               </p>
             </Reveal>
           </div>
@@ -190,18 +165,47 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ───────────────── PRIVACY BAND ───────────────── */}
+      {/* ───────────────── VALUE BAND ───────────────── */}
       <section className="relative px-5 py-12">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <div className="ring-grad glass overflow-hidden rounded-3xl px-8 py-12 text-center sm:px-14">
-              <span className="font-mono text-[11px] uppercase tracking-widest text-ember-400">Built private by design</span>
+              <span className="font-mono text-[11px] uppercase tracking-widest text-ember-400">Get your time back</span>
               <p className="mx-auto mt-4 max-w-3xl font-display text-2xl font-semibold leading-snug text-cream sm:text-3xl balance">
-                Your résumé and personal details never touch our servers. The engine runs on your
-                computer; the browser bridge talks only to it — locally.
+                One application is 10–20 minutes of the same details. Propel does that part in
+                seconds — so your job search goes to the things only you can do.
               </p>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* ───────────────── COMING SOON ───────────────── */}
+      <section id="roadmap" className="relative px-5 py-24">
+        <div className="mx-auto max-w-6xl">
+          <Reveal>
+            <span className="font-mono text-[11px] uppercase tracking-widest text-ember-400">On the way</span>
+            <h2 className="mt-4 max-w-2xl font-display text-4xl font-bold tracking-tight text-cream sm:text-5xl balance">
+              Auto-apply today. <span className="text-gradient">Your whole search next.</span>
+            </h2>
+            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-iris-300/70">
+              Applying is just the start. Propel is becoming the agent that runs the busywork of your
+              entire job search — here's what's coming.
+            </p>
+          </Reveal>
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {site.roadmap.map((r, i) => (
+              <Reveal key={r.title} delay={(i % 3) * 0.06}>
+                <div className="ring-grad glass relative h-full overflow-hidden rounded-2xl p-6">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-ember-400/25 bg-ember-500/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-ember-300">
+                    Coming soon
+                  </span>
+                  <h3 className="mt-4 font-display text-lg font-semibold text-cream">{r.title}</h3>
+                  <p className="mt-2 text-[14px] leading-relaxed text-iris-300/70">{r.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -242,7 +246,7 @@ export default function Home() {
             </h2>
           </Reveal>
           <div className="mt-12 space-y-3">
-            {FAQ.map((f, i) => (
+            {site.faq.map((f, i) => (
               <Reveal key={f.q} delay={i * 0.04}>
                 <details className="ring-grad glass group rounded-xl px-5 py-1 [&[open]]:bg-ink-700/40">
                   <summary className="flex cursor-pointer list-none items-center justify-between py-4 font-display text-[17px] font-medium text-cream">
