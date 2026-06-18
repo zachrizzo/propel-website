@@ -87,23 +87,20 @@ export default function Home() {
             <Reveal immediate>
               <span className="inline-flex items-center gap-2 rounded-full border border-iris-400/25 bg-iris-500/10 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-wider text-iris-300">
                 <span className="h-1.5 w-1.5 rounded-full bg-ember-400" />
-                Apply in seconds, not hours
+                AI job application agent
               </span>
             </Reveal>
             <Reveal delay={0.06} immediate>
               <h1 className="mt-6 font-display text-5xl font-extrabold leading-[0.98] tracking-tight text-cream sm:text-6xl lg:text-7xl balance">
-                Stop filling out
+                Propel
                 <br />
-                the <span className="text-gradient">same form</span>
-                <br />
-                a hundred times.
+                <span className="text-gradient">Job Agent</span>
               </h1>
             </Reveal>
             <Reveal delay={0.12} immediate>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-iris-300/80">
-                Propel finds openings, opens the real company site, fills every field, and submits — on
-                its own. It <span className="text-cream">remembers your answers</span>, so it gets faster
-                with every job it applies to.
+                Auto-apply to jobs in your browser. Propel finds openings, opens the real company
+                site, fills every field, and submits while you stay in control.
               </p>
             </Reveal>
             <Reveal delay={0.18} immediate>

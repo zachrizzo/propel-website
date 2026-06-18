@@ -16,9 +16,10 @@ export const releaseDownloads = {
 
 export const site = {
   name: "Propel",
-  tagline: "Auto-apply to jobs, right inside your browser.",
+  productName: "Propel Job Agent",
+  tagline: "Auto-apply to jobs in your browser",
   description:
-    "Propel reads and fills job-application forms on whatever career site you're on — Workday, Greenhouse, Lever, company portals — so you apply in seconds, not hours. A desktop app plus a browser bridge that keeps your data on your own machine.",
+    "Propel Job Agent auto-applies to jobs through your browser, filling Workday, Greenhouse, Lever, and company forms while you stay in control.",
   // Production domain — update to a custom domain here once you add one in Vercel.
   url: siteUrl,
   // Website-owned download routes. They prefer Propel-named release assets and

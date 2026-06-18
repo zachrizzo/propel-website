@@ -4,7 +4,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "How Propel handles your data: it stays on your own machine. Nothing is sent to remote servers.",
+  description: "How Propel Job Agent handles your data: it stays on your own machine. Nothing is sent to remote servers.",
   alternates: { canonical: "/privacy" },
 };
 
@@ -28,8 +28,8 @@ export default function Privacy() {
       <p className="mt-3 font-mono text-[12px] text-iris-300/50">Last updated: June 14, 2026</p>
 
       <p className="mt-8 text-[15px] leading-relaxed text-iris-300/80">
-        Propel is a desktop application plus a browser extension (“Propel Bridge”) that automate job
-        applications. This policy explains exactly what they access and where your data goes.
+        Propel Job Agent is a desktop application plus a browser extension (“Propel Bridge”) that
+        automate job applications. This policy explains exactly what they access and where your data goes.
       </p>
 
       <Section title="What Propel accesses">
