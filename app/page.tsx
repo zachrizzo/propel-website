@@ -1,6 +1,6 @@
 import Aurora from "@/components/Aurora";
 import Nav from "@/components/Nav";
-import ApplyDemo from "@/components/ApplyDemo";
+import HeroFlow from "@/components/HeroFlow";
 import Reveal from "@/components/Reveal";
 import { PrimaryDownload, DownloadTrio } from "@/components/DownloadButtons";
 import { site } from "@/lib/site";
@@ -101,8 +101,9 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.12} immediate>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-iris-300/80">
-                Propel reads and fills job-application forms on whatever site you're on — and submits
-                them for you. One profile, every application, <span className="text-cream">hands-free</span>.
+                Propel finds openings, opens the real company site, fills every field, and submits — on
+                its own. It <span className="text-cream">remembers your answers</span>, so it gets faster
+                with every job it applies to.
               </p>
             </Reveal>
             <Reveal delay={0.18} immediate>
@@ -117,11 +118,11 @@ export default function Home() {
             </Reveal>
           </div>
 
-          {/* live demo */}
+          {/* live, code-driven product demo */}
           <Reveal delay={0.2} className="flex justify-center lg:justify-end" id="demo" immediate>
             <div className="relative">
               <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-iris-500/10 blur-2xl" />
-              <ApplyDemo />
+              <HeroFlow />
             </div>
           </Reveal>
         </div>

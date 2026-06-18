@@ -134,3 +134,44 @@ body {
     opacity: 1;
   }
 }
+
+/* ---- HeroFlow demo micro-animations ---- */
+
+/* the address-bar URL re-keys on navigation; this gives it a quick crossfade */
+@keyframes url-fade {
+  from {
+    opacity: 0;
+    transform: translateX(-3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.urlfade {
+  animation: url-fade 0.45s ease both;
+}
+
+/* dropdown popover pop-in */
+@keyframes drop-fade {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.dropfade {
+  transform-origin: top center;
+  animation: drop-fade 0.18s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .urlfade,
+  .dropfade {
+    animation: none;
+    opacity: 1;
+  }
+}
