@@ -1,5 +1,7 @@
 // Central config for the Propel marketing site.
-export const siteUrl = "https://propel-website-pi.vercel.app";
+// Primary/canonical domain. The legacy propel-website-pi.vercel.app alias stays
+// live (it's the privacy URL published in the Chrome Web Store listing).
+export const siteUrl = "https://propeljobagent.vercel.app";
 
 const releaseBase = "https://github.com/zachrizzo/propel-releases/releases/latest/download";
 
