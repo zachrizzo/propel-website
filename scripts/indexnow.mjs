@@ -11,7 +11,12 @@ const KEY = "a3f1c8e7b9d24056af13c7e9b0d6428f";
 const HOST = "propeljobagent.vercel.app";
 const ORIGIN = `https://${HOST}`;
 
-const urlList = [`${ORIGIN}/`, `${ORIGIN}/privacy`, `${ORIGIN}/llms.txt`];
+const urlList = [
+  `${ORIGIN}/`,
+  `${ORIGIN}/how-to-auto-apply-to-jobs`,
+  `${ORIGIN}/privacy`,
+  `${ORIGIN}/llms.txt`,
+];
 
 const body = {
   host: HOST,

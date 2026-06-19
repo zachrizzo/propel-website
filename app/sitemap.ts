@@ -6,6 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     { url: site.url, lastModified, changeFrequency: "weekly", priority: 1 },
+    { url: `${site.url}/how-to-auto-apply-to-jobs`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${site.url}/privacy`, lastModified, changeFrequency: "yearly", priority: 0.4 },
   ];
 }

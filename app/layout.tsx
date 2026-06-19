@@ -106,6 +106,16 @@ const jsonLd = {
       url: site.url,
       description: site.description,
       inLanguage: "en-US",
+      publisher: { "@id": `${site.url}/#org` },
+    },
+    {
+      "@type": "Organization",
+      "@id": `${site.url}/#org`,
+      name: site.name,
+      url: site.url,
+      logo: `${site.url}/icon-128.png`,
+      description: site.description,
+      sameAs: [site.social.github, site.downloads.chrome],
     },
     {
       "@type": "SoftwareApplication",
@@ -128,6 +138,18 @@ const jsonLd = {
       downloadUrl: [site.downloads.mac, site.downloads.windows],
       sameAs: [site.social.github, site.downloads.chrome],
       url: site.url,
+    },
+    {
+      "@type": "HowTo",
+      "@id": `${site.url}/#howto`,
+      name: "How to auto-apply to jobs with Propel",
+      description:
+        "Set up Propel once, then let it fill and submit job applications for you on real career sites while you review and approve.",
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Add your profile once", text: "Install the desktop app and set up your details and résumé a single time. Propel reuses them on every application." },
+        { "@type": "HowToStep", position: 2, name: "Add the Chrome bridge", text: "Install the Propel Bridge extension; it links your browser to the desktop app and pairs automatically." },
+        { "@type": "HowToStep", position: 3, name: "Apply, hands-free", text: "Open any job posting and let Propel read the form, fill every field from your profile, and submit — you review and approve." },
+      ],
     },
     {
       "@type": "FAQPage",
