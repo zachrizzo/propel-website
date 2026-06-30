@@ -37,11 +37,14 @@ export function PrimaryDownload() {
   const [os, setOs] = useState<OS>("other");
   useEffect(() => setOs(detectOS()), []);
 
+  const macPrimary = site.downloadAvailability.mac
+    ? { href: site.downloads.mac, label: "Download for Mac", glyph: <MacGlyph /> }
+    : { href: site.downloads.mac, label: "Mac build coming soon", glyph: <MacGlyph /> };
   const primary =
     os === "windows"
       ? { href: site.downloads.windows, label: "Download for Windows", glyph: <WinGlyph /> }
-      : { href: site.downloads.mac, label: "Download for Mac", glyph: <MacGlyph /> };
-  const otherLabel = os === "windows" ? "macOS" : "Windows";
+      : macPrimary;
+  const otherLabel = os === "windows" ? (site.downloadAvailability.mac ? "macOS" : "Mac status") : "Windows";
   const otherHref = os === "windows" ? site.downloads.mac : site.downloads.windows;
 
   return (
@@ -68,7 +71,12 @@ export function PrimaryDownload() {
 
 export function DownloadTrio() {
   const items = [
-    { href: site.downloads.mac, label: "macOS", sub: "Universal · .dmg", glyph: <MacGlyph /> },
+    {
+      href: site.downloads.mac,
+      label: "macOS",
+      sub: site.downloadAvailability.mac ? "Universal .dmg" : "Signed build coming soon",
+      glyph: <MacGlyph />,
+    },
     { href: site.downloads.windows, label: "Windows", sub: "10 / 11 · x64 .exe", glyph: <WinGlyph /> },
     { href: site.downloads.chrome, label: "Chrome extension", sub: "Propel Bridge", glyph: <ChromeGlyph /> },
   ];

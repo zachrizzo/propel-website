@@ -7,12 +7,18 @@ const releaseBase = "https://github.com/zachrizzo/propel-releases/releases/lates
 
 export const releaseDownloads = {
   mac: {
-    preferred: `${releaseBase}/Propel.dmg`,
-    legacy: `${releaseBase}/Pilot.dmg`,
+    label: "Mac",
+    candidates: [`${releaseBase}/Propel.dmg`, `${releaseBase}/Pilot.dmg`],
+    unavailableTitle: "Mac download is coming soon",
+    unavailableMessage:
+      "We are finishing the signed and notarized Mac build. You do not need a GitHub account; the Mac download will appear here as soon as it is ready.",
   },
   windows: {
-    preferred: `${releaseBase}/Propel-Setup.exe`,
-    legacy: `${releaseBase}/Pilot-Setup.exe`,
+    label: "Windows",
+    candidates: [`${releaseBase}/Propel-Setup.exe`, `${releaseBase}/Pilot-Setup.exe`],
+    unavailableTitle: "Windows download is temporarily unavailable",
+    unavailableMessage:
+      "The Windows installer is being refreshed. Please try again shortly or contact us and we will send the latest link.",
   },
 } as const;
 
@@ -24,12 +30,16 @@ export const site = {
     "Propel auto-fills and submits job applications on real career sites — Workday, Greenhouse, Lever and company portals — so you stop retyping the same details. You review and approve every application.",
   // Production domain — update to a custom domain here once you add one in Vercel.
   url: siteUrl,
-  // Website-owned download routes. They prefer Propel-named release assets and
-  // fall back to the pre-rename Pilot assets still present on v0.1.6.
+  // Website-owned download routes. They never send users directly to GitHub
+  // unless a public installer asset is confirmed to exist.
   downloads: {
     mac: `${siteUrl}/download/mac`,
     windows: `${siteUrl}/download/windows`,
     chrome: "https://chromewebstore.google.com/detail/propel-bridge/imggbmnonbcnkfmdghfedfadijfjdfkj",
+  },
+  downloadAvailability: {
+    mac: false,
+    windows: true,
   },
   social: {
     // Public releases repo (source is private).
@@ -89,7 +99,7 @@ export const site = {
     },
     {
       q: "Is the desktop app signed?",
-      a: "The Mac app is signed and notarized with an Apple Developer ID. The Windows installer is published too; it may still show Microsoft SmartScreen while the new installer builds reputation.",
+      a: "The Windows installer is published now. The signed and notarized Mac build will be published here as soon as it is ready, so Mac users never need to download from a GitHub page.",
     },
     {
       q: "Will Propel update itself?",
