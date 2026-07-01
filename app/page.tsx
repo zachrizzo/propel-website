@@ -230,8 +230,8 @@ export default function Home() {
           </Reveal>
           <Reveal delay={0.22}>
             <p className="mx-auto mt-6 max-w-lg font-mono text-[12px] leading-relaxed text-iris-300/50">
-              Windows is available for Windows 10/11 and may show SmartScreen while the installer
-              builds reputation. The signed Mac build is coming soon.
+              Mac is signed and notarized. Windows is available for Windows 10/11 and may show
+              SmartScreen while the installer builds reputation.
             </p>
           </Reveal>
         </div>

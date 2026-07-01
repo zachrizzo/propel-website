@@ -9,9 +9,9 @@ export const releaseDownloads = {
   mac: {
     label: "Mac",
     candidates: [`${releaseBase}/Propel.dmg`, `${releaseBase}/Pilot.dmg`],
-    unavailableTitle: "Mac download is coming soon",
+    unavailableTitle: "Mac download is temporarily unavailable",
     unavailableMessage:
-      "We are finishing the signed and notarized Mac build. You do not need a GitHub account; the Mac download will appear here as soon as it is ready.",
+      "The Mac installer is being refreshed. Please try again shortly or contact us and we will send the latest link.",
   },
   windows: {
     label: "Windows",
@@ -38,7 +38,7 @@ export const site = {
     chrome: "https://chromewebstore.google.com/detail/propel-bridge/imggbmnonbcnkfmdghfedfadijfjdfkj",
   },
   downloadAvailability: {
-    mac: false,
+    mac: true,
     windows: true,
   },
   social: {
@@ -99,7 +99,7 @@ export const site = {
     },
     {
       q: "Is the desktop app signed?",
-      a: "The Windows installer is published now. The signed and notarized Mac build will be published here as soon as it is ready, so Mac users never need to download from a GitHub page.",
+      a: "Yes. The Mac app is signed and notarized with an Apple Developer ID. The Windows installer is published too; it may still show Microsoft SmartScreen while the new installer builds reputation.",
     },
     {
       q: "Will Propel update itself?",
