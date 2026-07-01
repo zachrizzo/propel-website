@@ -33,8 +33,8 @@ Those routes prefer the current Propel-named GitHub release assets and only
 redirect after confirming a public installer exists. If a platform asset is not
 published yet, the route renders a Propel-owned status page instead of sending
 users to GitHub. Run `npm run verify:downloads` after release work to confirm
-the latest public release has the required Windows asset, to warn if the Mac
-asset is still unpublished, and to make sure no site code was accidentally
-changed to a version-pinned `/releases/download/vX.Y.Z/...` URL.
+the latest public release has both required one-click installers (`Propel.dmg`
+and `Propel-Setup.exe`) and to make sure no site code was accidentally changed
+to a version-pinned `/releases/download/vX.Y.Z/...` URL.
 
 The `/privacy` route doubles as the Chrome Web Store privacy-policy URL.

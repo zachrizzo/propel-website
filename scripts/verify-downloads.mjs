@@ -9,11 +9,10 @@ const requiredRoutePaths = {
   mac: "/download/mac",
   windows: "/download/windows",
 };
-const acceptedAssets = {
-  mac: ["Propel.dmg", "Pilot.dmg"],
-  windows: ["Propel-Setup.exe", "Pilot-Setup.exe"],
+const requiredAssets = {
+  mac: "Propel.dmg",
+  windows: "Propel-Setup.exe",
 };
-const requiredLatestAssets = new Set(["windows"]);
 const sourceDirs = ["app", "components", "lib"];
 
 function fail(message) {
@@ -42,6 +41,9 @@ async function verifySiteConfig() {
     if (!siteConfig.includes(path)) {
       fail(`lib/site.ts must use the website-owned ${platform} download route: ${path}`);
     }
+  }
+  if (!siteConfig.includes("mac: true")) {
+    fail("lib/site.ts must keep Mac downloads enabled now that Propel.dmg is published");
   }
 }
 
@@ -82,35 +84,27 @@ async function verifyLatestReleaseAssets() {
 
   const release = await res.json();
   const names = new Set((release.assets ?? []).map((asset) => asset.name));
-  const selected = {};
-  for (const [platform, candidates] of Object.entries(acceptedAssets)) {
-    const found = candidates.find((name) => names.has(name));
-    if (found === undefined) {
-      const message = `latest release ${release.tag_name ?? "(unknown)"} is missing ${candidates.join(" or ")}`;
-      if (requiredLatestAssets.has(platform)) {
-        fail(message);
-      } else {
-        console.warn(`download verification warning: ${message}`);
-      }
-    } else {
-      selected[platform] = found;
+  for (const [platform, asset] of Object.entries(requiredAssets)) {
+    if (!names.has(asset)) {
+      fail(`latest release ${release.tag_name ?? "(unknown)"} is missing ${asset}`);
     }
   }
 
-  for (const [platform, asset] of Object.entries(selected)) {
+  for (const [platform, asset] of Object.entries(requiredAssets)) {
     const url = `${releaseBase}/${asset}`;
     const head = await fetch(url, { method: "HEAD", redirect: "follow" });
     if (!head.ok) {
       fail(`${platform} stable download URL returned HTTP ${head.status}: ${url}`);
     }
+    const disposition = head.headers.get("content-disposition") ?? "";
+    if (!disposition.toLowerCase().includes("attachment") || !disposition.includes(asset)) {
+      fail(`${platform} stable download URL is not serving ${asset} as an attachment`);
+    }
   }
 
   if (process.exitCode !== 1) {
-    const macStatus = selected.mac
-      ? `Mac asset ${selected.mac}`
-      : "Mac asset not published; /download/mac renders the site-owned unavailable page";
     console.log(
-      `download verification passed: ${release.tag_name ?? "latest"} has Windows asset ${selected.windows}. ${macStatus}.`,
+      `download verification passed: ${release.tag_name ?? "latest"} has Mac asset ${requiredAssets.mac} and Windows asset ${requiredAssets.windows}.`,
     );
   }
 }
