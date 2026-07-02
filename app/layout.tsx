@@ -82,7 +82,13 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  icons: { icon: "/icon-128.png", apple: "/icon-128.png" },
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon-128.png", sizes: "128x128", type: "image/png" },
+    ],
+    apple: "/icon-128.png",
+  },
   category: "technology",
   other: {
     "apple-mobile-web-app-title": site.name,

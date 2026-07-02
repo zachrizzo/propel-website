@@ -2,6 +2,7 @@ import Aurora from "@/components/Aurora";
 import Nav from "@/components/Nav";
 import HeroFlow from "@/components/HeroFlow";
 import Reveal from "@/components/Reveal";
+import Logo from "@/components/Logo";
 import { PrimaryDownload, DownloadTrio } from "@/components/DownloadButtons";
 import { site } from "@/lib/site";
 
@@ -269,15 +270,7 @@ export default function Home() {
       <footer className="relative border-t border-iris-400/10 px-5 py-12">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 sm:flex-row">
           <div className="flex items-center gap-2.5">
-            <span
-              className="grid h-7 w-7 place-items-center rounded-lg"
-              style={{ background: "linear-gradient(160deg,#818cf8,#4338ca)" }}
-            >
-              <svg width="14" height="14" viewBox="0 0 100 100" aria-hidden>
-                <path d="M50 16 L80 54 H62 V84 H38 V54 H20 Z" fill="#fff" />
-              </svg>
-            </span>
-            <span className="font-display text-sm font-semibold text-cream">Propel</span>
+            <Logo size={28} />
             <span className="ml-2 font-mono text-[12px] text-iris-300/40">© 2026</span>
           </div>
           <nav className="flex items-center gap-6 text-[14px] text-iris-300/70">

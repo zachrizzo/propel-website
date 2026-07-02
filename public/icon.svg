@@ -1,0 +1,48 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Propel browser agent icon</title>
+  <defs>
+    <linearGradient id="bg" x1="198" y1="154" x2="850" y2="884" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7C6DFF"/>
+      <stop offset="0.52" stop-color="#5C50ED"/>
+      <stop offset="1" stop-color="#3529B8"/>
+    </linearGradient>
+    <linearGradient id="cursor" x1="540" y1="536" x2="768" y2="898" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#12D6C6"/>
+      <stop offset="1" stop-color="#008B84"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="250" y1="230" x2="715" y2="694" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#ECE9FF"/>
+    </linearGradient>
+    <radialGradient id="shine" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(315 172) rotate(51) scale(560 430)">
+      <stop stop-color="white" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softShadow" x="136" y="170" width="740" height="768" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="26" stdDeviation="28" flood-color="#140B4B" flood-opacity="0.32"/>
+    </filter>
+    <filter id="cursorShadow" x="490" y="500" width="408" height="446" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="20" stdDeviation="18" flood-color="#101046" flood-opacity="0.30"/>
+    </filter>
+  </defs>
+
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#bg)"/>
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#shine)"/>
+  <path d="M183 726C311 564 526 486 858 492" stroke="white" stroke-opacity="0.10" stroke-width="32" stroke-linecap="round"/>
+
+  <g filter="url(#softShadow)">
+    <rect x="220" y="238" width="540" height="430" rx="56" fill="url(#panel)"/>
+    <path d="M220 294C220 263.072 245.072 238 276 238H704C734.928 238 760 263.072 760 294V354H220V294Z" fill="white"/>
+    <circle cx="296" cy="297" r="15" fill="#6B5CF6"/>
+    <circle cx="342" cy="297" r="15" fill="#14A79E"/>
+    <circle cx="388" cy="297" r="15" fill="#FF6B57"/>
+    <rect x="252" y="386" width="476" height="250" rx="32" fill="#FAF9FF"/>
+    <path d="M252 627C350 520 494 467 728 471V636H252V627Z" fill="#C9C1FF" fill-opacity="0.48"/>
+    <rect x="220" y="238" width="540" height="430" rx="56" stroke="white" stroke-opacity="0.52" stroke-width="18"/>
+  </g>
+
+  <g filter="url(#cursorShadow)">
+    <path d="M576 520L855 695L727 731L786 872L698 910L642 775L523 850L576 520Z" fill="white"/>
+    <path d="M589 551L811 690L696 722L750 850L713 866L659 736L557 800L589 551Z" fill="url(#cursor)"/>
+  </g>
+</svg>
