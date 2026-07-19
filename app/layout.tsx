@@ -34,6 +34,8 @@ export const metadata: Metadata = {
   description: site.description,
   keywords: [
     "auto apply jobs",
+    "LinkedIn Easy Apply automation",
+    "Indeed auto apply",
     "job application automation",
     "autofill job applications",
     "apply to jobs faster",
@@ -133,8 +135,8 @@ const jsonLd = {
       operatingSystem: "macOS, Windows",
       description: site.description,
       featureList: [
-        "Auto-fills and submits job applications on real career sites",
-        "Works on Workday, Greenhouse, Lever, Ashby, iCIMS and company portals",
+        "Auto-fills and submits job applications in your browser",
+        "Auto-applies on LinkedIn Easy Apply and Indeed (beta); Workday, Greenhouse, Lever, Ashby, iCIMS and company portals coming soon",
         "Remembers your answers and reuses them on future applications",
         "Generates tailored answers to application questions",
         "You review and approve every application before it is submitted",
@@ -150,7 +152,7 @@ const jsonLd = {
       "@id": `${site.url}/#howto`,
       name: "How to auto-apply to jobs with Propel",
       description:
-        "Set up Propel once, then let it fill and submit job applications for you on real career sites while you review and approve.",
+        "Set up Propel once, then let it fill and submit job applications for you on LinkedIn Easy Apply and Indeed while you review and approve.",
       step: [
         { "@type": "HowToStep", position: 1, name: "Add your profile once", text: "Install the desktop app and set up your details and résumé a single time. Propel reuses them on every application." },
         { "@type": "HowToStep", position: 2, name: "Add the Chrome bridge", text: "Install the Propel Bridge extension; it links your browser to the desktop app and pairs automatically." },

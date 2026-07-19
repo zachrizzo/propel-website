@@ -10,14 +10,14 @@ const PATH = "/how-to-auto-apply-to-jobs";
 export const metadata: Metadata = {
   title: "How to Auto-Apply to Jobs (Without Cutting Corners)",
   description:
-    "A practical guide to automatically filling and submitting job applications on Workday, Greenhouse, Lever and company career sites — while you still review and approve every one.",
+    "A practical guide to automatically filling and submitting job applications on LinkedIn Easy Apply and Indeed — with more sites coming soon — while you still review and approve every one.",
   alternates: { canonical: PATH },
   openGraph: {
     type: "article",
     url: `${site.url}${PATH}`,
     title: "How to Auto-Apply to Jobs (Without Cutting Corners)",
     description:
-      "Automatically fill and submit job applications on real career sites while staying in control. Here's how it works and how to set it up.",
+      "Automatically fill and submit job applications on LinkedIn and Indeed while staying in control. Here's how it works and how to set it up.",
   },
 };
 
@@ -30,16 +30,16 @@ const SECTIONS = [
     ],
   },
   {
-    h: "How Propel auto-applies — on the real site",
+    h: "How Propel auto-applies",
     p: [
-      "Propel runs as a desktop app paired with a lightweight Chrome extension (Propel Bridge). When you open a job posting, Propel reads the live application form the way a person would, maps each field to your saved profile, and fills it in — then submits, with your approval. Because it works inside your own browser on the company's real career site, it handles applications that simple “one-click” tools can't.",
+      "Propel runs as a desktop app paired with a lightweight Chrome extension (Propel Bridge). When you open a job posting, Propel reads the live application form the way a person would, maps each field to your saved profile, and fills it in — then submits, with your approval. Because it works inside your own browser, it handles applications that simple “one-click” tools can't. During our beta, Propel auto-applies on LinkedIn Easy Apply and Indeed.",
       "It also learns. The first time you answer a screener question, Propel remembers it and reuses the answer on every application after — so it never asks you the same thing twice, and it gets faster the more you use it.",
     ],
   },
   {
     h: "Which job sites does it work on?",
     p: [
-      "Propel works across the major applicant-tracking systems — Workday, Greenhouse, Lever, Ashby, iCIMS, BambooHR and Taleo — plus most company career portals. If you can apply there in a browser, Propel can fill it.",
+      "During our beta, Propel auto-applies on LinkedIn (Easy Apply) and Indeed. Support for the major applicant-tracking systems — Workday, Greenhouse, Lever, Ashby, iCIMS, BambooHR and Taleo — plus most company career portals is coming soon.",
     ],
   },
   {
@@ -73,8 +73,9 @@ export default function Guide() {
           </Reveal>
           <Reveal delay={0.12} immediate>
             <p className="mt-5 text-lg leading-relaxed text-iris-300/80">
-              Automatically fill and submit job applications on the real company site — while you still review
-              and approve every one. Here's how it works, and how to set it up in a couple of minutes.
+              Automatically fill and submit job applications on LinkedIn Easy Apply and Indeed — while you
+              still review and approve every one. Here's how it works, and how to set it up in a couple of
+              minutes.
             </p>
           </Reveal>
 

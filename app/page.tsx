@@ -27,7 +27,7 @@ const STEPS = [
 ];
 
 const FEATURES = [
-  { t: "Works on any career site", d: "Workday, Greenhouse, Lever, custom portals — if you can apply there, Propel can fill it.", i: "globe" },
+  { t: "LinkedIn & Indeed today", d: "Auto-applies on LinkedIn Easy Apply and Indeed now — with Workday, Greenhouse, Lever and company portals coming soon.", i: "globe" },
   { t: "Never answer twice", d: "Answer a screener question once and Propel remembers it — then fills it automatically on every application after.", i: "memory" },
   { t: "Reads the real form", d: "Propel parses each application like a human would, mapping your profile to the right fields on the live page.", i: "scan" },
   { t: "Tailored answers", d: "Generates role-specific responses to “why are you a fit?” prompts from your background.", i: "spark" },
@@ -74,9 +74,9 @@ export default function Home() {
             <Reveal delay={0.12} immediate>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-iris-300/80">
                 You shouldn't spend your week retyping the same details into job forms. Propel
-                auto-fills and submits applications on the real company site — you review and
-                approve — so your time goes to interviews, networking, and the work that actually
-                lands the offer.
+                auto-fills and submits applications for you — starting with LinkedIn Easy Apply and
+                Indeed while we're in beta, and you review and approve — so your time goes to
+                interviews, networking, and the work that actually lands the offer.
               </p>
             </Reveal>
             <Reveal delay={0.18} immediate>
@@ -103,7 +103,7 @@ export default function Home() {
         {/* ATS marquee */}
         <div className="mx-auto mt-20 max-w-6xl">
           <p className="mb-4 text-center font-mono text-[11px] uppercase tracking-widest text-iris-300/40">
-            Fills applications on
+            Auto-applies on LinkedIn &amp; Indeed today — expanding to
           </p>
           <div className="relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]">
             <div className="flex w-max animate-marquee gap-3">
