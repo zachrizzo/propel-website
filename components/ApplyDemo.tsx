@@ -145,7 +145,7 @@ export default function ApplyDemo() {
                 </svg>
               </div>
               <div className="font-display text-lg font-semibold text-cream">Application sent</div>
-              <div className="font-mono text-[11px] text-iris-300/70">in 3.2 seconds · hands-free</div>
+              <div className="font-mono text-[11px] text-iris-300/70">ready for your review</div>
             </motion.div>
           </motion.div>
         )}

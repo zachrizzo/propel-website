@@ -2,7 +2,8 @@
 
 /**
  * HeroFlow — a code-driven, looping "sped-up screen recording" of Propel working
- * across the job boards people actually use (LinkedIn, Indeed, Glassdoor).
+ * across two application paths: LinkedIn Easy Apply and representative
+ * multi-step forms on other job sites and employer career pages.
  *
  * The board/application surfaces are rendered LIGHT, like real sites, inside the
  * dark Propel browser chrome — so it reads like an actual recording. The brand
@@ -31,10 +32,10 @@ type Job = {
   hue: string; // company accent for the fake logo tile
   meta: string; // location · type
   salary?: string;
-  rating?: string; // shown on Indeed/Glassdoor cards
+  rating?: string;
 };
 
-type BoardKey = "linkedin" | "indeed" | "glassdoor";
+type BoardKey = "linkedin" | "jobsite" | "careers";
 
 type Board = {
   key: BoardKey;
@@ -67,35 +68,35 @@ const BOARDS: Board[] = [
     ],
   },
   {
-    key: "indeed",
-    name: "Indeed",
-    host: "indeed.com",
+    key: "jobsite",
+    name: "Job site",
+    host: "jobs.example.com/apply",
     accent: "#2557A7",
     surface: "#ffffff",
     titleColor: "#1d2a4d",
-    applyLabel: "Apply now",
+    applyLabel: "Apply",
     query: "product engineer",
-    targetId: "in-1",
+    targetId: "js-1",
     jobs: [
-      { id: "in-1", role: "Product Engineer", company: "Vellum", mark: "V", hue: "#fb7185", meta: "Remote", salary: "$160K–$190K", rating: "4.6" },
-      { id: "in-2", role: "Software Engineer II", company: "Brightwheel", mark: "B", hue: "#22c55e", meta: "Austin, TX", rating: "4.1" },
-      { id: "in-3", role: "Frontend Developer", company: "Harbor", mark: "H", hue: "#8b5cf6", meta: "Remote · Contract", rating: "4.4" },
+      { id: "js-1", role: "Product Engineer", company: "Vellum", mark: "V", hue: "#fb7185", meta: "Remote", salary: "$160K–$190K", rating: "4.6" },
+      { id: "js-2", role: "Software Engineer II", company: "Brightwheel", mark: "B", hue: "#22c55e", meta: "Austin, TX", rating: "4.1" },
+      { id: "js-3", role: "Frontend Developer", company: "Harbor", mark: "H", hue: "#8b5cf6", meta: "Remote · Contract", rating: "4.4" },
     ],
   },
   {
-    key: "glassdoor",
-    name: "Glassdoor",
-    host: "glassdoor.com/Job",
+    key: "careers",
+    name: "Company careers",
+    host: "careers.example.com/jobs",
     accent: "#0caa41",
     surface: "#ffffff",
     titleColor: "#0f172a",
     applyLabel: "Apply",
     query: "full-stack engineer",
-    targetId: "gd-1",
+    targetId: "cr-1",
     jobs: [
-      { id: "gd-1", role: "Full-Stack Engineer", company: "Cobalt", mark: "C", hue: "#34d399", meta: "Remote", salary: "$150K–$185K", rating: "4.7" },
-      { id: "gd-2", role: "Web Engineer", company: "Aperture", mark: "A", hue: "#fbbf24", meta: "Denver, CO", rating: "3.9" },
-      { id: "gd-3", role: "Senior Developer", company: "Lumen", mark: "L", hue: "#38bdf8", meta: "Remote (US)", rating: "4.3" },
+      { id: "cr-1", role: "Full-Stack Engineer", company: "Cobalt", mark: "C", hue: "#34d399", meta: "Remote", salary: "$150K–$185K", rating: "4.7" },
+      { id: "cr-2", role: "Web Engineer", company: "Aperture", mark: "A", hue: "#fbbf24", meta: "Denver, CO", rating: "3.9" },
+      { id: "cr-3", role: "Senior Developer", company: "Lumen", mark: "L", hue: "#38bdf8", meta: "Remote (US)", rating: "4.3" },
     ],
   },
 ];
@@ -477,22 +478,29 @@ function BoardLogo({ board, size = 22 }: { board: Board; size?: number }) {
       </span>
     );
   }
-  if (board.key === "indeed") {
+  if (board.key === "jobsite") {
     return (
-      <span className="flex items-baseline font-bold tracking-tight" style={{ color: board.accent, fontSize: size * 0.78 }}>
-        indeed
-        <span className="ml-[1px] inline-block rounded-full" style={{ width: size * 0.16, height: size * 0.16, background: board.accent }} />
+      <span className="flex items-center gap-1.5">
+        <span
+          className="grid place-items-center rounded-[5px] font-bold text-white"
+          style={{ background: board.accent, width: size, height: size, fontSize: size * 0.5 }}
+        >
+          J
+        </span>
+        <span className="font-semibold tracking-tight" style={{ color: board.accent, fontSize: size * 0.58 }}>
+          Job board
+        </span>
       </span>
     );
   }
-  // glassdoor
+
   return (
     <span className="flex items-center gap-1.5">
       <span className="relative grid place-items-center rounded-[6px]" style={{ background: board.accent, width: size, height: size }}>
-        <span className="block rounded-full bg-white" style={{ width: size * 0.32, height: size * 0.32 }} />
+        <span className="font-bold text-white" style={{ fontSize: size * 0.48 }}>C</span>
       </span>
       <span className="font-semibold tracking-tight" style={{ color: board.accent, fontSize: size * 0.6 }}>
-        glassdoor
+        Company careers
       </span>
     </span>
   );
@@ -564,7 +572,7 @@ function BoardScreen({ board, selectedId, register }: { board: Board; selectedId
                 </div>
                 <div className="mt-0.5 flex items-center gap-2">
                   {j.salary && <span className="font-sans text-[10px] font-medium text-emerald-600">{j.salary}</span>}
-                  {j.rating && <Stars rating={j.rating} color={board.key === "glassdoor" ? board.accent : "#f59e0b"} />}
+                  {j.rating && <Stars rating={j.rating} color={board.key === "careers" ? board.accent : "#f59e0b"} />}
                 </div>
               </div>
               {/* apply control — the target card's button is what the cursor aims at */}
@@ -593,7 +601,7 @@ function BoardScreen({ board, selectedId, register }: { board: Board; selectedId
       </div>
 
       <div className="border-t border-black/[0.06] bg-white px-4 py-1.5 text-center font-sans text-[9px] text-slate-400">
-        Propel scans {board.name} and applies for you — autonomously
+        Propel opens the selected application in your browser
       </div>
     </div>
   );
@@ -614,7 +622,9 @@ function ApplyScreen({ state, board, job, register }: { state: State; board: Boa
         </span>
         <div className="min-w-0">
           <div className="truncate font-sans text-[12.5px] font-semibold text-slate-800">{job.role}</div>
-          <div className="truncate font-sans text-[10px] text-slate-500">{job.company}</div>
+          <div className="truncate font-sans text-[10px] text-slate-500">
+            {job.company} · {board.key === "linkedin" ? "Easy Apply" : "Multi-step · step 3 of 3"}
+          </div>
         </div>
         <span
           className="ml-auto flex items-center gap-1 rounded-full px-2.5 py-1 font-sans text-[9.5px] font-semibold text-white"
@@ -731,7 +741,7 @@ function ApplyScreen({ state, board, job, register }: { state: State; board: Boa
           ) : state.submitting ? (
             "Submitting…"
           ) : (
-            `Submit · ${board.applyLabel}`
+            "Review and submit"
           )}
         </button>
       </div>
@@ -760,7 +770,7 @@ function MemoryToast({ show }: { show: boolean }) {
         <div className="min-w-0">
           <div className="font-display text-[12px] font-semibold text-cream">Answer remembered</div>
           <div className="font-mono text-[10px] leading-snug text-iris-300/70">
-            Saved “6 years experience” — reused on every next board.
+            Saved “6 years experience” for later applications.
           </div>
         </div>
       </div>
@@ -825,9 +835,8 @@ function StaticFrame() {
     <div className="relative">
       <Stage state={filled} />
       <span className="sr-only">
-        Propel automatically fills and submits job applications across job boards, applicant-tracking
-        systems, and company career pages. This animation shows it working on LinkedIn, Indeed, and
-        Glassdoor as examples.
+        Propel uses one saved profile for LinkedIn Easy Apply and supported multi-step applications on
+        other job sites and employer career pages. This animation shows a completed Easy Apply form.
       </span>
     </div>
   );

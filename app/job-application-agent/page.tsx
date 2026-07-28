@@ -8,41 +8,68 @@ import { site } from "@/lib/site";
 const PATH = "/job-application-agent";
 
 export const metadata: Metadata = {
-  title: "AI Job Application Agent to Auto-Apply Faster",
+  title: "Easy Apply & Multi-Step Job Application Agent",
   description:
-    "Learn what an AI job application agent does, how Propel helps you auto-fill job applications in your own browser, and how to stay in control while applying faster.",
+    "See how one AI job application agent can complete LinkedIn Easy Apply and supported multi-step applications on other job sites while keeping you in control.",
   alternates: { canonical: PATH },
   openGraph: {
     type: "article",
     url: `${site.url}${PATH}`,
-    title: "AI Job Application Agent to Auto-Apply Faster",
+    title: "One Job Application Agent for Easy Apply and Multi-Step Forms",
     description:
-      "A practical guide to using an AI job application agent to reduce repetitive application work while keeping every submission under your control.",
+      "How Propel uses one saved profile for LinkedIn Easy Apply and supported multi-step job applications, with review before submission.",
   },
 };
 
 const SECTIONS = [
   {
     title: "What is a job application agent?",
-    body: "A job application agent helps with the repetitive work of applying: entering contact details, reusing work history, attaching a résumé, and answering questions you have already answered before. It should free up time for choosing the right roles, tailoring your story, networking, and preparing for interviews—not replace your judgment.",
+    body: "A job application agent completes repetitive application work in your browser: entering contact details, reusing work history, attaching a résumé, and answering from information you have already provided. A useful agent should work across more than one application format while leaving role selection and final review with you.",
   },
   {
-    title: "How Propel helps you apply faster",
-    body: "Propel runs as a desktop app paired with a Chrome extension. When you open an application in your own browser, it reads the live form, maps your saved profile to the right fields, and helps complete it. It remembers answers you give to screening questions so you do not have to retype them on the next application.",
+    title: "Why one workflow matters",
+    body: "A job search rarely stays inside one application type. Some roles use LinkedIn Easy Apply; others open a longer form on a job site or employer career page. Propel is designed to use the same saved profile, résumé, and answers for both paths, so you do not have to rebuild your application context when the form changes.",
   },
   {
-    title: "LinkedIn, Indeed, and career-site applications",
-    body: "Job seekers often look for a LinkedIn agent, an Indeed auto-apply tool, or help with company career pages. Propel is designed to work where you are already applying in your browser, including job boards and applicant-tracking-system forms. It is not affiliated with LinkedIn, Indeed, or any employer; you choose the jobs and retain control over what is submitted.",
+    title: "LinkedIn Easy Apply",
+    body: "For an Easy Apply role, Propel reads the application shown in LinkedIn, fills mapped fields from your profile, attaches your résumé where requested, and uses saved answers for familiar screening questions. You can review the completed flow before submission. Propel is an independent product and is not affiliated with or endorsed by LinkedIn.",
+  },
+  {
+    title: "Multi-step applications on other job sites",
+    body: "On supported job sites and employer career pages, Propel can continue through multiple application pages, map your saved information to the fields it finds, attach your résumé, and carry answers forward until the application is ready for review. This is the same agent and profile used for Easy Apply, not a separate workflow.",
+  },
+  {
+    title: "Where support has limits",
+    body: "Propel does not claim to work on every job site or every form. Application pages change, and login checks, CAPTCHAs, unusual widgets, or role-specific questions may require you to step in. Support should be evaluated on the application in front of you, and you should always review the information before it is sent.",
   },
   {
     title: "What to look for before using automation",
-    body: "Use a tool that lets you review information before it goes out, makes its data handling clear, and helps you maintain quality rather than encouraging blind mass applications. The best application workflow is still deliberate: target relevant roles, check each résumé and answer, then submit with confidence.",
+    body: "Use a tool that keeps the application visible, makes its data handling clear, and gives you a review point before submission. Automation should remove repeated typing without replacing your judgment about the role, résumé, or answers you send.",
   },
 ];
+
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": `${site.url}${PATH}#article`,
+  headline: "One Job Application Agent for Easy Apply and Multi-Step Forms",
+  description:
+    "How Propel uses one saved profile for LinkedIn Easy Apply and supported multi-step job applications, with review before submission.",
+  mainEntityOfPage: `${site.url}${PATH}`,
+  image: `${site.url}/opengraph-image`,
+  datePublished: "2026-07-28",
+  dateModified: "2026-07-28",
+  author: { "@id": `${site.url}/#org` },
+  publisher: { "@id": `${site.url}/#org` },
+};
 
 export default function JobApplicationAgent() {
   return (
     <main className="relative">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <Nav />
       <article className="relative px-5 pb-24 pt-32 sm:pt-36">
         <Aurora />
@@ -52,13 +79,13 @@ export default function JobApplicationAgent() {
           </Reveal>
           <Reveal delay={0.06} immediate>
             <h1 className="mt-4 font-display text-4xl font-extrabold leading-tight tracking-tight text-cream sm:text-5xl balance">
-              What an <span className="text-gradient">AI job application agent</span> should do for you
+              One AI agent for <span className="text-gradient">Easy Apply and multi-step applications</span>
             </h1>
           </Reveal>
           <Reveal delay={0.12} immediate>
             <p className="mt-5 text-lg leading-relaxed text-iris-300/80">
-              Applying for a job should not mean re-entering the same information all day. Here is how
-              application automation can save time while leaving the important decisions with you.
+              Propel handles LinkedIn Easy Apply and supported multi-step forms on other job sites with
+              the same saved profile—then keeps the application in front of you for review.
             </p>
           </Reveal>
 
@@ -75,10 +102,10 @@ export default function JobApplicationAgent() {
 
           <Reveal>
             <div className="ring-grad glass mt-14 rounded-2xl px-7 py-9 text-center">
-              <h2 className="font-display text-2xl font-bold text-cream">Spend less time on forms</h2>
+              <h2 className="font-display text-2xl font-bold text-cream">Keep one application workflow</h2>
               <p className="mx-auto mt-3 max-w-lg text-[15px] leading-relaxed text-iris-300/75">
-                Propel is free to download for Mac and Windows. Set up your profile once, then use it
-                in your own browser while you review and approve every application.
+                Propel is free to download for Mac and Windows. Set up your profile once, connect the
+                Chrome bridge, and use it for Easy Apply and supported multi-step forms.
               </p>
               <div className="mt-7">
                 <DownloadTrio />

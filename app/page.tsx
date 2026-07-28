@@ -6,13 +6,20 @@ import Logo from "@/components/Logo";
 import { PrimaryDownload, DownloadTrio } from "@/components/DownloadButtons";
 import { site } from "@/lib/site";
 
-const ATS = ["LinkedIn", "Indeed", "Workday", "Greenhouse", "Lever", "Ashby", "iCIMS", "Taleo", "BambooHR", "Company portals"];
+const APPLICATION_SCOPE = [
+  "LinkedIn Easy Apply",
+  "Supported job sites",
+  "Employer career pages",
+  "Multi-page forms",
+  "Résumé uploads",
+  "Screening questions",
+];
 
 const STEPS = [
   {
     n: "01",
     title: "Add your profile once",
-    body: "Install the desktop app and set up your details and résumé a single time. Propel reuses them on every application from then on.",
+    body: "Install the desktop app and save your details, résumé, and preferred answers. Propel uses that profile as the starting point for later applications.",
   },
   {
     n: "02",
@@ -21,19 +28,74 @@ const STEPS = [
   },
   {
     n: "03",
-    title: "Apply, hands-free",
-    body: "Open any job posting and let Propel read the form, fill every field from your profile, and submit — you review and approve.",
+    title: "Choose an application",
+    body: "Start a LinkedIn Easy Apply flow or a multi-step application on a supported site. Propel completes the repeat work, then you review before submission.",
   },
 ];
 
 const FEATURES = [
-  { t: "Works where you apply", d: "Job boards, applicant-tracking systems, and company career pages — Propel drives your own browser, so it isn't limited to a fixed list of sites.", i: "globe" },
-  { t: "Never answer twice", d: "Answer a screener question once and Propel remembers it — then fills it automatically on every application after.", i: "memory" },
-  { t: "Reads the real form", d: "Propel parses each application like a human would, mapping your profile to the right fields on the live page.", i: "scan" },
+  { t: "Two paths, one agent", d: "Use one Propel profile for LinkedIn Easy Apply and supported multi-step applications on other job sites.", i: "globe" },
+  { t: "Reuse past answers", d: "Save a screening answer once and Propel can reuse it when the same question appears in a later application.", i: "memory" },
+  { t: "Moves through longer forms", d: "Propel can continue through supported multi-page applications, fill mapped fields, and attach your résumé.", i: "scan" },
   { t: "Tailored answers", d: "Generates role-specific responses to “why are you a fit?” prompts from your background.", i: "spark" },
-  { t: "You stay in control", d: "Review before submit, or let it run. Every application is yours to approve.", i: "check" },
-  { t: "Tracks everything", d: "See what you applied to, when, and where — without keeping a spreadsheet.", i: "chart" },
+  { t: "Review before submission", d: "Check the role, résumé, fields, and answers in your browser, and step in when a page needs your judgment.", i: "check" },
+  { t: "Keep an application record", d: "See what you applied to, when, and where without rebuilding a separate tracking spreadsheet.", i: "chart" },
 ];
+
+const APPLICATION_PATHS = [
+  {
+    label: "Quick path",
+    title: "LinkedIn Easy Apply",
+    body: "Propel completes the Easy Apply flow using the profile, résumé, and answers you have saved, with a review point before submission.",
+  },
+  {
+    label: "Longer path",
+    title: "Multi-step job applications",
+    body: "On supported job sites and employer career pages, Propel can move through multiple pages, fill repeat fields, attach your résumé, and use saved answers.",
+  },
+];
+
+const homepageJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "HowTo",
+      "@id": `${site.url}/#howto`,
+      name: "How to complete LinkedIn Easy Apply and multi-step job applications with Propel",
+      description:
+        "Set up Propel once, then use the same saved profile for LinkedIn Easy Apply and supported multi-step applications while reviewing before submission.",
+      step: [
+        {
+          "@type": "HowToStep",
+          position: 1,
+          name: "Add your profile",
+          text: "Install Propel and save your details, résumé, and preferred application answers.",
+        },
+        {
+          "@type": "HowToStep",
+          position: 2,
+          name: "Connect Chrome",
+          text: "Install Propel Bridge to connect the application in your browser to the desktop app.",
+        },
+        {
+          "@type": "HowToStep",
+          position: 3,
+          name: "Complete and review the application",
+          text: "Start a LinkedIn Easy Apply flow or a supported multi-step application, let Propel fill the repeat fields, and review before submission.",
+        },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${site.url}/#faq`,
+      mainEntity: site.faq.map((faq) => ({
+        "@type": "Question",
+        name: faq.q,
+        acceptedAnswer: { "@type": "Answer", text: faq.a },
+      })),
+    },
+  ],
+};
 
 function FeatureIcon({ name }: { name: string }) {
   const common = { width: 22, height: 22, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.7, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
@@ -51,6 +113,10 @@ function FeatureIcon({ name }: { name: string }) {
 export default function Home() {
   return (
     <main id="top" className="relative">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageJsonLd) }}
+      />
       <Nav />
 
       {/* ───────────────── HERO ───────────────── */}
@@ -61,23 +127,22 @@ export default function Home() {
             <Reveal immediate>
               <span className="inline-flex items-center gap-2 rounded-full border border-iris-400/25 bg-iris-500/10 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-wider text-iris-300">
                 <span className="h-1.5 w-1.5 rounded-full bg-ember-400" />
-                AI job application agent
+                Easy Apply + multi-step job applications
               </span>
             </Reveal>
             <Reveal delay={0.06} immediate>
-              <h1 className="mt-6 font-display text-5xl font-extrabold leading-[0.98] tracking-tight text-cream sm:text-6xl lg:text-7xl balance">
-                Your AI job
+              <h1 className="mt-6 font-display text-5xl font-extrabold leading-[0.98] tracking-tight text-cream sm:text-6xl balance">
+                One agent for{" "}
                 <br />
-                <span className="text-gradient">application agent</span>
+                <span className="text-gradient">LinkedIn Easy Apply</span>{" "}
+                <span className="mt-2 block text-[0.72em] leading-[1.05]">and multi-step applications</span>
               </h1>
             </Reveal>
             <Reveal delay={0.12} immediate>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-iris-300/80">
-                You shouldn't spend your week retyping the same details into job forms. Propel is your
-                AI job application agent: it
-                auto-fills and submits applications for you — across job boards, applicant-tracking
-                systems, and company career pages, and you review and approve — so your time goes to
-                interviews, networking, and the work that actually lands the offer.
+                Some jobs use LinkedIn's quick flow. Others send you through longer forms on job sites
+                and employer career pages. Propel handles both with one saved profile on supported
+                applications, and keeps you in control before submission.
               </p>
             </Reveal>
             <Reveal delay={0.18} immediate>
@@ -87,7 +152,7 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.24} immediate>
               <p className="mt-5 font-mono text-[12px] text-iris-300/50">
-                Free · Mac &amp; Windows · You approve every application
+                Free · Mac &amp; Windows · Review before submission
               </p>
             </Reveal>
           </div>
@@ -101,23 +166,62 @@ export default function Home() {
           </Reveal>
         </div>
 
-        {/* ATS marquee */}
+        {/* Application-scope marquee */}
         <div className="mx-auto mt-20 max-w-6xl">
           <p className="mb-4 text-center font-mono text-[11px] uppercase tracking-widest text-iris-300/40">
-            Auto-applies across the sites you already use
+            One saved profile across both application paths
           </p>
           <div className="relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]">
             <div className="flex w-max animate-marquee gap-3">
-              {[...ATS, ...ATS].map((a, i) => (
+              {[...APPLICATION_SCOPE, ...APPLICATION_SCOPE].map((item, i) => (
                 <span
                   key={i}
                   className="whitespace-nowrap rounded-full border border-iris-400/12 bg-ink-800/50 px-4 py-2 font-display text-sm font-medium text-iris-300/70"
                 >
-                  {a}
+                  {item}
                 </span>
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ───────────────── TWO APPLICATION PATHS ───────────────── */}
+      <section id="coverage" className="relative px-5 py-24">
+        <div className="mx-auto max-w-6xl">
+          <Reveal>
+            <span className="font-mono text-[11px] uppercase tracking-widest text-ember-500">The difference</span>
+            <h2 className="mt-4 max-w-3xl font-display text-4xl font-bold tracking-tight text-cream sm:text-5xl balance">
+              Easy Apply or multi-step. <span className="text-gradient">Keep one workflow.</span>
+            </h2>
+            <p className="mt-5 max-w-2xl text-[16px] leading-relaxed text-iris-300/75">
+              A search rarely stays inside one kind of application. Propel is designed to carry the
+              same profile, résumé, and saved answers from LinkedIn Easy Apply into longer applications
+              on supported job sites and employer career pages.
+            </p>
+          </Reveal>
+          <div className="mt-12 grid gap-5 md:grid-cols-2">
+            {APPLICATION_PATHS.map((path, index) => (
+              <Reveal key={path.title} delay={index * 0.08}>
+                <div className="ring-grad glass h-full rounded-2xl p-7">
+                  <span className="font-mono text-[11px] uppercase tracking-widest text-ember-500">{path.label}</span>
+                  <h3 className="mt-3 font-display text-2xl font-semibold text-cream">{path.title}</h3>
+                  <p className="mt-3 text-[15px] leading-relaxed text-iris-300/75">{path.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal>
+            <p className="mt-7 max-w-3xl text-[14px] leading-relaxed text-iris-300/65">
+              Site support can vary as application forms change. Propel does not claim to work on every
+              site, and you can step in when a login check, unusual question, or unsupported page needs
+              your input. Learn more in the{" "}
+              <a href="/job-application-agent" className="font-medium text-iris-300 underline-offset-4 hover:underline">
+                job application agent guide
+              </a>
+              .
+            </p>
+          </Reveal>
         </div>
       </section>
 
@@ -126,7 +230,7 @@ export default function Home() {
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <h2 className="font-display text-4xl font-bold tracking-tight text-cream sm:text-5xl balance">
-              Set up once. <span className="text-gradient">Apply forever.</span>
+              Set up once. <span className="text-gradient">Use it across both paths.</span>
             </h2>
           </Reveal>
           <div className="mt-14 grid gap-5 md:grid-cols-3">
@@ -174,8 +278,8 @@ export default function Home() {
             <div className="ring-grad glass overflow-hidden rounded-3xl px-8 py-12 text-center sm:px-14">
               <span className="font-mono text-[11px] uppercase tracking-widest text-ember-400">Get your time back</span>
               <p className="mx-auto mt-4 max-w-3xl font-display text-2xl font-semibold leading-snug text-cream sm:text-3xl balance">
-                One application is 10–20 minutes of the same details. Propel does that part in
-                seconds — so your job search goes to the things only you can do.
+                Spend application time deciding what to send, not copying the same profile into
+                another form. Propel carries your saved details from Easy Apply into longer applications.
               </p>
             </div>
           </Reveal>
@@ -188,7 +292,7 @@ export default function Home() {
           <Reveal>
             <span className="font-mono text-[11px] uppercase tracking-widest text-ember-400">On the way</span>
             <h2 className="mt-4 max-w-2xl font-display text-4xl font-bold tracking-tight text-cream sm:text-5xl balance">
-              Auto-apply today. <span className="text-gradient">Your whole search next.</span>
+              Applications today. <span className="text-gradient">Your whole search next.</span>
             </h2>
             <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-iris-300/70">
               Applying is just the start. Propel is becoming the agent that runs the busywork of your
@@ -222,7 +326,8 @@ export default function Home() {
           </Reveal>
           <Reveal delay={0.08}>
             <p className="mx-auto mt-5 max-w-xl text-lg text-iris-300/80">
-              Install the desktop app and the Chrome bridge. Two minutes to your first hands-free application.
+              Install the desktop app and Chrome bridge, save your profile, and start with LinkedIn
+              Easy Apply or a supported multi-step application.
             </p>
           </Reveal>
           <Reveal delay={0.16}>
@@ -274,9 +379,10 @@ export default function Home() {
             <Logo size={28} />
             <span className="ml-2 font-mono text-[12px] text-iris-300/40">© 2026</span>
           </div>
-          <nav className="flex items-center gap-6 text-[14px] text-iris-300/70">
+          <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-[14px] text-iris-300/70">
             <a href="/privacy" className="transition-colors hover:text-cream">Privacy</a>
             <a href="/job-application-agent" className="transition-colors hover:text-cream">Job agent guide</a>
+            <a href="/how-to-auto-apply-to-jobs" className="transition-colors hover:text-cream">Auto-apply guide</a>
             <a href="#faq" className="transition-colors hover:text-cream">FAQ</a>
             <a href={`mailto:${site.email}`} className="transition-colors hover:text-cream">Contact</a>
           </nav>

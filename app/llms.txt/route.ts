@@ -9,37 +9,38 @@ ${site.description}
 
 ## What it does
 
-Propel automatically fills out and submits job applications in your browser, on
-whatever site the application lives on.
-Instead of retyping the same name, contact details, work history, and screener
-answers into every application, Propel reads each form and completes it from your
-profile in seconds. You review and approve every application before it is
-submitted. Propel remembers each answer you give and reuses it on future
-applications, so it never asks the same question twice. A single application is
-typically 10–20 minutes of repetitive data entry; Propel does that part in seconds
-so your time goes to interviews, networking, and the work that lands the offer.
+Propel is one AI job application agent for LinkedIn Easy Apply and supported
+multi-step applications on other job sites and employer career pages. It uses a
+saved profile to fill repeat fields, attach a résumé, and use saved answers in the
+application shown in the user's browser. The user can review the role, fields,
+résumé, and answers before submission.
+
+## Application types
+
+- LinkedIn Easy Apply: Propel completes the compact application flow using the
+  user's saved profile and answers.
+- Supported multi-step applications: Propel can continue through multiple pages
+  on other job sites and employer career pages using the same profile.
+
+Propel does not claim to work on every site or form. Application pages change,
+and login checks, CAPTCHAs, uncommon controls, or role-specific questions may
+require user input. Propel is independent and is not affiliated with or endorsed
+by LinkedIn or any other job site.
 
 ## Why people use it
 
-- Stop retyping the same details into every job application form.
-- Apply to far more roles in the same amount of time.
-- Stay in control — review before submit, or let trusted applications run.
-- Get faster over time — Propel learns your answers and reuses them.
+- Use one saved profile across Easy Apply and longer application forms.
+- Reduce repeated typing and résumé uploads.
+- Reuse saved answers when the same screening question appears later.
+- Keep the application visible for review before submission.
 
 ## Product
 
 Propel is the desktop app. Propel Job Agent is the public product name for search
 and discovery. Propel Bridge is the Chrome extension that connects the browser to
 the desktop app. Together they fill job applications in the user's own browser
-while the user stays in control. Free to download for macOS and Windows.
-
-## Supported sites
-
-Propel drives the user's own browser rather than integrating with a fixed list of
-sites, so it works on the page the application is actually on: job boards
-(LinkedIn, Indeed, ZipRecruiter, Glassdoor), applicant-tracking systems (Workday,
-Greenhouse, Lever, Ashby, iCIMS, BambooHR, Taleo), and most company career
-portals.
+while the user stays in control. The desktop app is free to download for macOS
+and Windows.
 
 ## Roadmap (coming soon)
 
@@ -53,17 +54,18 @@ ${site.roadmap.map((r) => `- ${r.title}: ${r.body}`).join("\n")}
 - Chrome extension: ${site.downloads.chrome}
 - Public releases: ${site.social.github}
 - Privacy policy: ${site.url}/privacy
+- Job application agent guide: ${site.url}/job-application-agent
+- Auto-apply setup guide: ${site.url}/how-to-auto-apply-to-jobs
 
 ## FAQ
 
 ${site.faq.map((f) => `### ${f.q}\n${f.a}`).join("\n\n")}
 
-## Search Terms
+## Topics
 
 Propel Job Agent, Propel, Propel Bridge, job application agent, auto apply jobs,
-LinkedIn Easy Apply automation, Indeed auto apply, job application automation,
-autofill job applications, save time on job applications, Workday autofill,
-Greenhouse autofill, Lever autofill, AI job search assistant.
+LinkedIn Easy Apply automation, multi-step job application automation, browser job
+application agent, job application autofill.
 `;
 
   return new Response(body, {

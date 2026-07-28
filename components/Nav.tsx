@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import Logo from "./Logo";
 
 const links = [
-  { href: "#how", label: "How it works" },
-  { href: "#demo", label: "Watch it apply" },
-  { href: "#features", label: "Features" },
-  { href: "#roadmap", label: "Roadmap" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#coverage", label: "What it handles" },
+  { href: "/#how", label: "How it works" },
+  { href: "/#features", label: "Features" },
+  { href: "/#roadmap", label: "Roadmap" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 export default function Nav() {
@@ -27,7 +27,7 @@ export default function Nav() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
-        <a href="#top" aria-label="Propel home">
+        <a href="/" aria-label="Propel home">
           <Logo />
         </a>
         <nav className="hidden items-center gap-7 md:flex">
@@ -42,7 +42,7 @@ export default function Nav() {
           ))}
         </nav>
         <a
-          href="#download"
+          href="/#download"
           className="inline-flex items-center gap-2 rounded-full bg-cream px-4 py-2 font-display text-[14px] font-semibold text-ink transition-transform hover:scale-[1.04] active:scale-95"
         >
           Get Propel

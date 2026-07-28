@@ -25,9 +25,9 @@ export const releaseDownloads = {
 export const site = {
   name: "Propel",
   productName: "Propel Job Agent",
-  tagline: "Auto-apply to jobs in your browser",
+  tagline: "Easy Apply and multi-step applications, handled by one agent",
   description:
-    "Propel auto-fills and submits job applications in your browser — across job boards, applicant-tracking systems, and company career pages — so you stop retyping the same details. You review and approve every application.",
+    "One AI job application agent for LinkedIn Easy Apply and supported multi-step forms on other job sites. Reuse your profile and review before submitting.",
   // The public custom domain is the canonical SEO identity for the site.
   url: siteUrl,
   // Website-owned download routes. They never send users directly to GitHub
@@ -51,7 +51,7 @@ export const site = {
   roadmap: [
     {
       title: "Résumé tailoring",
-      body: "Propel rewrites and tailors your résumé to each role automatically, so every application leads with what that job is looking for.",
+      body: "Propel rewrites and tailors your résumé to each role automatically, so an application can lead with the experience that role is looking for.",
     },
     {
       title: "LinkedIn on autopilot",
@@ -67,23 +67,23 @@ export const site = {
   faq: [
     {
       q: "What does Propel do?",
-      a: "Propel automatically fills out and submits job applications for you, on whatever site the application lives on. Instead of retyping your name, contact details, work history and screener answers into every form, Propel reads each application and completes it from your profile in seconds — and you review and approve before anything is submitted.",
+      a: "Propel uses one saved profile to complete LinkedIn Easy Apply applications and supported multi-step applications on other job sites and employer career pages. It fills repeat fields, attaches your résumé, uses your saved answers, and lets you review before submission.",
     },
     {
       q: "How much time does it save?",
-      a: "A single online application is usually 10–20 minutes of entering the same information. Propel does that part in seconds, so the hours you'd spend on forms go back into interviews, networking, and the work that actually lands the offer.",
+      a: "Time saved depends on the length and complexity of the application. Propel reduces repetitive data entry by reusing your profile and saved answers, with the biggest benefit on longer, multi-step forms.",
     },
     {
       q: "Do I stay in control of what gets submitted?",
-      a: "Always. You can review every application before it's submitted, or let trusted ones run automatically. Every application is yours to approve.",
+      a: "Yes. Propel keeps the application in your browser so you can check the role, résumé, fields, and answers before submission. You can step in whenever a page needs your judgment.",
     },
     {
       q: "Does Propel remember my answers?",
-      a: "Yes. When you answer a screener question, Propel saves it and reuses it on future applications — so it never asks you the same thing twice and gets faster the more you use it.",
+      a: "Yes. Propel can save an answer to a screening question and reuse it when the same question appears in a later application. You can review the answer before it is submitted.",
     },
     {
       q: "Which job sites does it work on?",
-      a: "Propel works on the site you're already applying on. Because it drives your own browser rather than a fixed list of integrations, it handles job boards like LinkedIn, Indeed, ZipRecruiter and Glassdoor, the major applicant-tracking systems — Workday, Greenhouse, Lever, Ashby, iCIMS, BambooHR and Taleo — and most company career portals.",
+      a: "Propel supports LinkedIn Easy Apply and is built to complete multi-step applications on supported job sites and employer career pages. Support is not universal: forms change, and some sites, login checks, or unusual questions may still need your input.",
     },
     {
       q: "Why do I need both a desktop app and a Chrome extension?",
@@ -92,6 +92,10 @@ export const site = {
     {
       q: "Is Propel free?",
       a: "Yes — the desktop app and the Propel Bridge Chrome extension are free to download and use.",
+    },
+    {
+      q: "Is Propel affiliated with LinkedIn?",
+      a: "No. Propel is an independent product and is not affiliated with or endorsed by LinkedIn or any other job site.",
     },
     {
       q: "What's coming next?",
