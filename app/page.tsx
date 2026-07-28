@@ -221,7 +221,7 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.24} immediate>
               <p className="mt-5 font-mono text-[12px] text-iris-300/55">
-                Free · Mac &amp; Windows · Works in Chrome · You review before submission
+                Free · Mac &amp; Windows · Chrome · Review before submission
               </p>
             </Reveal>
           </div>
