@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import Logo from "./Logo";
 
 const links = [
-  { href: "/#coverage", label: "What it handles" },
+  { href: "/#why", label: "Why Propel" },
+  { href: "/#features", label: "What it handles" },
+  { href: "/#coverage", label: "Where it works" },
   { href: "/#how", label: "How it works" },
-  { href: "/#features", label: "Features" },
-  { href: "/#roadmap", label: "Roadmap" },
   { href: "/#faq", label: "FAQ" },
 ];
 
@@ -45,7 +45,7 @@ export default function Nav() {
           href="/#download"
           className="inline-flex items-center gap-2 rounded-full bg-cream px-4 py-2 font-display text-[14px] font-semibold text-ink transition-transform hover:scale-[1.04] active:scale-95"
         >
-          Get Propel
+          Download free
         </a>
       </div>
     </header>

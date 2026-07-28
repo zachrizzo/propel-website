@@ -9,29 +9,35 @@ ${site.description}
 
 ## What it does
 
-Propel is one AI job application agent for LinkedIn Easy Apply and supported
-multi-step applications on other job sites and employer career pages. It uses a
-saved profile to fill repeat fields, attach a résumé, and use saved answers in the
-application shown in the user's browser. The user can review the role, fields,
-résumé, and answers before submission.
+Propel is a browser agent for completing supported job applications across job
+boards, ATS-hosted forms, and employer career sites. It uses a saved profile to
+fill repeat fields, attach a résumé and requested materials, reuse saved screening
+answers, move through longer flows, and maintain an application record. The
+application stays visible in the user's browser for review before submission.
 
 ## Application types
 
-- LinkedIn Easy Apply: Propel completes the compact application flow using the
-  user's saved profile and answers.
-- Supported multi-step applications: Propel can continue through multiple pages
-  on other job sites and employer career pages using the same profile.
+- Job-board applications: Propel can work through supported application flows on
+  job boards. LinkedIn Easy Apply is one example, not the product boundary.
+- Employer and ATS applications: Propel can continue through supported multi-page
+  forms on employer career sites and ATS-hosted pages using the same profile.
+- Jobs found on Indeed: Indeed is available as a job source, but completion
+  coverage varies because listings can use different Indeed-hosted flows or open
+  an external employer or ATS form. Propel does not promise every Indeed
+  application will complete automatically.
 
 Propel does not claim to work on every site or form. Application pages change,
-and login checks, CAPTCHAs, uncommon controls, or role-specific questions may
-require user input. Propel is independent and is not affiliated with or endorsed
-by LinkedIn or any other job site.
+and required unknown answers, email or login verification, 2FA, CAPTCHAs, or
+unsupported controls may require user input. Propel is independent and is not
+affiliated with or endorsed by LinkedIn or any other job site.
 
 ## Why people use it
 
-- Use one saved profile across Easy Apply and longer application forms.
+- Use one saved application kit across job-board and employer-site forms.
 - Reduce repeated typing and résumé uploads.
 - Reuse saved answers when the same screening question appears later.
+- Move through supported multi-step application flows.
+- Keep an application record without maintaining a separate tracker.
 - Keep the application visible for review before submission.
 
 ## Product
@@ -64,6 +70,7 @@ ${site.faq.map((f) => `### ${f.q}\n${f.a}`).join("\n\n")}
 ## Topics
 
 Propel Job Agent, Propel, Propel Bridge, job application agent, auto apply jobs,
+cross-site job application agent, employer career site autofill, ATS form agent,
 LinkedIn Easy Apply automation, multi-step job application automation, browser job
 application agent, job application autofill.
 `;

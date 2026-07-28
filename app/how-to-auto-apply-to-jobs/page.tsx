@@ -8,16 +8,16 @@ import { site } from "@/lib/site";
 const PATH = "/how-to-auto-apply-to-jobs";
 
 export const metadata: Metadata = {
-  title: "How to Auto-Apply on LinkedIn and Multi-Step Job Sites",
+  title: "How to Auto-Apply Across Job Boards and Career Sites",
   description:
-    "Set up one workflow for LinkedIn Easy Apply and supported multi-step applications on other job sites, with a saved profile and review before submission.",
+    "Set up one saved application kit for supported job-board, ATS, and employer career-site forms, with your review before submission.",
   alternates: { canonical: PATH },
   openGraph: {
     type: "article",
     url: `${site.url}${PATH}`,
-    title: "How to Auto-Apply on LinkedIn and Multi-Step Job Sites",
+    title: "How to Auto-Apply Across Job Boards and Career Sites",
     description:
-      "A practical setup guide for using Propel across LinkedIn Easy Apply and supported multi-step job applications.",
+      "A practical setup guide for using Propel across supported job-board, ATS, and employer career-site applications.",
   },
 };
 
@@ -26,13 +26,13 @@ const SECTIONS = [
     h: "What “auto-apply” actually means",
     p: [
       "Auto-applying means letting a tool complete the repetitive parts of an application—contact details, work history, links, résumé uploads, and familiar screening questions—from information you have already provided. The goal is to remove repeated typing while you still choose the role and review what will be submitted.",
-      "A useful workflow should also account for the two paths job seekers commonly encounter: a compact Easy Apply flow and a longer application that moves through several pages on another site.",
+      "A useful workflow should follow the application beyond one job board or one apply-button format. Some roles use a compact flow such as LinkedIn Easy Apply; others move into a longer ATS-hosted or employer career-site application.",
     ],
   },
   {
     h: "1. Save your application profile",
     p: [
-      "Add your contact details, work history, résumé, links, and preferred answers in the Propel desktop app. This becomes the shared source for both LinkedIn Easy Apply and supported multi-step applications, so you do not need to create a separate profile for each path.",
+      "Add your contact details, work history, résumé, links, and preferred answers in the Propel desktop app. This becomes the application kit Propel can reuse across supported job-board, ATS, and employer career-site forms.",
     ],
   },
   {
@@ -42,22 +42,22 @@ const SECTIONS = [
     ],
   },
   {
-    h: "3. Start with LinkedIn Easy Apply",
+    h: "3. Open a role you want to apply for",
     p: [
-      "Open a role that uses LinkedIn Easy Apply. Propel reads the flow, fills fields it can map to your profile, attaches the requested résumé, and uses saved answers when familiar questions appear. Review the role and completed fields before submitting. Propel is not affiliated with or endorsed by LinkedIn.",
+      "Start from a job board or employer career site and open the actual application. LinkedIn Easy Apply is one supported example, but Propel is designed as a browser agent for supported application flows across the web rather than as a LinkedIn-only tool.",
     ],
   },
   {
-    h: "4. Continue through a supported multi-step application",
+    h: "4. Let Propel handle the repeat work",
     p: [
-      "When a role opens a longer form on another supported job site or employer career page, use the same Propel profile. The agent can move through multiple pages, fill repeat fields, attach your résumé, and carry saved answers forward until the application is ready for review.",
-      "Support is not universal. Form designs change, and login checks, CAPTCHAs, uncommon controls, or role-specific questions may require your input. If Propel cannot confidently complete a step, take over in the browser and check the remaining fields.",
+      "Propel reads the live form, fills mapped details from your application kit, attaches requested materials, reuses saved answers when they match, and moves through supported multi-page steps. It also keeps a record of the application so you do not have to rebuild your own tracker.",
+      "Coverage follows the application that opens. For example, a job found on Indeed may stay in an Indeed-hosted flow or open a different employer or ATS form, and not every variation is currently supported.",
     ],
   },
   {
     h: "5. Review before submission",
     p: [
-      "Check the employer, role, selected résumé, contact details, and screening answers before anything is sent. The strongest use of application automation is deliberate: choose relevant roles, let the agent remove repetitive work, and keep your judgment at the final step.",
+      "Check the employer, role, selected résumé, contact details, and screening answers before anything is sent. If a required answer is unknown, or email or login verification, 2FA or CAPTCHA, or an unsupported control appears, take over in the browser and continue when the page is ready.",
     ],
   },
 ];
@@ -66,9 +66,9 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   "@id": `${site.url}${PATH}#howto`,
-  name: "How to auto-apply on LinkedIn and multi-step job sites with Propel",
+  name: "How to auto-apply across job boards and employer career sites with Propel",
   description:
-    "Set up one saved profile for LinkedIn Easy Apply and supported multi-step applications on other job sites, then review before submission.",
+    "Set up one saved application kit for supported job-board, ATS, and employer career-site forms, then review before submission.",
   url: `${site.url}${PATH}`,
   step: SECTIONS.slice(1).map((section, index) => ({
     "@type": "HowToStep",
@@ -94,13 +94,13 @@ export default function Guide() {
           </Reveal>
           <Reveal delay={0.06} immediate>
             <h1 className="mt-4 font-display text-4xl font-extrabold leading-tight tracking-tight text-cream sm:text-5xl balance">
-              How to auto-apply on <span className="text-gradient">LinkedIn and multi-step job sites</span>
+              How to auto-apply across <span className="text-gradient">job boards and career sites</span>
             </h1>
           </Reveal>
           <Reveal delay={0.12} immediate>
             <p className="mt-5 text-lg leading-relaxed text-iris-300/80">
-              Set up one saved profile, use it for LinkedIn Easy Apply and supported multi-step
-              applications on other job sites, and review before submission.
+              Save your application kit once, reuse it across supported browser-based application flows,
+              and keep the final review in your hands.
             </p>
           </Reveal>
 
@@ -121,10 +121,10 @@ export default function Guide() {
 
           <Reveal>
             <div className="ring-grad glass mt-14 rounded-2xl px-7 py-9 text-center">
-              <h2 className="font-display text-2xl font-bold text-cream">Use one profile across both paths</h2>
+              <h2 className="font-display text-2xl font-bold text-cream">Make the next application easier</h2>
               <p className="mx-auto mt-3 max-w-lg text-[15px] leading-relaxed text-iris-300/75">
-                Install the desktop app and Chrome bridge for Mac or Windows, save your information,
-                and keep the application visible for final review.
+                Install the desktop app and Chrome bridge, save your application kit once, and let Propel
+                take the repeat work through supported forms while the page stays visible for review.
               </p>
               <div className="mt-7">
                 <DownloadTrio />

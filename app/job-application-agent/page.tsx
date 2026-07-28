@@ -8,43 +8,47 @@ import { site } from "@/lib/site";
 const PATH = "/job-application-agent";
 
 export const metadata: Metadata = {
-  title: "Easy Apply & Multi-Step Job Application Agent",
+  title: "Browser Job Application Agent Across Job Sites",
   description:
-    "See how one AI job application agent can complete LinkedIn Easy Apply and supported multi-step applications on other job sites while keeping you in control.",
+    "See how Propel reuses your profile, résumé, and answers across supported job-board, ATS, and employer career-site applications while you stay in control.",
   alternates: { canonical: PATH },
   openGraph: {
     type: "article",
     url: `${site.url}${PATH}`,
-    title: "One Job Application Agent for Easy Apply and Multi-Step Forms",
+    title: "One Browser Agent for Job Applications Across the Web",
     description:
-      "How Propel uses one saved profile for LinkedIn Easy Apply and supported multi-step job applications, with review before submission.",
+      "How Propel carries one saved application kit through supported job-board, ATS, and employer career-site forms, with review before submission.",
   },
 };
 
 const SECTIONS = [
   {
     title: "What is a job application agent?",
-    body: "A job application agent completes repetitive application work in your browser: entering contact details, reusing work history, attaching a résumé, and answering from information you have already provided. A useful agent should work across more than one application format while leaving role selection and final review with you.",
+    body: "A job application agent completes repetitive work in your browser: entering contact details and work history, attaching a résumé and requested materials, reusing answers you have already provided, and moving through supported application steps. A useful agent should work across more than one application format while leaving role selection and final review with you.",
   },
   {
-    title: "Why one workflow matters",
-    body: "A job search rarely stays inside one application type. Some roles use LinkedIn Easy Apply; others open a longer form on a job site or employer career page. Propel is designed to use the same saved profile, résumé, and answers for both paths, so you do not have to rebuild your application context when the form changes.",
+    title: "Why carrying your context forward matters",
+    body: "The site and form may change, but your contact details, work history, résumé, links, and many screening answers do not. Propel turns those saved details into an application kit it can carry into the next supported flow, so each new role does not force you back to a blank form.",
   },
   {
-    title: "LinkedIn Easy Apply",
-    body: "For an Easy Apply role, Propel reads the application shown in LinkedIn, fills mapped fields from your profile, attaches your résumé where requested, and uses saved answers for familiar screening questions. You can review the completed flow before submission. Propel is an independent product and is not affiliated with or endorsed by LinkedIn.",
+    title: "Across job boards and employer career sites",
+    body: "Propel works against the live application shown in Chrome rather than a single hardcoded apply button. On supported flows, the agent can read the form, map saved information into its fields, attach materials, advance through multiple pages, and bring the result back for review on job boards, ATS-hosted forms, and employer career sites.",
   },
   {
-    title: "Multi-step applications on other job sites",
-    body: "On supported job sites and employer career pages, Propel can continue through multiple application pages, map your saved information to the fields it finds, attach your résumé, and carry answers forward until the application is ready for review. This is the same agent and profile used for Easy Apply, not a separate workflow.",
+    title: "LinkedIn Easy Apply is one example",
+    body: "Propel can complete supported LinkedIn Easy Apply flows with the same profile, résumé, and saved answers it uses elsewhere. Easy Apply is an example of the product's coverage, not its category or limit. Propel is an independent product and is not affiliated with or endorsed by LinkedIn.",
   },
   {
-    title: "Where support has limits",
-    body: "Propel does not claim to work on every job site or every form. Application pages change, and login checks, CAPTCHAs, unusual widgets, or role-specific questions may require you to step in. Support should be evaluated on the application in front of you, and you should always review the information before it is sent.",
+    title: "What about jobs found on Indeed?",
+    body: "Indeed is available as a job source, but a listing may use an Indeed-hosted application or open a different employer or ATS form. Propel's completion coverage follows the application that opens, so it does not promise that every Indeed listing or flow will complete automatically.",
+  },
+  {
+    title: "Where coverage has limits",
+    body: "Application pages change. A required answer you have not provided, email or login verification, 2FA or CAPTCHA, or an unsupported form control may require you to step in. Propel keeps the page visible and hands control back instead of claiming universal coverage or guessing through a sensitive step.",
   },
   {
     title: "What to look for before using automation",
-    body: "Use a tool that keeps the application visible, makes its data handling clear, and gives you a review point before submission. Automation should remove repeated typing without replacing your judgment about the role, résumé, or answers you send.",
+    body: "Use a tool that keeps the application visible, makes its data handling clear, maintains a useful record, and gives you a review point before submission. Automation should remove repeated work without replacing your judgment about the role, résumé, or answers you send.",
   },
 ];
 
@@ -52,9 +56,9 @@ const articleJsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
   "@id": `${site.url}${PATH}#article`,
-  headline: "One Job Application Agent for Easy Apply and Multi-Step Forms",
+  headline: "One Browser Agent for Job Applications Across the Web",
   description:
-    "How Propel uses one saved profile for LinkedIn Easy Apply and supported multi-step job applications, with review before submission.",
+    "How Propel carries one saved application kit through supported job-board, ATS, and employer career-site forms, with review before submission.",
   mainEntityOfPage: `${site.url}${PATH}`,
   image: `${site.url}/opengraph-image`,
   datePublished: "2026-07-28",
@@ -79,13 +83,13 @@ export default function JobApplicationAgent() {
           </Reveal>
           <Reveal delay={0.06} immediate>
             <h1 className="mt-4 font-display text-4xl font-extrabold leading-tight tracking-tight text-cream sm:text-5xl balance">
-              One AI agent for <span className="text-gradient">Easy Apply and multi-step applications</span>
+              One browser agent for <span className="text-gradient">job applications across the web</span>
             </h1>
           </Reveal>
           <Reveal delay={0.12} immediate>
             <p className="mt-5 text-lg leading-relaxed text-iris-300/80">
-              Propel handles LinkedIn Easy Apply and supported multi-step forms on other job sites with
-              the same saved profile—then keeps the application in front of you for review.
+              Save your profile, résumé, and screening answers once. Propel carries them through supported
+              job-board and employer-site applications—then keeps the result in front of you for review.
             </p>
           </Reveal>
 
@@ -102,10 +106,10 @@ export default function JobApplicationAgent() {
 
           <Reveal>
             <div className="ring-grad glass mt-14 rounded-2xl px-7 py-9 text-center">
-              <h2 className="font-display text-2xl font-bold text-cream">Keep one application workflow</h2>
+              <h2 className="font-display text-2xl font-bold text-cream">Stop rebuilding the same application</h2>
               <p className="mx-auto mt-3 max-w-lg text-[15px] leading-relaxed text-iris-300/75">
-                Propel is free to download for Mac and Windows. Set up your profile once, connect the
-                Chrome bridge, and use it for Easy Apply and supported multi-step forms.
+                Propel is free to download for Mac and Windows. Save your application kit once, connect
+                the Chrome bridge, and reuse that context across supported application flows.
               </p>
               <div className="mt-7">
                 <DownloadTrio />

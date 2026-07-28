@@ -2,8 +2,9 @@
 
 /**
  * HeroFlow — a code-driven, looping "sped-up screen recording" of Propel working
- * across two application paths: LinkedIn Easy Apply and representative
- * multi-step forms on other job sites and employer career pages.
+ * across representative job-board, employer career-site, and LinkedIn Easy
+ * Apply flows. Easy Apply is deliberately one example in the loop, not the
+ * product category shown first.
  *
  * The board/application surfaces are rendered LIGHT, like real sites, inside the
  * dark Propel browser chrome — so it reads like an actual recording. The brand
@@ -52,22 +53,6 @@ type Board = {
 
 const BOARDS: Board[] = [
   {
-    key: "linkedin",
-    name: "LinkedIn",
-    host: "linkedin.com/jobs",
-    accent: "#0A66C2",
-    surface: "#f3f2ef",
-    titleColor: "#0a66c2",
-    applyLabel: "Easy Apply",
-    query: "frontend engineer",
-    targetId: "li-1",
-    jobs: [
-      { id: "li-1", role: "Senior Frontend Engineer", company: "Northwind Labs", mark: "N", hue: "#6366f1", meta: "Remote (US)", salary: "$180K–$210K" },
-      { id: "li-2", role: "React Engineer", company: "Mapliner", mark: "M", hue: "#0ea5e9", meta: "San Francisco · Hybrid" },
-      { id: "li-3", role: "UI Platform Engineer", company: "Quartz", mark: "Q", hue: "#f59e0b", meta: "New York, NY" },
-    ],
-  },
-  {
     key: "jobsite",
     name: "Job site",
     host: "jobs.example.com/apply",
@@ -97,6 +82,22 @@ const BOARDS: Board[] = [
       { id: "cr-1", role: "Full-Stack Engineer", company: "Cobalt", mark: "C", hue: "#34d399", meta: "Remote", salary: "$150K–$185K", rating: "4.7" },
       { id: "cr-2", role: "Web Engineer", company: "Aperture", mark: "A", hue: "#fbbf24", meta: "Denver, CO", rating: "3.9" },
       { id: "cr-3", role: "Senior Developer", company: "Lumen", mark: "L", hue: "#38bdf8", meta: "Remote (US)", rating: "4.3" },
+    ],
+  },
+  {
+    key: "linkedin",
+    name: "LinkedIn",
+    host: "linkedin.com/jobs",
+    accent: "#0A66C2",
+    surface: "#f3f2ef",
+    titleColor: "#0a66c2",
+    applyLabel: "Easy Apply",
+    query: "frontend engineer",
+    targetId: "li-1",
+    jobs: [
+      { id: "li-1", role: "Senior Frontend Engineer", company: "Northwind Labs", mark: "N", hue: "#6366f1", meta: "Remote (US)", salary: "$180K–$210K" },
+      { id: "li-2", role: "React Engineer", company: "Mapliner", mark: "M", hue: "#0ea5e9", meta: "San Francisco · Hybrid" },
+      { id: "li-3", role: "UI Platform Engineer", company: "Quartz", mark: "Q", hue: "#f59e0b", meta: "New York, NY" },
     ],
   },
 ];
@@ -256,10 +257,11 @@ function LiveFlow() {
     };
 
     async function director() {
-      let applied = 0;
+      let prepared = 0;
       let learned = false; // memory toast only fires the first time
       while (!cancelled.current) {
-        dispatch({ ...INITIAL, appliedCount: applied });
+        prepared = 0;
+        dispatch({ ...INITIAL, appliedCount: prepared });
 
         for (let b = 0; b < BOARDS.length && !cancelled.current; b++) {
           const board = BOARDS[b];
@@ -320,13 +322,10 @@ function LiveFlow() {
             await wait(T.submit);
           }
 
-          /* 4 ── submit */
+          /* 4 ── return the completed flow for user review */
           await moveTo("submit", { cx: 50, cy: 90 });
-          await click();
-          dispatch({ submitting: true });
-          await wait(T.submit);
-          applied += 1;
-          dispatch({ submitting: false, submitted: true, appliedCount: applied });
+          prepared += 1;
+          dispatch({ submitting: false, submitted: true, appliedCount: prepared });
           await wait(T.done);
 
           /* 5 ── learning moment (first application only) */
@@ -444,16 +443,16 @@ function Stage({
         <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-wider text-iris-300/60">
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
           {state.submitting
-            ? "Submitting…"
+            ? "Finishing form…"
             : state.screen === "board"
               ? `Scanning ${board.name}`
               : state.submitted
-                ? "Application sent"
-                : "Auto-filling form"}
+                ? "Ready for your review"
+                : "Completing form"}
         </div>
         <div className="flex items-center gap-1.5 font-mono text-[10px] text-iris-300/70">
           <span className="text-emerald-400">{state.appliedCount}</span>
-          <span className="text-iris-300/40">applied today</span>
+          <span className="text-iris-300/40">prepared for review</span>
         </div>
       </div>
     </div>
@@ -736,10 +735,10 @@ function ApplyScreen({ state, board, job, register }: { state: State; board: Boa
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
                 <path d="m5 13 4 4L19 7" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              Application submitted
+              Ready for your review
             </span>
           ) : state.submitting ? (
-            "Submitting…"
+            "Finishing…"
           ) : (
             "Review and submit"
           )}
@@ -827,7 +826,7 @@ function StaticFrame() {
     typed: { 0: FORM_FIELDS[0].value, 1: FORM_FIELDS[1].value, 2: FORM_FIELDS[2].value },
     attached: true,
     submitted: true,
-    appliedCount: 12,
+    appliedCount: 3,
     cx: 50,
     cy: 90,
   };
@@ -835,8 +834,8 @@ function StaticFrame() {
     <div className="relative">
       <Stage state={filled} />
       <span className="sr-only">
-        Propel uses one saved profile for LinkedIn Easy Apply and supported multi-step applications on
-        other job sites and employer career pages. This animation shows a completed Easy Apply form.
+        Propel uses one saved application kit across supported job-board and employer career-site forms.
+        This animation shows a job-board application completed and ready for the user's review.
       </span>
     </div>
   );

@@ -38,11 +38,11 @@ export function PrimaryDownload() {
   useEffect(() => setOs(detectOS()), []);
 
   const macPrimary = site.downloadAvailability.mac
-    ? { href: site.downloads.mac, label: "Download for Mac", glyph: <MacGlyph /> }
+    ? { href: site.downloads.mac, label: "Download Propel for Mac — free", glyph: <MacGlyph /> }
     : { href: site.downloads.mac, label: "Mac build coming soon", glyph: <MacGlyph /> };
   const primary =
     os === "windows"
-      ? { href: site.downloads.windows, label: "Download for Windows", glyph: <WinGlyph /> }
+      ? { href: site.downloads.windows, label: "Download Propel for Windows — free", glyph: <WinGlyph /> }
       : macPrimary;
   const otherLabel = os === "windows" ? (site.downloadAvailability.mac ? "macOS" : "Mac status") : "Windows";
   const otherHref = os === "windows" ? site.downloads.mac : site.downloads.windows;

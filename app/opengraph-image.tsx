@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Propel — one agent for LinkedIn Easy Apply and multi-step job applications";
+export const alt = "Propel — a browser agent for job applications across job boards and employer career sites";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -56,19 +56,19 @@ export default function OpenGraphImage() {
               lineHeight: 1.04,
             }}
           >
-            <span>One agent for LinkedIn Easy Apply</span>
-            <span style={{ color: "#4f46e5" }}>and multi-step applications.</span>
+            <span>Stop starting every job</span>
+            <span style={{ color: "#4f46e5" }}>application from scratch.</span>
           </div>
           <div style={{ marginTop: 26, color: "#57576f", fontSize: 25, lineHeight: 1.35 }}>
-            Use one saved profile across the quick flow and supported job-site applications. Review before submission.
+            Save your profile, résumé, and answers once. Propel carries them through supported applications across job sites.
           </div>
         </div>
 
         <div style={{ display: "flex", gap: 14 }}>
           {[
-            "LinkedIn Easy Apply",
-            "Supported multi-step forms",
-            "You stay in control",
+            "Job boards",
+            "Employer career sites",
+            "Easy Apply included",
           ].map((label) => (
             <div
               key={label}

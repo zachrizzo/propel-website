@@ -25,9 +25,9 @@ export const releaseDownloads = {
 export const site = {
   name: "Propel",
   productName: "Propel Job Agent",
-  tagline: "Easy Apply and multi-step applications, handled by one agent",
+  tagline: "Never start another job application from scratch",
   description:
-    "One AI job application agent for LinkedIn Easy Apply and supported multi-step forms on other job sites. Reuse your profile and review before submitting.",
+    "Stop retyping job applications. Propel reuses your profile, résumé, and saved answers across job boards and employer career sites, with review before submission.",
   // The public custom domain is the canonical SEO identity for the site.
   url: siteUrl,
   // Website-owned download routes. They never send users directly to GitHub
@@ -46,8 +46,8 @@ export const site = {
     github: "https://github.com/zachrizzo/propel-releases",
   },
   email: "zachcilwa@gmail.com",
-  // What's next — surfaced on the site and in structured data / llms.txt so the
-  // roadmap is part of how the product is discovered and understood.
+  // What's next — kept in llms.txt so the roadmap remains documented without
+  // interrupting the homepage's current-product conversion path.
   roadmap: [
     {
       title: "Résumé tailoring",
@@ -66,24 +66,32 @@ export const site = {
   // search engines and AI assistants can answer questions about Propel directly.
   faq: [
     {
-      q: "What does Propel do?",
-      a: "Propel uses one saved profile to complete LinkedIn Easy Apply applications and supported multi-step applications on other job sites and employer career pages. It fills repeat fields, attaches your résumé, uses your saved answers, and lets you review before submission.",
+      q: "What does Propel take off my plate?",
+      a: "Propel handles the repeat application work: filling from your saved profile and work history, attaching your résumé and requested materials, reusing saved screening answers when they match, moving through supported multi-step forms, and keeping an application record. You choose the role and review before anything is submitted.",
     },
     {
-      q: "How much time does it save?",
-      a: "Time saved depends on the length and complexity of the application. Propel reduces repetitive data entry by reusing your profile and saved answers, with the biggest benefit on longer, multi-step forms.",
+      q: "Which job sites and forms can Propel handle?",
+      a: "Propel is built for browser-based applications across job boards, ATS-hosted forms, and employer career sites. Coverage follows the live application rather than only the listing's site name. Forms change, so Propel does not promise every form on every website will complete automatically.",
+    },
+    {
+      q: "Does Propel work with jobs found on Indeed?",
+      a: "Indeed is available as a job source, but Propel does not currently promise completion of every Indeed application. Some listings use an Indeed-hosted flow; others open an employer or ATS form. Propel follows the application that opens when it supports the form, and hands control back if it reaches a flow or verification step it cannot complete reliably.",
+    },
+    {
+      q: "Does Propel only work with LinkedIn Easy Apply?",
+      a: "No. LinkedIn Easy Apply is one application flow Propel can handle, not the product's boundary. The same browser agent is built to work through supported multi-step applications on other job boards, ATS-hosted forms, and employer career sites.",
     },
     {
       q: "Do I stay in control of what gets submitted?",
-      a: "Yes. Propel keeps the application in your browser so you can check the role, résumé, fields, and answers before submission. You can step in whenever a page needs your judgment.",
+      a: "Yes. Propel keeps the application visible in your browser so you can check the role, résumé, fields, and answers before submission. You can step in whenever a page needs your judgment.",
+    },
+    {
+      q: "What happens when Propel cannot complete a step?",
+      a: "Propel pauses or hands the page back to you instead of guessing. A required answer you have not provided, email or login verification, 2FA or CAPTCHA, or an unsupported form control may need your input before the application can continue.",
     },
     {
       q: "Does Propel remember my answers?",
       a: "Yes. Propel can save an answer to a screening question and reuse it when the same question appears in a later application. You can review the answer before it is submitted.",
-    },
-    {
-      q: "Which job sites does it work on?",
-      a: "Propel supports LinkedIn Easy Apply and is built to complete multi-step applications on supported job sites and employer career pages. Support is not universal: forms change, and some sites, login checks, or unusual questions may still need your input.",
     },
     {
       q: "Why do I need both a desktop app and a Chrome extension?",
@@ -94,12 +102,12 @@ export const site = {
       a: "Yes — the desktop app and the Propel Bridge Chrome extension are free to download and use.",
     },
     {
-      q: "Is Propel affiliated with LinkedIn?",
-      a: "No. Propel is an independent product and is not affiliated with or endorsed by LinkedIn or any other job site.",
+      q: "How much time does it save?",
+      a: "Time saved depends on the application. Propel removes the repeated typing, uploads, familiar questions, page navigation, and record keeping that add up across a job search, with the biggest benefit on longer, multi-step forms.",
     },
     {
-      q: "What's coming next?",
-      a: "Automatic résumé tailoring for each role, LinkedIn profile updates and posts, and auto-generated follow-up emails on the jobs you've applied to. These are on the roadmap — download Propel today to start auto-applying now.",
+      q: "Is Propel affiliated with LinkedIn?",
+      a: "No. Propel is an independent product and is not affiliated with or endorsed by LinkedIn or any other job site.",
     },
     {
       q: "Is the desktop app signed?",
