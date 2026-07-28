@@ -14,6 +14,7 @@ const ORIGIN = `https://${HOST}`;
 const urlList = [
   `${ORIGIN}/`,
   `${ORIGIN}/how-to-auto-apply-to-jobs`,
+  `${ORIGIN}/job-application-agent`,
   `${ORIGIN}/privacy`,
   `${ORIGIN}/llms.txt`,
 ];
