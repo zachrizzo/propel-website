@@ -9,8 +9,8 @@ ${site.description}
 
 ## What it does
 
-Propel automatically fills out and submits job applications in your browser.
-During our beta it auto-applies on LinkedIn (Easy Apply) and Indeed.
+Propel automatically fills out and submits job applications in your browser, on
+whatever site the application lives on.
 Instead of retyping the same name, contact details, work history, and screener
 answers into every application, Propel reads each form and completes it from your
 profile in seconds. You review and approve every application before it is
@@ -35,9 +35,11 @@ while the user stays in control. Free to download for macOS and Windows.
 
 ## Supported sites
 
-Available now (beta): LinkedIn (Easy Apply) and Indeed.
-Coming soon: Workday, Greenhouse, Lever, Ashby, iCIMS, BambooHR, Taleo, and most
-company career portals.
+Propel drives the user's own browser rather than integrating with a fixed list of
+sites, so it works on the page the application is actually on: job boards
+(LinkedIn, Indeed, ZipRecruiter, Glassdoor), applicant-tracking systems (Workday,
+Greenhouse, Lever, Ashby, iCIMS, BambooHR, Taleo), and most company career
+portals.
 
 ## Roadmap (coming soon)
 

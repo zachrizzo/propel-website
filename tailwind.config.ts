@@ -6,14 +6,14 @@ const config: Config = {
     extend: {
       colors: {
         ink: {
-          DEFAULT: "#07060f",
-          800: "#0d0b1f",
-          700: "#141131",
-          600: "#1d1948",
+          DEFAULT: "#fbfbff",
+          800: "#ffffff",
+          700: "#f1f3ff",
+          600: "#e5e7ff",
         },
         iris: {
-          300: "#a5b4fc",
-          400: "#818cf8",
+          300: "#4338ca",
+          400: "#4f46e5",
           500: "#6366f1",
           600: "#4f46e5",
           700: "#4338ca",
@@ -23,7 +23,7 @@ const config: Config = {
           400: "#fb7185",
           500: "#f43f5e",
         },
-        cream: "#f4f2ff",
+        cream: "#171729",
       },
       fontFamily: {
         display: ["var(--font-display)", "sans-serif"],

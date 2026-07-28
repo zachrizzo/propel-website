@@ -825,7 +825,9 @@ function StaticFrame() {
     <div className="relative">
       <Stage state={filled} />
       <span className="sr-only">
-        Propel automatically fills and submits job applications across LinkedIn, Indeed, and Glassdoor.
+        Propel automatically fills and submits job applications across job boards, applicant-tracking
+        systems, and company career pages. This animation shows it working on LinkedIn, Indeed, and
+        Glassdoor as examples.
       </span>
     </div>
   );

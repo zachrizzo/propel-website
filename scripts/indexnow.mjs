@@ -8,7 +8,7 @@
 // The key below is also hosted at /<key>.txt so IndexNow can verify ownership.
 
 const KEY = "a3f1c8e7b9d24056af13c7e9b0d6428f";
-const HOST = "propeljobagent.vercel.app";
+const HOST = "propeljobagent.com";
 const ORIGIN = `https://${HOST}`;
 
 const urlList = [

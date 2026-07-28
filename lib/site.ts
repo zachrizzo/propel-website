@@ -1,7 +1,7 @@
 // Central config for the Propel marketing site.
 // Primary/canonical domain. The legacy propel-website-pi.vercel.app alias stays
 // live (it's the privacy URL published in the Chrome Web Store listing).
-export const siteUrl = "https://propeljobagent.vercel.app";
+export const siteUrl = "https://propeljobagent.com";
 
 const releaseBase = "https://github.com/zachrizzo/propel-releases/releases/latest/download";
 
@@ -27,8 +27,8 @@ export const site = {
   productName: "Propel Job Agent",
   tagline: "Auto-apply to jobs in your browser",
   description:
-    "Propel auto-fills and submits job applications in your browser — starting with LinkedIn Easy Apply and Indeed during our beta, with Workday, Greenhouse, Lever and company portals coming soon — so you stop retyping the same details. You review and approve every application.",
-  // Production domain — update to a custom domain here once you add one in Vercel.
+    "Propel auto-fills and submits job applications in your browser — across job boards, applicant-tracking systems, and company career pages — so you stop retyping the same details. You review and approve every application.",
+  // The public custom domain is the canonical SEO identity for the site.
   url: siteUrl,
   // Website-owned download routes. They never send users directly to GitHub
   // unless a public installer asset is confirmed to exist.
@@ -67,11 +67,11 @@ export const site = {
   faq: [
     {
       q: "What does Propel do?",
-      a: "Propel automatically fills out and submits job applications for you. During our beta it auto-applies on LinkedIn (Easy Apply) and Indeed. Instead of retyping your name, contact details, work history and screener answers into every form, Propel reads each application and completes it from your profile in seconds — and you review and approve before anything is submitted.",
+      a: "Propel automatically fills out and submits job applications for you, on whatever site the application lives on. Instead of retyping your name, contact details, work history and screener answers into every form, Propel reads each application and completes it from your profile in seconds — and you review and approve before anything is submitted.",
     },
     {
       q: "How much time does it save?",
-      a: "A single online application is usually 10–20 minutes of entering the same information. Propel does that part in seconds — on LinkedIn and Indeed today — so the hours you'd spend on forms go back into interviews, networking, and the work that actually lands the offer.",
+      a: "A single online application is usually 10–20 minutes of entering the same information. Propel does that part in seconds, so the hours you'd spend on forms go back into interviews, networking, and the work that actually lands the offer.",
     },
     {
       q: "Do I stay in control of what gets submitted?",
@@ -83,7 +83,7 @@ export const site = {
     },
     {
       q: "Which job sites does it work on?",
-      a: "During our beta, Propel auto-applies on LinkedIn (Easy Apply) and Indeed. Support for the major applicant-tracking systems — Workday, Greenhouse, Lever, Ashby, iCIMS, BambooHR and Taleo — plus most company career portals is coming soon.",
+      a: "Propel works on the site you're already applying on. Because it drives your own browser rather than a fixed list of integrations, it handles job boards like LinkedIn, Indeed, ZipRecruiter and Glassdoor, the major applicant-tracking systems — Workday, Greenhouse, Lever, Ashby, iCIMS, BambooHR and Taleo — and most company career portals.",
     },
     {
       q: "Why do I need both a desktop app and a Chrome extension?",

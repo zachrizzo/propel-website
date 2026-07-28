@@ -37,7 +37,7 @@ export default function Aurora() {
           animationDelay: "-11s",
         }}
       />
-      {/* fade to page bg at the bottom */}
+      {/* fade to page background at the bottom */}
       <div className="absolute inset-x-0 bottom-0 h-[40vh] bg-gradient-to-b from-transparent to-ink" />
     </div>
   );

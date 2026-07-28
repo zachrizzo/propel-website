@@ -28,11 +28,15 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   applicationName: site.name,
   title: {
-    default: `${site.productName} | ${site.tagline}`,
+    default: "AI Job Application Agent | Auto-Apply to Jobs Faster",
     template: `%s · ${site.productName}`,
   },
   description: site.description,
   keywords: [
+    "AI job application agent",
+    "job application agent",
+    "applying agent",
+    "application agent",
     "auto apply jobs",
     "LinkedIn Easy Apply automation",
     "Indeed auto apply",
@@ -98,7 +102,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#07060f",
+  themeColor: "#fbfbff",
   width: "device-width",
   initialScale: 1,
 };
@@ -136,7 +140,7 @@ const jsonLd = {
       description: site.description,
       featureList: [
         "Auto-fills and submits job applications in your browser",
-        "Auto-applies on LinkedIn Easy Apply and Indeed (beta); Workday, Greenhouse, Lever, Ashby, iCIMS and company portals coming soon",
+        "Auto-applies across job boards, applicant-tracking systems (Workday, Greenhouse, Lever, Ashby, iCIMS) and company career portals",
         "Remembers your answers and reuses them on future applications",
         "Generates tailored answers to application questions",
         "You review and approve every application before it is submitted",
@@ -152,7 +156,7 @@ const jsonLd = {
       "@id": `${site.url}/#howto`,
       name: "How to auto-apply to jobs with Propel",
       description:
-        "Set up Propel once, then let it fill and submit job applications for you on LinkedIn Easy Apply and Indeed while you review and approve.",
+        "Set up Propel once, then let it fill and submit job applications for you on whatever site you're applying through, while you review and approve.",
       step: [
         { "@type": "HowToStep", position: 1, name: "Add your profile once", text: "Install the desktop app and set up your details and résumé a single time. Propel reuses them on every application." },
         { "@type": "HowToStep", position: 2, name: "Add the Chrome bridge", text: "Install the Propel Bridge extension; it links your browser to the desktop app and pairs automatically." },
