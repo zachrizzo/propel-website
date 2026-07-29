@@ -35,7 +35,7 @@ export default function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="text-[14px] font-medium text-iris-300/70 transition-colors hover:text-cream"
+              className="text-[15px] font-medium text-iris-300/90 transition-colors hover:text-cream"
             >
               {l.label}
             </a>
@@ -43,7 +43,7 @@ export default function Nav() {
         </nav>
         <a
           href="/#download"
-          className="inline-flex items-center gap-2 rounded-full bg-cream px-4 py-2 font-display text-[14px] font-semibold text-ink transition-transform hover:scale-[1.04] active:scale-95"
+          className="inline-flex items-center gap-2 rounded-full bg-cream px-4 py-2.5 font-display text-[15px] font-semibold text-ink transition-transform hover:scale-[1.04] active:scale-95"
         >
           Download free
         </a>

@@ -18,12 +18,20 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   background: var(--bg);
   color: var(--cream);
   overflow-x: hidden;
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #4f46e5;
+  outline-offset: 3px;
 }
 
 ::selection {

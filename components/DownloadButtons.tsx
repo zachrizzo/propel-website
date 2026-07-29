@@ -46,22 +46,25 @@ export function PrimaryDownload() {
       : macPrimary;
   const otherLabel = os === "windows" ? (site.downloadAvailability.mac ? "macOS" : "Mac status") : "Windows";
   const otherHref = os === "windows" ? site.downloads.mac : site.downloads.windows;
+  const compactPrimaryLabel = primary.label.replace("Propel ", "");
 
   return (
     <div className="flex flex-col items-center gap-3 sm:flex-row">
       <a
         href={primary.href}
-        className="group relative inline-flex h-13 items-center gap-2.5 overflow-hidden rounded-full bg-cream px-7 py-3.5 font-display text-[15px] font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-95"
+        aria-label={primary.label}
+        className="group relative inline-flex h-13 w-full min-w-0 items-center justify-center gap-2.5 overflow-hidden rounded-full bg-cream px-4 py-3.5 font-display text-[15px] font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-95 sm:w-auto sm:px-7 sm:text-base"
       >
         <span className="relative z-10 flex items-center gap-2.5">
           {primary.glyph}
-          {primary.label}
+          <span className="sm:hidden">{compactPrimaryLabel}</span>
+          <span className="hidden sm:inline">{primary.label}</span>
         </span>
         <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-iris-300/0 via-iris-300/40 to-iris-300/0 transition-transform duration-700 group-hover:translate-x-full" />
       </a>
       <a
         href={otherHref}
-        className="text-[14px] font-medium text-iris-300/80 underline-offset-4 transition-colors hover:text-cream hover:underline"
+        className="text-[15px] font-medium text-iris-300/90 underline-offset-4 transition-colors hover:text-cream hover:underline"
       >
         or get it for {otherLabel}
       </a>
@@ -92,8 +95,8 @@ export function DownloadTrio() {
             {it.glyph}
           </span>
           <span className="min-w-0">
-            <span className="block font-display text-[15px] font-semibold text-cream">{it.label}</span>
-            <span className="block truncate font-mono text-[11px] text-iris-300/60">{it.sub}</span>
+            <span className="block font-display text-base font-semibold text-cream">{it.label}</span>
+            <span className="block truncate font-mono text-[13px] leading-5 text-iris-300/85">{it.sub}</span>
           </span>
         </a>
       ))}

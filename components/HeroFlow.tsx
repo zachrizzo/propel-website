@@ -72,7 +72,7 @@ const BOARDS: Board[] = [
     key: "careers",
     name: "Company careers",
     host: "careers.example.com/jobs",
-    accent: "#0caa41",
+    accent: "#047857",
     surface: "#ffffff",
     titleColor: "#0f172a",
     applyLabel: "Apply",
@@ -371,23 +371,23 @@ function Stage({
   return (
     <div
       aria-hidden
-      className="ring-grad glass relative w-full max-w-[480px] select-none overflow-hidden rounded-2xl shadow-2xl shadow-iris-700/30"
+      className="ring-grad glass relative min-w-0 w-full max-w-[480px] select-none overflow-hidden rounded-2xl shadow-2xl shadow-iris-700/30"
     >
       {/* ── browser chrome (dark, Propel-themed) ── */}
       <div className="flex items-center gap-2 border-b border-iris-400/12 bg-ink-800/80 px-4 py-3">
         <span className="h-2.5 w-2.5 rounded-full bg-ember-400/80" />
         <span className="h-2.5 w-2.5 rounded-full bg-amber-300/80" />
         <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
-        <div className="ml-3 flex h-6 flex-1 items-center gap-2 rounded-md bg-ink-700/70 px-2.5">
+        <div className="ml-3 flex h-6 min-w-0 flex-1 items-center gap-2 rounded-md bg-ink-700/70 px-2.5">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" className="text-iris-300/60">
             <rect x="4.5" y="10.5" width="15" height="10" rx="2" stroke="currentColor" strokeWidth="1.8" />
             <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" stroke="currentColor" strokeWidth="1.8" />
           </svg>
-          <span key={state.url} className="urlfade truncate font-mono text-[11px] text-iris-300/80">
+          <span key={state.url} className="urlfade truncate font-mono text-[12px] text-iris-300/90">
             {state.url}
           </span>
         </div>
-        <div className="ml-1 flex items-center gap-1.5 rounded-full bg-iris-500/15 px-2.5 py-1 text-[10px] font-semibold text-iris-200 ring-1 ring-iris-400/30">
+        <div className="ml-1 flex items-center gap-1.5 rounded-full bg-iris-500/15 px-2.5 py-1 text-[11px] font-semibold text-iris-300 ring-1 ring-iris-400/30">
           <span className="relative flex h-1.5 w-1.5">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-iris-400 opacity-75" />
             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-iris-400" />
@@ -440,19 +440,21 @@ function Stage({
 
       {/* ── status footer (dark, Propel-themed) ── */}
       <div className="flex items-center justify-between border-t border-iris-400/12 bg-ink-800/80 px-4 py-2.5">
-        <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-wider text-iris-300/60">
+        <div className="flex min-w-0 items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-iris-300/85">
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-          {state.submitting
-            ? "Finishing form…"
-            : state.screen === "board"
-              ? `Scanning ${board.name}`
-              : state.submitted
-                ? "Ready for your review"
-                : "Completing form"}
+          <span className="truncate">
+            {state.submitting
+              ? "Finishing form…"
+              : state.screen === "board"
+                ? `Scanning ${board.name}`
+                : state.submitted
+                  ? "Ready for your review"
+                  : "Completing form"}
+          </span>
         </div>
-        <div className="flex items-center gap-1.5 font-mono text-[10px] text-iris-300/70">
-          <span className="text-emerald-400">{state.appliedCount}</span>
-          <span className="text-iris-300/40">prepared for review</span>
+        <div className="ml-3 flex shrink-0 items-center gap-1.5 font-mono text-[11px] text-iris-300/85">
+          <span className="text-emerald-700">{state.appliedCount}</span>
+          <span className="hidden text-iris-300/85 min-[360px]:inline">prepared for review</span>
         </div>
       </div>
     </div>
@@ -507,7 +509,7 @@ function BoardLogo({ board, size = 22 }: { board: Board; size?: number }) {
 
 function Stars({ rating, color }: { rating: string; color: string }) {
   return (
-    <span className="inline-flex items-center gap-0.5 text-[10px] font-semibold" style={{ color }}>
+    <span className="inline-flex items-center gap-0.5 text-[11px] font-semibold" style={{ color }}>
       <svg width="10" height="10" viewBox="0 0 24 24" fill={color}>
         <path d="M12 2l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.8 6.1 20.8l1.2-6.6L2.5 9l6.6-.9z" />
       </svg>
@@ -529,13 +531,13 @@ function BoardScreen({ board, selectedId, register }: { board: Board; selectedId
             <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2" />
             <path d="m20 20-3.5-3.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           </svg>
-          <span className="font-sans text-[10.5px] text-slate-500">{board.query}</span>
+          <span className="font-sans text-[11.5px] text-slate-600">{board.query}</span>
         </div>
       </div>
 
       {/* result count strip */}
-      <div className="border-b border-black/[0.06] bg-white px-4 py-1.5 font-sans text-[10px] text-slate-400">
-        <span className="font-semibold text-slate-600">{board.jobs.length * 47}</span> results · sorted by relevance
+      <div className="border-b border-black/[0.06] bg-white px-4 py-1.5 font-sans text-[11px] text-slate-500">
+        <span className="font-semibold text-slate-700">{board.jobs.length * 47}</span> results · sorted by relevance
       </div>
 
       {/* cards */}
@@ -563,22 +565,22 @@ function BoardScreen({ board, selectedId, register }: { board: Board; selectedId
                 {j.mark}
               </span>
               <div className="min-w-0 flex-1">
-                <div className="truncate font-sans text-[12.5px] font-semibold" style={{ color: board.titleColor }}>
+                <div className="truncate font-sans text-[13px] font-semibold" style={{ color: board.titleColor }}>
                   {j.role}
                 </div>
-                <div className="truncate font-sans text-[10.5px] text-slate-500">
+                <div className="truncate font-sans text-[11.5px] text-slate-600">
                   {j.company} · {j.meta}
                 </div>
                 <div className="mt-0.5 flex items-center gap-2">
-                  {j.salary && <span className="font-sans text-[10px] font-medium text-emerald-600">{j.salary}</span>}
-                  {j.rating && <Stars rating={j.rating} color={board.key === "careers" ? board.accent : "#f59e0b"} />}
+                  {j.salary && <span className="font-sans text-[11px] font-medium text-emerald-700">{j.salary}</span>}
+                  {j.rating && <Stars rating={j.rating} color={board.key === "careers" ? board.accent : "#b45309"} />}
                 </div>
               </div>
               {/* apply control — the target card's button is what the cursor aims at */}
               <button
                 type="button"
                 ref={isTarget ? register("boardApply") : undefined}
-                className="shrink-0 rounded-full px-3 py-1.5 font-sans text-[10.5px] font-semibold transition-colors duration-300"
+                className="shrink-0 rounded-full px-3 py-1.5 font-sans text-[11.5px] font-semibold transition-colors duration-300"
                 style={
                   isSelected
                     ? { background: board.accent, color: "#fff", filter: "brightness(0.92)" }
@@ -599,7 +601,7 @@ function BoardScreen({ board, selectedId, register }: { board: Board; selectedId
         })}
       </div>
 
-      <div className="border-t border-black/[0.06] bg-white px-4 py-1.5 text-center font-sans text-[9px] text-slate-400">
+      <div className="border-t border-black/[0.06] bg-white px-4 py-1.5 text-center font-sans text-[10.5px] text-slate-500">
         Propel opens the selected application in your browser
       </div>
     </div>
@@ -620,13 +622,13 @@ function ApplyScreen({ state, board, job, register }: { state: State; board: Boa
           {job.mark}
         </span>
         <div className="min-w-0">
-          <div className="truncate font-sans text-[12.5px] font-semibold text-slate-800">{job.role}</div>
-          <div className="truncate font-sans text-[10px] text-slate-500">
+          <div className="truncate font-sans text-[13px] font-semibold text-slate-800">{job.role}</div>
+          <div className="truncate font-sans text-[11px] text-slate-600">
             {job.company} · {board.key === "linkedin" ? "Easy Apply" : "Multi-step · step 3 of 3"}
           </div>
         </div>
         <span
-          className="ml-auto flex items-center gap-1 rounded-full px-2.5 py-1 font-sans text-[9.5px] font-semibold text-white"
+          className="ml-auto flex items-center gap-1 rounded-full px-2.5 py-1 font-sans text-[10.5px] font-semibold text-white"
           style={{ background: board.accent }}
         >
           {board.key === "linkedin" && (
@@ -643,9 +645,9 @@ function ApplyScreen({ state, board, job, register }: { state: State; board: Boa
           const isSelect = f.kind === "select";
           return (
             <div key={f.label} ref={register(`field-${i}`)}>
-              <div className="mb-1 font-sans text-[9.5px] font-medium uppercase tracking-wide text-slate-400">{f.label}</div>
+              <div className="mb-1 font-sans text-[11px] font-medium uppercase tracking-wide text-slate-600">{f.label}</div>
               <div
-                className="relative flex h-[34px] items-center rounded-lg border px-2.5 font-sans text-[12px] transition-all duration-200"
+                className="relative flex h-9 items-center rounded-lg border px-2.5 font-sans text-[13px] transition-all duration-200"
                 style={{
                   borderColor: active ? board.accent : "rgba(15,23,42,0.14)",
                   background: "#fff",
@@ -660,7 +662,7 @@ function ApplyScreen({ state, board, job, register }: { state: State; board: Boa
                   />
                 )}
                 {!active && !state.typed[i] && (
-                  <span className="font-sans text-[11.5px] text-slate-300">{isSelect ? "Select…" : f.label}</span>
+                  <span className="font-sans text-[12px] text-slate-500">{isSelect ? "Select…" : f.label}</span>
                 )}
                 {isSelect && (
                   <svg
@@ -681,7 +683,7 @@ function ApplyScreen({ state, board, job, register }: { state: State; board: Boa
                       return (
                         <div
                           key={opt}
-                          className="px-2.5 py-1.5 font-sans text-[11px] transition-colors"
+                          className="px-2.5 py-1.5 font-sans text-[12px] transition-colors"
                           style={{ background: on ? `${board.accent}1f` : "transparent", color: on ? board.accent : "#475569" }}
                         >
                           {opt}
@@ -708,9 +710,9 @@ function ApplyScreen({ state, board, job, register }: { state: State; board: Boa
             <path d="M14 3v4a1 1 0 0 0 1 1h4" stroke="currentColor" strokeWidth="1.7" />
             <path d="M5 21V5a2 2 0 0 1 2-2h7l5 5v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2Z" stroke="currentColor" strokeWidth="1.7" />
           </svg>
-          <span className="font-sans text-[11px] text-slate-600">{APPLICANT.resume}</span>
+          <span className="font-sans text-[12px] text-slate-700">{APPLICANT.resume}</span>
           <span
-            className="ml-auto flex items-center gap-1 font-sans text-[10px] font-semibold text-emerald-600 transition-opacity duration-300"
+            className="ml-auto flex items-center gap-1 font-sans text-[11px] font-semibold text-emerald-700 transition-opacity duration-300"
             style={{ opacity: state.attached ? 1 : 0 }}
           >
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none">
@@ -724,9 +726,9 @@ function ApplyScreen({ state, board, job, register }: { state: State; board: Boa
         <button
           type="button"
           ref={register("submit")}
-          className="relative mt-auto flex h-10 w-full items-center justify-center overflow-hidden rounded-lg font-sans text-[13px] font-semibold text-white transition-transform duration-200"
+          className="relative mt-auto flex h-10 w-full items-center justify-center overflow-hidden rounded-lg font-sans text-[14px] font-semibold text-white transition-transform duration-200"
           style={{
-            background: state.submitted ? "#10b981" : board.accent,
+            background: state.submitted ? "#047857" : board.accent,
             transform: state.submitting ? "scale(0.97)" : "scale(1)",
           }}
         >
@@ -767,8 +769,8 @@ function MemoryToast({ show }: { show: boolean }) {
           </svg>
         </span>
         <div className="min-w-0">
-          <div className="font-display text-[12px] font-semibold text-cream">Answer remembered</div>
-          <div className="font-mono text-[10px] leading-snug text-iris-300/70">
+          <div className="font-display text-[13px] font-semibold text-cream">Answer remembered</div>
+          <div className="font-mono text-[11px] leading-snug text-iris-300/85">
             Saved “6 years experience” for later applications.
           </div>
         </div>

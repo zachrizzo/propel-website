@@ -194,21 +194,21 @@ export default function Home() {
       {/* ───────────────── HERO ───────────────── */}
       <section className="relative px-5 pb-20 pt-32 sm:pt-36">
         <Aurora />
-        <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
-          <div>
+        <div className="mx-auto grid w-full min-w-0 max-w-6xl items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="min-w-0">
             <Reveal immediate>
-              <span className="inline-flex items-center gap-2 rounded-full border border-iris-400/25 bg-iris-500/10 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-wider text-iris-300">
+              <span className="inline-flex max-w-full items-center gap-2 rounded-full border border-iris-400/25 bg-iris-500/10 px-3.5 py-1.5 font-mono text-[12px] uppercase leading-5 tracking-wider text-iris-300">
                 <span className="h-1.5 w-1.5 rounded-full bg-ember-400" />
                 Browser agent for job applications across the web
               </span>
             </Reveal>
             <Reveal delay={0.06} immediate>
-              <h1 className="mt-6 max-w-2xl font-display text-5xl font-extrabold leading-[0.98] tracking-tight text-cream sm:text-6xl balance">
+              <h1 className="mt-6 max-w-2xl font-display text-[44px] font-extrabold leading-[1.05] tracking-tight text-cream min-[360px]:text-5xl min-[360px]:leading-[1.03] sm:text-6xl sm:leading-[1] balance">
                 Stop starting every job application from <span className="text-gradient">scratch.</span>
               </h1>
             </Reveal>
             <Reveal delay={0.12} immediate>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-iris-300/80">
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-iris-300/85">
                 Save your profile, résumé, and screening answers once. Propel uses them to fill
                 applications, attach materials, and work through longer flows across job boards and
                 employer career sites—then brings you in before anything is submitted.
@@ -220,14 +220,14 @@ export default function Home() {
               </div>
             </Reveal>
             <Reveal delay={0.24} immediate>
-              <p className="mt-5 font-mono text-[12px] text-iris-300/55">
+              <p className="mt-5 font-mono text-[14px] leading-relaxed text-iris-300/85">
                 Free · Mac &amp; Windows · Chrome · Review before submission
               </p>
             </Reveal>
           </div>
 
-          <Reveal delay={0.2} className="flex justify-center lg:justify-end" id="demo" immediate>
-            <div className="relative">
+          <Reveal delay={0.2} className="flex min-w-0 justify-center lg:justify-end" id="demo" immediate>
+            <div className="relative w-full min-w-0 max-w-full">
               <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-iris-500/10 blur-2xl" />
               <HeroFlow />
             </div>
@@ -236,12 +236,12 @@ export default function Home() {
 
         <Reveal delay={0.26} immediate>
           <div className="mx-auto mt-16 max-w-6xl border-y border-iris-400/10 py-5">
-            <p className="mb-4 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-iris-300/45">
+            <p className="mb-4 text-center font-mono text-[12px] uppercase leading-5 tracking-[0.16em] text-iris-300/85">
               One agent beyond a single apply button
             </p>
             <div className="flex flex-wrap items-center justify-center gap-x-7 gap-y-3">
               {COVERAGE_EXAMPLES.map((item) => (
-                <span key={item} className="inline-flex items-center gap-2 font-display text-sm font-semibold text-iris-300/75">
+                <span key={item} className="inline-flex items-center gap-2 font-display text-[15px] font-semibold text-iris-300/90 sm:text-base">
                   <span className="h-1.5 w-1.5 rounded-full bg-ember-400" />
                   {item}
                 </span>
@@ -257,8 +257,8 @@ export default function Home() {
           {REPEAT_WORK.map((item, index) => (
             <Reveal key={item.value} delay={index * 0.05}>
               <div className="ring-grad glass h-full rounded-2xl px-5 py-5">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-ember-500">{item.label}</span>
-                <p className="mt-2 font-display text-[16px] font-semibold text-cream">{item.value}</p>
+                <span className="font-mono text-[12px] uppercase leading-5 tracking-widest text-ember-600">{item.label}</span>
+                <p className="mt-2 font-display text-[17px] font-semibold text-cream">{item.value}</p>
               </div>
             </Reveal>
           ))}
@@ -269,11 +269,11 @@ export default function Home() {
       <section id="why" className="relative px-5 py-24">
         <div className="mx-auto max-w-6xl">
           <Reveal>
-            <span className="font-mono text-[11px] uppercase tracking-widest text-ember-500">Why download it</span>
+            <span className="font-mono text-[12px] uppercase leading-5 tracking-widest text-ember-600">Why download it</span>
             <h2 className="mt-4 max-w-3xl font-display text-4xl font-bold tracking-tight text-cream sm:text-5xl balance">
               The application changes. <span className="text-gradient">Your information doesn&apos;t.</span>
             </h2>
-            <p className="mt-5 max-w-2xl text-[16px] leading-relaxed text-iris-300/75">
+            <p className="mt-5 max-w-2xl text-[17px] leading-relaxed text-iris-300/85">
               Without an agent, every new form turns the same facts into fresh busywork. Propel carries
               your application context forward so you can spend time deciding where to apply—not rebuilding
               the same application.
@@ -282,11 +282,11 @@ export default function Home() {
           <div className="mt-12 grid gap-5 md:grid-cols-2">
             <Reveal>
               <div className="h-full rounded-2xl border border-rose-200 bg-rose-50/70 p-7">
-                <span className="font-mono text-[11px] uppercase tracking-widest text-rose-500">Every time, by hand</span>
+                <span className="font-mono text-[12px] uppercase leading-5 tracking-widest text-rose-700">Every time, by hand</span>
                 <h3 className="mt-3 font-display text-2xl font-semibold text-cream">Start over on another form</h3>
                 <ul className="mt-6 space-y-3">
                   {MANUAL_WORK.map((item) => (
-                    <li key={item} className="flex gap-3 text-[15px] leading-relaxed text-iris-300/75">
+                    <li key={item} className="flex gap-3 text-base leading-relaxed text-iris-300/85">
                       <ListIcon positive={false} />
                       <span>{item}</span>
                     </li>
@@ -296,11 +296,11 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.08}>
               <div className="ring-grad glass h-full rounded-2xl p-7">
-                <span className="font-mono text-[11px] uppercase tracking-widest text-emerald-700">With Propel</span>
+                <span className="font-mono text-[12px] uppercase leading-5 tracking-widest text-emerald-700">With Propel</span>
                 <h3 className="mt-3 font-display text-2xl font-semibold text-cream">Pick up with your context ready</h3>
                 <ul className="mt-6 space-y-3">
                   {PROPEL_WORK.map((item) => (
-                    <li key={item} className="flex gap-3 text-[15px] leading-relaxed text-iris-300/75">
+                    <li key={item} className="flex gap-3 text-base leading-relaxed text-iris-300/85">
                       <ListIcon positive />
                       <span>{item}</span>
                     </li>
@@ -316,7 +316,7 @@ export default function Home() {
       <section id="features" className="relative px-5 py-24">
         <div className="mx-auto max-w-6xl">
           <Reveal>
-            <span className="font-mono text-[11px] uppercase tracking-widest text-ember-500">What it handles</span>
+            <span className="font-mono text-[12px] uppercase leading-5 tracking-widest text-ember-600">What it handles</span>
             <h2 className="mt-4 max-w-3xl font-display text-4xl font-bold tracking-tight text-cream sm:text-5xl balance">
               Take the repeat work <span className="text-gradient">off your plate.</span>
             </h2>
@@ -329,7 +329,7 @@ export default function Home() {
                     <FeatureIcon name={feature.i} />
                   </div>
                   <h3 className="mt-4 font-display text-lg font-semibold text-cream">{feature.t}</h3>
-                  <p className="mt-2 text-[14px] leading-relaxed text-iris-300/70">{feature.d}</p>
+                  <p className="mt-2 text-base leading-relaxed text-iris-300/85">{feature.d}</p>
                 </div>
               </Reveal>
             ))}
@@ -342,12 +342,12 @@ export default function Home() {
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <div className="ring-grad glass overflow-hidden rounded-3xl px-8 py-12 text-center sm:px-14">
-              <span className="font-mono text-[11px] uppercase tracking-widest text-ember-500">Your application kit, carried forward</span>
+              <span className="font-mono text-[12px] uppercase leading-5 tracking-widest text-ember-600">Your application kit, carried forward</span>
               <p className="mx-auto mt-4 max-w-3xl font-display text-2xl font-semibold leading-snug text-cream sm:text-3xl balance">
                 One profile. One résumé. Saved answers. Propel carries them into the next application
                 so you don&apos;t rebuild everything from zero.
               </p>
-              <a href="#download" className="mt-6 inline-flex font-display text-sm font-semibold text-iris-300 underline-offset-4 hover:underline">
+              <a href="#download" className="mt-6 inline-flex font-display text-base font-semibold text-iris-300 underline-offset-4 hover:underline">
                 Download Propel free →
               </a>
             </div>
@@ -359,11 +359,11 @@ export default function Home() {
       <section id="coverage" className="relative px-5 py-24">
         <div className="mx-auto max-w-6xl">
           <Reveal>
-            <span className="font-mono text-[11px] uppercase tracking-widest text-ember-500">Where it works</span>
+            <span className="font-mono text-[12px] uppercase leading-5 tracking-widest text-ember-600">Where it works</span>
             <h2 className="mt-4 max-w-3xl font-display text-4xl font-bold tracking-tight text-cream sm:text-5xl balance">
               Across job boards and <span className="text-gradient">employer career sites.</span>
             </h2>
-            <p className="mt-5 max-w-3xl text-[16px] leading-relaxed text-iris-300/75">
+            <p className="mt-5 max-w-3xl text-[17px] leading-relaxed text-iris-300/85">
               Propel works against the live application in Chrome instead of being locked to one fixed
               apply flow. That gives one agent room to handle supported board applications, ATS-hosted
               forms, and employer career pages.
@@ -373,23 +373,23 @@ export default function Home() {
             {COVERAGE.map((item, index) => (
               <Reveal key={item.title} delay={index * 0.07}>
                 <div className="ring-grad glass h-full rounded-2xl p-7">
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-ember-500">{item.label}</span>
+                  <span className="font-mono text-[12px] uppercase leading-5 tracking-widest text-ember-600">{item.label}</span>
                   <h3 className="mt-3 font-display text-xl font-semibold text-cream">{item.title}</h3>
-                  <p className="mt-3 text-[15px] leading-relaxed text-iris-300/75">{item.body}</p>
+                  <p className="mt-3 text-base leading-relaxed text-iris-300/85">{item.body}</p>
                 </div>
               </Reveal>
             ))}
           </div>
           <Reveal>
-            <div className="mt-7 max-w-4xl rounded-2xl border border-amber-300/60 bg-amber-50 px-5 py-4 text-[14px] leading-relaxed text-amber-950/80">
+            <div className="mt-7 max-w-4xl rounded-2xl border border-amber-300/60 bg-amber-50 px-5 py-4 text-base leading-relaxed text-amber-950/90">
               <strong className="font-semibold text-amber-950">Coverage follows the application, not just the listing.</strong>{" "}
               Forms vary. A required answer you have not provided, email or login verification, 2FA or
               CAPTCHA, or an unsupported control can pause the run and hand the page back to you. Propel
               does not promise that every form on every site will complete automatically.
             </div>
-            <p className="mt-5 text-[14px] leading-relaxed text-iris-300/65">
+            <p className="mt-5 text-base leading-relaxed text-iris-300/85">
               Read the{" "}
-              <a href="/job-application-agent" className="font-medium text-iris-300 underline-offset-4 hover:underline">
+              <a href="/job-application-agent" className="font-medium text-iris-300 underline decoration-iris-400 underline-offset-4">
                 cross-site job application agent guide
               </a>{" "}
               for a deeper explanation of how coverage and handoffs work.
@@ -402,7 +402,7 @@ export default function Home() {
       <section id="how" className="relative px-5 py-24">
         <div className="mx-auto max-w-6xl">
           <Reveal>
-            <span className="font-mono text-[11px] uppercase tracking-widest text-ember-500">How it works</span>
+            <span className="font-mono text-[12px] uppercase leading-5 tracking-widest text-ember-600">How it works</span>
             <h2 className="mt-4 max-w-3xl font-display text-4xl font-bold tracking-tight text-cream sm:text-5xl balance">
               From blank form to <span className="text-gradient">ready for review.</span>
             </h2>
@@ -411,17 +411,17 @@ export default function Home() {
             {STEPS.map((step, index) => (
               <Reveal key={step.n} delay={index * 0.06}>
                 <div className="ring-grad glass h-full rounded-2xl p-6">
-                  <div className="font-mono text-sm font-medium text-ember-500">{step.n}</div>
+                  <div className="font-mono text-[15px] font-medium text-ember-600">{step.n}</div>
                   <h3 className="mt-3 font-display text-xl font-semibold text-cream">{step.title}</h3>
-                  <p className="mt-2.5 text-[15px] leading-relaxed text-iris-300/70">{step.body}</p>
+                  <p className="mt-2.5 text-base leading-relaxed text-iris-300/85">{step.body}</p>
                 </div>
               </Reveal>
             ))}
           </div>
           <Reveal>
-            <p className="mt-7 text-[14px] text-iris-300/65">
+            <p className="mt-7 text-base leading-relaxed text-iris-300/85">
               Want the setup details?{" "}
-              <a href="/how-to-auto-apply-to-jobs" className="font-medium text-iris-300 underline-offset-4 hover:underline">
+              <a href="/how-to-auto-apply-to-jobs" className="font-medium text-iris-300 underline decoration-iris-400 underline-offset-4">
                 Follow the auto-apply setup guide
               </a>
               .
@@ -442,7 +442,7 @@ export default function Home() {
             {site.faq.map((item, index) => (
               <Reveal key={item.q} delay={index * 0.035}>
                 <details className="ring-grad glass group rounded-xl px-5 py-1 [&[open]]:bg-ink-700/40">
-                  <summary className="flex cursor-pointer list-none items-center justify-between py-4 font-display text-[17px] font-medium text-cream">
+                  <summary className="flex cursor-pointer list-none items-center justify-between py-4 font-display text-lg font-medium leading-7 text-cream">
                     {item.q}
                     <span className="ml-4 grid h-7 w-7 shrink-0 place-items-center rounded-full bg-iris-500/15 text-iris-300 transition-transform group-open:rotate-45">
                       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -450,7 +450,7 @@ export default function Home() {
                       </svg>
                     </span>
                   </summary>
-                  <p className="pb-5 pr-8 text-[15px] leading-relaxed text-iris-300/75">{item.a}</p>
+                  <p className="pb-5 pr-8 text-base leading-relaxed text-iris-300/85">{item.a}</p>
                 </details>
               </Reveal>
             ))}
@@ -463,13 +463,13 @@ export default function Home() {
         <Aurora />
         <div className="mx-auto max-w-4xl text-center">
           <Reveal>
-            <span className="font-mono text-[11px] uppercase tracking-widest text-ember-500">Start once. Reuse from here.</span>
+            <span className="font-mono text-[12px] uppercase leading-5 tracking-widest text-ember-600">Start once. Reuse from here.</span>
             <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-cream sm:text-6xl balance">
               Your next application shouldn&apos;t start from <span className="text-gradient">scratch.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.08}>
-            <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-iris-300/80">
+            <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-iris-300/85">
               Download Propel free, save your application kit once, and let one browser agent take the
               repetitive work through supported job-board and employer-site forms.
             </p>
@@ -480,7 +480,7 @@ export default function Home() {
             </div>
           </Reveal>
           <Reveal delay={0.22}>
-            <p className="mx-auto mt-6 max-w-2xl font-mono text-[12px] leading-relaxed text-iris-300/55">
+            <p className="mx-auto mt-6 max-w-2xl font-mono text-[14px] leading-relaxed text-iris-300/85">
               Start with the desktop app, then add Propel Bridge for Chrome. Mac is signed and notarized.
               Windows 10/11 may show SmartScreen while the installer builds reputation.
             </p>
@@ -492,9 +492,9 @@ export default function Home() {
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 sm:flex-row">
           <div className="flex items-center gap-2.5">
             <Logo size={28} />
-            <span className="ml-2 font-mono text-[12px] text-iris-300/40">© 2026</span>
+            <span className="ml-2 font-mono text-[14px] text-iris-300/85">© 2026</span>
           </div>
-          <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-[14px] text-iris-300/70">
+          <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-[15px] text-iris-300/85">
             <a href="/privacy" className="transition-colors hover:text-cream">Privacy</a>
             <a href="/job-application-agent" className="transition-colors hover:text-cream">Job agent guide</a>
             <a href="/how-to-auto-apply-to-jobs" className="transition-colors hover:text-cream">Auto-apply guide</a>
