@@ -21,15 +21,18 @@ framework auto-detects as Next.js. No env vars required.
 
 Edit [`lib/site.ts`](lib/site.ts):
 - `url` — the production domain (used for canonical URLs, OG tags, sitemap)
-- `downloads.mac` / `downloads.windows` — website-owned download routes for the desktop app
+- `downloads.mac` — the website-owned macOS download route
+- `downloads.windows` — the assigned Microsoft Store listing for Propel Job Agent
 - `downloads.chrome` — the Chrome Web Store listing URL
 
-The website download routes must stay stable:
+The website-owned installer routes must stay stable:
 
 - `https://propel-website-pi.vercel.app/download/mac`
 - `https://propel-website-pi.vercel.app/download/windows`
 
-Those routes prefer the current Propel-named GitHub release assets and only
+The macOS route is the public acquisition path. The Windows route remains a
+legacy/support path while the primary Windows call-to-action points to the
+Microsoft Store. Both routes prefer the current Propel-named GitHub release assets and only
 redirect after confirming a public installer exists. If a platform asset is not
 published yet, the route renders a Propel-owned status page instead of sending
 users to GitHub. Run `npm run verify:downloads` after release work to confirm
