@@ -192,7 +192,7 @@ export default function Home() {
       <Nav />
 
       {/* ───────────────── HERO ───────────────── */}
-      <section className="relative px-5 pb-20 pt-32 sm:pt-36">
+      <section data-analytics-section="hero" className="relative px-5 pb-20 pt-32 sm:pt-36">
         <Aurora />
         <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
@@ -252,7 +252,7 @@ export default function Home() {
       </section>
 
       {/* ───────────────── PRODUCT PROOF ───────────────── */}
-      <section className="relative px-5 pb-16">
+      <section data-analytics-section="product-proof" className="relative px-5 pb-16">
         <div className="mx-auto grid max-w-6xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {REPEAT_WORK.map((item, index) => (
             <Reveal key={item.value} delay={index * 0.05}>
@@ -266,7 +266,7 @@ export default function Home() {
       </section>
 
       {/* ───────────────── WHY PROPEL ───────────────── */}
-      <section id="why" className="relative px-5 py-24">
+      <section id="why" data-analytics-section="why" className="relative px-5 py-24">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <span className="font-mono text-[11px] uppercase tracking-widest text-ember-500">Why download it</span>
@@ -313,7 +313,7 @@ export default function Home() {
       </section>
 
       {/* ───────────────── FEATURES ───────────────── */}
-      <section id="features" className="relative px-5 py-24">
+      <section id="features" data-analytics-section="features" className="relative px-5 py-24">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <span className="font-mono text-[11px] uppercase tracking-widest text-ember-500">What it handles</span>
@@ -338,7 +338,7 @@ export default function Home() {
       </section>
 
       {/* ───────────────── VALUE BAND ───────────────── */}
-      <section className="relative px-5 py-12">
+      <section data-analytics-section="application-kit" className="relative px-5 py-12">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <div className="ring-grad glass overflow-hidden rounded-3xl px-8 py-12 text-center sm:px-14">
@@ -347,7 +347,11 @@ export default function Home() {
                 One profile. One résumé. Saved answers. Propel carries them into the next application
                 so you don&apos;t rebuild everything from zero.
               </p>
-              <a href="#download" className="mt-6 inline-flex font-display text-sm font-semibold text-iris-300 underline-offset-4 hover:underline">
+              <a
+                href="#download"
+                data-analytics-download="download_section"
+                className="mt-6 inline-flex font-display text-sm font-semibold text-iris-300 underline-offset-4 hover:underline"
+              >
                 Download Propel free →
               </a>
             </div>
@@ -356,7 +360,7 @@ export default function Home() {
       </section>
 
       {/* ───────────────── COVERAGE ───────────────── */}
-      <section id="coverage" className="relative px-5 py-24">
+      <section id="coverage" data-analytics-section="coverage" className="relative px-5 py-24">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <span className="font-mono text-[11px] uppercase tracking-widest text-ember-500">Where it works</span>
@@ -399,7 +403,7 @@ export default function Home() {
       </section>
 
       {/* ───────────────── HOW IT WORKS ───────────────── */}
-      <section id="how" className="relative px-5 py-24">
+      <section id="how" data-analytics-section="how-it-works" className="relative px-5 py-24">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <span className="font-mono text-[11px] uppercase tracking-widest text-ember-500">How it works</span>
@@ -431,7 +435,7 @@ export default function Home() {
       </section>
 
       {/* ───────────────── FAQ ───────────────── */}
-      <section id="faq" className="relative px-5 py-24">
+      <section id="faq" data-analytics-section="faq" className="relative px-5 py-24">
         <div className="mx-auto max-w-3xl">
           <Reveal>
             <h2 className="text-center font-display text-4xl font-bold tracking-tight text-cream sm:text-5xl">
@@ -459,7 +463,7 @@ export default function Home() {
       </section>
 
       {/* ───────────────── DOWNLOAD ───────────────── */}
-      <section id="download" className="relative px-5 py-24">
+      <section id="download" data-analytics-section="download" className="relative px-5 py-24">
         <Aurora />
         <div className="mx-auto max-w-4xl text-center">
           <Reveal>

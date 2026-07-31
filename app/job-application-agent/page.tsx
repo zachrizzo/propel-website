@@ -23,30 +23,37 @@ export const metadata: Metadata = {
 
 const SECTIONS = [
   {
+    analyticsKey: "what-is-an-agent",
     title: "What is a job application agent?",
     body: "A job application agent completes repetitive work in your browser: entering contact details and work history, attaching a résumé and requested materials, reusing answers you have already provided, and moving through supported application steps. A useful agent should work across more than one application format while leaving role selection and final review with you.",
   },
   {
+    analyticsKey: "context-forward",
     title: "Why carrying your context forward matters",
     body: "The site and form may change, but your contact details, work history, résumé, links, and many screening answers do not. Propel turns those saved details into an application kit it can carry into the next supported flow, so each new role does not force you back to a blank form.",
   },
   {
+    analyticsKey: "cross-site-coverage",
     title: "Across job boards and employer career sites",
     body: "Propel works against the live application shown in Chrome rather than a single hardcoded apply button. On supported flows, the agent can read the form, map saved information into its fields, attach materials, advance through multiple pages, and bring the result back for review on job boards, ATS-hosted forms, and employer career sites.",
   },
   {
+    analyticsKey: "linkedin-easy-apply",
     title: "LinkedIn Easy Apply is one example",
     body: "Propel can complete supported LinkedIn Easy Apply flows with the same profile, résumé, and saved answers it uses elsewhere. Easy Apply is an example of the product's coverage, not its category or limit. Propel is an independent product and is not affiliated with or endorsed by LinkedIn.",
   },
   {
+    analyticsKey: "indeed",
     title: "What about jobs found on Indeed?",
     body: "Indeed is available as a job source, but a listing may use an Indeed-hosted application or open a different employer or ATS form. Propel's completion coverage follows the application that opens, so it does not promise that every Indeed listing or flow will complete automatically.",
   },
   {
+    analyticsKey: "coverage-limits",
     title: "Where coverage has limits",
     body: "Application pages change. A required answer you have not provided, email or login verification, 2FA or CAPTCHA, or an unsupported form control may require you to step in. Propel keeps the page visible and hands control back instead of claiming universal coverage or guessing through a sensitive step.",
   },
   {
+    analyticsKey: "automation-checklist",
     title: "What to look for before using automation",
     body: "Use a tool that keeps the application visible, makes its data handling clear, maintains a useful record, and gives you a review point before submission. Automation should remove repeated work without replacing your judgment about the role, résumé, or answers you send.",
   },
@@ -96,7 +103,7 @@ export default function JobApplicationAgent() {
           <div className="mt-12 space-y-10">
             {SECTIONS.map((section, index) => (
               <Reveal key={section.title} delay={index * 0.04}>
-                <section>
+                <section data-analytics-section={section.analyticsKey}>
                   <h2 className="font-display text-2xl font-bold tracking-tight text-cream">{section.title}</h2>
                   <p className="mt-3 text-[15px] leading-relaxed text-iris-300/75">{section.body}</p>
                 </section>
@@ -105,7 +112,7 @@ export default function JobApplicationAgent() {
           </div>
 
           <Reveal>
-            <div className="ring-grad glass mt-14 rounded-2xl px-7 py-9 text-center">
+            <div data-analytics-section="download" className="ring-grad glass mt-14 rounded-2xl px-7 py-9 text-center">
               <h2 className="font-display text-2xl font-bold text-cream">Stop rebuilding the same application</h2>
               <p className="mx-auto mt-3 max-w-lg text-[15px] leading-relaxed text-iris-300/75">
                 Propel is free to download for Mac and Windows. Save your application kit once, connect

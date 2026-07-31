@@ -15,7 +15,10 @@ npm run verify:downloads
 ## Deploy
 
 Optimized for Vercel — import the repo at [vercel.com/new](https://vercel.com/new),
-framework auto-detects as Next.js. No env vars required.
+framework auto-detects as Next.js. No env vars are required. The analytics route
+defaults to the desktop app's existing Supabase project and its browser-safe
+publishable key; `PROPEL_SUPABASE_URL` and `PROPEL_SUPABASE_PUBLISHABLE_KEY` can
+override those values during key rotation.
 
 ## Configure
 
@@ -41,3 +44,10 @@ and `Propel-Setup.exe`) and to make sure no site code was accidentally changed
 to a version-pinned `/releases/download/vX.Y.Z/...` URL.
 
 The `/privacy` route doubles as the Chrome Web Store privacy-policy URL.
+
+## Product analytics
+
+The site records privacy-conscious first-party page, section, scroll-milestone,
+and download CTA events in Propel's existing Supabase project. See
+[`docs/analytics.md`](docs/analytics.md) for the data boundaries, security model,
+and aggregate queries.

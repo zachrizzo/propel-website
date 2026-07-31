@@ -38,19 +38,21 @@ export function PrimaryDownload() {
   useEffect(() => setOs(detectOS()), []);
 
   const macPrimary = site.downloadAvailability.mac
-    ? { href: site.downloads.mac, label: "Download Propel for Mac — free", glyph: <MacGlyph /> }
-    : { href: site.downloads.mac, label: "Mac build coming soon", glyph: <MacGlyph /> };
+    ? { href: site.downloads.mac, label: "Download Propel for Mac — free", glyph: <MacGlyph />, target: "mac" }
+    : { href: site.downloads.mac, label: "Mac build coming soon", glyph: <MacGlyph />, target: "mac" };
   const primary =
     os === "windows"
-      ? { href: site.downloads.windows, label: "Download Propel for Windows — free", glyph: <WinGlyph /> }
+      ? { href: site.downloads.windows, label: "Download Propel for Windows — free", glyph: <WinGlyph />, target: "windows" }
       : macPrimary;
   const otherLabel = os === "windows" ? (site.downloadAvailability.mac ? "macOS" : "Mac status") : "Windows";
   const otherHref = os === "windows" ? site.downloads.mac : site.downloads.windows;
+  const otherTarget = os === "windows" ? "mac" : "windows";
 
   return (
     <div className="flex flex-col items-center gap-3 sm:flex-row">
       <a
         href={primary.href}
+        data-analytics-download={primary.target}
         className="group relative inline-flex h-13 items-center gap-2.5 overflow-hidden rounded-full bg-cream px-7 py-3.5 font-display text-[15px] font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-95"
       >
         <span className="relative z-10 flex items-center gap-2.5">
@@ -61,6 +63,7 @@ export function PrimaryDownload() {
       </a>
       <a
         href={otherHref}
+        data-analytics-download={otherTarget}
         className="text-[14px] font-medium text-iris-300/80 underline-offset-4 transition-colors hover:text-cream hover:underline"
       >
         or get it for {otherLabel}
@@ -73,12 +76,13 @@ export function DownloadTrio() {
   const items = [
     {
       href: site.downloads.mac,
+      target: "mac",
       label: "macOS",
       sub: site.downloadAvailability.mac ? "Universal .dmg" : "Signed build coming soon",
       glyph: <MacGlyph />,
     },
-    { href: site.downloads.windows, label: "Windows", sub: "Microsoft Store", glyph: <WinGlyph /> },
-    { href: site.downloads.chrome, label: "Chrome extension", sub: "Propel Bridge", glyph: <ChromeGlyph /> },
+    { href: site.downloads.windows, target: "windows", label: "Windows", sub: "Microsoft Store", glyph: <WinGlyph /> },
+    { href: site.downloads.chrome, target: "chrome", label: "Chrome extension", sub: "Propel Bridge", glyph: <ChromeGlyph /> },
   ];
   return (
     <div className="grid w-full gap-3 sm:grid-cols-3">
@@ -86,6 +90,7 @@ export function DownloadTrio() {
         <a
           key={it.label}
           href={it.href}
+          data-analytics-download={it.target}
           className="ring-grad glass group flex items-center gap-3 rounded-xl px-4 py-4 transition-transform hover:-translate-y-1"
         >
           <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-iris-500/15 text-iris-300 transition-colors group-hover:bg-iris-500/25">

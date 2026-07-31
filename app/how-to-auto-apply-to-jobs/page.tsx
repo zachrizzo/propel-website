@@ -23,6 +23,7 @@ export const metadata: Metadata = {
 
 const SECTIONS = [
   {
+    analyticsKey: "auto-apply-definition",
     h: "What “auto-apply” actually means",
     p: [
       "Auto-applying means letting a tool complete the repetitive parts of an application—contact details, work history, links, résumé uploads, and familiar screening questions—from information you have already provided. The goal is to remove repeated typing while you still choose the role and review what will be submitted.",
@@ -30,24 +31,28 @@ const SECTIONS = [
     ],
   },
   {
+    analyticsKey: "save-profile",
     h: "1. Save your application profile",
     p: [
       "Add your contact details, work history, résumé, links, and preferred answers in the Propel desktop app. This becomes the application kit Propel can reuse across supported job-board, ATS, and employer career-site forms.",
     ],
   },
   {
+    analyticsKey: "connect-chrome",
     h: "2. Connect the application in Chrome",
     p: [
       "Install the Propel Bridge extension and pair it with the desktop app. The extension works with the application shown in your browser, while the desktop app provides your saved profile and runs the application workflow.",
     ],
   },
   {
+    analyticsKey: "open-role",
     h: "3. Open a role you want to apply for",
     p: [
       "Start from a job board or employer career site and open the actual application. LinkedIn Easy Apply is one supported example, but Propel is designed as a browser agent for supported application flows across the web rather than as a LinkedIn-only tool.",
     ],
   },
   {
+    analyticsKey: "repeat-work",
     h: "4. Let Propel handle the repeat work",
     p: [
       "Propel reads the live form, fills mapped details from your application kit, attaches requested materials, reuses saved answers when they match, and moves through supported multi-page steps. It also keeps a record of the application so you do not have to rebuild your own tracker.",
@@ -55,6 +60,7 @@ const SECTIONS = [
     ],
   },
   {
+    analyticsKey: "review",
     h: "5. Review before submission",
     p: [
       "Check the employer, role, selected résumé, contact details, and screening answers before anything is sent. If a required answer is unknown, or email or login verification, 2FA or CAPTCHA, or an unsupported control appears, take over in the browser and continue when the page is ready.",
@@ -107,7 +113,7 @@ export default function Guide() {
           <div className="mt-12 space-y-10">
             {SECTIONS.map((s, i) => (
               <Reveal key={s.h} delay={i * 0.04}>
-                <section>
+                <section data-analytics-section={s.analyticsKey}>
                   <h2 className="font-display text-2xl font-bold tracking-tight text-cream">{s.h}</h2>
                   {s.p.map((para, j) => (
                     <p key={j} className="mt-3 text-[15px] leading-relaxed text-iris-300/75">
@@ -120,7 +126,7 @@ export default function Guide() {
           </div>
 
           <Reveal>
-            <div className="ring-grad glass mt-14 rounded-2xl px-7 py-9 text-center">
+            <div data-analytics-section="download" className="ring-grad glass mt-14 rounded-2xl px-7 py-9 text-center">
               <h2 className="font-display text-2xl font-bold text-cream">Make the next application easier</h2>
               <p className="mx-auto mt-3 max-w-lg text-[15px] leading-relaxed text-iris-300/75">
                 Install the desktop app and Chrome bridge, save your application kit once, and let Propel
