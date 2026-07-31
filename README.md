@@ -41,3 +41,9 @@ and `Propel-Setup.exe`) and to make sure no site code was accidentally changed
 to a version-pinned `/releases/download/vX.Y.Z/...` URL.
 
 The `/privacy` route doubles as the Chrome Web Store privacy-policy URL.
+
+The `/billing` route is the Stripe Customer Portal return handoff. It opens the
+registered Propel desktop-app protocol at `propel://billing` and leaves a link
+to the site download section when the app is not installed. Keep billing
+selection and management in the desktop app; do not replace this route with a
+web checkout URL.
