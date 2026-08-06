@@ -3,9 +3,6 @@
 // live (it's the privacy URL published in the Chrome Web Store listing).
 export const siteUrl = "https://propeljobagent.com";
 
-// Permanent public destination assigned to Propel Job Agent in Partner Center.
-export const windowsStoreUrl = "https://apps.microsoft.com/detail/9NTPPP7RFTC5";
-
 const releaseBase = "https://github.com/zachrizzo/propel-releases/releases/latest/download";
 
 export const releaseDownloads = {
@@ -33,12 +30,11 @@ export const site = {
     "Stop retyping job applications. Propel reuses your profile, résumé, and saved answers across job boards and employer career sites, with review before submission.",
   // The public custom domain is the canonical SEO identity for the site.
   url: siteUrl,
-  // Primary acquisition destinations. The Windows Store URL is intentionally
-  // stable across releases; the legacy installer route remains available for
-  // existing direct-install users and support.
+  // Website-owned download routes. They never send users directly to GitHub
+  // unless a public installer asset is confirmed to exist.
   downloads: {
     mac: `${siteUrl}/download/mac`,
-    windows: windowsStoreUrl,
+    windows: `${siteUrl}/download/windows`,
     chrome: "https://chromewebstore.google.com/detail/propel-bridge/imggbmnonbcnkfmdghfedfadijfjdfkj",
   },
   downloadAvailability: {

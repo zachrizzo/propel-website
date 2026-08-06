@@ -5,9 +5,9 @@ import { join } from "node:path";
 
 const releaseRepo = "zachrizzo/propel-releases";
 const releaseBase = `https://github.com/${releaseRepo}/releases/latest/download`;
-const windowsStoreUrl = "https://apps.microsoft.com/detail/9NTPPP7RFTC5";
 const requiredRoutePaths = {
   mac: "/download/mac",
+  windows: "/download/windows",
 };
 const requiredAssets = {
   mac: "Propel.dmg",
@@ -41,12 +41,6 @@ async function verifySiteConfig() {
     if (!siteConfig.includes(path)) {
       fail(`lib/site.ts must use the website-owned ${platform} download route: ${path}`);
     }
-  }
-  if (!siteConfig.includes(`export const windowsStoreUrl = "${windowsStoreUrl}"`)) {
-    fail(`lib/site.ts must keep the assigned Microsoft Store URL: ${windowsStoreUrl}`);
-  }
-  if (!siteConfig.includes("windows: windowsStoreUrl")) {
-    fail("lib/site.ts must route primary Windows acquisition through the Microsoft Store");
   }
   if (!siteConfig.includes("mac: true")) {
     fail("lib/site.ts must keep Mac downloads enabled now that Propel.dmg is published");

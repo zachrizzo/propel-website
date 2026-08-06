@@ -77,7 +77,7 @@ export function DownloadTrio() {
       sub: site.downloadAvailability.mac ? "Universal .dmg" : "Signed build coming soon",
       glyph: <MacGlyph />,
     },
-    { href: site.downloads.windows, label: "Windows", sub: "Microsoft Store", glyph: <WinGlyph /> },
+    { href: site.downloads.windows, label: "Windows", sub: "10 / 11 · x64 .exe", glyph: <WinGlyph /> },
     { href: site.downloads.chrome, label: "Chrome extension", sub: "Propel Bridge", glyph: <ChromeGlyph /> },
   ];
   return (
