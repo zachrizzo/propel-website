@@ -27,7 +27,7 @@ export const site = {
   productName: "Propel Job Agent",
   tagline: "Never start another job application from scratch",
   description:
-    "Stop retyping job applications. Propel reuses your profile, résumé, and saved answers across job boards and employer career sites, with review before submission.",
+    "Stop retyping job applications. In beta, Propel fills LinkedIn Easy Apply and supported Indeed applications in your Chrome tab, then brings you in to review before anything is submitted.",
   // The public custom domain is the canonical SEO identity for the site.
   url: siteUrl,
   // Website-owned download routes. They never send users directly to GitHub
@@ -91,7 +91,7 @@ export const site = {
     },
     {
       q: "Why do I need both a desktop app and a Chrome extension?",
-      a: "The extension acts inside the browser tab where the application form actually lives, while the desktop app runs the apply engine and holds your profile and résumé. Together they complete applications for you in your own browser.",
+      a: "The extension acts inside the browser tab where the application form actually lives, while the desktop app runs the apply engine and holds your profile and résumé. Together they fill LinkedIn Easy Apply and supported Indeed applications in your Chrome tab, then you review before anything is submitted.",
     },
     {
       q: "Is Propel free?",

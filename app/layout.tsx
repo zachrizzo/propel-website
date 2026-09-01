@@ -57,12 +57,12 @@ export const metadata: Metadata = {
     description: site.description,
     siteName: site.name,
     locale: "en_US",
-    images: [
+      images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Propel — a browser agent for job applications across job boards and employer career sites",
+        alt: "Propel — a browser agent for LinkedIn Easy Apply and supported Indeed applications",
       },
     ],
   },
@@ -134,13 +134,11 @@ const jsonLd = {
       operatingSystem: "macOS, Windows",
       description: site.description,
       featureList: [
-        "Completes supported applications across job boards and employer career sites",
-        "Works through supported multi-step and ATS-hosted forms",
-        "Fills repeat application fields from a saved profile",
+        "Fills LinkedIn Easy Apply and supported Indeed applications in your Chrome tab",
+        "Uses a saved profile to fill repeat application fields",
         "Attaches saved résumés and requested application materials",
         "Reuses saved answers when the same question appears later",
-        "Handles LinkedIn Easy Apply as one supported application flow",
-        "Lets the user review the application before submission",
+        "Brings you in to review the application before submission",
         "Tracks submitted applications",
       ],
       offers: { "@type": "Offer", price: "19.00", priceCurrency: "USD" },

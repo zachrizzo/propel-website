@@ -102,7 +102,7 @@ const STEPS = [
   {
     n: "03",
     title: "Open a role you want",
-    body: "Start from a job board or employer career site. Propel reads the live form, fills what it can support, attaches materials, and works through longer flows.",
+    body: "Start from LinkedIn Easy Apply or supported Indeed. Propel reads the live form, fills what it can support, attaches materials, and works through the flow.",
   },
   {
     n: "04",
@@ -117,9 +117,9 @@ const homepageJsonLd = {
     {
       "@type": "HowTo",
       "@id": `${site.url}/#howto`,
-      name: "How to complete job applications across job boards and employer career sites with Propel",
+      name: "How to fill LinkedIn Easy Apply and supported Indeed applications with Propel",
       description:
-        "Save an application profile once, let Propel complete repeat work in supported browser-based job applications, and review before submission.",
+        "Save an application profile once, let Propel fill LinkedIn Easy Apply and supported Indeed applications in your Chrome tab, and review before submission.",
       step: STEPS.map((step, index) => ({
         "@type": "HowToStep",
         position: index + 1,
@@ -346,7 +346,7 @@ export default function Home() {
                 so you don&apos;t rebuild everything from zero.
               </p>
               <a href="#download" className="mt-6 inline-flex font-display text-sm font-semibold text-iris-300 underline-offset-4 hover:underline">
-                Download Propel free →
+                Download Propel — free to install →
               </a>
             </div>
           </Reveal>
@@ -464,7 +464,7 @@ export default function Home() {
           </Reveal>
           <Reveal delay={0.08}>
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-iris-300/80">
-              Download Propel free, save your application kit once, and let the browser agent fill LinkedIn Easy Apply and supported Indeed applications in your Chrome tab.
+              Install Propel free, save your application kit once, and let the browser agent fill LinkedIn Easy Apply and supported Indeed applications in your Chrome tab.
             </p>
           </Reveal>
           <Reveal delay={0.16}>
