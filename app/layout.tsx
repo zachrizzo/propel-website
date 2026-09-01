@@ -131,7 +131,7 @@ const jsonLd = {
       alternateName: [site.name, "Propel Bridge"],
       brand: { "@type": "Brand", name: site.name },
       applicationCategory: "BusinessApplication",
-      operatingSystem: "macOS, Windows",
+      operatingSystem: "macOS",
       description: site.description,
       featureList: [
         "Fills LinkedIn Easy Apply and supported Indeed applications in your Chrome tab",
