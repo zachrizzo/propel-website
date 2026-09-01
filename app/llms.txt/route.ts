@@ -9,27 +9,24 @@ ${site.description}
 
 ## What it does
 
-Propel is a browser agent for completing supported job applications across job
-boards, ATS-hosted forms, and employer career sites. It uses a saved profile to
-fill repeat fields, attach a résumé and requested materials, reuse saved screening
-answers, move through longer flows, and maintain an application record. The
-application stays visible in the user's browser for review before submission.
+Propel is a browser agent for completing supported job applications. In beta, it
+fills LinkedIn Easy Apply and supported Indeed applications in your Chrome tab.
+It uses a saved profile to fill repeat fields, attach a résumé and requested
+materials, reuse saved screening answers, move through supported steps, and maintain
+an application record. The application stays visible in the user's browser for
+review before submission.
 
-## Application types
+## Beta coverage
 
-- Job-board applications: Propel can work through supported application flows on
-  job boards. LinkedIn Easy Apply is one example, not the product boundary.
-- Employer and ATS applications: Propel can continue through supported multi-page
-  forms on employer career sites and ATS-hosted pages using the same profile.
-- Jobs found on Indeed: Indeed is available as a job source, but completion
-  coverage varies because listings can use different Indeed-hosted flows or open
-  an external employer or ATS form. Propel does not promise every Indeed
-  application will complete automatically.
+In beta, Propel fills LinkedIn Easy Apply and supported Indeed applications in
+your Chrome tab. Easy Apply is the main working path. Indeed is a job source;
+some listings open a flow Propel cannot finish, and it hands the page back. Not
+ATS-wide or employer career-site yet.
 
-Propel does not claim to work on every site or form. Application pages change,
-and required unknown answers, email or login verification, 2FA, CAPTCHAs, or
-unsupported controls may require user input. Propel is independent and is not
-affiliated with or endorsed by LinkedIn or any other job site.
+Application pages change, and required unknown answers, email or login verification,
+2FA, CAPTCHAs, or unsupported controls may require user input. Propel does not
+promise that every form will complete automatically. Propel is independent and is
+not affiliated with or endorsed by LinkedIn or any other job site.
 
 ## Why people use it
 
@@ -45,8 +42,9 @@ affiliated with or endorsed by LinkedIn or any other job site.
 Propel is the desktop app. Propel Job Agent is the public product name for search
 and discovery. Propel Bridge is the Chrome extension that connects the browser to
 the desktop app. Together they fill job applications in the user's own browser
-while the user stays in control. The desktop app is free to download for macOS
-and Windows.
+while the user stays in control. The desktop app is free to install for macOS.
+Application attempts are included in Starter, which is $19/mo for 20 application
+attempts. The Windows installer is not currently available.
 
 ## Roadmap (coming soon)
 

@@ -39,7 +39,7 @@ export const site = {
   },
   downloadAvailability: {
     mac: true,
-    windows: true,
+    windows: false,
   },
   social: {
     // Public releases repo (source is private).
@@ -71,15 +71,11 @@ export const site = {
     },
     {
       q: "Which job sites and forms can Propel handle?",
-      a: "Propel is built for browser-based applications across job boards, ATS-hosted forms, and employer career sites. Coverage follows the live application rather than only the listing's site name. Forms change, so Propel does not promise every form on every website will complete automatically.",
-    },
-    {
-      q: "Does Propel work with jobs found on Indeed?",
-      a: "Indeed is available as a job source, but Propel does not currently promise completion of every Indeed application. Some listings use an Indeed-hosted flow; others open an employer or ATS form. Propel follows the application that opens when it supports the form, and hands control back if it reaches a flow or verification step it cannot complete reliably.",
+      a: "In beta, Propel fills LinkedIn Easy Apply and supported Indeed applications in your Chrome tab. Easy Apply is the main working path. Indeed is a job source; some listings open a flow Propel cannot finish, and it hands the page back. Not ATS-wide or employer career-site yet.",
     },
     {
       q: "Does Propel only work with LinkedIn Easy Apply?",
-      a: "No. LinkedIn Easy Apply is one application flow Propel can handle, not the product's boundary. The same browser agent is built to work through supported multi-step applications on other job boards, ATS-hosted forms, and employer career sites.",
+      a: "In beta, LinkedIn Easy Apply and supported Indeed. Easy Apply is the main working path. Indeed is a job source; some listings open a flow Propel cannot finish, and it hands the page back. Not ATS-wide or employer career-site yet.",
     },
     {
       q: "Do I stay in control of what gets submitted?",
@@ -87,7 +83,7 @@ export const site = {
     },
     {
       q: "What happens when Propel cannot complete a step?",
-      a: "Propel pauses or hands the page back to you instead of guessing. A required answer you have not provided, email or login verification, 2FA or CAPTCHA, or an unsupported form control may need your input before the application can continue.",
+      a: "Propel pauses or hands the page back instead of guessing. A required answer you have not provided, email or login verification, 2FA or CAPTCHA, or an unsupported form control may need your input before the application can continue.",
     },
     {
       q: "Does Propel remember my answers?",
@@ -99,7 +95,7 @@ export const site = {
     },
     {
       q: "Is Propel free?",
-      a: "Yes — the desktop app and the Propel Bridge Chrome extension are free to download and use.",
+      a: "The desktop app and Propel Bridge Chrome extension are free to install. Application attempts are included in Starter, which is $19/mo for 20 application attempts.",
     },
     {
       q: "How much time does it save?",
@@ -111,7 +107,7 @@ export const site = {
     },
     {
       q: "Is the desktop app signed?",
-      a: "Yes. The Mac app is signed and notarized with an Apple Developer ID. The Windows installer is published too; it may still show Microsoft SmartScreen while the new installer builds reputation.",
+      a: "The Mac app is signed and notarized with an Apple Developer ID. The Windows installer is not currently published.",
     },
     {
       q: "Will Propel update itself?",

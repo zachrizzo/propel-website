@@ -8,16 +8,16 @@ import { site } from "@/lib/site";
 const PATH = "/how-to-auto-apply-to-jobs";
 
 export const metadata: Metadata = {
-  title: "How to Auto-Apply Across Job Boards and Career Sites",
+  title: "How to Auto-Apply to LinkedIn Easy Apply and Indeed",
   description:
-    "Set up one saved application kit for supported job-board, ATS, and employer career-site forms, with your review before submission.",
+    "Set up one saved application kit for LinkedIn Easy Apply and supported Indeed applications, with your review before submission.",
   alternates: { canonical: PATH },
   openGraph: {
     type: "article",
     url: `${site.url}${PATH}`,
-    title: "How to Auto-Apply Across Job Boards and Career Sites",
+    title: "How to Auto-Apply to LinkedIn Easy Apply and Indeed",
     description:
-      "A practical setup guide for using Propel across supported job-board, ATS, and employer career-site applications.",
+      "A practical setup guide for using Propel with LinkedIn Easy Apply and supported Indeed applications.",
   },
 };
 
@@ -26,13 +26,12 @@ const SECTIONS = [
     h: "What “auto-apply” actually means",
     p: [
       "Auto-applying means letting a tool complete the repetitive parts of an application—contact details, work history, links, résumé uploads, and familiar screening questions—from information you have already provided. The goal is to remove repeated typing while you still choose the role and review what will be submitted.",
-      "A useful workflow should follow the application beyond one job board or one apply-button format. Some roles use a compact flow such as LinkedIn Easy Apply; others move into a longer ATS-hosted or employer career-site application.",
     ],
   },
   {
     h: "1. Save your application profile",
     p: [
-      "Add your contact details, work history, résumé, links, and preferred answers in the Propel desktop app. This becomes the application kit Propel can reuse across supported job-board, ATS, and employer career-site forms.",
+      "Add your contact details, work history, résumé, links, and preferred answers in the Propel desktop app. This becomes the application kit Propel can reuse.",
     ],
   },
   {
@@ -44,14 +43,13 @@ const SECTIONS = [
   {
     h: "3. Open a role you want to apply for",
     p: [
-      "Start from a job board or employer career site and open the actual application. LinkedIn Easy Apply is one supported example, but Propel is designed as a browser agent for supported application flows across the web rather than as a LinkedIn-only tool.",
+      "Start from LinkedIn or Indeed and open the actual application. In beta, Propel fills LinkedIn Easy Apply and supported Indeed applications in your Chrome tab. Easy Apply is the main working path. Indeed is a job source; some listings open a flow Propel cannot finish, and it hands the page back. Not ATS-wide or employer career-site yet.",
     ],
   },
   {
     h: "4. Let Propel handle the repeat work",
     p: [
-      "Propel reads the live form, fills mapped details from your application kit, attaches requested materials, reuses saved answers when they match, and moves through supported multi-page steps. It also keeps a record of the application so you do not have to rebuild your own tracker.",
-      "Coverage follows the application that opens. For example, a job found on Indeed may stay in an Indeed-hosted flow or open a different employer or ATS form, and not every variation is currently supported.",
+      "Propel reads the live form, fills mapped details from your application kit, attaches requested materials, reuses saved answers when they match, and moves through supported steps. It also keeps a record of the application so you do not have to rebuild your own tracker.",
     ],
   },
   {
@@ -66,9 +64,9 @@ const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   "@id": `${site.url}${PATH}#howto`,
-  name: "How to auto-apply across job boards and employer career sites with Propel",
+  name: "How to auto-apply to LinkedIn Easy Apply and Indeed with Propel",
   description:
-    "Set up one saved application kit for supported job-board, ATS, and employer career-site forms, then review before submission.",
+    "Set up one saved application kit for LinkedIn Easy Apply and supported Indeed applications, then review before submission.",
   url: `${site.url}${PATH}`,
   step: SECTIONS.slice(1).map((section, index) => ({
     "@type": "HowToStep",
@@ -94,13 +92,12 @@ export default function Guide() {
           </Reveal>
           <Reveal delay={0.06} immediate>
             <h1 className="mt-4 font-display text-4xl font-extrabold leading-tight tracking-tight text-cream sm:text-5xl balance">
-              How to auto-apply across <span className="text-gradient">job boards and career sites</span>
+              How to auto-apply to <span className="text-gradient">LinkedIn Easy Apply and Indeed</span>
             </h1>
           </Reveal>
           <Reveal delay={0.12} immediate>
             <p className="mt-5 text-lg leading-relaxed text-iris-300/80">
-              Save your application kit once, reuse it across supported browser-based application flows,
-              and keep the final review in your hands.
+              Save your application kit once, fill LinkedIn Easy Apply and supported Indeed applications in your Chrome tab, and keep the final review in your hands.
             </p>
           </Reveal>
 
@@ -123,8 +120,7 @@ export default function Guide() {
             <div className="ring-grad glass mt-14 rounded-2xl px-7 py-9 text-center">
               <h2 className="font-display text-2xl font-bold text-cream">Make the next application easier</h2>
               <p className="mx-auto mt-3 max-w-lg text-[15px] leading-relaxed text-iris-300/75">
-                Install the desktop app and Chrome bridge, save your application kit once, and let Propel
-                take the repeat work through supported forms while the page stays visible for review.
+                Install the desktop app and Chrome bridge, save your application kit once, and let Propel fill LinkedIn Easy Apply and supported Indeed applications in your Chrome tab while the page stays visible for review.
               </p>
               <div className="mt-7">
                 <DownloadTrio />
@@ -132,7 +128,7 @@ export default function Guide() {
               <p className="mt-6 text-[14px] text-iris-300/60">
                 Or read what to expect from a{" "}
                 <a href="/job-application-agent" className="text-iris-300 underline-offset-4 hover:underline">
-                  cross-site job application agent
+                  job application agent
                 </a>
                 .
               </p>

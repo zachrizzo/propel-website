@@ -7,10 +7,10 @@ import { PrimaryDownload, DownloadTrio } from "@/components/DownloadButtons";
 import { site } from "@/lib/site";
 
 const COVERAGE_EXAMPLES = [
-  "Job boards",
-  "Employer career sites",
-  "ATS-hosted forms",
   "LinkedIn Easy Apply",
+  "Supported Indeed",
+  "Beta coverage",
+  "Review before submit",
 ];
 
 const REPEAT_WORK = [
@@ -72,14 +72,14 @@ const FEATURES = [
 
 const COVERAGE = [
   {
-    label: "Job-board applications",
-    title: "More than an Easy Apply tool",
-    body: "Propel can work through supported application flows on job boards. LinkedIn Easy Apply is one example—not the limit of the product.",
+    label: "LinkedIn Easy Apply",
+    title: "Main working path",
+    body: "In beta, Propel fills LinkedIn Easy Apply and supported Indeed applications in your Chrome tab. Easy Apply is the main working path.",
   },
   {
-    label: "Employer & ATS forms",
-    title: "Follows the application off the listing",
-    body: "When a role opens an ATS-hosted or employer career-site form, Propel can read the live application, fill mapped fields, attach materials, and move through supported steps.",
+    label: "Supported Indeed",
+    title: "Job source with handoffs",
+    body: "Indeed is a job source; some listings open a flow Propel cannot finish, and it hands the page back. Not ATS-wide or employer career-site yet.",
   },
   {
     label: "Visible in Chrome",
@@ -199,7 +199,7 @@ export default function Home() {
             <Reveal immediate>
               <span className="inline-flex items-center gap-2 rounded-full border border-iris-400/25 bg-iris-500/10 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-wider text-iris-300">
                 <span className="h-1.5 w-1.5 rounded-full bg-ember-400" />
-                Browser agent for job applications across the web
+                Browser agent for LinkedIn Easy Apply and Indeed
               </span>
             </Reveal>
             <Reveal delay={0.06} immediate>
@@ -209,9 +209,7 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.12} immediate>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-iris-300/80">
-                Save your profile, résumé, and screening answers once. Propel uses them to fill
-                applications, attach materials, and work through longer flows across job boards and
-                employer career sites—then brings you in before anything is submitted.
+                Save your profile, résumé, and screening answers once. Propel fills LinkedIn Easy Apply and supported Indeed applications in your Chrome tab, then brings you in before anything is submitted.
               </p>
             </Reveal>
             <Reveal delay={0.18} immediate>
@@ -221,7 +219,7 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.24} immediate>
               <p className="mt-5 font-mono text-[12px] text-iris-300/55">
-                Free · Mac &amp; Windows · Chrome · Review before submission
+                Free to install · Starter $19/mo · 20 attempts · Review before submit
               </p>
             </Reveal>
           </div>
@@ -237,7 +235,7 @@ export default function Home() {
         <Reveal delay={0.26} immediate>
           <div className="mx-auto mt-16 max-w-6xl border-y border-iris-400/10 py-5">
             <p className="mb-4 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-iris-300/45">
-              One agent beyond a single apply button
+              In beta
             </p>
             <div className="flex flex-wrap items-center justify-center gap-x-7 gap-y-3">
               {COVERAGE_EXAMPLES.map((item) => (
@@ -361,12 +359,10 @@ export default function Home() {
           <Reveal>
             <span className="font-mono text-[11px] uppercase tracking-widest text-ember-500">Where it works</span>
             <h2 className="mt-4 max-w-3xl font-display text-4xl font-bold tracking-tight text-cream sm:text-5xl balance">
-              Across job boards and <span className="text-gradient">employer career sites.</span>
+              Beta coverage: <span className="text-gradient">Easy Apply and Indeed.</span>
             </h2>
             <p className="mt-5 max-w-3xl text-[16px] leading-relaxed text-iris-300/75">
-              Propel works against the live application in Chrome instead of being locked to one fixed
-              apply flow. That gives one agent room to handle supported board applications, ATS-hosted
-              forms, and employer career pages.
+              In beta, Propel fills LinkedIn Easy Apply and supported Indeed applications in your Chrome tab. Easy Apply is the main working path. Indeed is a job source; some listings open a flow Propel cannot finish, and it hands the page back.
             </p>
           </Reveal>
           <div className="mt-12 grid gap-5 lg:grid-cols-3">
@@ -382,17 +378,15 @@ export default function Home() {
           </div>
           <Reveal>
             <div className="mt-7 max-w-4xl rounded-2xl border border-amber-300/60 bg-amber-50 px-5 py-4 text-[14px] leading-relaxed text-amber-950/80">
-              <strong className="font-semibold text-amber-950">Coverage follows the application, not just the listing.</strong>{" "}
-              Forms vary. A required answer you have not provided, email or login verification, 2FA or
-              CAPTCHA, or an unsupported control can pause the run and hand the page back to you. Propel
-              does not promise that every form on every site will complete automatically.
+              <strong className="font-semibold text-amber-950">Not ATS-wide or employer career-site yet.</strong>{" "}
+              A required answer you have not provided, email or login verification, 2FA or CAPTCHA, or an unsupported control can pause the run and hand the page back. Propel does not promise that every form will complete automatically.
             </div>
             <p className="mt-5 text-[14px] leading-relaxed text-iris-300/65">
               Read the{" "}
               <a href="/job-application-agent" className="font-medium text-iris-300 underline-offset-4 hover:underline">
-                cross-site job application agent guide
+                job application agent guide
               </a>{" "}
-              for a deeper explanation of how coverage and handoffs work.
+              for more detail on coverage and handoffs.
             </p>
           </Reveal>
         </div>
@@ -470,8 +464,7 @@ export default function Home() {
           </Reveal>
           <Reveal delay={0.08}>
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-iris-300/80">
-              Download Propel free, save your application kit once, and let one browser agent take the
-              repetitive work through supported job-board and employer-site forms.
+              Download Propel free, save your application kit once, and let the browser agent fill LinkedIn Easy Apply and supported Indeed applications in your Chrome tab.
             </p>
           </Reveal>
           <Reveal delay={0.16}>
@@ -482,7 +475,7 @@ export default function Home() {
           <Reveal delay={0.22}>
             <p className="mx-auto mt-6 max-w-2xl font-mono text-[12px] leading-relaxed text-iris-300/55">
               Start with the desktop app, then add Propel Bridge for Chrome. Mac is signed and notarized.
-              Windows 10/11 may show SmartScreen while the installer builds reputation.
+              Windows installer is not currently available.
             </p>
           </Reveal>
         </div>

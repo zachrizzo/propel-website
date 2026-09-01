@@ -37,34 +37,23 @@ export function PrimaryDownload() {
   const [os, setOs] = useState<OS>("other");
   useEffect(() => setOs(detectOS()), []);
 
-  const macPrimary = site.downloadAvailability.mac
-    ? { href: site.downloads.mac, label: "Download Propel for Mac — free", glyph: <MacGlyph /> }
-    : { href: site.downloads.mac, label: "Mac build coming soon", glyph: <MacGlyph /> };
-  const primary =
-    os === "windows"
-      ? { href: site.downloads.windows, label: "Download Propel for Windows — free", glyph: <WinGlyph /> }
-      : macPrimary;
-  const otherLabel = os === "windows" ? (site.downloadAvailability.mac ? "macOS" : "Mac status") : "Windows";
-  const otherHref = os === "windows" ? site.downloads.mac : site.downloads.windows;
-
   return (
-    <div className="flex flex-col items-center gap-3 sm:flex-row">
+    <div className="flex flex-col items-center gap-5">
       <a
-        href={primary.href}
+        href={site.downloads.mac}
         className="group relative inline-flex h-13 items-center gap-2.5 overflow-hidden rounded-full bg-cream px-7 py-3.5 font-display text-[15px] font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-95"
       >
         <span className="relative z-10 flex items-center gap-2.5">
-          {primary.glyph}
-          {primary.label}
+          <MacGlyph />
+          Download Propel for Mac — free
         </span>
         <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-iris-300/0 via-iris-300/40 to-iris-300/0 transition-transform duration-700 group-hover:translate-x-full" />
       </a>
-      <a
-        href={otherHref}
-        className="text-[14px] font-medium text-iris-300/80 underline-offset-4 transition-colors hover:text-cream hover:underline"
-      >
-        or get it for {otherLabel}
-      </a>
+      <p className="text-center text-[14px] leading-relaxed text-iris-300/75">
+        Install is free. Starter is $19/mo for 20 application attempts.
+        <br />
+        The Windows download is currently unavailable.
+      </p>
     </div>
   );
 }
@@ -76,27 +65,55 @@ export function DownloadTrio() {
       label: "macOS",
       sub: site.downloadAvailability.mac ? "Universal .dmg" : "Signed build coming soon",
       glyph: <MacGlyph />,
+      available: site.downloadAvailability.mac,
     },
-    { href: site.downloads.windows, label: "Windows", sub: "10 / 11 · x64 .exe", glyph: <WinGlyph /> },
-    { href: site.downloads.chrome, label: "Chrome extension", sub: "Propel Bridge", glyph: <ChromeGlyph /> },
+    {
+      href: site.downloads.windows,
+      label: "Windows",
+      sub: "Currently unavailable",
+      glyph: <WinGlyph />,
+      available: site.downloadAvailability.windows,
+    },
+    {
+      href: site.downloads.chrome,
+      label: "Chrome extension",
+      sub: "Propel Bridge",
+      glyph: <ChromeGlyph />,
+      available: true,
+    },
   ];
   return (
     <div className="grid w-full gap-3 sm:grid-cols-3">
-      {items.map((it) => (
-        <a
-          key={it.label}
-          href={it.href}
-          className="ring-grad glass group flex items-center gap-3 rounded-xl px-4 py-4 transition-transform hover:-translate-y-1"
-        >
-          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-iris-500/15 text-iris-300 transition-colors group-hover:bg-iris-500/25">
-            {it.glyph}
-          </span>
-          <span className="min-w-0">
-            <span className="block font-display text-[15px] font-semibold text-cream">{it.label}</span>
-            <span className="block truncate font-mono text-[11px] text-iris-300/60">{it.sub}</span>
-          </span>
-        </a>
-      ))}
+      {items.map((it) =>
+        it.available ? (
+          <a
+            key={it.label}
+            href={it.href}
+            className="ring-grad glass group flex items-center gap-3 rounded-xl px-4 py-4 transition-transform hover:-translate-y-1"
+          >
+            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-iris-500/15 text-iris-300 transition-colors group-hover:bg-iris-500/25">
+              {it.glyph}
+            </span>
+            <span className="min-w-0">
+              <span className="block font-display text-[15px] font-semibold text-cream">{it.label}</span>
+              <span className="block truncate font-mono text-[11px] text-iris-300/60">{it.sub}</span>
+            </span>
+          </a>
+        ) : (
+          <div
+            key={it.label}
+            className="ring-grad glass flex items-center gap-3 rounded-xl px-4 py-4 opacity-60"
+          >
+            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-iris-500/15 text-iris-300">
+              {it.glyph}
+            </span>
+            <span className="min-w-0">
+              <span className="block font-display text-[15px] font-semibold text-cream">{it.label}</span>
+              <span className="block truncate font-mono text-[11px] text-iris-300/60">{it.sub}</span>
+            </span>
+          </div>
+        )
+      )}
     </div>
   );
 }
