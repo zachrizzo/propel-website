@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Propel — a browser agent for job applications across job boards and employer career sites";
+export const alt = "Propel — a browser agent for LinkedIn Easy Apply and Indeed applications";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -60,15 +60,15 @@ export default function OpenGraphImage() {
             <span style={{ color: "#4f46e5" }}>application from scratch.</span>
           </div>
           <div style={{ marginTop: 26, color: "#57576f", fontSize: 25, lineHeight: 1.35 }}>
-            Save your profile, résumé, and answers once. Propel carries them through supported applications across job sites.
+            Save your profile, résumé, and answers once. Propel carries them through LinkedIn Easy Apply and supported Indeed applications.
           </div>
         </div>
 
         <div style={{ display: "flex", gap: 14 }}>
           {[
-            "Job boards",
-            "Employer career sites",
-            "Easy Apply included",
+            "LinkedIn Easy Apply",
+            "Indeed applications",
+            "Profile saved once",
           ].map((label) => (
             <div
               key={label}
