@@ -6,24 +6,24 @@ const config: Config = {
     extend: {
       colors: {
         ink: {
-          DEFAULT: "#fbfbff",
-          800: "#ffffff",
-          700: "#f1f3ff",
-          600: "#e5e7ff",
+          DEFAULT: "#10151b",
+          800: "#171d25",
+          700: "#1d2530",
+          600: "#273240",
         },
         iris: {
-          300: "#4338ca",
-          400: "#4f46e5",
-          500: "#6366f1",
-          600: "#4f46e5",
-          700: "#4338ca",
+          300: "#4a9eed",
+          400: "#3193e9",
+          500: "#2386e7",
+          600: "#237bd2",
+          700: "#1d6bbf",
         },
         ember: {
-          300: "#fda4af",
-          400: "#fb7185",
-          500: "#f43f5e",
+          300: "#4a9eed",
+          400: "#2386e7",
+          500: "#237bd2",
         },
-        cream: "#171729",
+        cream: "#edf2f7",
       },
       fontFamily: {
         display: ["var(--font-display)", "sans-serif"],

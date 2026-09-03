@@ -2,10 +2,10 @@ export default function Logo({ size = 32 }: { size?: number }) {
   return (
     <span className="inline-flex items-center gap-2.5">
       <img
-        src="/icon.svg"
+        src="/propel-logo.svg"
         alt=""
         aria-hidden="true"
-        className="shrink-0 rounded-[10px] shadow-lg shadow-iris-700/40"
+        className="shrink-0 rounded-[10px]"
         style={{
           width: size,
           height: size,
