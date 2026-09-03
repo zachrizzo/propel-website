@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Propel — a browser agent for LinkedIn Easy Apply and Indeed applications";
+export const alt = "Propel — a browser agent for LinkedIn Easy Apply and supported Indeed applications";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -60,15 +60,15 @@ export default function OpenGraphImage() {
             <span style={{ color: "#4f46e5" }}>application from scratch.</span>
           </div>
           <div style={{ marginTop: 26, color: "#57576f", fontSize: 25, lineHeight: 1.35 }}>
-            Save your profile, résumé, and answers once. Propel carries them through LinkedIn Easy Apply and supported Indeed applications.
+            Save your profile, résumé, and answers once. Propel fills LinkedIn Easy Apply and supported Indeed in your Chrome tab.
           </div>
         </div>
 
         <div style={{ display: "flex", gap: 14 }}>
           {[
             "LinkedIn Easy Apply",
-            "Indeed applications",
-            "Profile saved once",
+            "Supported Indeed",
+            "Beta",
           ].map((label) => (
             <div
               key={label}
