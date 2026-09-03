@@ -28,16 +28,15 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   applicationName: site.name,
   title: {
-    default: "Propel: AI Job Application Agent Across Job Sites",
+    default: "Propel: Browser agent for LinkedIn Easy Apply and Indeed",
     template: `%s · ${site.productName}`,
   },
   description: site.description,
   keywords: [
     "AI job application agent",
     "job application agent",
-    "cross-site job application agent",
-    "employer career site autofill",
     "LinkedIn Easy Apply automation",
+    "Indeed application automation",
     "multi-step job application automation",
     "auto apply to jobs",
     "job application autofill",
