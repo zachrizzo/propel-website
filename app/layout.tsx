@@ -85,8 +85,8 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
       { url: "/icon-128.png", sizes: "128x128", type: "image/png" },
+      { url: "/propel-logo.png", sizes: "512x512", type: "image/png" },
     ],
     apple: "/icon-128.png",
   },

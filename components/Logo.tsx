@@ -2,7 +2,7 @@ export default function Logo({ size = 32 }: { size?: number }) {
   return (
     <span className="inline-flex items-center gap-2.5">
       <img
-        src="/propel-logo.svg"
+        src="/propel-logo.png"
         alt=""
         aria-hidden="true"
         className="shrink-0 rounded-[10px]"
