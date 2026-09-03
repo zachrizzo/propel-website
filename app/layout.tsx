@@ -61,7 +61,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Propel — a browser agent for LinkedIn Easy Apply and supported Indeed applications",
+        alt: "Propel — a browser agent for LinkedIn Easy Apply and Indeed applications",
       },
     ],
   },
@@ -96,7 +96,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#fbfbff",
+  themeColor: "#10151b",
   width: "device-width",
   initialScale: 1,
 };
@@ -133,7 +133,7 @@ const jsonLd = {
       operatingSystem: "macOS",
       description: site.description,
       featureList: [
-        "Fills LinkedIn Easy Apply and supported Indeed applications in your Chrome tab",
+        "Fills LinkedIn Easy Apply and Indeed applications in your Chrome tab",
         "Uses a saved profile to fill repeat application fields",
         "Attaches saved résumés and requested application materials",
         "Reuses saved answers when the same question appears later",

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Propel — a browser agent for LinkedIn Easy Apply and supported Indeed applications";
+export const alt = "Propel — a browser agent for LinkedIn Easy Apply and Indeed applications";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -14,8 +14,9 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#fbfbff",
-          color: "#171729",
+          background: "#10151b",
+          backgroundImage: "radial-gradient(980px 680px at 88% -16%, rgba(35, 134, 231, 0.09), transparent 62%)",
+          color: "#edf2f7",
           padding: "64px 72px",
           fontFamily: "Arial, sans-serif",
         }}
@@ -29,7 +30,7 @@ export default function OpenGraphImage() {
               alignItems: "center",
               justifyContent: "center",
               borderRadius: 16,
-              background: "linear-gradient(145deg, #6366f1, #4f46e5)",
+              background: "linear-gradient(135deg, #237bd2, #3193e9)",
               color: "white",
               fontSize: 34,
               fontWeight: 800,
@@ -39,7 +40,7 @@ export default function OpenGraphImage() {
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <span style={{ fontSize: 30, fontWeight: 800 }}>Propel</span>
-            <span style={{ color: "#6366f1", fontSize: 17, fontWeight: 700, letterSpacing: 1.4 }}>
+            <span style={{ color: "#2386e7", fontSize: 17, fontWeight: 700, letterSpacing: 1.4 }}>
               AI JOB APPLICATION AGENT
             </span>
           </div>
@@ -57,28 +58,28 @@ export default function OpenGraphImage() {
             }}
           >
             <span>Stop starting every job</span>
-            <span style={{ color: "#4f46e5" }}>application from scratch.</span>
+            <span style={{ color: "#3193e9" }}>application from scratch.</span>
           </div>
-          <div style={{ marginTop: 26, color: "#57576f", fontSize: 25, lineHeight: 1.35 }}>
-            Save your profile, résumé, and answers once. Propel fills LinkedIn Easy Apply and supported Indeed in your Chrome tab.
+          <div style={{ marginTop: 26, color: "#a1afbd", fontSize: 25, lineHeight: 1.35 }}>
+            Save your profile, résumé, and answers once. Propel fills LinkedIn Easy Apply and Indeed in your Chrome tab.
           </div>
         </div>
 
         <div style={{ display: "flex", gap: 14 }}>
           {[
             "LinkedIn Easy Apply",
-            "Supported Indeed",
-            "Beta",
+            "Indeed applications",
+            "Profile saved once",
           ].map((label) => (
             <div
               key={label}
               style={{
                 display: "flex",
                 alignItems: "center",
-                border: "1px solid #c7d2fe",
+                border: "1px solid rgba(35, 134, 231, 0.28)",
                 borderRadius: 999,
-                background: "#eef2ff",
-                color: "#3730a3",
+                background: "rgba(35, 134, 231, 0.12)",
+                color: "#4a9eed",
                 padding: "10px 17px",
                 fontSize: 17,
                 fontWeight: 700,
