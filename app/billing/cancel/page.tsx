@@ -26,25 +26,25 @@ export default function BillingCancel() {
 
       <p className="mt-8 text-[15px] leading-relaxed text-iris-300/80">
         You left checkout before it finished, so nothing was charged and your plan is unchanged.
-        You can close this tab and pick a plan whenever you&rsquo;re ready.
+        Pick a plan whenever you&rsquo;re ready.
       </p>
 
       <section className="mt-9">
         <h2 className="font-display text-xl font-semibold text-cream">Start again</h2>
         <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-iris-300/80">
           <p>
-            Open <strong className="text-cream">Billing</strong> in the Propel desktop app and choose
-            a plan. Your free monthly attempts keep working in the meantime.
+            Choose a plan from <strong className="text-cream">your account</strong>. Your free
+            monthly applications keep working in the meantime.
           </p>
         </div>
       </section>
 
       <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-3">
         <a
-          href="/"
+          href="/account"
           className="rounded-lg bg-iris-500 px-5 py-2.5 text-[15px] font-medium text-cream transition-colors hover:bg-iris-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-iris-300"
         >
-          Back to Propel
+          Back to your account
         </a>
         <a
           href={`mailto:${site.email}`}

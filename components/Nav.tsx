@@ -41,12 +41,20 @@ export default function Nav() {
             </a>
           ))}
         </nav>
+        <div className="flex items-center gap-5">
+        <a
+          href="/account"
+          className="text-[14px] font-medium text-iris-300/80 transition-colors hover:text-cream"
+        >
+          Sign in
+        </a>
         <a
           href="/#download"
           className="inline-flex items-center gap-2 rounded-full bg-cream px-4 py-2 font-display text-[14px] font-semibold text-ink transition-transform hover:scale-[1.04] active:scale-95"
         >
           Download free
         </a>
+        </div>
       </div>
     </header>
   );

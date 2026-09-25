@@ -39,8 +39,21 @@ to a version-pinned `/releases/download/vX.Y.Z/...` URL.
 
 The `/privacy` route doubles as the Chrome Web Store privacy-policy URL.
 
-The `/billing` route is the Stripe Customer Portal return handoff. It opens the
-registered Propel desktop-app protocol at `propel://billing` and leaves a link
-to the site download section when the app is not installed. Keep billing
-selection and management in the desktop app; do not replace this route with a
-web checkout URL.
+## Accounts and billing
+
+People sign in on the site (`/login`: email and password, or Google) with the
+same Supabase accounts the Propel apps use, and manage their plan at
+`/account`: usage this period, upgrading through Stripe Checkout, extra
+applications, and the Stripe billing portal. The Stripe work happens in the
+Propel Supabase functions (`create-checkout-session`, `create-portal-session`);
+the site only calls them with the signed-in session.
+
+- `/auth/callback` turns a Google sign-in, an email confirmation or a password
+  reset link into a session cookie. Supabase must allow
+  `https://propeljobagent.com/auth/callback` (and the local and preview URLs
+  you use) as redirect URLs.
+- `/billing` is the Stripe portal's return URL and forwards to `/account`;
+  `/billing/success` and `/billing/cancel` are Checkout's return pages.
+- The Supabase URL and publishable key default to the production project
+  (`lib/supabase/config.ts`); `NEXT_PUBLIC_SUPABASE_URL` and
+  `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` override them. Neither is a secret.
