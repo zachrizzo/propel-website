@@ -199,9 +199,12 @@ export default function Privacy() {
             access immediately, and uninstall the Propel app to remove it from your Mac.
           </li>
           <li>
-            To see or delete the data in your Propel account, email us from your account&rsquo;s address and we&rsquo;ll
-            do it.
+            Delete your Propel account from your{" "}
+            <a href="/account" className="text-iris-300 underline underline-offset-4 hover:text-cream">account page</a>.
+            That cancels your subscription immediately and deletes the data stored in your account. Files on your Mac
+            stay until you uninstall Propel.
           </li>
+          <li>To get a copy of the data in your Propel account, email us from your account&rsquo;s address.</li>
         </List>
       </Section>
 

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import Logo from "@/components/Logo";
-import { BuyExtraApplications, ChoosePlan, ManageBilling, SignOut } from "@/components/account/AccountActions";
+import { BuyExtraApplications, ChoosePlan, DeleteAccount, ManageBilling, SignOut } from "@/components/account/AccountActions";
 import { Notice } from "@/components/account/ui";
 import { LIVE_SUBSCRIPTION, PLAN_COLUMNS, price, toEntitlement, toPlan, type Entitlement, type Plan } from "@/lib/account";
 import { site } from "@/lib/site";
@@ -159,6 +159,15 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
           <BuyExtraApplications planKey={extraPlan.planKey} amountCents={extraPlan.amountCents} currency={extraPlan.currency} />
         </section>
       ) : null}
+
+      <section className="mt-16 rounded-2xl border border-rose-400/15 bg-rose-500/[0.03] p-6">
+        <h2 className="font-display text-lg font-semibold text-cream">Delete your account</h2>
+        <p className="mt-1.5 max-w-2xl text-[14px] leading-relaxed text-mist">
+          This cancels your subscription immediately and permanently deletes your profile, saved answers and application
+          history from your Propel account. It can&rsquo;t be undone. Files on your Mac stay until you uninstall Propel.
+        </p>
+        <DeleteAccount />
+      </section>
 
       <p className="mt-12 text-[13px] text-fog">
         Questions about billing? Email <a className="text-iris-300 underline-offset-4 hover:underline" href={`mailto:${site.email}`}>{site.email}</a>.

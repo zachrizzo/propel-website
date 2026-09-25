@@ -91,6 +91,57 @@ export function BuyExtraApplications({ planKey, amountCents, currency }: { planK
   );
 }
 
+/** Must match DELETE_CONFIRMATION in the delete-account edge function. */
+const DELETE_PHRASE = "delete my account";
+
+export function DeleteAccount() {
+  const [typed, setTyped] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const confirmed = typed.trim().toLowerCase() === DELETE_PHRASE;
+
+  async function remove() {
+    setBusy(true);
+    setError(null);
+    const supabase = createClient();
+    const { error: failure } = await supabase.functions.invoke("delete-account", { body: { confirm: DELETE_PHRASE } });
+    if (failure) {
+      setError("Your account couldn't be deleted just now. Nothing was removed; please try again or email us.");
+      setBusy(false);
+      return;
+    }
+    // The session belonged to the deleted user; clear it from this browser.
+    await supabase.auth.signOut({ scope: "local" });
+    window.location.assign("/account/deleted");
+  }
+
+  return (
+    <div className="mt-4 space-y-3">
+      <label className="block">
+        <span className="mb-1.5 block text-[12.5px] font-semibold text-mist">
+          Type <span className="font-mono text-cream">{DELETE_PHRASE}</span> to confirm
+        </span>
+        <input
+          className="h-11 w-full max-w-sm rounded-xl border border-rose-400/25 bg-ink/60 px-3.5 text-[15px] text-cream outline-none transition focus:border-rose-400/60 focus:ring-4 focus:ring-rose-500/10"
+          value={typed}
+          onChange={(event) => setTyped(event.target.value)}
+          autoComplete="off"
+          spellCheck={false}
+        />
+      </label>
+      <button
+        type="button"
+        disabled={!confirmed || busy}
+        onClick={remove}
+        className="inline-flex h-11 items-center justify-center rounded-xl border border-rose-400/40 bg-rose-500/10 px-5 text-[14px] font-semibold text-rose-200 transition hover:bg-rose-500/20 disabled:cursor-not-allowed disabled:opacity-40"
+      >
+        {busy ? "Deleting…" : "Delete my account"}
+      </button>
+      {error ? <p role="alert" className="text-[13px] text-rose-300">{error}</p> : null}
+    </div>
+  );
+}
+
 export function SignOut() {
   const [busy, setBusy] = useState(false);
   return (
