@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default async function PasswordPage() {
-  const { data } = await createClient().auth.getUser();
+  const { data } = await (await createClient()).auth.getUser();
   if (!data.user) redirect("/login?next=/account/password");
   return (
     <AuthCard title="Choose a new password" subtitle={`For ${data.user.email ?? "your account"}.`}>

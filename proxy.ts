@@ -3,8 +3,8 @@ import { NextResponse, type NextRequest } from "next/server";
 import { supabasePublishableKey, supabaseUrl } from "@/lib/supabase/config";
 
 // Keeps the Supabase session fresh on the pages that use it. Marketing pages are
-// left out so they stay static.
-export async function middleware(request: NextRequest) {
+// left out so they stay static. (Next.js 16 calls this file proxy; it was middleware.)
+export async function proxy(request: NextRequest) {
   let response = NextResponse.next({ request });
   const supabase = createServerClient(supabaseUrl, supabasePublishableKey, {
     cookies: {

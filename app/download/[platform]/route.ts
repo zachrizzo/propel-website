@@ -72,19 +72,20 @@ function unavailableHtml(platform: Platform, downloads: DownloadConfig): string 
 </html>`;
 }
 
-export async function GET(_request: Request, { params }: { params: { platform: string } }) {
-  if (!isPlatform(params.platform)) {
+export async function GET(_request: Request, { params }: { params: Promise<{ platform: string }> }) {
+  const { platform } = await params;
+  if (!isPlatform(platform)) {
     return new Response("Unknown download platform", { status: 404 });
   }
 
-  const downloads = releaseDownloads[params.platform];
+  const downloads = releaseDownloads[platform];
   for (const target of downloads.candidates) {
     if (await exists(target)) {
       return NextResponse.redirect(target, 302);
     }
   }
 
-  return new Response(unavailableHtml(params.platform, downloads), {
+  return new Response(unavailableHtml(platform, downloads), {
     status: 503,
     headers: {
       "content-type": "text/html; charset=utf-8",

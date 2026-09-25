@@ -402,7 +402,7 @@ function Scene({
 }: {
   state: State;
   register?: Register;
-  containerRef?: React.RefObject<HTMLDivElement>;
+  containerRef?: React.RefObject<HTMLDivElement | null>;
 }) {
   const board = BOARDS[state.boardIndex] ?? BOARDS[0];
   const target = board.jobs.find((j) => j.id === board.targetId) ?? board.jobs[0];

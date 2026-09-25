@@ -12,13 +12,14 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default async function LoginPage({ searchParams }: { searchParams: { next?: string; error?: string; mode?: string } }) {
-  const next = safeNext(searchParams.next);
-  const { data } = await createClient().auth.getUser();
+export default async function LoginPage({ searchParams }: { searchParams: Promise<{ next?: string; error?: string; mode?: string }> }) {
+  const query = await searchParams;
+  const next = safeNext(query.next);
+  const { data } = await (await createClient()).auth.getUser();
   if (data.user) redirect(next);
   return (
     <AuthCard title="Sign in to Propel" subtitle="Manage your plan and connect the Propel extension.">
-      <LoginForm next={next} initialMode={searchParams.mode === "signup" ? "signup" : "signin"} callbackError={searchParams.error ?? null} />
+      <LoginForm next={next} initialMode={query.mode === "signup" ? "signup" : "signin"} callbackError={query.error ?? null} />
     </AuthCard>
   );
 }

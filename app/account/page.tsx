@@ -70,8 +70,9 @@ function Usage({ entitlement }: { entitlement: Entitlement }) {
   );
 }
 
-export default async function AccountPage({ searchParams }: { searchParams: { password?: string } }) {
-  const supabase = createClient();
+export default async function AccountPage({ searchParams }: { searchParams: Promise<{ password?: string }> }) {
+  const query = await searchParams;
+  const supabase = await createClient();
   const { data: auth } = await supabase.auth.getUser();
   if (!auth.user) redirect("/login?next=/account");
 
@@ -100,7 +101,7 @@ export default async function AccountPage({ searchParams }: { searchParams: { pa
       <p className="mt-14 font-mono text-[12px] uppercase tracking-[0.18em] text-iris-400">Account</p>
       <h1 className="mt-3 font-display text-4xl font-bold tracking-tight text-cream">Your plan</h1>
 
-      {searchParams.password === "updated" ? <div className="mt-6"><Notice tone="success">Your password was updated.</Notice></div> : null}
+      {query.password === "updated" ? <div className="mt-6"><Notice tone="success">Your password was updated.</Notice></div> : null}
 
       <section className="ring-grad glass mt-8 rounded-3xl p-6 sm:p-8">
         {entitlement ? (

@@ -157,7 +157,7 @@ function FeatureIcon({ name }: { name: string }) {
     strokeLinecap: "round" as const,
     strokeLinejoin: "round" as const,
   };
-  const paths: Record<string, JSX.Element> = {
+  const paths: Record<string, React.JSX.Element> = {
     memory: <><path d="M12 3a9 9 0 1 0 9 9" /><path d="M12 7v5l3 2" /></>,
     file: <><path d="M14 3v5h5" /><path d="M6 3h8l5 5v13H6z" /><path d="M9 14h6M9 17h4" /></>,
     spark: <><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18" /></>,

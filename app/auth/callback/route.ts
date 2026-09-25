@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
   const code = url.searchParams.get("code");
   const tokenHash = url.searchParams.get("token_hash");
   const type = url.searchParams.get("type") as EmailOtpType | null;
-  const supabase = createClient();
+  const supabase = await createClient();
   const { error } = code
     ? await supabase.auth.exchangeCodeForSession(code)
     : tokenHash && type
