@@ -33,12 +33,12 @@ const ChromeGlyph = () => (
   </svg>
 );
 
-export function PrimaryDownload() {
+export function PrimaryDownload({ note }: { note?: string }) {
   const [os, setOs] = useState<OS>("other");
   useEffect(() => setOs(detectOS()), []);
 
   return (
-    <div className="flex flex-col items-center gap-5">
+    <div className="flex flex-col items-center gap-4 sm:items-start">
       <a
         href={site.downloads.mac}
         className="group relative inline-flex h-13 items-center gap-2.5 overflow-hidden rounded-full bg-cream px-7 py-3.5 font-display text-[15px] font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-95"
@@ -49,11 +49,7 @@ export function PrimaryDownload() {
         </span>
         <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-iris-300/0 via-iris-300/40 to-iris-300/0 transition-transform duration-700 group-hover:translate-x-full" />
       </a>
-      <p className="text-center text-[14px] leading-relaxed text-iris-300/75">
-        Install is free. Starter is $19/mo for 20 application attempts.
-        <br />
-        The Windows download is currently unavailable.
-      </p>
+      {note ? <p className="text-center text-[14px] leading-relaxed text-mist sm:text-left">{note}</p> : null}
     </div>
   );
 }
@@ -96,7 +92,7 @@ export function DownloadTrio() {
             </span>
             <span className="min-w-0">
               <span className="block font-display text-[15px] font-semibold text-cream">{it.label}</span>
-              <span className="block truncate font-mono text-[11px] text-iris-300/60">{it.sub}</span>
+              <span className="block truncate font-mono text-[11px] text-fog">{it.sub}</span>
             </span>
           </a>
         ) : (
@@ -109,7 +105,7 @@ export function DownloadTrio() {
             </span>
             <span className="min-w-0">
               <span className="block font-display text-[15px] font-semibold text-cream">{it.label}</span>
-              <span className="block truncate font-mono text-[11px] text-iris-300/60">{it.sub}</span>
+              <span className="block truncate font-mono text-[11px] text-fog">{it.sub}</span>
             </span>
           </div>
         )

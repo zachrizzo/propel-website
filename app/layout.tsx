@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Instrument_Sans, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { getCatalog } from "@/lib/plans";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   applicationName: site.name,
   title: {
-    default: "Propel: Browser agent for LinkedIn Easy Apply and Indeed",
+    default: "Propel: AI Job Application Agent for LinkedIn & Indeed",
     template: `%s · ${site.productName}`,
   },
   description: site.description,
@@ -102,7 +103,10 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-const jsonLd = {
+async function siteJsonLd() {
+  const catalog = await getCatalog();
+  const prices = catalog.tiers.map((plan) => plan.amountCents / 100);
+  return {
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -120,7 +124,7 @@ const jsonLd = {
       "@id": `${site.url}/#org`,
       name: site.name,
       url: site.url,
-      logo: `${site.url}/icon-128.png`,
+      logo: `${site.url}/propel-logo.png`,
       description: site.description,
       sameAs: [site.social.github, site.downloads.chrome],
     },
@@ -141,21 +145,29 @@ const jsonLd = {
         "Brings you in to review the application before submission",
         "Tracks submitted applications",
       ],
-      offers: { "@type": "Offer", price: "19.00", priceCurrency: "USD" },
+      offers: {
+        "@type": "AggregateOffer",
+        priceCurrency: "USD",
+        lowPrice: Math.min(...prices).toFixed(2),
+        highPrice: Math.max(...prices).toFixed(2),
+        offerCount: catalog.tiers.length,
+        url: `${site.url}/pricing`,
+      },
       downloadUrl: site.downloads.mac,
       sameAs: [site.social.github, site.downloads.chrome],
       url: site.url,
     },
   ],
-};
+  };
+}
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body className="grain font-sans antialiased">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(await siteJsonLd()) }}
         />
         {children}
         <Analytics />

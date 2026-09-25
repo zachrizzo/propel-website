@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Aurora from "@/components/Aurora";
+import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import Reveal from "@/components/Reveal";
 import { DownloadTrio } from "@/components/DownloadButtons";
@@ -96,7 +97,7 @@ export default function Guide() {
             </h1>
           </Reveal>
           <Reveal delay={0.12} immediate>
-            <p className="mt-5 text-lg leading-relaxed text-iris-300/80">
+            <p className="mt-5 text-lg leading-relaxed text-mist">
               Save your application kit once, fill LinkedIn Easy Apply and supported Indeed applications in your Chrome tab, and keep the final review in your hands.
             </p>
           </Reveal>
@@ -107,7 +108,7 @@ export default function Guide() {
                 <section>
                   <h2 className="font-display text-2xl font-bold tracking-tight text-cream">{s.h}</h2>
                   {s.p.map((para, j) => (
-                    <p key={j} className="mt-3 text-[15px] leading-relaxed text-iris-300/75">
+                    <p key={j} className="mt-3 text-[15px] leading-relaxed text-mist">
                       {para}
                     </p>
                   ))}
@@ -119,13 +120,13 @@ export default function Guide() {
           <Reveal>
             <div className="ring-grad glass mt-14 rounded-2xl px-7 py-9 text-center">
               <h2 className="font-display text-2xl font-bold text-cream">Make the next application easier</h2>
-              <p className="mx-auto mt-3 max-w-lg text-[15px] leading-relaxed text-iris-300/75">
+              <p className="mx-auto mt-3 max-w-lg text-[15px] leading-relaxed text-mist">
                 Install the desktop app and Chrome bridge, save your application kit once, and let Propel fill LinkedIn Easy Apply and supported Indeed applications in your Chrome tab while the page stays visible for review.
               </p>
               <div className="mt-7">
                 <DownloadTrio />
               </div>
-              <p className="mt-6 text-[14px] text-iris-300/60">
+              <p className="mt-6 text-[14px] text-fog">
                 Or read what to expect from a{" "}
                 <a href="/job-application-agent" className="text-iris-300 underline-offset-4 hover:underline">
                   job application agent
@@ -136,6 +137,7 @@ export default function Guide() {
           </Reveal>
         </div>
       </article>
+      <Footer />
     </main>
   );
 }

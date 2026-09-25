@@ -576,6 +576,7 @@ function BoardScreen({ board, selectedId, register }: { board: Board; selectedId
               </div>
               {/* apply control — the target card's button is what the cursor aims at */}
               <button
+                tabIndex={-1} // decorative: the demo is aria-hidden, so nothing in it takes focus
                 type="button"
                 ref={isTarget ? register("boardApply") : undefined}
                 className="shrink-0 rounded-full px-3 py-1.5 font-sans text-[10.5px] font-semibold transition-colors duration-300"
@@ -722,6 +723,7 @@ function ApplyScreen({ state, board, job, register }: { state: State; board: Boa
 
         {/* submit */}
         <button
+          tabIndex={-1} // decorative: the demo is aria-hidden, so nothing in it takes focus
           type="button"
           ref={register("submit")}
           className="relative mt-auto flex h-10 w-full items-center justify-center overflow-hidden rounded-lg font-sans text-[13px] font-semibold text-white transition-transform duration-200"

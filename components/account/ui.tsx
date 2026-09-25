@@ -4,7 +4,7 @@ import Logo from "@/components/Logo";
 // Shared pieces for the sign-in and account pages, in the site's own look.
 
 export const inputClass =
-  "h-11 w-full rounded-xl border border-iris-400/20 bg-ink/60 px-3.5 text-[15px] text-cream placeholder:text-iris-300/40 outline-none transition focus:border-iris-400 focus:ring-4 focus:ring-iris-500/15";
+  "h-11 w-full rounded-xl border border-iris-400/20 bg-ink/60 px-3.5 text-[15px] text-cream placeholder:text-fog outline-none transition focus:border-iris-400 focus:ring-4 focus:ring-iris-500/15";
 export const primaryButton =
   "inline-flex h-11 items-center justify-center rounded-xl bg-gradient-to-br from-iris-600 to-iris-400 px-5 font-display text-[15px] font-semibold text-white shadow-[0_7px_18px_rgba(35,134,231,0.25)] transition hover:-translate-y-px disabled:translate-y-0 disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-iris-300";
 export const secondaryButton =
@@ -32,7 +32,7 @@ export function AuthCard({ title, subtitle, children }: { title: string; subtitl
           <Logo size={40} />
         </a>
         <h1 className="mt-7 text-center font-display text-[22px] font-bold tracking-tight text-cream">{title}</h1>
-        <p className="mt-1.5 text-center text-[14px] leading-relaxed text-iris-300/75">{subtitle}</p>
+        <p className="mt-1.5 text-center text-[14px] leading-relaxed text-mist">{subtitle}</p>
         <div className="mt-7">{children}</div>
       </div>
     </main>

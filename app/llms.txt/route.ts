@@ -1,8 +1,13 @@
+import { formatPrice, getCatalog } from "@/lib/plans";
 import { site } from "@/lib/site";
 
-export const dynamic = "force-static";
+export const revalidate = 3600;
 
-export function GET() {
+export async function GET() {
+  const catalog = await getCatalog();
+  const plans = catalog.tiers
+    .map((plan) => `- ${plan.name}: ${plan.kind === "free" ? "free" : `${formatPrice(plan)}/mo`}, ${plan.monthlyApplications} applications a month`)
+    .join("\n");
   const body = `# ${site.productName}
 
 ${site.description}
@@ -43,8 +48,15 @@ Propel is the desktop app. Propel Job Agent is the public product name for searc
 and discovery. Propel Bridge is the Chrome extension that connects the browser to
 the desktop app. Together they fill job applications in the user's own browser
 while the user stays in control. The desktop app is free to install for macOS.
-Application attempts are included in Starter, which is $19/mo for 20 application
-attempts. The Windows installer is not currently available.
+The Windows installer is not currently available.
+
+## Pricing
+
+An application counts only when Propel reaches the final submit step.
+
+${plans}${catalog.extra ? `\n- Extra applications: ${formatPrice(catalog.extra)} each` : ""}
+
+Details: ${site.url}/pricing
 
 ## Roadmap (coming soon)
 
@@ -57,6 +69,7 @@ ${site.roadmap.map((r) => `- ${r.title}: ${r.body}`).join("\n")}
 - Windows download: ${site.downloads.windows}
 - Chrome extension: ${site.downloads.chrome}
 - Public releases: ${site.social.github}
+- Pricing: ${site.url}/pricing
 - Privacy policy: ${site.url}/privacy
 - Job application agent guide: ${site.url}/job-application-agent
 - Auto-apply setup guide: ${site.url}/how-to-auto-apply-to-jobs

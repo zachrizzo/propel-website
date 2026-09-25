@@ -75,7 +75,7 @@ export default function LoginForm({ next, initialMode, callbackError }: { next: 
             role="tab"
             aria-selected={mode === value}
             onClick={() => { setMode(value); setMessage(null); }}
-            className={`h-9 rounded-lg text-[13.5px] font-semibold transition ${mode === value ? "bg-ink-700 text-cream shadow" : "text-iris-300/70 hover:text-cream"}`}
+            className={`h-9 rounded-lg text-[13.5px] font-semibold transition ${mode === value ? "bg-ink-700 text-cream shadow" : "text-mist hover:text-cream"}`}
           >
             {value === "signin" ? "Sign in" : "Create account"}
           </button>
@@ -84,11 +84,11 @@ export default function LoginForm({ next, initialMode, callbackError }: { next: 
 
       <form onSubmit={submit} className="space-y-3.5">
         <label className="block">
-          <span className="mb-1.5 block text-[12.5px] font-semibold text-iris-300/80">Email</span>
+          <span className="mb-1.5 block text-[12.5px] font-semibold text-mist">Email</span>
           <input className={inputClass} type="email" autoComplete="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" />
         </label>
         <label className="block">
-          <span className="mb-1.5 flex items-center justify-between text-[12.5px] font-semibold text-iris-300/80">
+          <span className="mb-1.5 flex items-center justify-between text-[12.5px] font-semibold text-mist">
             Password
             {mode === "signin" ? (
               <button type="button" onClick={resetPassword} disabled={busy !== null} className="font-medium text-iris-400 hover:text-iris-300">
@@ -113,7 +113,7 @@ export default function LoginForm({ next, initialMode, callbackError }: { next: 
         </button>
       </form>
 
-      <div className="flex items-center gap-3 text-[12px] text-iris-300/50">
+      <div className="flex items-center gap-3 text-[12px] text-fog">
         <span className="h-px flex-1 bg-iris-400/15" />or<span className="h-px flex-1 bg-iris-400/15" />
       </div>
       <button type="button" onClick={google} disabled={busy !== null} className={`${secondaryButton} w-full`}>

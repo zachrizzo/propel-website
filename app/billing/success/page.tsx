@@ -24,14 +24,14 @@ export default function BillingSuccess() {
         You&rsquo;re subscribed
       </h1>
 
-      <p className="mt-8 text-[15px] leading-relaxed text-iris-300/80">
+      <p className="mt-8 text-[15px] leading-relaxed text-mist">
         Your plan is active and your applications have been added to your Propel account. Your
         receipt is on its way by email.
       </p>
 
       <section className="mt-9">
         <h2 className="font-display text-xl font-semibold text-cream">If you still see your old plan</h2>
-        <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-iris-300/80">
+        <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-mist">
           <p>
             Plans usually activate within a few seconds of payment. Reload your account page to
             pull the change through. In the Propel desktop app, open{" "}
@@ -42,7 +42,7 @@ export default function BillingSuccess() {
 
       <section className="mt-9">
         <h2 className="font-display text-xl font-semibold text-cream">Managing your plan</h2>
-        <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-iris-300/80">
+        <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-mist">
           <p>
             Change or cancel your plan anytime from <strong className="text-cream">your account</strong>.
           </p>
@@ -58,7 +58,7 @@ export default function BillingSuccess() {
         </a>
         <a
           href={`mailto:${site.email}`}
-          className="text-[15px] text-iris-300/80 underline-offset-4 transition-colors hover:text-cream hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-iris-300"
+          className="text-[15px] text-mist underline-offset-4 transition-colors hover:text-cream hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-iris-300"
         >
           Something look wrong? Email us
         </a>

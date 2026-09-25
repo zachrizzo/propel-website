@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <section className="mt-9">
     <h2 className="font-display text-xl font-semibold text-cream">{title}</h2>
-    <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-iris-300/80">{children}</div>
+    <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-mist">{children}</div>
   </section>
 );
 
@@ -25,9 +25,9 @@ export default function Privacy() {
       <h1 className="mt-12 font-display text-4xl font-bold tracking-tight text-cream sm:text-5xl">
         Privacy Policy
       </h1>
-      <p className="mt-3 font-mono text-[12px] text-iris-300/50">Last updated: June 14, 2026</p>
+      <p className="mt-3 font-mono text-[12px] text-fog">Last updated: June 14, 2026</p>
 
-      <p className="mt-8 text-[15px] leading-relaxed text-iris-300/80">
+      <p className="mt-8 text-[15px] leading-relaxed text-mist">
         Propel Job Agent is a desktop application plus a browser extension (“Propel Bridge”) that
         automate job applications. This policy explains exactly what they access and where your data goes.
       </p>
@@ -81,7 +81,7 @@ export default function Privacy() {
       </Section>
 
       <div className="mt-14 border-t border-iris-400/10 pt-6">
-        <a href="/" className="font-mono text-[13px] text-iris-300/60 transition-colors hover:text-cream">
+        <a href="/" className="font-mono text-[13px] text-fog transition-colors hover:text-cream">
           ← Back to propel
         </a>
       </div>

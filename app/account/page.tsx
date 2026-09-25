@@ -40,7 +40,7 @@ function capText(plan: Plan): string {
 function Usage({ entitlement }: { entitlement: Entitlement }) {
   const resets = formatDate(entitlement.currentPeriodEnd);
   if (entitlement.includedAttempts === null) {
-    return <p className="mt-5 text-[15px] text-iris-300/80">Uncapped applications on this plan.</p>;
+    return <p className="mt-5 text-[15px] text-mist">Uncapped applications on this plan.</p>;
   }
   const used = Math.min(entitlement.usedAttempts, entitlement.includedAttempts);
   const percent = entitlement.includedAttempts ? Math.round((used / entitlement.includedAttempts) * 100) : 100;
@@ -49,15 +49,15 @@ function Usage({ entitlement }: { entitlement: Entitlement }) {
       <div className="flex items-baseline justify-between gap-4 text-[14px]">
         <span className="text-cream">
           <strong className="font-display text-[22px] font-bold">{entitlement.usedAttempts}</strong>
-          <span className="text-iris-300/70"> of {entitlement.includedAttempts} applications used</span>
+          <span className="text-mist"> of {entitlement.includedAttempts} applications used</span>
         </span>
-        {resets ? <span className="text-[13px] text-iris-300/60">Resets {resets}</span> : null}
+        {resets ? <span className="text-[13px] text-fog">Resets {resets}</span> : null}
       </div>
       <div className="mt-3 h-2 overflow-hidden rounded-full bg-ink-600" role="progressbar" aria-valuenow={used} aria-valuemin={0} aria-valuemax={entitlement.includedAttempts} aria-label="Applications used this period">
         <div className={`h-full rounded-full ${percent >= 100 ? "bg-amber-400" : "bg-gradient-to-r from-iris-600 to-iris-400"}`} style={{ width: `${percent}%` }} />
       </div>
       {entitlement.extraCredits > 0 ? (
-        <p className="mt-3 text-[13.5px] text-iris-300/75">
+        <p className="mt-3 text-[13.5px] text-mist">
           Plus <strong className="text-cream">{entitlement.extraCredits}</strong> extra {entitlement.extraCredits === 1 ? "application" : "applications"} for when these run out.
         </p>
       ) : null}
@@ -92,7 +92,7 @@ export default async function AccountPage({ searchParams }: { searchParams: { pa
       <header className="flex items-center justify-between gap-4">
         <a href="/" aria-label="Propel home"><Logo /></a>
         <div className="flex items-center gap-4">
-          <span className="hidden max-w-[240px] truncate text-[13.5px] text-iris-300/70 sm:inline">{auth.user.email}</span>
+          <span className="hidden max-w-[240px] truncate text-[13.5px] text-mist sm:inline">{auth.user.email}</span>
           <SignOut />
         </div>
       </header>
@@ -122,7 +122,7 @@ export default async function AccountPage({ searchParams }: { searchParams: { pa
       {subscriptionPlans.length ? (
         <section className="mt-12">
           <h2 className="font-display text-xl font-semibold text-cream">{subscribed ? "Change plan" : "Upgrade"}</h2>
-          <p className="mt-1.5 text-[14px] text-iris-300/70">
+          <p className="mt-1.5 text-[14px] text-mist">
             An application counts only when Propel reaches its final submit. Skipped and mismatched jobs are free.
           </p>
           <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -133,10 +133,10 @@ export default async function AccountPage({ searchParams }: { searchParams: { pa
                   <h3 className="font-display text-[17px] font-semibold text-cream">{plan.displayName}</h3>
                   <p className="mt-2 text-cream">
                     <span className="font-display text-3xl font-bold">{price(plan)}</span>
-                    {plan.interval ? <span className="text-[14px] text-iris-300/60"> / {plan.interval}</span> : null}
+                    {plan.interval ? <span className="text-[14px] text-fog"> / {plan.interval}</span> : null}
                   </p>
                   <p className="mt-2 text-[13.5px] font-medium text-iris-300">{capText(plan)}</p>
-                  {extraDescription(plan) ? <p className="mt-1.5 flex-1 text-[13px] leading-relaxed text-iris-300/60">{extraDescription(plan)}</p> : <div className="flex-1" />}
+                  {extraDescription(plan) ? <p className="mt-1.5 flex-1 text-[13px] leading-relaxed text-fog">{extraDescription(plan)}</p> : <div className="flex-1" />}
                   <div className="mt-5">
                     <ChoosePlan planKey={plan.planKey} name={plan.displayName} current={current} viaPortal={subscribed} />
                   </div>
@@ -151,7 +151,7 @@ export default async function AccountPage({ searchParams }: { searchParams: { pa
         <section className="mt-12 flex flex-col gap-5 rounded-2xl border border-iris-400/15 bg-ink-800/70 p-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h2 className="font-display text-lg font-semibold text-cream">Extra applications</h2>
-            <p className="mt-1 text-[14px] text-iris-300/70">
+            <p className="mt-1 text-[14px] text-mist">
               {price(extraPlan)} each, used after your plan&rsquo;s applications run out.
             </p>
           </div>
@@ -159,7 +159,7 @@ export default async function AccountPage({ searchParams }: { searchParams: { pa
         </section>
       ) : null}
 
-      <p className="mt-12 text-[13px] text-iris-300/55">
+      <p className="mt-12 text-[13px] text-fog">
         Questions about billing? Email <a className="text-iris-300 underline-offset-4 hover:underline" href={`mailto:${site.email}`}>{site.email}</a>.
       </p>
     </main>

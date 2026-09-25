@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import Logo from "./Logo";
 
 const links = [
-  { href: "/#why", label: "Why Propel" },
-  { href: "/#features", label: "What it handles" },
-  { href: "/#coverage", label: "Where it works" },
   { href: "/#how", label: "How it works" },
+  { href: "/#features", label: "Features" },
+  { href: "/#coverage", label: "Where it works" },
+  { href: "/pricing", label: "Pricing" },
   { href: "/#faq", label: "FAQ" },
 ];
 
@@ -35,7 +35,7 @@ export default function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="text-[14px] font-medium text-iris-300/70 transition-colors hover:text-cream"
+              className="text-[14px] font-medium text-mist transition-colors hover:text-cream"
             >
               {l.label}
             </a>
@@ -44,7 +44,7 @@ export default function Nav() {
         <div className="flex items-center gap-5">
         <a
           href="/account"
-          className="text-[14px] font-medium text-iris-300/80 transition-colors hover:text-cream"
+          className="text-[14px] font-medium text-mist transition-colors hover:text-cream"
         >
           Sign in
         </a>

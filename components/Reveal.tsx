@@ -1,44 +1,25 @@
-"use client";
+import type { CSSProperties, ReactNode } from "react";
 
-import { motion } from "framer-motion";
-import type { ReactNode } from "react";
-
+/** Fades content in. Above the fold (`immediate`) it plays once on load; below the
+ *  fold it follows the scroll, in CSS only. Neither hides content without JavaScript. */
 export default function Reveal({
   children,
   delay = 0,
-  y = 22,
   className,
   id,
   immediate = false,
 }: {
   children: ReactNode;
   delay?: number;
-  y?: number;
   className?: string;
   id?: string;
-  /** Animate on mount instead of on scroll — use for above-the-fold content,
-   *  where whileInView can fail to fire for elements already in view. */
   immediate?: boolean;
 }) {
-  // Above-the-fold: pure-CSS load animation. No framer-motion, no IntersectionObserver,
-  // no hydration timing — it cannot get stuck at opacity 0.
-  if (immediate) {
-    return (
-      <div id={id} className={className ? `reveal-up ${className}` : "reveal-up"} style={{ animationDelay: `${delay}s` }}>
-        {children}
-      </div>
-    );
-  }
+  const base = immediate ? "reveal-up" : "reveal";
+  const style: CSSProperties | undefined = immediate && delay ? { animationDelay: `${delay}s` } : undefined;
   return (
-    <motion.div
-      id={id}
-      className={className}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <div id={id} className={className ? `${base} ${className}` : base} style={style}>
       {children}
-    </motion.div>
+    </div>
   );
 }

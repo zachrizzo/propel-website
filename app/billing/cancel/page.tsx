@@ -17,21 +17,21 @@ export default function BillingCancel() {
         <Logo />
       </a>
 
-      <p className="mt-12 font-mono text-[12px] uppercase tracking-[0.18em] text-iris-300/60">
+      <p className="mt-12 font-mono text-[12px] uppercase tracking-[0.18em] text-fog">
         No charge was made
       </p>
       <h1 className="mt-3 font-display text-4xl font-bold tracking-tight text-cream sm:text-5xl">
         Checkout canceled
       </h1>
 
-      <p className="mt-8 text-[15px] leading-relaxed text-iris-300/80">
+      <p className="mt-8 text-[15px] leading-relaxed text-mist">
         You left checkout before it finished, so nothing was charged and your plan is unchanged.
         Pick a plan whenever you&rsquo;re ready.
       </p>
 
       <section className="mt-9">
         <h2 className="font-display text-xl font-semibold text-cream">Start again</h2>
-        <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-iris-300/80">
+        <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-mist">
           <p>
             Choose a plan from <strong className="text-cream">your account</strong>. Your free
             monthly applications keep working in the meantime.
@@ -48,7 +48,7 @@ export default function BillingCancel() {
         </a>
         <a
           href={`mailto:${site.email}`}
-          className="text-[15px] text-iris-300/80 underline-offset-4 transition-colors hover:text-cream hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-iris-300"
+          className="text-[15px] text-mist underline-offset-4 transition-colors hover:text-cream hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-iris-300"
         >
           Ran into a problem? Email us
         </a>

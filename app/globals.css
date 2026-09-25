@@ -150,6 +150,19 @@ body {
   }
 }
 
+/* Scroll reveal for everything below the fold. Content is visible by default: it
+   only animates where the browser supports scroll-driven animations, so a crawler,
+   a browser without JavaScript or an older browser always sees the full page. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 55%;
+    }
+  }
+}
+
 /* ---- HeroFlow demo micro-animations ---- */
 
 /* the address-bar URL re-keys on navigation; this gives it a quick crossfade */

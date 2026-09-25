@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Aurora from "@/components/Aurora";
+import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import Reveal from "@/components/Reveal";
 import { DownloadTrio } from "@/components/DownloadButtons";
@@ -79,7 +80,7 @@ export default function JobApplicationAgent() {
             </h1>
           </Reveal>
           <Reveal delay={0.12} immediate>
-            <p className="mt-5 text-lg leading-relaxed text-iris-300/80">
+            <p className="mt-5 text-lg leading-relaxed text-mist">
               Save your profile, résumé, and screening answers once. Propel fills LinkedIn Easy Apply and supported Indeed applications in your Chrome tab—then keeps the result in front of you for review.
             </p>
           </Reveal>
@@ -89,7 +90,7 @@ export default function JobApplicationAgent() {
               <Reveal key={section.title} delay={index * 0.04}>
                 <section>
                   <h2 className="font-display text-2xl font-bold tracking-tight text-cream">{section.title}</h2>
-                  <p className="mt-3 text-[15px] leading-relaxed text-iris-300/75">{section.body}</p>
+                  <p className="mt-3 text-[15px] leading-relaxed text-mist">{section.body}</p>
                 </section>
               </Reveal>
             ))}
@@ -98,13 +99,13 @@ export default function JobApplicationAgent() {
           <Reveal>
             <div className="ring-grad glass mt-14 rounded-2xl px-7 py-9 text-center">
               <h2 className="font-display text-2xl font-bold text-cream">Stop rebuilding the same application</h2>
-              <p className="mx-auto mt-3 max-w-lg text-[15px] leading-relaxed text-iris-300/75">
+              <p className="mx-auto mt-3 max-w-lg text-[15px] leading-relaxed text-mist">
                 Propel is free to download for Mac. Save your application kit once, connect the Chrome bridge, and fill LinkedIn Easy Apply and supported Indeed applications in your tab.
               </p>
               <div className="mt-7">
                 <DownloadTrio />
               </div>
-              <p className="mt-6 text-[14px] text-iris-300/60">
+              <p className="mt-6 text-[14px] text-fog">
                 Want the setup walkthrough?{" "}
                 <a href="/how-to-auto-apply-to-jobs" className="text-iris-300 underline-offset-4 hover:underline">
                   Read how to auto-apply to jobs
@@ -115,6 +116,7 @@ export default function JobApplicationAgent() {
           </Reveal>
         </div>
       </article>
+      <Footer />
     </main>
   );
 }

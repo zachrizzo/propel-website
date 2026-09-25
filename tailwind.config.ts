@@ -24,6 +24,9 @@ const config: Config = {
           500: "#237bd2",
         },
         cream: "#edf2f7",
+        // Body and secondary text, as in the Propel desktop app.
+        mist: "#a1afbd",
+        fog: "#6e7d8d",
       },
       fontFamily: {
         display: ["var(--font-display)", "sans-serif"],

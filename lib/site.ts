@@ -27,7 +27,8 @@ export const site = {
   productName: "Propel Job Agent",
   tagline: "Never start another job application from scratch",
   description:
-    "Stop retyping job applications. In beta, Propel fills LinkedIn Easy Apply and supported Indeed applications in your Chrome tab, then brings you in to review before anything is submitted.",
+    // Search results show about 155 characters.
+    "Propel is an AI job application agent that fills LinkedIn Easy Apply and Indeed applications in Chrome from your saved résumé and answers. You review first.",
   // The public custom domain is the canonical SEO identity for the site.
   url: siteUrl,
   // Website-owned download routes. They never send users directly to GitHub
@@ -95,7 +96,7 @@ export const site = {
     },
     {
       q: "Is Propel free?",
-      a: "The desktop app and Propel Bridge Chrome extension are free to install. Application attempts are included in Starter, which is $19/mo for 20 application attempts.",
+      a: "Yes. The Mac app and the Propel Bridge Chrome extension are free to install, and the Free plan includes a monthly allowance of applications. Paid plans add more; current prices are at propeljobagent.com/pricing. An application counts only when Propel reaches the final submit step.",
     },
     {
       q: "How much time does it save?",
