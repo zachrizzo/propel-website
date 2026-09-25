@@ -87,6 +87,10 @@ export const site = {
       a: "Yes. Propel can save an answer to a screening question and reuse it when the same question appears in a later application. You can review the answer before it is submitted.",
     },
     {
+      q: "What does Propel do with my data?",
+      a: "Your profile and saved answers are stored in your Propel account; résumé files, screenshots and job-site logins stay on your Mac. To fill an application, Propel sends the page and the parts of your profile it needs to OpenAI's API with storage turned off. We don't sell your data or train AI models on it. The details are in the privacy policy at propeljobagent.com/privacy.",
+    },
+    {
       q: "Why do I need both a desktop app and a Chrome extension?",
       a: "For now, the Mac app runs the agent and keeps your profile, résumé and answers, and the Chrome extension lets it work in the tab where the application is. You review everything before it's submitted.",
     },

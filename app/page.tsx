@@ -80,6 +80,26 @@ const COVERAGE = [
   },
 ];
 
+// Summarizes the privacy policy (/privacy); keep the two in step.
+const DATA_POINTS = [
+  {
+    title: "Where your data lives",
+    body: "Your profile and saved answers live in your Propel account so every application can use them. Résumé files, screenshots and job-site logins stay on your Mac.",
+  },
+  {
+    title: "What the AI sees",
+    body: "The application page and the parts of your profile it needs, sent to OpenAI's API with storage turned off. We don't train AI models on your data.",
+  },
+  {
+    title: "Your job-site accounts",
+    body: "Propel works in the browser you're already signed into. It never asks for your LinkedIn or Indeed password.",
+  },
+  {
+    title: "Nothing sent without you",
+    body: "You review every application before it's submitted, and you can pause Propel at any point.",
+  },
+];
+
 const STEPS = [
   {
     n: "01",
@@ -388,6 +408,35 @@ export default async function Home() {
                   <span className="font-mono text-[10px] uppercase tracking-widest text-iris-400">{item.label}</span>
                   <h3 className="mt-3 font-display text-xl font-semibold text-cream">{item.title}</h3>
                   <p className="mt-3 text-[15px] leading-relaxed text-mist">{item.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ───────────────── YOUR DATA ───────────────── */}
+      <section id="data" className="relative scroll-mt-20 px-5 py-24">
+        <div className="mx-auto max-w-6xl">
+          <Reveal>
+            <span className="font-mono text-[11px] uppercase tracking-widest text-iris-400">Your data</span>
+            <h2 className="mt-4 max-w-3xl font-display text-4xl font-bold tracking-tight text-cream sm:text-5xl balance">
+              Your data, <span className="text-gradient">your accounts.</span>
+            </h2>
+            <p className="mt-5 max-w-2xl text-[16px] leading-relaxed text-mist">
+              An agent that works in your browser should be clear about what it touches. Here&apos;s the short version;{" "}
+              <a href="/privacy" className="font-medium text-iris-300 underline-offset-4 hover:underline">
+                the privacy policy
+              </a>{" "}
+              has the details.
+            </p>
+          </Reveal>
+          <div className="mt-12 grid gap-4 sm:grid-cols-2">
+            {DATA_POINTS.map((point) => (
+              <Reveal key={point.title}>
+                <div className="h-full rounded-2xl border border-iris-400/10 bg-ink-800/50 p-6">
+                  <h3 className="font-display text-lg font-semibold text-cream">{point.title}</h3>
+                  <p className="mt-2 text-[15px] leading-relaxed text-mist">{point.body}</p>
                 </div>
               </Reveal>
             ))}
