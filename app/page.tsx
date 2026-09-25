@@ -202,7 +202,7 @@ export default async function Home() {
       {/* ───────────────── HERO ───────────────── */}
       <section className="relative px-5 pb-16 pt-32 sm:pt-40">
         <Aurora />
-        <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="text-center sm:text-left">
             <Reveal immediate>
               <span className="inline-flex items-center gap-2 rounded-full border border-iris-400/25 bg-iris-500/10 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-wider text-iris-300">
@@ -235,8 +235,8 @@ export default async function Home() {
             </Reveal>
           </div>
 
-          <Reveal delay={0.2} className="flex justify-center lg:justify-end" id="demo" immediate>
-            <div className="relative max-w-full">
+          <Reveal delay={0.2} className="flex min-w-0 justify-center lg:justify-end" id="demo" immediate>
+            <div className="relative w-full max-w-[540px]">
               <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-iris-500/10 blur-2xl" />
               <HeroFlow />
             </div>
