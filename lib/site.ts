@@ -71,12 +71,8 @@ export const site = {
       a: "Propel handles the repeat application work: filling from your saved profile and work history, attaching your résumé and requested materials, reusing saved screening answers when they match, moving through supported multi-step forms, and keeping an application record. You choose the role and review before anything is submitted.",
     },
     {
-      q: "Which job sites and forms can Propel handle?",
-      a: "In beta, Propel fills LinkedIn Easy Apply and supported Indeed applications in your Chrome tab. Easy Apply is the main working path. Indeed is a job source; some listings open a flow Propel cannot finish, and it hands the page back. Not ATS-wide or employer career-site yet.",
-    },
-    {
-      q: "Does Propel only work with LinkedIn Easy Apply?",
-      a: "In beta, LinkedIn Easy Apply and supported Indeed. Easy Apply is the main working path. Indeed is a job source; some listings open a flow Propel cannot finish, and it hands the page back. Not ATS-wide or employer career-site yet.",
+      q: "Which job sites does Propel work on?",
+      a: "In beta, LinkedIn Easy Apply and supported Indeed applications, in your Chrome tab. Easy Apply works best. Some Indeed listings open a flow Propel can't finish, and it hands the page back to you. Company career sites and applicant tracking systems aren't covered yet.",
     },
     {
       q: "Do I stay in control of what gets submitted?",
@@ -84,7 +80,7 @@ export const site = {
     },
     {
       q: "What happens when Propel cannot complete a step?",
-      a: "Propel pauses or hands the page back instead of guessing. A required answer you have not provided, email or login verification, 2FA or CAPTCHA, or an unsupported form control may need your input before the application can continue.",
+      a: "It asks instead of guessing. A required question you haven't answered before, an email or login check, 2FA, a CAPTCHA or an unfamiliar form control pauses the run until you step in.",
     },
     {
       q: "Does Propel remember my answers?",
@@ -92,7 +88,7 @@ export const site = {
     },
     {
       q: "Why do I need both a desktop app and a Chrome extension?",
-      a: "The extension acts inside the browser tab where the application form actually lives, while the desktop app runs the apply engine and holds your profile and résumé. Together they fill LinkedIn Easy Apply and supported Indeed applications in your Chrome tab, then you review before anything is submitted.",
+      a: "For now, the Mac app runs the agent and keeps your profile, résumé and answers, and the Chrome extension lets it work in the tab where the application is. You review everything before it's submitted.",
     },
     {
       q: "Is Propel free?",
@@ -100,7 +96,7 @@ export const site = {
     },
     {
       q: "How much time does it save?",
-      a: "Time saved depends on the application. Propel removes the repeated typing, uploads, familiar questions, page navigation, and record keeping that add up across a job search, with the biggest benefit on longer, multi-step forms.",
+      a: "It depends on the application. Propel removes the repeated typing, uploads, familiar questions, page-by-page clicking and record keeping that add up across a job search. Longer, multi-step forms save the most.",
     },
     {
       q: "Is Propel affiliated with LinkedIn?",
@@ -108,10 +104,12 @@ export const site = {
     },
     {
       q: "Is the desktop app signed?",
+      homepage: false,
       a: "The Mac app is signed and notarized with an Apple Developer ID. The Windows installer is not currently published.",
     },
     {
       q: "Will Propel update itself?",
+      homepage: false,
       a: "Yes. The packaged desktop app checks the public release feed on launch, downloads newer builds in the background, and shows a Restart to update banner when the update is ready.",
     },
   ],

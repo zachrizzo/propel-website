@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: site.url,
-    title: "Propel | Stop Starting Job Applications from Scratch",
+    title: "Propel | Your Job Applications, Filled Out for You",
     description: site.description,
     siteName: site.name,
     locale: "en_US",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Propel | Stop Starting Job Applications from Scratch",
+    title: "Propel | Your Job Applications, Filled Out for You",
     description: site.description,
     images: ["/opengraph-image"],
   },

@@ -24,8 +24,8 @@ const PROPEL_WORK = [
   "Attaches your résumé and requested materials",
   "Reuses saved answers when the question matches",
   "Keeps moving through supported application steps",
-  "Brings the completed flow back for your review",
-  "Maintains a record of the application",
+  "Hands you the finished application to review",
+  "Keeps a record of every application",
 ];
 
 const FEATURES = [
@@ -45,8 +45,8 @@ const FEATURES = [
     i: "spark",
   },
   {
-    t: "Works through longer forms",
-    d: "The agent can move through supported multi-page flows, not just stop after filling the first screen.",
+    t: "Works through every step",
+    d: "It moves through each page of a supported multi-step application, not just the first screen.",
     i: "layers",
   },
   {
@@ -55,8 +55,8 @@ const FEATURES = [
     i: "chart",
   },
   {
-    t: "Stops when you need control",
-    d: "Review before submission, answer a question Propel cannot know, or take over for a verification step or unfamiliar control.",
+    t: "Asks instead of guessing",
+    d: "When a question needs you, or a page needs a login, 2FA or a CAPTCHA, Propel pauses and asks. Nothing is sent before you review it.",
     i: "check",
   },
 ];
@@ -64,18 +64,18 @@ const FEATURES = [
 const COVERAGE = [
   {
     label: "LinkedIn Easy Apply",
-    title: "Main working path",
-    body: "In beta, Propel fills LinkedIn Easy Apply and supported Indeed applications in your Chrome tab. Easy Apply is the main working path.",
+    title: "Every step, start to finish",
+    body: "Easy Apply is where Propel works best: it fills each step, attaches your résumé and answers the screening questions it knows.",
   },
   {
-    label: "Supported Indeed",
-    title: "Job source with handoffs",
-    body: "Indeed is a job source; some listings open a flow Propel cannot finish, and it hands the page back. Not ATS-wide or employer career-site yet.",
+    label: "Indeed",
+    title: "Supported listings",
+    body: "Propel fills supported Indeed applications. When a listing opens a flow it can't finish, it hands the page back to you.",
   },
   {
-    label: "Visible in Chrome",
+    label: "In your browser",
     title: "Never a black box",
-    body: "The application stays in your browser. You can watch the agent work, review what it filled, and step in before anything is submitted.",
+    body: "Everything happens in your Chrome tab. You can watch Propel work, review what it filled and step in at any point.",
   },
 ];
 
@@ -83,22 +83,22 @@ const STEPS = [
   {
     n: "01",
     title: "Install Propel and its Chrome extension",
-    body: "The Mac app runs the agent and keeps your application kit. The Propel Bridge extension lets it work in the application tab you already have open.",
+    body: "The Mac app runs the agent and keeps your profile, résumé and answers. The Propel Bridge extension lets it work in the tab you already have open.",
   },
   {
     n: "02",
-    title: "Save your application kit once",
-    body: "Add your profile, work history, résumé, links, and preferred screening answers so the next form starts with useful context.",
+    title: "Save your profile once",
+    body: "Add your contact details, work history, résumé, links and the screening answers you give most often.",
   },
   {
     n: "03",
     title: "Open a role you want",
-    body: "Start from LinkedIn Easy Apply or supported Indeed. Propel reads the live form, fills what it can support, attaches materials, and works through the flow.",
+    body: "Start from LinkedIn Easy Apply or a supported Indeed listing. Propel reads the live form, fills every step it can and attaches your résumé.",
   },
   {
     n: "04",
-    title: "Review, step in if needed, and submit",
-    body: "Check the completed application in your browser. Propel pauses when a required answer, verification check, or unfamiliar control needs you.",
+    title: "Answer anything new, then review",
+    body: "If a question needs you, Propel asks and remembers the answer for next time. You check the finished application before it's submitted.",
   },
 ];
 
@@ -141,7 +141,9 @@ function faqWithPricing(catalog: Catalog) {
     paid.length ? `Paid plans add more: ${paid.map((plan) => `${plan.name} is ${formatPrice(plan)}/mo for ${plan.monthlyApplications} applications`).join(", ")}.` : "",
     "An application counts only when Propel reaches the final submit step.",
   ].filter(Boolean).join(" ");
-  return site.faq.map((item) => (item.q === "Is Propel free?" ? { q: item.q, a: answer } : item));
+  return site.faq
+    .filter((item) => !("homepage" in item && item.homepage === false))
+    .map((item) => (item.q === "Is Propel free?" ? { q: item.q, a: answer } : item));
 }
 
 function FeatureIcon({ name }: { name: string }) {
@@ -212,14 +214,14 @@ export default async function Home() {
             </Reveal>
             <Reveal delay={0.06} immediate>
               <h1 className="mt-6 font-display text-[44px] font-extrabold leading-[1.02] tracking-tight text-cream sm:text-6xl lg:text-[58px]">
-                Stop starting every job application from <span className="text-gradient">scratch.</span>
+                Your job applications, <span className="text-gradient sm:whitespace-nowrap">filled out for you.</span>
               </h1>
             </Reveal>
             <Reveal delay={0.12} immediate>
               <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-mist sm:mx-0">
-                Save your profile, résumé and screening answers once. Propel fills LinkedIn Easy Apply
-                and supported Indeed applications in your Chrome tab, then hands you the finished form
-                to review before anything is submitted.
+                Propel works through every step of LinkedIn Easy Apply and supported Indeed applications
+                in your Chrome tab. It uses your saved résumé and answers, asks only what it can&apos;t know,
+                and stops for your review before anything is sent.
               </p>
             </Reveal>
             <Reveal delay={0.18} immediate>
@@ -263,8 +265,8 @@ export default async function Home() {
               The application changes. <span className="text-gradient">Your information doesn&apos;t.</span>
             </h2>
             <p className="mt-5 max-w-2xl text-[16px] leading-relaxed text-mist">
-              Every new form turns the same facts into fresh busywork. Propel carries your application
-              context forward, so your time goes into choosing where to apply, not retyping it.
+              Applying to dozens of roles means typing the same facts into form after form. Propel carries
+              your profile, résumé and answers forward, so your time goes into choosing where to apply.
             </p>
           </Reveal>
           <div className="mt-12 grid gap-5 md:grid-cols-2">
@@ -370,8 +372,12 @@ export default async function Home() {
               Beta coverage: <span className="text-gradient">Easy Apply and Indeed.</span>
             </h2>
             <p className="mt-5 max-w-3xl text-[16px] leading-relaxed text-mist">
-              Propel works in the Chrome tab where the application lives, so you can watch it, review what it
-              filled and step in at any point.
+              In beta, Propel works on LinkedIn Easy Apply and supported Indeed applications. It doesn&apos;t
+              cover company career sites or applicant tracking systems yet.{" "}
+              <a href="/job-application-agent" className="font-medium text-iris-300 underline-offset-4 hover:underline">
+                See exactly what&apos;s covered
+              </a>
+              .
             </p>
           </Reveal>
           <div className="mt-12 grid gap-5 lg:grid-cols-3">
@@ -385,23 +391,6 @@ export default async function Home() {
               </Reveal>
             ))}
           </div>
-          <Reveal>
-            <div className="mt-6 flex gap-3 rounded-2xl border border-amber-400/25 bg-amber-400/[0.06] px-5 py-4 text-[14.5px] leading-relaxed text-mist">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden className="mt-0.5 shrink-0 text-amber-300">
-                <circle cx="12" cy="12" r="9" /><path d="M12 8v5M12 16.5v.01" />
-              </svg>
-              <p>
-                <strong className="font-semibold text-cream">Not every job site yet.</strong> Propel doesn&apos;t cover
-                applicant tracking systems or employer career sites in beta. A required answer you haven&apos;t
-                saved, an email or login check, 2FA, a CAPTCHA or an unfamiliar control pauses the run and hands the
-                page back to you. See the{" "}
-                <a href="/job-application-agent" className="font-medium text-iris-300 underline-offset-4 hover:underline">
-                  job application agent guide
-                </a>{" "}
-                for details.
-              </p>
-            </div>
-          </Reveal>
         </div>
       </section>
 
@@ -447,8 +436,8 @@ export default async function Home() {
               Your next application shouldn&apos;t start from <span className="text-gradient">scratch.</span>
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-mist">
-              Install Propel free on your Mac, add the Chrome extension, save your application kit once, and let
-              the agent fill your next LinkedIn Easy Apply or supported Indeed application.
+              Install Propel free on your Mac, add the Chrome extension, save your profile once, and let the agent
+              fill your next LinkedIn Easy Apply or supported Indeed application.
             </p>
             <div className="mt-10">
               <DownloadTrio />

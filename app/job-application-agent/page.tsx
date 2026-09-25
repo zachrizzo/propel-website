@@ -29,11 +29,11 @@ const SECTIONS = [
   },
   {
     title: "Why carrying your context forward matters",
-    body: "Your contact details, work history, résumé, links, and many screening answers do not change. Propel turns those saved details into an application kit it can carry into the next supported flow, so each new role does not force you back to a blank form.",
+    body: "Your contact details, work history, résumé, links, and many screening answers do not change. Propel keeps those saved details as a profile it can carry into the next supported flow, so each new role does not force you back to a blank form.",
   },
   {
     title: "Beta coverage: LinkedIn Easy Apply and supported Indeed",
-    body: "In beta, Propel fills LinkedIn Easy Apply and supported Indeed applications in your Chrome tab. Easy Apply is the main working path. Indeed is a job source; some listings open a flow Propel cannot finish, and it hands the page back. Not ATS-wide or employer career-site yet.",
+    body: "In beta, Propel fills LinkedIn Easy Apply and supported Indeed applications in your Chrome tab. Easy Apply works best; some Indeed listings open a flow Propel can't finish, and it hands the page back to you. Company career sites and applicant tracking systems aren't covered yet.",
   },
   {
     title: "Where coverage has limits",
@@ -100,7 +100,7 @@ export default function JobApplicationAgent() {
             <div className="ring-grad glass mt-14 rounded-2xl px-7 py-9 text-center">
               <h2 className="font-display text-2xl font-bold text-cream">Stop rebuilding the same application</h2>
               <p className="mx-auto mt-3 max-w-lg text-[15px] leading-relaxed text-mist">
-                Propel is free to download for Mac. Save your application kit once, connect the Chrome bridge, and fill LinkedIn Easy Apply and supported Indeed applications in your tab.
+                Propel is free to download for Mac. Save your profile once, add the Chrome extension, and fill LinkedIn Easy Apply and supported Indeed applications in your tab.
               </p>
               <div className="mt-7">
                 <DownloadTrio />

@@ -24,9 +24,9 @@ review before submission.
 ## Beta coverage
 
 In beta, Propel fills LinkedIn Easy Apply and supported Indeed applications in
-your Chrome tab. Easy Apply is the main working path. Indeed is a job source;
-some listings open a flow Propel cannot finish, and it hands the page back. Not
-ATS-wide or employer career-site yet.
+your Chrome tab. Easy Apply works best; some Indeed listings open a flow Propel
+can't finish, and it hands the page back to the user. Company career
+sites and applicant tracking systems aren't covered yet.
 
 Application pages change, and required unknown answers, email or login verification,
 2FA, CAPTCHAs, or unsupported controls may require user input. Propel does not
@@ -35,7 +35,7 @@ not affiliated with or endorsed by LinkedIn or any other job site.
 
 ## Why people use it
 
-- Use one saved application kit across job-board and employer-site forms.
+- Save a profile, résumé and answers once and reuse them on every application.
 - Reduce repeated typing and résumé uploads.
 - Reuse saved answers when the same screening question appears later.
 - Move through supported multi-step application flows.

@@ -57,3 +57,23 @@ the site only calls them with the signed-in session.
 - The Supabase URL and publishable key default to the production project
   (`lib/supabase/config.ts`); `NEXT_PUBLIC_SUPABASE_URL` and
   `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` override them. Neither is a secret.
+
+## When Propel goes extension-only
+
+The site still describes today's product: a Mac app plus the Propel Bridge
+extension. When the extension works on its own, update these together:
+
+- `components/Nav.tsx` and `components/DownloadButtons.tsx`: "Download free" and
+  the Mac download become "Add to Chrome" (`site.downloads.chrome`).
+- `app/page.tsx`: step 01 of How it works, the hero's download button and the
+  closing download section; the Free tier's button in `components/Pricing.tsx`.
+- `lib/site.ts` FAQ: "Why do I need both a desktop app and a Chrome extension?",
+  "Is the desktop app signed?" and "Will Propel update itself?" (the last two are
+  already kept off the home page with `homepage: false`).
+- `app/how-to-auto-apply-to-jobs` and `app/job-application-agent`: setup steps
+  that mention the desktop app.
+- `app/llms.txt/route.ts` (the Product section), and in `app/layout.tsx` the
+  structured data's `operatingSystem` and `downloadUrl`.
+- `/download/*`, and the desktop-app wording in `/billing/success`.
+- `/privacy`: it describes the desktop app and native messaging, and must match
+  where data actually goes, including sign-in and any hosted model calls.
