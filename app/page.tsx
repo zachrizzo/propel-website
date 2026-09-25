@@ -7,6 +7,7 @@ import Pricing from "@/components/Pricing";
 import { PrimaryDownload, DownloadTrio } from "@/components/DownloadButtons";
 import { formatPrice, getCatalog, pricingSummary, type Catalog } from "@/lib/plans";
 import { site } from "@/lib/site";
+import { jsonLd } from "@/lib/json-ld";
 
 // Prices come from the live plan catalog; the page is rebuilt hourly.
 export const revalidate = 3600;
@@ -197,7 +198,7 @@ export default async function Home() {
     <main id="top" className="relative overflow-x-clip">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageJsonLd(faq)) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(homepageJsonLd(faq)) }}
       />
       <Nav />
 

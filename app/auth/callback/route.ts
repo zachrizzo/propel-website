@@ -1,16 +1,19 @@
 import { NextResponse, type NextRequest } from "next/server";
 import type { EmailOtpType } from "@supabase/supabase-js";
+import { site } from "@/lib/site";
 import { safeNext } from "@/lib/supabase/config";
 import { createClient } from "@/lib/supabase/server";
 
 // Where Supabase sends people back after Google sign-in, an email confirmation or
 // a password-reset link. A PKCE code (or an email token hash) becomes a session cookie.
-/** The origin the person is on. Behind a proxy (Vercel) it is the forwarded host; locally, the Host header. */
+/** The origin the person is on: the forwarded host behind Vercel, the Host header locally.
+ *  Only this site, its Vercel previews and local hosts are trusted; anything else goes to the site. */
 function siteOrigin(request: NextRequest): string {
-  const host = request.headers.get("x-forwarded-host") ?? request.headers.get("host");
-  if (!host) return request.nextUrl.origin;
-  const local = /^(localhost|127\.0\.0\.1)(:|$)/.test(host);
-  return `${request.headers.get("x-forwarded-proto") ?? (local ? "http" : "https")}://${host}`;
+  const host = request.headers.get("x-forwarded-host") ?? request.headers.get("host") ?? "";
+  const local = /^(localhost|127\.0\.0\.1)(:\d+)?$/.test(host);
+  const trusted = local || host === new URL(site.url).host || /^[a-z0-9-]+\.vercel\.app$/.test(host);
+  if (!trusted) return site.url;
+  return `${local ? "http" : "https"}://${host}`;
 }
 
 export async function GET(request: NextRequest) {

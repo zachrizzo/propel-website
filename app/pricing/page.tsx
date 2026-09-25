@@ -6,6 +6,7 @@ import Pricing from "@/components/Pricing";
 import Reveal from "@/components/Reveal";
 import { formatPrice, getCatalog } from "@/lib/plans";
 import { site } from "@/lib/site";
+import { jsonLd } from "@/lib/json-ld";
 
 const PATH = "/pricing";
 export const revalidate = 3600;
@@ -32,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function PricingPage() {
   const catalog = await getCatalog();
   const paid = catalog.tiers.filter((plan) => plan.kind === "subscription");
-  const jsonLd = {
+  const structured = {
     "@context": "https://schema.org",
     "@graph": [
       {
@@ -63,7 +64,7 @@ export default async function PricingPage() {
   };
   return (
     <main className="relative overflow-x-clip">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(structured) }} />
       <Nav />
       <section className="relative px-5 pb-24 pt-36">
         <Aurora />

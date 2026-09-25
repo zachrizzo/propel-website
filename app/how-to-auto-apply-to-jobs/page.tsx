@@ -5,6 +5,7 @@ import Nav from "@/components/Nav";
 import Reveal from "@/components/Reveal";
 import { DownloadTrio } from "@/components/DownloadButtons";
 import { site } from "@/lib/site";
+import { jsonLd } from "@/lib/json-ld";
 
 const PATH = "/how-to-auto-apply-to-jobs";
 
@@ -82,7 +83,7 @@ export default function Guide() {
     <main className="relative">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(howToJsonLd) }}
       />
       <Nav />
       <article className="relative px-5 pb-24 pt-32 sm:pt-36">

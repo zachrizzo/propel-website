@@ -5,6 +5,7 @@ import Nav from "@/components/Nav";
 import Reveal from "@/components/Reveal";
 import { DownloadTrio } from "@/components/DownloadButtons";
 import { site } from "@/lib/site";
+import { jsonLd } from "@/lib/json-ld";
 
 const PATH = "/job-application-agent";
 
@@ -65,7 +66,7 @@ export default function JobApplicationAgent() {
     <main className="relative">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(articleJsonLd) }}
       />
       <Nav />
       <article className="relative px-5 pb-24 pt-32 sm:pt-36">

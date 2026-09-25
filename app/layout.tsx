@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { getCatalog } from "@/lib/plans";
 import { site } from "@/lib/site";
 import "./globals.css";
+import { jsonLd } from "@/lib/json-ld";
 
 const display = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -167,7 +168,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body className="grain font-sans antialiased">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(await siteJsonLd()) }}
+          dangerouslySetInnerHTML={{ __html: jsonLd(await siteJsonLd()) }}
         />
         {children}
         <Analytics />
