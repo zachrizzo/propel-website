@@ -127,8 +127,7 @@ body {
   text-wrap: balance;
 }
 
-/* Pure-CSS load reveal for above-the-fold content — fires on first paint with no
-   JS/observer dependency, so the hero can never get stuck hidden. */
+/* The scroll reveal's fade and rise. */
 @keyframes reveal-up {
   from {
     opacity: 0;
@@ -139,9 +138,18 @@ body {
     transform: translateY(0);
   }
 }
+/* Above the fold: a slide with no fade. Text that starts at opacity 0 is not a
+   Largest Contentful Paint candidate, so a faded-in headline would count late. */
+@keyframes rise {
+  from {
+    transform: translateY(14px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 .reveal-up {
-  opacity: 0;
-  animation: reveal-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 @media (prefers-reduced-motion: reduce) {
   .reveal-up {
