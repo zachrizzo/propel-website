@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
 export const alt = "Propel — a browser agent for LinkedIn Easy Apply and Indeed applications";
@@ -5,6 +7,10 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default function OpenGraphImage() {
+  const logoDataUrl = `data:image/png;base64,${readFileSync(
+    join(process.cwd(), "public", "propel-logo.png"),
+  ).toString("base64")}`;
+
   return new ImageResponse(
     (
       <div
@@ -22,22 +28,8 @@ export default function OpenGraphImage() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-          <div
-            style={{
-              width: 58,
-              height: 58,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              borderRadius: 16,
-              background: "linear-gradient(135deg, #237bd2, #3193e9)",
-              color: "white",
-              fontSize: 34,
-              fontWeight: 800,
-            }}
-          >
-            ↑
-          </div>
+          <img src={logoDataUrl} width={58} height={58} alt="" />
+
           <div style={{ display: "flex", flexDirection: "column" }}>
             <span style={{ fontSize: 30, fontWeight: 800 }}>Propel</span>
             <span style={{ color: "#2386e7", fontSize: 17, fontWeight: 700, letterSpacing: 1.4 }}>
