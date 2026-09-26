@@ -16,8 +16,22 @@ function siteOrigin(request: NextRequest): string {
   return `${local ? "http" : "https"}://${host}`;
 }
 
+/** Propel running on the person's computer signs in with Google through this page. Its code is passed on, never
+ *  exchanged here: it is useless without the secret that Propel keeps on that computer (PKCE). Only to that fixed
+ *  local address, never anywhere a link names. */
+const LOCAL_PROPEL_CALLBACK = "http://127.0.0.1:38465/auth/callback";
+const LOCAL_PROPEL_NEXT = "/propel-local";
+
 export async function GET(request: NextRequest) {
   const url = request.nextUrl;
+  if (url.searchParams.get("next") === LOCAL_PROPEL_NEXT) {
+    const local = new URL(LOCAL_PROPEL_CALLBACK);
+    for (const key of ["code", "flow", "error", "error_description"]) {
+      const value = url.searchParams.get(key);
+      if (value) local.searchParams.set(key, value.slice(0, 1024));
+    }
+    return NextResponse.redirect(local);
+  }
   const origin = siteOrigin(request);
   const next = safeNext(url.searchParams.get("next"));
   const code = url.searchParams.get("code");
