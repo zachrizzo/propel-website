@@ -277,6 +277,26 @@ export default async function Home() {
         </Reveal>
       </section>
 
+      {/* ───────────────── UPCOMING EXTENSION-ONLY RELEASE ───────────────── */}
+      <section aria-labelledby="extension-only-heading" className="relative px-5 py-12">
+        <div className="mx-auto max-w-6xl rounded-2xl border border-iris-400/25 bg-iris-500/10 p-7 sm:p-9">
+          <span className="font-mono text-[11px] uppercase tracking-widest text-iris-300">Upcoming Chrome extension</span>
+          <h2 id="extension-only-heading" className="mt-3 font-display text-2xl font-semibold text-cream">
+            Propel without a desktop app
+          </h2>
+          <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-mist">
+            The extension-only version is not yet available in the Chrome Web Store. The current Propel Bridge listing
+            still requires the Mac app; the current-product information below describes that version.
+          </p>
+          <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-mist">
+            Install Propel for Chrome to prepare applications without a desktop app. Choose a job application, open
+            Propel&apos;s side panel, sign in, and inspect the form. Review suggestions before Propel fills supported
+            fields or attaches a résumé file you select. Answer unfamiliar or consequential questions on the employer
+            page, then submit the final application yourself. Some sites and controls require manual steps.
+          </p>
+        </div>
+      </section>
+
       {/* ───────────────── WHY PROPEL ───────────────── */}
       <section id="why" className="relative px-5 py-24">
         <div className="mx-auto max-w-6xl">

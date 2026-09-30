@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/privacy" },
 };
 
-const UPDATED = "September 25, 2026";
+const UPDATED = "September 30, 2026";
 
 const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <section className="mt-10">
@@ -39,6 +39,38 @@ export default function Privacy() {
         Mac, the Propel Bridge extension for Chrome, your Propel account, and this website. This policy explains what
         each of them handles, where that data goes, and the choices you have.
       </p>
+
+      <Section title="Upcoming extension-only version">
+        <p>
+          The following disclosure describes Propel Chrome extension version 2.1.1, which is not yet available in the
+          Chrome Web Store. The sections below continue to describe the currently published Mac app and Propel Bridge.
+        </p>
+        <p>
+          The Propel Chrome extension reads visible application form labels, choices, and limited field state on a page
+          you choose to inspect. It stores your sign-in session and local task/answer records in Chrome and fetches your
+          account&apos;s saved answers from Propel&apos;s Supabase service. When you request AI planning, the page origin,
+          visible field labels, surrounding question text, choices, and whether fields are answered travel through
+          Propel&apos;s authenticated Supabase model service to Jev. Where answer matching is possible, OpenAI also
+          receives relevant field context and saved-answer IDs, question names, aliases, and types. Field labels and
+          question names may contain personal information. Saved-answer values and selected résumé files are not sent
+          in these model-planning requests. A résumé file you select is attached to the employer&apos;s form. You review
+          actions and submit the final application yourself. Your browser keeps the sign-in session and local task
+          records; signing out removes the local session, and the side panel can remove individual locally saved
+          answers. Account data and AI prompts may also be retained by the service providers under their applicable
+          policies. For questions about your data, contact zachcilwa@gmail.com.
+        </p>
+      </Section>
+
+      <Section title="Upcoming extension permissions">
+        <p>
+          Propel uses storage for the signed-in session and local task records; tabs to identify the application tab
+          and reviewed page changes; sidePanel to display the application controls; and scripting plus HTTPS site
+          access to inspect and fill the application page, including employer domains and embedded frames. Access to
+          Propel&apos;s Supabase service supports sign-in, saved answers, allowance checks, and requested AI planning.
+          Actions follow user review. The extension does not require a desktop app, native messaging, or Chrome debugger
+          access.
+        </p>
+      </Section>
 
       <Section title="The short version">
         <List>
