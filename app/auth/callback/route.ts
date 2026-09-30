@@ -21,7 +21,8 @@ export async function GET(request: NextRequest) {
   // The upcoming Chrome-only extension exchanges its own PKCE code. Never exchange that code into
   // the website's cookie session or redirect it to another page. This uses the existing site callback
   // allowlist and Google provider; the extension checks the exact tab and one-time flow before exchange.
-  if (/^\/_propel_extension_auth\/[A-Za-z0-9_-]{16}$/.test(url.searchParams.get("next") ?? "")) {
+  if ((url.searchParams.get("next") === "/_propel_extension_auth" ||
+      /^\/_propel_extension_auth\/[A-Za-z0-9_-]{16}$/.test(url.searchParams.get("next") ?? ""))) {
     return new NextResponse("<!doctype html><html lang=\"en\"><meta charset=\"utf-8\"><title>Return to Propel</title><main><h1>Return to Propel</h1><p>Finish signing in from the Propel Chrome side panel. You can close this tab after Propel responds.</p></main></html>", {
       status: 200,
       headers: {
