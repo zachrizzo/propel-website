@@ -40,6 +40,7 @@ const nextConfig = {
       { source: "/:path*", headers: securityHeaders },
       // OAuth codes can appear in this callback URL; do not forward it as a referrer.
       { source: "/auth/callback", headers: [{ key: "Referrer-Policy", value: "no-referrer" }] },
+      { source: "/auth/extension-callback", headers: [{ key: "Referrer-Policy", value: "no-referrer" }] },
     ];
   },
 };

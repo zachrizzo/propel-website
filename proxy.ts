@@ -5,6 +5,9 @@ import { supabasePublishableKey, supabaseUrl } from "@/lib/supabase/config";
 // Keeps the Supabase session fresh on the pages that use it. Marketing pages are
 // left out so they stay static. (Next.js 16 calls this file proxy; it was middleware.)
 export async function proxy(request: NextRequest) {
+  // This URL is the extension's PKCE handoff. It must not refresh the website
+  // cookie session or exchange the code on the website's behalf.
+  if (request.nextUrl.pathname === "/auth/extension-callback") return NextResponse.next({ request });
   let response = NextResponse.next({ request });
   const supabase = createServerClient(supabaseUrl, supabasePublishableKey, {
     cookies: {
