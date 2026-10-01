@@ -78,7 +78,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
 
   const [entitlementResult, plansResult] = await Promise.all([
     supabase.rpc("get_entitlement"),
-    supabase.from("plans").select(PLAN_COLUMNS).eq("active", true).order("sort_order"),
+    supabase.from("plans").select(PLAN_COLUMNS).eq("active", true).eq("byo_ai", false).order("sort_order"),
   ]);
   const entitlement = entitlementResult.error ? null : toEntitlement(entitlementResult.data);
   const plans = (plansResult.data ?? []).map(toPlan);
