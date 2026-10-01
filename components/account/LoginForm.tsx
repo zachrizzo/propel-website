@@ -8,6 +8,22 @@ type Mode = "signin" | "signup";
 type Message = { tone: "error" | "info" | "success"; text: string } | null;
 
 const callbackUrl = (next: string) => `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`;
+const googleNextCookie = "propel_google_next";
+const googleCallbackUrl = () => `${window.location.origin}/auth/callback`;
+
+function rememberGoogleDestination(next: string) {
+  // Supabase validates the complete redirect URL, including its query. Keep the
+  // allowlisted Google callback fixed and carry the in-site destination separately.
+  document.cookie = `${googleNextCookie}=${encodeURIComponent(next)}; Path=/auth/callback; Max-Age=600; SameSite=Lax${
+    window.location.protocol === "https:" ? "; Secure" : ""
+  }`;
+}
+
+function forgetGoogleDestination() {
+  document.cookie = `${googleNextCookie}=; Path=/auth/callback; Max-Age=0; SameSite=Lax${
+    window.location.protocol === "https:" ? "; Secure" : ""
+  }`;
+}
 
 export default function LoginForm({ next, initialMode, callbackError }: { next: string; initialMode: Mode; callbackError: string | null }) {
   const [mode, setMode] = useState<Mode>(initialMode);
@@ -47,9 +63,13 @@ export default function LoginForm({ next, initialMode, callbackError }: { next: 
   async function google() {
     setBusy("google");
     setMessage(null);
-    const { error } = await createClient().auth.signInWithOAuth({ provider: "google", options: { redirectTo: callbackUrl(next) } });
-    if (error) {
-      setMessage({ tone: "error", text: error.message });
+    rememberGoogleDestination(next);
+    try {
+      const { error } = await createClient().auth.signInWithOAuth({ provider: "google", options: { redirectTo: googleCallbackUrl() } });
+      if (error) throw error;
+    } catch (error) {
+      forgetGoogleDestination();
+      setMessage({ tone: "error", text: error instanceof Error ? error.message : "Google sign-in could not start. Please try again." });
       setBusy(null);
     }
   }

@@ -4,6 +4,8 @@ import { site } from "@/lib/site";
 import { safeNext } from "@/lib/supabase/config";
 import { createClient } from "@/lib/supabase/server";
 
+const GOOGLE_NEXT_COOKIE = "propel_google_next";
+
 // Where Supabase sends people back after Google sign-in, an email confirmation or
 // a password-reset link. A PKCE code (or an email token hash) becomes a session cookie.
 /** The origin the person is on: the forwarded host behind Vercel, the Host header locally.
@@ -35,7 +37,10 @@ export async function GET(request: NextRequest) {
     });
   }
   const origin = siteOrigin(request);
-  const next = safeNext(url.searchParams.get("next"));
+  let googleNext: string | null = null;
+  try { googleNext = decodeURIComponent(request.cookies.get(GOOGLE_NEXT_COOKIE)?.value ?? ""); }
+  catch { /* A malformed cookie has no authority over the redirect. */ }
+  const next = safeNext(url.searchParams.get("next") ?? googleNext);
   const code = url.searchParams.get("code");
   const tokenHash = url.searchParams.get("token_hash");
   const type = url.searchParams.get("type") as EmailOtpType | null;
@@ -49,7 +54,13 @@ export async function GET(request: NextRequest) {
     const retry = new URL("/login", origin);
     retry.searchParams.set("error", "callback");
     retry.searchParams.set("next", next);
-    return NextResponse.redirect(retry);
+    const response = NextResponse.redirect(retry);
+    response.cookies.set(GOOGLE_NEXT_COOKIE, "", { path: "/auth/callback", maxAge: 0,
+      sameSite: "lax", secure: origin.startsWith("https://") });
+    return response;
   }
-  return NextResponse.redirect(new URL(next, origin));
+  const response = NextResponse.redirect(new URL(next, origin));
+  response.cookies.set(GOOGLE_NEXT_COOKIE, "", { path: "/auth/callback", maxAge: 0,
+    sameSite: "lax", secure: origin.startsWith("https://") });
+  return response;
 }
