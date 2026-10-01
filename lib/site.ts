@@ -28,7 +28,7 @@ export const site = {
   tagline: "Never start another job application from scratch",
   description:
     // Search results show about 155 characters.
-    "Propel is an AI job application agent that fills LinkedIn Easy Apply and Indeed applications in Chrome from your saved résumé and answers. You review first.",
+    "Propel currently pairs a Mac app with Chrome Bridge to prepare supported job applications. A Chrome-only version is in testing and not yet released.",
   // The public custom domain is the canonical SEO identity for the site.
   url: siteUrl,
   // Website-owned download routes. They never send users directly to GitHub

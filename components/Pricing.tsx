@@ -30,6 +30,9 @@ export default function Pricing({ catalog, headingLevel = "h2" }: { catalog: Cat
           An application counts only when Propel reaches the final submit step. Skipped jobs and
           mismatches are free, and you can change or cancel your plan anytime.
         </p>
+        <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-fog">
+          These plans apply to the current Mac app and Propel Bridge. The Chrome-only version is still being tested.
+        </p>
       </Reveal>
 
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -55,7 +58,7 @@ export default function Pricing({ catalog, headingLevel = "h2" }: { catalog: Cat
                       : "bg-gradient-to-br from-iris-600 to-iris-400 text-white shadow-[0_7px_18px_rgba(35,134,231,0.22)] hover:-translate-y-px"
                   }`}
                 >
-                  {free ? "Download free" : `Choose ${plan.name}`}
+                  {free ? "Current Mac version" : `Choose ${plan.name}`}
                 </a>
               </div>
             </Reveal>

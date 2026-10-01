@@ -4,7 +4,7 @@ import HeroFlow from "@/components/HeroFlow";
 import Reveal from "@/components/Reveal";
 import Footer from "@/components/Footer";
 import Pricing from "@/components/Pricing";
-import { PrimaryDownload, DownloadTrio } from "@/components/DownloadButtons";
+import { DownloadTrio } from "@/components/DownloadButtons";
 import { formatPrice, getCatalog, pricingSummary, type Catalog } from "@/lib/plans";
 import { site } from "@/lib/site";
 import { jsonLd } from "@/lib/json-ld";
@@ -46,8 +46,8 @@ const FEATURES = [
     i: "spark",
   },
   {
-    t: "Works through every step",
-    d: "It moves through each page of a supported multi-step application, not just the first screen.",
+    t: "Works through supported steps",
+    d: "It can continue through recognized pages of a multi-step application and pauses when a step needs you.",
     i: "layers",
   },
   {
@@ -65,8 +65,8 @@ const FEATURES = [
 const COVERAGE = [
   {
     label: "LinkedIn Easy Apply",
-    title: "Every step, start to finish",
-    body: "Easy Apply is where Propel works best: it fills each step, attaches your résumé and answers the screening questions it knows.",
+    title: "Supported application steps",
+    body: "On supported Easy Apply forms, Propel can fill recognized fields and attach your résumé. You review answers and handle unfamiliar steps.",
   },
   {
     label: "Indeed",
@@ -132,7 +132,7 @@ function homepageJsonLd(faq: readonly { q: string; a: string }[]) {
       "@id": `${site.url}/#howto`,
       name: "How to fill LinkedIn Easy Apply and supported Indeed applications with Propel",
       description:
-        "Save an application profile once, let Propel fill LinkedIn Easy Apply and supported Indeed applications in your Chrome tab, and review before submission.",
+        "Use the currently available Mac app and Propel Bridge to prepare supported applications in Chrome, then review before submission.",
       step: STEPS.map((step, index) => ({
         "@type": "HowToStep",
         position: index + 1,
@@ -230,31 +230,32 @@ export default async function Home() {
             <Reveal immediate>
               <span className="inline-flex items-center gap-2 rounded-full border border-iris-400/25 bg-iris-500/10 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-wider text-iris-300">
                 <span className="h-1.5 w-1.5 rounded-full bg-iris-400" />
-                AI job application agent · Beta
+                Chrome-only Propel · In testing
               </span>
             </Reveal>
             <Reveal delay={0.06} immediate>
               <h1 className="mt-6 font-display text-[44px] font-extrabold leading-[1.02] tracking-tight text-cream sm:text-6xl lg:text-[58px]">
-                Your job applications, <span className="text-gradient sm:whitespace-nowrap">filled out for you.</span>
+                Propel for Chrome, <span className="text-gradient sm:whitespace-nowrap">without a Mac app.</span>
               </h1>
             </Reveal>
             <Reveal delay={0.12} immediate>
               <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-mist sm:mx-0">
-                Propel works through every step of LinkedIn Easy Apply and supported Indeed applications
-                in your Chrome tab. It uses your saved résumé and answers, asks only what it can&apos;t know,
-                and stops for your review before anything is sent.
+                We&apos;re testing an extension-only version that helps prepare job applications in your Chrome tab.
+                It is not yet available in the Chrome Web Store. You&apos;ll review the application and submit it yourself.
               </p>
             </Reveal>
             <Reveal delay={0.18} immediate>
               <div className="mt-9 flex flex-col items-center gap-4 sm:flex-row sm:items-start">
-                <PrimaryDownload />
-                <a href="#how" className="inline-flex items-center gap-2 rounded-full border border-iris-400/25 px-6 py-3.5 font-display text-[15px] font-semibold text-cream transition-colors hover:border-iris-400/50 hover:bg-iris-500/10">
-                  See how it works
+                <a href="#extension-only" className="inline-flex items-center gap-2 rounded-full bg-cream px-7 py-3.5 font-display text-[15px] font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-95">
+                  Explore the upcoming extension
+                </a>
+                <a href="#download" className="inline-flex items-center gap-2 rounded-full border border-iris-400/25 px-6 py-3.5 font-display text-[15px] font-semibold text-cream transition-colors hover:border-iris-400/50 hover:bg-iris-500/10">
+                  Current Mac version
                 </a>
               </div>
             </Reveal>
             <Reveal delay={0.24} immediate>
-              {summary ? <p className="mt-6 text-[14px] text-fog">{summary}</p> : null}
+              {summary ? <p className="mt-6 text-[14px] text-fog">Current Mac version plans: {summary}</p> : null}
             </Reveal>
           </div>
 
@@ -262,13 +263,14 @@ export default async function Home() {
             <div className="relative w-full max-w-[540px]">
               <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-iris-500/10 blur-2xl" />
               <HeroFlow />
+              <p className="mt-3 text-center text-[12px] text-fog">Illustration of the current application workflow. The Chrome-only release is still being tested.</p>
             </div>
           </Reveal>
         </div>
 
         <Reveal delay={0.26} immediate>
           <div className="mx-auto mt-16 flex max-w-6xl flex-wrap items-center justify-center gap-x-8 gap-y-3 border-y border-iris-400/10 py-5 text-[14px] text-mist">
-            <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-fog">Works in your Chrome tab on</span>
+            <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-fog">Current Mac + Bridge beta</span>
             <span className="font-display font-semibold text-cream">LinkedIn Easy Apply</span>
             <span className="font-display font-semibold text-cream">Indeed <span className="font-sans font-normal text-fog">(supported listings)</span></span>
             <span className="hidden h-4 w-px bg-iris-400/20 sm:block" />
@@ -278,21 +280,34 @@ export default async function Home() {
       </section>
 
       {/* ───────────────── UPCOMING EXTENSION-ONLY RELEASE ───────────────── */}
-      <section aria-labelledby="extension-only-heading" className="relative px-5 py-12">
+      <section id="extension-only" aria-labelledby="extension-only-heading" className="relative scroll-mt-20 px-5 py-12">
         <div className="mx-auto max-w-6xl rounded-2xl border border-iris-400/25 bg-iris-500/10 p-7 sm:p-9">
           <span className="font-mono text-[11px] uppercase tracking-widest text-iris-300">Upcoming Chrome extension</span>
           <h2 id="extension-only-heading" className="mt-3 font-display text-2xl font-semibold text-cream">
             Propel without a desktop app
           </h2>
           <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-mist">
-            The extension-only version is not yet available in the Chrome Web Store. The current Propel Bridge listing
-            still requires the Mac app; the current-product information below describes that version.
+            The extension-only version is still being tested and has not been submitted to the Chrome Web Store.
+            The current Propel Bridge listing still requires the Mac app.
           </p>
           <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-mist">
-            Install Propel for Chrome to prepare applications without a desktop app. Choose a job application, open
+            When it is released, you&apos;ll install Propel for Chrome without a desktop app. Choose a job application, open
             Propel&apos;s side panel, sign in, and inspect the form. Review suggestions before Propel fills supported
             fields or attaches a résumé file you select. Answer unfamiliar or consequential questions on the employer
             page, then submit the final application yourself. Some sites and controls require manual steps.
+          </p>
+        </div>
+      </section>
+
+      <section id="current-version" aria-labelledby="current-version-heading" className="relative px-5 pt-10">
+        <div className="mx-auto max-w-6xl rounded-2xl border border-iris-400/15 bg-ink-800/40 p-7 sm:p-9">
+          <span className="font-mono text-[11px] uppercase tracking-widest text-iris-300">Available now</span>
+          <h2 id="current-version-heading" className="mt-3 font-display text-2xl font-semibold text-cream">
+            The current Mac app and Propel Bridge
+          </h2>
+          <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-mist">
+            The workflow, features, pricing and download options below describe the current version, which requires
+            both the Mac app and its Chrome extension. The Chrome-only version above is not available yet.
           </p>
         </div>
       </section>
@@ -413,7 +428,7 @@ export default async function Home() {
               Beta coverage: <span className="text-gradient">Easy Apply and Indeed.</span>
             </h2>
             <p className="mt-5 max-w-3xl text-[16px] leading-relaxed text-mist">
-              In beta, Propel works on LinkedIn Easy Apply and supported Indeed applications. It doesn&apos;t
+              The current beta supports some LinkedIn Easy Apply and Indeed applications. It doesn&apos;t
               cover company career sites or applicant tracking systems yet.{" "}
               <a href="/job-application-agent" className="font-medium text-iris-300 underline-offset-4 hover:underline">
                 See exactly what&apos;s covered
@@ -501,13 +516,13 @@ export default async function Home() {
         <Aurora />
         <div className="mx-auto max-w-4xl text-center">
           <Reveal>
-            <span className="font-mono text-[11px] uppercase tracking-widest text-iris-400">Get started</span>
+            <span className="font-mono text-[11px] uppercase tracking-widest text-iris-400">Currently available version</span>
             <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-cream sm:text-6xl balance">
-              Your next application shouldn&apos;t start from <span className="text-gradient">scratch.</span>
+              Propel for Mac <span className="text-gradient">and Chrome Bridge.</span>
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-mist">
-              Install Propel free on your Mac, add the Chrome extension, save your profile once, and let the agent
-              fill your next LinkedIn Easy Apply or supported Indeed application.
+              This downloadable version requires both the Mac app and Propel Bridge for Chrome. The extension-only
+              release is still being tested and is not available in the Chrome Web Store yet.
             </p>
             <div className="mt-10">
               <DownloadTrio />

@@ -45,7 +45,7 @@ export function PrimaryDownload({ note }: { note?: string }) {
       >
         <span className="relative z-10 flex items-center gap-2.5">
           <MacGlyph />
-          Download Propel for Mac — free
+          Current Propel for Mac — free
         </span>
         <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-iris-300/0 via-iris-300/40 to-iris-300/0 transition-transform duration-700 group-hover:translate-x-full" />
       </a>
@@ -58,8 +58,8 @@ export function DownloadTrio() {
   const items = [
     {
       href: site.downloads.mac,
-      label: "macOS",
-      sub: site.downloadAvailability.mac ? "Universal .dmg" : "Signed build coming soon",
+      label: "Current Mac app",
+      sub: site.downloadAvailability.mac ? "Available · macOS .dmg" : "Signed build coming soon",
       glyph: <MacGlyph />,
       available: site.downloadAvailability.mac,
     },
@@ -72,8 +72,8 @@ export function DownloadTrio() {
     },
     {
       href: site.downloads.chrome,
-      label: "Chrome extension",
-      sub: "Propel Bridge",
+      label: "Current Chrome Bridge",
+      sub: "Requires the Mac app",
       glyph: <ChromeGlyph />,
       available: true,
     },
