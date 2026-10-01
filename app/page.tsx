@@ -224,7 +224,7 @@ export default async function Home() {
       <section className="relative px-5 pb-16 pt-32 sm:pt-40">
         <Aurora />
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="text-center sm:text-left">
+          <div className="min-w-0 text-center sm:text-left">
             <Reveal immediate>
               <span className="inline-flex items-center gap-2 rounded-full border border-iris-400/25 bg-iris-500/10 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-wider text-iris-300">
                 <span className="h-1.5 w-1.5 rounded-full bg-iris-400" />
@@ -233,7 +233,7 @@ export default async function Home() {
             </Reveal>
             <Reveal delay={0.06} immediate>
               <h1 className="mt-6 font-display text-[44px] font-extrabold leading-[1.02] tracking-tight text-cream sm:text-6xl lg:text-[58px]">
-                Propel Extension. <span className="text-gradient sm:whitespace-nowrap">Applications, in your Chrome tab.</span>
+                Propel Extension. <span className="text-gradient">Applications, in your Chrome tab.</span>
               </h1>
             </Reveal>
             <Reveal delay={0.12} immediate>
