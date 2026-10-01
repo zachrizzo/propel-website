@@ -3,7 +3,6 @@ import Aurora from "@/components/Aurora";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import Reveal from "@/components/Reveal";
-import { DownloadTrio } from "@/components/DownloadButtons";
 import { site } from "@/lib/site";
 import { jsonLd } from "@/lib/json-ld";
 
@@ -33,13 +32,13 @@ const SECTIONS = [
   {
     h: "1. Save your application profile",
     p: [
-      "Add your contact details, work history, résumé, links, and preferred answers in the Propel desktop app. This becomes the saved profile Propel can reuse.",
+      "Sign in to your Propel account and save your contact details, work history, links, and preferred answers. Choose the résumé file you want to attach to an application.",
     ],
   },
   {
     h: "2. Connect the application in Chrome",
     p: [
-      "Install the Propel Bridge extension and pair it with the desktop app. The extension works with the application shown in your browser, while the desktop app provides your saved profile and runs the application workflow.",
+      "When Propel Extension version 2.1.1 is released, install it in Chrome and open its side panel on an application page. This version is still being tested and is not yet available in the Chrome Web Store.",
     ],
   },
   {
@@ -122,11 +121,8 @@ export default function Guide() {
             <div className="ring-grad glass mt-14 rounded-2xl px-7 py-9 text-center">
               <h2 className="font-display text-2xl font-bold text-cream">Make the next application easier</h2>
               <p className="mx-auto mt-3 max-w-lg text-[15px] leading-relaxed text-mist">
-                Install the desktop app and Chrome extension, save your profile once, and let Propel fill LinkedIn Easy Apply and supported Indeed applications in your Chrome tab while the page stays visible for review.
+                Propel Extension is being tested for supported applications in Chrome. Save your profile and review what the extension prepares before you submit.
               </p>
-              <div className="mt-7">
-                <DownloadTrio />
-              </div>
               <p className="mt-6 text-[14px] text-fog">
                 Or read what to expect from a{" "}
                 <a href="/job-application-agent" className="text-iris-300 underline-offset-4 hover:underline">

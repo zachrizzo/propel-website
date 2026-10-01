@@ -3,7 +3,6 @@ import Aurora from "@/components/Aurora";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import Reveal from "@/components/Reveal";
-import { DownloadTrio } from "@/components/DownloadButtons";
 import { site } from "@/lib/site";
 import { jsonLd } from "@/lib/json-ld";
 
@@ -101,11 +100,8 @@ export default function JobApplicationAgent() {
             <div className="ring-grad glass mt-14 rounded-2xl px-7 py-9 text-center">
               <h2 className="font-display text-2xl font-bold text-cream">Stop rebuilding the same application</h2>
               <p className="mx-auto mt-3 max-w-lg text-[15px] leading-relaxed text-mist">
-                Propel is free to download for Mac. Save your profile once, add the Chrome extension, and fill LinkedIn Easy Apply and supported Indeed applications in your tab.
+                Propel Extension is being tested for supported job applications in Chrome. Version 2.1.1 is not yet available in the Chrome Web Store.
               </p>
-              <div className="mt-7">
-                <DownloadTrio />
-              </div>
               <p className="mt-6 text-[14px] text-fog">
                 Want the setup walkthrough?{" "}
                 <a href="/how-to-auto-apply-to-jobs" className="text-iris-300 underline-offset-4 hover:underline">

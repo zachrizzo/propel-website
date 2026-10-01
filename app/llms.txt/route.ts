@@ -44,11 +44,9 @@ not affiliated with or endorsed by LinkedIn or any other job site.
 
 ## Product
 
-Propel is the desktop app. Propel Job Agent is the public product name for search
-and discovery. Propel Bridge is the Chrome extension that connects the browser to
-the desktop app. Together they fill job applications in the user's own browser
-while the user stays in control. The desktop app is free to install for macOS.
-The Windows installer is not currently available.
+Propel Extension is a Chrome extension in testing. Version 2.1.1 is not yet
+available in the Chrome Web Store. The existing Store listing is an older build,
+not a download for this upcoming version. The user reviews before final submission.
 
 ## Pricing
 
@@ -65,10 +63,7 @@ ${site.roadmap.map((r) => `- ${r.title}: ${r.body}`).join("\n")}
 ## Key URLs
 
 - Website: ${site.url}
-- macOS download: ${site.downloads.mac}
-- Windows download: ${site.downloads.windows}
-- Chrome extension: ${site.downloads.chrome}
-- Public releases: ${site.social.github}
+- Propel Extension preview: ${site.url}/#extension-only
 - Pricing: ${site.url}/pricing
 - Privacy policy: ${site.url}/privacy
 - Job application agent guide: ${site.url}/job-application-agent

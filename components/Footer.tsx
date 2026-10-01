@@ -22,8 +22,7 @@ const COLUMNS = [
     title: "Account",
     links: [
       { href: "/account", label: "Sign in" },
-      { href: site.downloads.mac, label: "Current Mac app" },
-      { href: site.downloads.chrome, label: "Current Bridge (needs Mac)" },
+      { href: "/#extension-only", label: "Propel Extension" },
     ],
   },
   {

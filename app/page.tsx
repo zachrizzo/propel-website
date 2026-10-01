@@ -4,8 +4,7 @@ import HeroFlow from "@/components/HeroFlow";
 import Reveal from "@/components/Reveal";
 import Footer from "@/components/Footer";
 import Pricing from "@/components/Pricing";
-import { DownloadTrio } from "@/components/DownloadButtons";
-import { formatPrice, getCatalog, pricingSummary, type Catalog } from "@/lib/plans";
+import { formatPrice, getCatalog, type Catalog } from "@/lib/plans";
 import { site } from "@/lib/site";
 import { jsonLd } from "@/lib/json-ld";
 
@@ -84,11 +83,11 @@ const COVERAGE = [
 const DATA_POINTS = [
   {
     title: "Where your data lives",
-    body: "Your profile and saved answers live in your Propel account so every application can use them. Résumé files, screenshots and job-site logins stay on your Mac.",
+    body: "Your profile and saved answers live in your Propel account. The upcoming extension stores its sign-in session and local task records in Chrome; you choose the résumé file attached to an application.",
   },
   {
     title: "What the AI sees",
-    body: "The application page and the parts of your profile it needs, sent to OpenAI's API with storage turned off. We don't train AI models on your data.",
+    body: "When you request AI planning in the upcoming extension, relevant form context goes through Propel's Supabase service to Jev. OpenAI may receive relevant question context for answer matching. See the privacy policy for details.",
   },
   {
     title: "Your job-site accounts",
@@ -103,8 +102,8 @@ const DATA_POINTS = [
 const STEPS = [
   {
     n: "01",
-    title: "Install Propel and its Chrome extension",
-    body: "The Mac app runs the agent and keeps your profile, résumé and answers. The Propel Bridge extension lets it work in the tab you already have open.",
+    title: "Install Propel Extension when released",
+    body: "The upcoming extension works in your Chrome tab. Version 2.1.1 is still being tested and is not yet available in the Chrome Web Store.",
   },
   {
     n: "02",
@@ -132,7 +131,7 @@ function homepageJsonLd(faq: readonly { q: string; a: string }[]) {
       "@id": `${site.url}/#howto`,
       name: "How to fill LinkedIn Easy Apply and supported Indeed applications with Propel",
       description:
-        "Use the currently available Mac app and Propel Bridge to prepare supported applications in Chrome, then review before submission.",
+        "See how the upcoming Propel Extension is designed to prepare supported applications in Chrome for your review.",
       step: STEPS.map((step, index) => ({
         "@type": "HowToStep",
         position: index + 1,
@@ -213,7 +212,6 @@ function ListIcon({ positive }: { positive: boolean }) {
 export default async function Home() {
   const catalog = await getCatalog();
   const faq = faqWithPricing(catalog);
-  const summary = pricingSummary(catalog);
   return (
     <main id="top" className="relative overflow-x-clip">
       <script
@@ -230,32 +228,29 @@ export default async function Home() {
             <Reveal immediate>
               <span className="inline-flex items-center gap-2 rounded-full border border-iris-400/25 bg-iris-500/10 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-wider text-iris-300">
                 <span className="h-1.5 w-1.5 rounded-full bg-iris-400" />
-                Chrome-only Propel · In testing
+                Propel Extension · In testing
               </span>
             </Reveal>
             <Reveal delay={0.06} immediate>
               <h1 className="mt-6 font-display text-[44px] font-extrabold leading-[1.02] tracking-tight text-cream sm:text-6xl lg:text-[58px]">
-                Propel for Chrome, <span className="text-gradient sm:whitespace-nowrap">without a Mac app.</span>
+                Propel Extension. <span className="text-gradient sm:whitespace-nowrap">Applications, in your Chrome tab.</span>
               </h1>
             </Reveal>
             <Reveal delay={0.12} immediate>
               <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-mist sm:mx-0">
-                We&apos;re testing an extension-only version that helps prepare job applications in your Chrome tab.
-                It is not yet available in the Chrome Web Store. You&apos;ll review the application and submit it yourself.
+                We&apos;re testing Propel Extension to help prepare job applications in your Chrome tab.
+                Version 2.1.1 is not yet available in the Chrome Web Store. You&apos;ll review the application and submit it yourself.
               </p>
             </Reveal>
             <Reveal delay={0.18} immediate>
               <div className="mt-9 flex flex-col items-center gap-4 sm:flex-row sm:items-start">
                 <a href="#extension-only" className="inline-flex items-center gap-2 rounded-full bg-cream px-7 py-3.5 font-display text-[15px] font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-95">
-                  Explore the upcoming extension
+                  Explore Propel Extension
                 </a>
-                <a href="#download" className="inline-flex items-center gap-2 rounded-full border border-iris-400/25 px-6 py-3.5 font-display text-[15px] font-semibold text-cream transition-colors hover:border-iris-400/50 hover:bg-iris-500/10">
-                  Current Mac version
+                <a href="/account" className="inline-flex items-center gap-2 rounded-full border border-iris-400/25 px-6 py-3.5 font-display text-[15px] font-semibold text-cream transition-colors hover:border-iris-400/50 hover:bg-iris-500/10">
+                  Your account
                 </a>
               </div>
-            </Reveal>
-            <Reveal delay={0.24} immediate>
-              {summary ? <p className="mt-6 text-[14px] text-fog">Current Mac version plans: {summary}</p> : null}
             </Reveal>
           </div>
 
@@ -263,14 +258,14 @@ export default async function Home() {
             <div className="relative w-full max-w-[540px]">
               <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-iris-500/10 blur-2xl" />
               <HeroFlow />
-              <p className="mt-3 text-center text-[12px] text-fog">Illustration of the current application workflow. The Chrome-only release is still being tested.</p>
+              <p className="mt-3 text-center text-[12px] text-fog">Illustration of the intended application workflow. Propel Extension is still being tested.</p>
             </div>
           </Reveal>
         </div>
 
         <Reveal delay={0.26} immediate>
           <div className="mx-auto mt-16 flex max-w-6xl flex-wrap items-center justify-center gap-x-8 gap-y-3 border-y border-iris-400/10 py-5 text-[14px] text-mist">
-            <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-fog">Current Mac + Bridge beta</span>
+            <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-fog">Propel Extension preview</span>
             <span className="font-display font-semibold text-cream">LinkedIn Easy Apply</span>
             <span className="font-display font-semibold text-cream">Indeed <span className="font-sans font-normal text-fog">(supported listings)</span></span>
             <span className="hidden h-4 w-px bg-iris-400/20 sm:block" />
@@ -279,35 +274,22 @@ export default async function Home() {
         </Reveal>
       </section>
 
-      {/* ───────────────── UPCOMING EXTENSION-ONLY RELEASE ───────────────── */}
+      {/* ───────────────── UPCOMING EXTENSION RELEASE ───────────────── */}
       <section id="extension-only" aria-labelledby="extension-only-heading" className="relative scroll-mt-20 px-5 py-12">
         <div className="mx-auto max-w-6xl rounded-2xl border border-iris-400/25 bg-iris-500/10 p-7 sm:p-9">
-          <span className="font-mono text-[11px] uppercase tracking-widest text-iris-300">Upcoming Chrome extension</span>
+          <span className="font-mono text-[11px] uppercase tracking-widest text-iris-300">Upcoming Propel Extension</span>
           <h2 id="extension-only-heading" className="mt-3 font-display text-2xl font-semibold text-cream">
-            Propel without a desktop app
+            One extension for your application workflow
           </h2>
           <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-mist">
-            The extension-only version is still being tested and has not been submitted to the Chrome Web Store.
-            The current Propel Bridge listing still requires the Mac app.
+            Propel Extension version 2.1.1 is still being tested and is not yet available in the Chrome Web Store.
+            The existing Store listing is an older build, so it is not a download for this version.
           </p>
           <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-mist">
-            When it is released, you&apos;ll install Propel for Chrome without a desktop app. Choose a job application, open
+            When it is released, you&apos;ll install Propel Extension in Chrome. Choose a job application, open
             Propel&apos;s side panel, sign in, and inspect the form. Review suggestions before Propel fills supported
             fields or attaches a résumé file you select. Answer unfamiliar or consequential questions on the employer
             page, then submit the final application yourself. Some sites and controls require manual steps.
-          </p>
-        </div>
-      </section>
-
-      <section id="current-version" aria-labelledby="current-version-heading" className="relative px-5 pt-10">
-        <div className="mx-auto max-w-6xl rounded-2xl border border-iris-400/15 bg-ink-800/40 p-7 sm:p-9">
-          <span className="font-mono text-[11px] uppercase tracking-widest text-iris-300">Available now</span>
-          <h2 id="current-version-heading" className="mt-3 font-display text-2xl font-semibold text-cream">
-            The current Mac app and Propel Bridge
-          </h2>
-          <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-mist">
-            The workflow, features, pricing and download options below describe the current version, which requires
-            both the Mac app and its Chrome extension. The Chrome-only version above is not available yet.
           </p>
         </div>
       </section>
@@ -428,7 +410,7 @@ export default async function Home() {
               Beta coverage: <span className="text-gradient">Easy Apply and Indeed.</span>
             </h2>
             <p className="mt-5 max-w-3xl text-[16px] leading-relaxed text-mist">
-              The current beta supports some LinkedIn Easy Apply and Indeed applications. It doesn&apos;t
+              The upcoming extension is being tested on LinkedIn Easy Apply and supported Indeed applications. It doesn&apos;t
               cover company career sites or applicant tracking systems yet.{" "}
               <a href="/job-application-agent" className="font-medium text-iris-300 underline-offset-4 hover:underline">
                 See exactly what&apos;s covered
@@ -511,25 +493,18 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* ───────────────── DOWNLOAD ───────────────── */}
+      {/* ───────────────── AVAILABILITY ───────────────── */}
       <section id="download" className="relative scroll-mt-20 overflow-hidden px-5 py-24">
         <Aurora />
         <div className="mx-auto max-w-4xl text-center">
           <Reveal>
-            <span className="font-mono text-[11px] uppercase tracking-widest text-iris-400">Currently available version</span>
+            <span className="font-mono text-[11px] uppercase tracking-widest text-iris-400">In testing</span>
             <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-cream sm:text-6xl balance">
-              Propel for Mac <span className="text-gradient">and Chrome Bridge.</span>
+              Propel Extension <span className="text-gradient">is coming to Chrome.</span>
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-mist">
-              This downloadable version requires both the Mac app and Propel Bridge for Chrome. The extension-only
-              release is still being tested and is not available in the Chrome Web Store yet.
-            </p>
-            <div className="mt-10">
-              <DownloadTrio />
-            </div>
-            <p className="mx-auto mt-6 max-w-2xl text-[13px] leading-relaxed text-fog">
-              Start with the Mac app, then add Propel Bridge for Chrome. The Mac app is signed and notarized; a
-              Windows installer isn&apos;t available yet.
+              Version 2.1.1 is still being tested and is not available in the Chrome Web Store yet.
+              We&apos;ll update this page when the new extension can be installed.
             </p>
           </Reveal>
         </div>

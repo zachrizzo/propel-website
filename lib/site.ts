@@ -28,7 +28,7 @@ export const site = {
   tagline: "Never start another job application from scratch",
   description:
     // Search results show about 155 characters.
-    "Propel currently pairs a Mac app with Chrome Bridge to prepare supported job applications. A Chrome-only version is in testing and not yet released.",
+    "Propel Extension is being tested for job applications in Chrome. Version 2.1.1 is not yet available in the Chrome Web Store.",
   // The public custom domain is the canonical SEO identity for the site.
   url: siteUrl,
   // Website-owned download routes. They never send users directly to GitHub
@@ -88,15 +88,15 @@ export const site = {
     },
     {
       q: "What does Propel do with my data?",
-      a: "Your profile and saved answers are stored in your Propel account; résumé files, screenshots and job-site logins stay on your Mac. To fill an application, Propel sends the page and the parts of your profile it needs to OpenAI's API with storage turned off. We don't sell your data or train AI models on it. The details are in the privacy policy at propeljobagent.com/privacy.",
+      a: "Your profile and saved answers are stored in your Propel account. In the upcoming extension, a sign-in session and local task records are stored in Chrome. Requested AI planning sends relevant form context through Propel's Supabase service to Jev; OpenAI may also receive question context for answer matching. The details are in the privacy policy at propeljobagent.com/privacy.",
     },
     {
-      q: "Why do I need both a desktop app and a Chrome extension?",
-      a: "For now, the Mac app runs the agent and keeps your profile, résumé and answers, and the Chrome extension lets it work in the tab where the application is. You review everything before it's submitted.",
+      q: "When can I install Propel Extension?",
+      a: "Propel Extension version 2.1.1 is still being tested and is not yet available in the Chrome Web Store. The current Store listing is an older build, not the upcoming extension.",
     },
     {
       q: "Is Propel free?",
-      a: "Yes. The Mac app and the Propel Bridge Chrome extension are free to install, and the Free plan includes a monthly allowance of applications. Paid plans add more; current prices are at propeljobagent.com/pricing. An application counts only when Propel reaches the final submit step.",
+      a: "The Free plan includes a monthly allowance of applications. Paid plans add more; current prices are at propeljobagent.com/pricing. Propel Extension version 2.1.1 is still being tested and is not yet available in the Chrome Web Store.",
     },
     {
       q: "How much time does it save?",
@@ -105,16 +105,6 @@ export const site = {
     {
       q: "Is Propel affiliated with LinkedIn?",
       a: "No. Propel is an independent product and is not affiliated with or endorsed by LinkedIn or any other job site.",
-    },
-    {
-      q: "Is the desktop app signed?",
-      homepage: false,
-      a: "The Mac app is signed and notarized with an Apple Developer ID. The Windows installer is not currently published.",
-    },
-    {
-      q: "Will Propel update itself?",
-      homepage: false,
-      a: "Yes. The packaged desktop app checks the public release feed on launch, downloads newer builds in the background, and shows a Restart to update banner when the update is ready.",
     },
   ],
 } as const;

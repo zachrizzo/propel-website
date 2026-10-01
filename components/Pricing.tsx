@@ -31,7 +31,7 @@ export default function Pricing({ catalog, headingLevel = "h2" }: { catalog: Cat
           mismatches are free, and you can change or cancel your plan anytime.
         </p>
         <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-fog">
-          These plans apply to the current Mac app and Propel Bridge. The Chrome-only version is still being tested.
+          These are the current Propel account plans. Propel Extension version 2.1.1 is still being tested and is not yet available in the Chrome Web Store.
         </p>
       </Reveal>
 
@@ -51,14 +51,14 @@ export default function Pricing({ catalog, headingLevel = "h2" }: { catalog: Cat
                 </p>
                 <div className="flex-1" />
                 <a
-                  href={free ? "/#download" : "/account"}
+                  href={free ? "/#extension-only" : "/account"}
                   className={`mt-6 inline-flex h-11 items-center justify-center rounded-xl text-[14.5px] font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-iris-300 ${
                     free
                       ? "border border-iris-400/25 text-cream hover:border-iris-400/50 hover:bg-iris-500/10"
                       : "bg-gradient-to-br from-iris-600 to-iris-400 text-white shadow-[0_7px_18px_rgba(35,134,231,0.22)] hover:-translate-y-px"
                   }`}
                 >
-                  {free ? "Current Mac version" : `Choose ${plan.name}`}
+                  {free ? "Explore the extension" : `Choose ${plan.name}`}
                 </a>
               </div>
             </Reveal>

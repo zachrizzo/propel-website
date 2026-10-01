@@ -34,8 +34,7 @@ export default function BillingSuccess() {
         <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-mist">
           <p>
             Plans usually activate within a few seconds of payment. Reload your account page to
-            pull the change through. In the Propel desktop app, open{" "}
-            <strong className="text-cream">Billing</strong> and choose <strong className="text-cream">Refresh</strong>.
+            pull the change through.
           </p>
         </div>
       </section>
