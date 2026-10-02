@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/privacy" },
 };
 
-const UPDATED = "September 30, 2026";
+const UPDATED = "October 2, 2026";
 
 const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <section className="mt-10">
@@ -196,6 +196,12 @@ export default function Privacy() {
         <p>
           If you sign in on propeljobagent.com, a cookie keeps you signed in. We use Vercel Web Analytics to count page
           views; it doesn&rsquo;t use cookies. The site is hosted by Vercel, which keeps standard server logs.
+        </p>
+        <p>
+          If you join the upcoming extension waitlist, we store the email address you enter in Propel&rsquo;s Supabase
+          database. We also store a keyed digest of your network address and a daily request count to limit abusive
+          signups. Joining does not create an account, grant access, or subscribe you to marketing emails. We do not
+          send an email when you join.
         </p>
       </Section>
 

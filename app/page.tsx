@@ -4,6 +4,7 @@ import HeroFlow from "@/components/HeroFlow";
 import Reveal from "@/components/Reveal";
 import Footer from "@/components/Footer";
 import Pricing from "@/components/Pricing";
+import WaitlistForm from "@/components/WaitlistForm";
 import { formatPrice, getCatalog, type Catalog } from "@/lib/plans";
 import { site } from "@/lib/site";
 import { jsonLd } from "@/lib/json-ld";
@@ -244,8 +245,8 @@ export default async function Home() {
             </Reveal>
             <Reveal delay={0.18} immediate>
               <div className="mt-9 flex flex-col items-center gap-4 sm:flex-row sm:items-start">
-                <a href="#extension-only" className="inline-flex items-center gap-2 rounded-full bg-cream px-7 py-3.5 font-display text-[15px] font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-95">
-                  Explore Propel Extension
+                <a href="#waitlist" className="inline-flex items-center gap-2 rounded-full bg-cream px-7 py-3.5 font-display text-[15px] font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-95">
+                  Join the waitlist
                 </a>
                 <a href="/account" className="inline-flex items-center gap-2 rounded-full border border-iris-400/25 px-6 py-3.5 font-display text-[15px] font-semibold text-cream transition-colors hover:border-iris-400/50 hover:bg-iris-500/10">
                   Your account
@@ -291,6 +292,9 @@ export default async function Home() {
             fields or attaches a résumé file you select. Answer unfamiliar or consequential questions on the employer
             page, then submit the final application yourself. Some sites and controls require manual steps.
           </p>
+          <div id="waitlist" className="scroll-mt-24">
+            <WaitlistForm />
+          </div>
         </div>
       </section>
 
