@@ -88,7 +88,7 @@ const DATA_POINTS = [
   },
   {
     title: "What the AI sees",
-    body: "When you request AI planning in the upcoming extension, relevant form context goes through Propel's Supabase service to Jev. OpenAI may receive relevant question context for answer matching. See the privacy policy for details.",
+    body: "For requested AI planning, relevant application-page context is sent through Propel's authenticated Supabase service to OpenAI and Jev. When visual help is needed, a screenshot of the visible application tab may be sent to OpenAI; it may contain personal information visible on that page. See the privacy policy for details.",
   },
   {
     title: "Your job-site accounts",

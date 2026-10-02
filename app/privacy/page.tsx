@@ -41,35 +41,12 @@ export default function Privacy() {
       </p>
 
       <Section title="Upcoming extension-only version">
-        <p>
-          The following disclosure describes Propel Chrome extension version 2.1.1, which is not yet available in the
-          Chrome Web Store. The sections below continue to describe the currently published Mac app and Propel Bridge.
-        </p>
-        <p>
-          The Propel Chrome extension reads visible application form labels, choices, and limited field state on a page
-          you choose to inspect. It stores your sign-in session and local task/answer records in Chrome and fetches your
-          account&apos;s saved answers from Propel&apos;s Supabase service. When you request AI planning, the page origin,
-          visible field labels, surrounding question text, choices, and whether fields are answered travel through
-          Propel&apos;s authenticated Supabase model service to Jev. Where answer matching is possible, OpenAI also
-          receives relevant field context and saved-answer IDs, question names, aliases, and types. Field labels and
-          question names may contain personal information. Saved-answer values and selected résumé files are not sent
-          in these model-planning requests. A résumé file you select is attached to the employer&apos;s form. You review
-          actions and submit the final application yourself. Your browser keeps the sign-in session and local task
-          records; signing out removes the local session, and the side panel can remove individual locally saved
-          answers. Account data and AI prompts may also be retained by the service providers under their applicable
-          policies. For questions about your data, contact zachcilwa@gmail.com.
-        </p>
+        <p>This disclosure describes Propel Chrome extension version 2.1.1, which is not yet available in the Chrome Web Store. The sections below continue to describe the currently published Mac app and Propel Bridge until this extension update is published.</p>
+        <p>The extension reads application form labels, choices, surrounding text, and field state on a page you choose to work on. It stores your sign-in session and local task and answer records in Chrome, and gets your account's saved profile and answers from Propel's Supabase service. When you request AI planning, relevant form context is sent through Propel's authenticated Supabase model service to OpenAI. Jev receives reduced context about the step and available controls to help choose among actions. When a page needs visual understanding, Propel can capture the visible application tab and send that screenshot to OpenAI. A screenshot may include personal information and values already visible on the page. Structured model-planning requests do not intentionally include saved-answer values or the résumé file you select. The selected résumé file is attached to the employer's form. You review what Propel prepared; it can perform final submission only after you explicitly authorize that action for the run. Account data and AI requests may also be retained by the service providers under their applicable policies. For questions about your data, contact zachcilwa@gmail.com.</p>
       </Section>
 
       <Section title="Upcoming extension permissions">
-        <p>
-          Propel uses storage for the signed-in session and local task records; tabs to identify the application tab
-          and reviewed page changes; sidePanel to display the application controls; and scripting plus HTTPS site
-          access to inspect and fill the application page, including employer domains and embedded frames. Access to
-          Propel&apos;s Supabase service supports sign-in, saved answers, allowance checks, and requested AI planning.
-          Actions follow user review. The extension does not require a desktop app, native messaging, or Chrome debugger
-          access.
-        </p>
+        <p>The extension uses storage for your sign-in session and local task records; tabs and webNavigation to identify and follow the application tab and page changes; sidePanel to show application controls; tabGroups to organize job tabs; and offscreen to keep its local agent running. It uses scripting and HTTPS site access to read and fill the application pages you choose, including supported embedded forms on employer domains. The debugger permission lets Propel send trusted clicks and keystrokes, capture the visible application tab when visual planning is needed, and keep a job tab responsive while it works. Access to Propel's Supabase service supports sign-in, saved answers, plan checks, and requested AI planning. The extension does not need a desktop app or native messaging.</p>
       </Section>
 
       <Section title="The short version">
@@ -210,6 +187,7 @@ export default function Privacy() {
         <List>
           <li><Strong>Supabase</Strong> for your account, sign-in and stored data;</li>
           <li><Strong>OpenAI</Strong> for the AI models, as described above;</li>
+          <li><Strong>Jev</Strong> for reduced job-form context used to select browser actions;</li>
           <li><Strong>Stripe</Strong> for payments;</li>
           <li><Strong>Google</Strong> if you sign in with Google or connect Gmail;</li>
           <li><Strong>Vercel</Strong> to host this website and count page views;</li>

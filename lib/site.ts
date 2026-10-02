@@ -88,7 +88,7 @@ export const site = {
     },
     {
       q: "What does Propel do with my data?",
-      a: "Your profile and saved answers are stored in your Propel account. In the upcoming extension, a sign-in session and local task records are stored in Chrome. Requested AI planning sends relevant form context through Propel's Supabase service to Jev; OpenAI may also receive question context for answer matching. The details are in the privacy policy at propeljobagent.com/privacy.",
+      a: "Your profile and saved answers are stored in your Propel account. In the upcoming extension, a sign-in session and local task records are stored in Chrome. For requested AI planning, relevant application-page context is sent through Propel's authenticated Supabase service to OpenAI and Jev. When visual help is needed, a screenshot of the visible application tab may be sent to OpenAI; it may contain personal information visible on that page. The details are in the privacy policy at propeljobagent.com/privacy.",
     },
     {
       q: "When can I install Propel Extension?",
