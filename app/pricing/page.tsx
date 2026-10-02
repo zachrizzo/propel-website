@@ -7,6 +7,7 @@ import Reveal from "@/components/Reveal";
 import { formatPrice, getCatalog } from "@/lib/plans";
 import { site } from "@/lib/site";
 import { jsonLd } from "@/lib/json-ld";
+import { publicPageMetadata } from "@/lib/seo";
 
 const PATH = "/pricing";
 export const revalidate = 3600;
@@ -20,14 +21,9 @@ export async function generateMetadata(): Promise<Metadata> {
     "Propel pricing:",
     free?.monthlyApplications ? `free plan with ${free.monthlyApplications} applications a month,` : "",
     cheapest ? `paid plans from ${formatPrice(cheapest)}/mo.` : "",
-    "You only pay for applications that reach final submit.",
+    "The upcoming Chrome extension is not yet available.",
   ].filter(Boolean).join(" ");
-  return {
-    title: "Pricing",
-    description,
-    alternates: { canonical: PATH },
-    openGraph: { url: `${site.url}${PATH}`, title: "Propel pricing", description },
-  };
+  return publicPageMetadata({ title: "Propel account pricing", description, path: PATH });
 }
 
 export default async function PricingPage() {
@@ -39,8 +35,8 @@ export default async function PricingPage() {
       {
         "@type": "Product",
         "@id": `${site.url}${PATH}#product`,
-        name: site.productName,
-        description: site.description,
+        name: "Propel account plans",
+        description: "Current Propel account plans. The upcoming Chrome extension is not yet available in the Chrome Web Store.",
         brand: { "@type": "Brand", name: site.name },
         image: `${site.url}/propel-logo.png`,
         offers: catalog.tiers.map((plan) => ({

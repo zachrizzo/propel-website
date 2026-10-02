@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Instrument_Sans, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-import { getCatalog } from "@/lib/plans";
 import { site } from "@/lib/site";
 import "./globals.css";
 import { jsonLd } from "@/lib/json-ld";
@@ -31,7 +30,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   applicationName: site.name,
   title: {
-    default: "Propel: AI Job Application Agent for LinkedIn & Indeed",
+    default: "Propel Extension: AI Job Application Agent for Chrome",
     template: `%s · ${site.productName}`,
   },
   description: site.description,
@@ -45,7 +44,7 @@ export const metadata: Metadata = {
     "job application autofill",
     "browser job application agent",
     "Propel Job Agent",
-    "Propel Bridge",
+    "Propel Extension",
   ],
   referrer: "origin-when-cross-origin",
   authors: [{ name: "Propel" }],
@@ -55,22 +54,22 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: site.url,
-    title: "Propel | Your Job Applications, Filled Out for You",
+    title: "Propel Extension | Job Applications in Chrome",
     description: site.description,
     siteName: site.name,
     locale: "en_US",
-      images: [
+    images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Propel — a browser agent for LinkedIn Easy Apply and Indeed applications",
+        alt: "Propel Extension preview — job applications in Chrome",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Propel | Your Job Applications, Filled Out for You",
+    title: "Propel Extension | Job Applications in Chrome",
     description: site.description,
     images: ["/opengraph-image"],
   },
@@ -104,70 +103,40 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-async function siteJsonLd() {
-  const catalog = await getCatalog();
-  const prices = catalog.tiers.map((plan) => plan.amountCents / 100);
+function siteJsonLd() {
   return {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": `${site.url}/#website`,
-      name: site.productName,
-      alternateName: site.name,
-      url: site.url,
-      description: site.description,
-      inLanguage: "en-US",
-      publisher: { "@id": `${site.url}/#org` },
-    },
-    {
-      "@type": "Organization",
-      "@id": `${site.url}/#org`,
-      name: site.name,
-      url: site.url,
-      logo: `${site.url}/propel-logo.png`,
-      description: site.description,
-      sameAs: [site.social.github],
-    },
-    {
-      "@type": "SoftwareApplication",
-      "@id": `${site.url}/#software`,
-      name: site.productName,
-      alternateName: [site.name, "Propel Extension"],
-      brand: { "@type": "Brand", name: site.name },
-      applicationCategory: "BusinessApplication",
-      operatingSystem: "Google Chrome",
-      description: site.description,
-      featureList: [
-        "Fills LinkedIn Easy Apply and Indeed applications in your Chrome tab",
-        "Uses a saved profile to fill repeat application fields",
-        "Attaches saved résumés and requested application materials",
-        "Reuses saved answers when the same question appears later",
-        "Brings you in to review the application before submission",
-        "Tracks submitted applications",
-      ],
-      offers: {
-        "@type": "AggregateOffer",
-        priceCurrency: "USD",
-        lowPrice: Math.min(...prices).toFixed(2),
-        highPrice: Math.max(...prices).toFixed(2),
-        offerCount: catalog.tiers.length,
-        url: `${site.url}/pricing`,
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${site.url}/#website`,
+        name: site.productName,
+        alternateName: site.name,
+        url: site.url,
+        description: site.description,
+        inLanguage: "en-US",
+        publisher: { "@id": `${site.url}/#org` },
       },
-      sameAs: [site.social.github],
-      url: site.url,
-    },
-  ],
+      {
+        "@type": "Organization",
+        "@id": `${site.url}/#org`,
+        name: site.name,
+        url: site.url,
+        logo: `${site.url}/propel-logo.png`,
+        description: site.description,
+        sameAs: [site.social.github],
+      },
+    ],
   };
 }
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body className="grain font-sans antialiased">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: jsonLd(await siteJsonLd()) }}
+          dangerouslySetInnerHTML={{ __html: jsonLd(siteJsonLd()) }}
         />
         {children}
         <Analytics />

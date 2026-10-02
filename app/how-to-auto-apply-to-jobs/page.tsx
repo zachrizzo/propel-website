@@ -1,26 +1,19 @@
-import type { Metadata } from "next";
 import Aurora from "@/components/Aurora";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import Reveal from "@/components/Reveal";
 import { site } from "@/lib/site";
 import { jsonLd } from "@/lib/json-ld";
+import { publicPageMetadata } from "@/lib/seo";
 
 const PATH = "/how-to-auto-apply-to-jobs";
 
-export const metadata: Metadata = {
+export const metadata = publicPageMetadata({
   title: "How to Auto-Apply to LinkedIn Easy Apply and Indeed",
-  description:
-    "Save your profile once for LinkedIn Easy Apply and supported Indeed applications, with your review before submission.",
-  alternates: { canonical: PATH },
-  openGraph: {
-    type: "article",
-    url: `${site.url}${PATH}`,
-    title: "How to Auto-Apply to LinkedIn Easy Apply and Indeed",
-    description:
-      "A practical setup guide for using Propel with LinkedIn Easy Apply and supported Indeed applications.",
-  },
-};
+  description: "Learn how to prepare for Propel’s upcoming Chrome extension: save your profile, choose a résumé and review supported applications before submission.",
+  path: PATH,
+  article: true,
+});
 
 const SECTIONS = [
   {

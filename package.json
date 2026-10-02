@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "verify:downloads": "node scripts/verify-downloads.mjs"
+    "verify:downloads": "node scripts/verify-downloads.mjs",
+    "verify:seo": "node scripts/verify-seo.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",

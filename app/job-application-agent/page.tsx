@@ -1,26 +1,19 @@
-import type { Metadata } from "next";
 import Aurora from "@/components/Aurora";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import Reveal from "@/components/Reveal";
 import { site } from "@/lib/site";
 import { jsonLd } from "@/lib/json-ld";
+import { publicPageMetadata } from "@/lib/seo";
 
 const PATH = "/job-application-agent";
 
-export const metadata: Metadata = {
-  title: "Job Application Agent: LinkedIn Easy Apply and Indeed",
-  description:
-    "See how Propel fills LinkedIn Easy Apply and supported Indeed applications in your Chrome tab while you stay in control.",
-  alternates: { canonical: PATH },
-  openGraph: {
-    type: "article",
-    url: `${site.url}${PATH}`,
-    title: "Job Application Agent for LinkedIn Easy Apply and Indeed",
-    description:
-      "How Propel fills LinkedIn Easy Apply and supported Indeed applications in your Chrome tab, with review before submission.",
-  },
-};
+export const metadata = publicPageMetadata({
+  title: "Job Application Agent for LinkedIn Easy Apply and Indeed",
+  description: "Explore Propel’s upcoming Chrome extension for supported job applications, saved answers and review before submission. Not yet in the Chrome Web Store.",
+  path: PATH,
+  article: true,
+});
 
 const SECTIONS = [
   {
@@ -55,7 +48,7 @@ const articleJsonLd = {
   mainEntityOfPage: `${site.url}${PATH}`,
   image: `${site.url}/opengraph-image`,
   datePublished: "2026-07-28",
-  dateModified: "2026-09-01",
+  dateModified: "2026-10-02",
   author: { "@id": `${site.url}/#org` },
   publisher: { "@id": `${site.url}/#org` },
 };

@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
-export const alt = "Propel — a browser agent for LinkedIn Easy Apply and Indeed applications";
+export const alt = "Propel Extension preview — job applications in Chrome";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -33,7 +33,7 @@ export default function OpenGraphImage() {
           <div style={{ display: "flex", flexDirection: "column" }}>
             <span style={{ fontSize: 30, fontWeight: 800 }}>Propel</span>
             <span style={{ color: "#2386e7", fontSize: 17, fontWeight: 700, letterSpacing: 1.4 }}>
-              AI JOB APPLICATION AGENT
+              CHROME EXTENSION · IN TESTING
             </span>
           </div>
         </div>
@@ -53,15 +53,15 @@ export default function OpenGraphImage() {
             <span style={{ color: "#3193e9" }}>application from scratch.</span>
           </div>
           <div style={{ marginTop: 26, color: "#a1afbd", fontSize: 25, lineHeight: 1.35 }}>
-            Save your profile, résumé, and answers once. Propel fills LinkedIn Easy Apply and Indeed in your Chrome tab.
+            Prepare applications in Chrome with your saved profile and answers. The upcoming extension is not yet available in the Chrome Web Store.
           </div>
         </div>
 
         <div style={{ display: "flex", gap: 14 }}>
           {[
-            "LinkedIn Easy Apply",
-            "Indeed applications",
-            "Profile saved once",
+            "No desktop app",
+            "Review before submission",
+            "Upcoming release",
           ].map((label) => (
             <div
               key={label}
