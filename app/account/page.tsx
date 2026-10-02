@@ -86,6 +86,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
   const extraPlan = plans.find((plan) => plan.billingKind === "prepaid_credit");
   // A live subscription changes plan in the Stripe portal, so nobody ends up paying for two.
   const subscribed = Boolean(entitlement && entitlement.hasSubscription && LIVE_SUBSCRIPTION.has(entitlement.subscriptionStatus));
+  const switchable = subscribed && entitlement?.subscriptionStatus === "active";
   const status = STATUS[entitlement?.subscriptionStatus ?? "none"];
 
   return (
@@ -126,6 +127,9 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
           <p className="mt-1.5 text-[14px] text-mist">
             An application counts only when Propel reaches its final submit. Skipped and mismatched jobs are free.
           </p>
+          {subscribed ? <p className="mt-2 text-[13px] text-mist">
+            Stripe shows the change before you confirm. Upgrades charge a prorated difference now and raise this period&rsquo;s total application limit; used applications still count. Downgrades take effect at renewal, with your current limit until then and no immediate refund.
+          </p> : null}
           <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {subscriptionPlans.map((plan) => {
               const current = plan.planKey === entitlement?.planKey;
@@ -139,7 +143,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
                   <p className="mt-2 text-[13.5px] font-medium text-iris-300">{capText(plan)}</p>
                   {extraDescription(plan) ? <p className="mt-1.5 flex-1 text-[13px] leading-relaxed text-fog">{extraDescription(plan)}</p> : <div className="flex-1" />}
                   <div className="mt-5">
-                    <ChoosePlan planKey={plan.planKey} name={plan.displayName} current={current} viaPortal={subscribed} />
+                    <ChoosePlan planKey={plan.planKey} name={plan.displayName} current={current} viaPortal={subscribed} switchable={switchable} />
                   </div>
                 </div>
               );

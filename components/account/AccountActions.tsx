@@ -13,7 +13,14 @@ async function openStripe(fn: "create-checkout-session" | "create-portal-session
   const { data, error } = await createClient().functions.invoke(fn, { body });
   if (error) {
     const detail = error instanceof FunctionsHttpError ? await error.context.json().catch(() => null) : null;
-    throw new Error(typeof detail?.error === "string" ? detail.error : "Stripe didn't open. Please try again.");
+    const messages: Record<string, string> = {
+      payment_pending: "A payment is still pending. Open Manage billing to resolve it before changing plans.",
+      subscription_not_switchable: "This subscription can’t change plans right now. Open Manage billing to check its status.",
+      already_on_plan: "You’re already on this plan. Refresh the page to see your current plan.",
+      billing_catalog_mismatch: "This plan is temporarily unavailable. Please try again later.",
+      plan_not_available: "This plan is unavailable. Refresh the page to see current options.",
+    };
+    throw new Error(typeof detail?.error === "string" ? (messages[detail.error] ?? detail.error) : "Stripe didn't open. Please try again.");
   }
   if (typeof data?.url !== "string") throw new Error("Stripe didn't open. Please try again.");
   window.location.assign(data.url);
@@ -50,7 +57,9 @@ export function ManageBilling() {
   );
 }
 
-export function ChoosePlan({ planKey, name, current, viaPortal }: { planKey: string; name: string; current: boolean; viaPortal: boolean }) {
+export function ChoosePlan({ planKey, name, current, viaPortal, switchable }: {
+  planKey: string; name: string; current: boolean; viaPortal: boolean; switchable: boolean;
+}) {
   const { busy, error, run } = useStripe();
   if (current) {
     return <button type="button" disabled className={`${secondaryButton} w-full`}>Current plan</button>;
@@ -60,11 +69,12 @@ export function ChoosePlan({ planKey, name, current, viaPortal }: { planKey: str
       <button
         type="button"
         className={`${viaPortal ? secondaryButton : primaryButton} w-full`}
-        disabled={busy}
-        onClick={() => (viaPortal ? run("create-portal-session", {}) : run("create-checkout-session", { planKey, quantity: 1 }))}
+        disabled={busy || (viaPortal && !switchable)}
+        onClick={() => (viaPortal ? run("create-portal-session", { planKey }) : run("create-checkout-session", { planKey, quantity: 1 }))}
       >
-        {busy ? "Opening…" : viaPortal ? `Switch to ${name}` : `Choose ${name}`}
+        {busy ? "Opening…" : viaPortal && !switchable ? "Plan change unavailable" : viaPortal ? `Switch to ${name}` : `Choose ${name}`}
       </button>
+      {viaPortal && !switchable ? <p className="mt-2 text-[12.5px] text-mist">Manage billing to resolve your subscription status before changing plans.</p> : null}
       <ErrorLine error={error} />
     </div>
   );
