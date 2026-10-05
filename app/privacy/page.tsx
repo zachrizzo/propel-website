@@ -112,9 +112,7 @@ export default function Privacy() {
             details, the application&rsquo;s status and outcome, and any questions waiting for you.
           </li>
           <li>
-            <Strong>Run logs:</Strong> which steps Propel took, timing, usage, page field labels and the job details.
-            The values you entered, page text, email addresses and phone numbers are removed before these logs are
-            uploaded, and screenshots are not uploaded.
+            <Strong>Run diagnostics:</Strong> Diagnostics are included in extension 2.3.0 but are currently disabled; this release does not upload user run diagnostics. When the feature is opened in a supported future version, run records may include a pseudonymous account ID; run, task and event IDs; site host and site family; extension version; timings; outcome and reason codes; and step summaries. A summary may contain application-page text, such as field labels or button names. Protected-topic questions are represented by topic only, and selected options are replaced with &ldquo;[option]&rdquo;. Diagnostics do not include answer text, résumé text, screenshots or full page contents. When available, the notice and &ldquo;Share run diagnostics&rdquo; setting appear only while uploads are open; sharing is on by default and can be turned off in Settings. The server accepts uploads only from builds reporting version 2.3.1 or later. Versions are self-reported, so this does not prevent forged requests.
           </li>
           <li>
             <Strong>Plan and usage:</Strong> your plan and how many applications you&rsquo;ve used.
