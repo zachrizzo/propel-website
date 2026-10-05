@@ -28,7 +28,7 @@ export const site = {
   tagline: "Never start another job application from scratch",
   description:
     // Search results show about 155 characters.
-    "Propel Extension is being tested for job applications in Chrome. Version 2.1.1 is not yet available in the Chrome Web Store.",
+    "Propel Extension for Chrome prepares job applications from your saved profile and answers. Get it from the Chrome Web Store. Turn off auto-submit to review and submit each application yourself.",
   // The public custom domain is the canonical SEO identity for the site.
   url: siteUrl,
   // Website-owned download routes. They never send users directly to GitHub
@@ -36,7 +36,7 @@ export const site = {
   downloads: {
     mac: `${siteUrl}/download/mac`,
     windows: `${siteUrl}/download/windows`,
-    chrome: "https://chromewebstore.google.com/detail/propel-bridge/imggbmnonbcnkfmdghfedfadijfjdfkj",
+    chrome: "https://chromewebstore.google.com/detail/propel-extension/imggbmnonbcnkfmdghfedfadijfjdfkj",
   },
   downloadAvailability: {
     mac: true,
@@ -88,15 +88,15 @@ export const site = {
     },
     {
       q: "What does Propel do with my data?",
-      a: "Your profile and saved answers are stored in your Propel account. In the upcoming extension, a sign-in session and local task records are stored in Chrome. For requested AI planning, relevant application-page context is sent through Propel's authenticated Supabase service to OpenAI and Jev. When visual help is needed, a screenshot of the visible application tab may be sent to OpenAI; it may contain personal information visible on that page. The details are in the privacy policy at propeljobagent.com/privacy.",
+      a: "Your profile and saved answers are stored in your Propel account. In the extension, a sign-in session and local task records are stored in Chrome. For requested AI planning, relevant application-page context is sent through Propel's authenticated Supabase service to OpenAI and Jev. When visual help is needed, a screenshot of the visible application tab may be sent to OpenAI; it may contain personal information visible on that page. The details are in the privacy policy at propeljobagent.com/privacy.",
     },
     {
-      q: "When can I install Propel Extension?",
-      a: "Propel Extension version 2.1.1 is still being tested and is not yet available in the Chrome Web Store. The current Store listing is an older build, not the upcoming extension.",
+      q: "Where can I install Propel Extension?",
+      a: "Propel Extension is available in the Chrome Web Store. Add it to Chrome, open its side panel on an application page and sign in to your Propel account. Auto-submit is on by default; turn it off in Settings to review and submit each application yourself. If you would rather wait, the waitlist on the homepage is still open.",
     },
     {
       q: "Is Propel free?",
-      a: "The Free plan includes a monthly allowance of applications. Paid plans add more; current prices are at propeljobagent.com/pricing. Propel Extension version 2.1.1 is still being tested and is not yet available in the Chrome Web Store.",
+      a: "The Free plan includes a monthly allowance of applications. Paid plans add more; current prices are at propeljobagent.com/pricing. Propel Extension is available in the Chrome Web Store.",
     },
     {
       q: "How much time does it save?",

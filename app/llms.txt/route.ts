@@ -44,9 +44,9 @@ not affiliated with or endorsed by LinkedIn or any other job site.
 
 ## Product
 
-Propel Extension is a Chrome extension in testing. Version 2.1.1 is not yet
-available in the Chrome Web Store. The existing Store listing is an older build,
-not a download for this upcoming version. The user reviews before final submission.
+Propel Extension is a Chrome extension, available in the Chrome Web Store:
+${site.downloads.chrome}
+The user reviews before final submission. A waitlist remains open on the homepage for people who are not ready to install.
 
 ## Pricing
 
@@ -63,7 +63,8 @@ ${site.roadmap.map((r) => `- ${r.title}: ${r.body}`).join("\n")}
 ## Key URLs
 
 - Website: ${site.url}
-- Propel Extension preview: ${site.url}/#extension-only
+- Install Propel Extension: ${site.downloads.chrome}
+- Propel Extension on the website (with the waitlist): ${site.url}/#extension-only
 - Pricing: ${site.url}/pricing
 - Privacy policy: ${site.url}/privacy
 - Job application agent guide: ${site.url}/job-application-agent

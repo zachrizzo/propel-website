@@ -21,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
     "Propel pricing:",
     free?.monthlyApplications ? `free plan with ${free.monthlyApplications} applications a month,` : "",
     cheapest ? `paid plans from ${formatPrice(cheapest)}/mo.` : "",
-    "The upcoming Chrome extension is not yet available.",
+    "The Chrome extension is available in the Chrome Web Store.",
   ].filter(Boolean).join(" ");
   return publicPageMetadata({ title: "Propel account pricing", description, path: PATH });
 }
@@ -36,7 +36,7 @@ export default async function PricingPage() {
         "@type": "Product",
         "@id": `${site.url}${PATH}#product`,
         name: "Propel account plans",
-        description: "Current Propel account plans. The upcoming Chrome extension is not yet available in the Chrome Web Store.",
+        description: "Current Propel account plans. The Chrome extension is available in the Chrome Web Store.",
         brand: { "@type": "Brand", name: site.name },
         image: `${site.url}/propel-logo.png`,
         offers: catalog.tiers.map((plan) => ({

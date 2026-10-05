@@ -10,7 +10,7 @@ const PATH = "/how-to-auto-apply-to-jobs";
 
 export const metadata = publicPageMetadata({
   title: "How to Auto-Apply to LinkedIn Easy Apply and Indeed",
-  description: "Learn how to prepare for Propel’s upcoming Chrome extension: save your profile, choose a résumé and review supported applications before submission.",
+  description: "Learn how to use Propel’s Chrome extension: install it from the Chrome Web Store, save your profile, choose a résumé and review supported applications before submission.",
   path: PATH,
   article: true,
 });
@@ -31,7 +31,7 @@ const SECTIONS = [
   {
     h: "2. Connect the application in Chrome",
     p: [
-      "When Propel Extension version 2.1.1 is released, install it in Chrome and open its side panel on an application page. This version is still being tested and is not yet available in the Chrome Web Store.",
+      "Install Propel Extension from the Chrome Web Store, then open its side panel on an application page and sign in.",
     ],
   },
   {
@@ -114,7 +114,7 @@ export default function Guide() {
             <div className="ring-grad glass mt-14 rounded-2xl px-7 py-9 text-center">
               <h2 className="font-display text-2xl font-bold text-cream">Make the next application easier</h2>
               <p className="mx-auto mt-3 max-w-lg text-[15px] leading-relaxed text-mist">
-                Propel Extension is being tested for supported applications in Chrome. Save your profile and review what the extension prepares before you submit.
+                Propel Extension is available in the Chrome Web Store for supported applications in Chrome. Save your profile and review what the extension prepares before you submit.
               </p>
               <p className="mt-6 text-[14px] text-fog">
                 Or read what to expect from a{" "}
