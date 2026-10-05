@@ -234,7 +234,7 @@ export default async function Home() {
             </Reveal>
             <Reveal delay={0.06} immediate>
               <h1 className="mt-6 font-display text-[44px] font-extrabold leading-[1.02] tracking-tight text-cream sm:text-6xl lg:text-[58px]">
-                Propel Extension. <span className="text-gradient">Applications, in your Chrome tab.</span>
+                Your job applications, <span className="text-gradient">prepared in Chrome.</span>
               </h1>
             </Reveal>
             <Reveal delay={0.12} immediate>
