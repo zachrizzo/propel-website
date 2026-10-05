@@ -21,7 +21,7 @@ export function publicPageMetadata({ title, description, path, article = false }
       siteName: site.name,
       locale: "en_US",
       images: [{ url: "/opengraph-image", width: 1200, height: 630,
-        alt: "Propel Extension preview — job applications in Chrome" }],
+        alt: "Propel Extension — job applications in Chrome" }],
     },
     twitter: { card: "summary_large_image", title, description, images: ["/opengraph-image"] },
   };

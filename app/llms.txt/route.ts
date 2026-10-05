@@ -18,8 +18,9 @@ Propel is a browser agent for completing supported job applications. In beta, it
 fills LinkedIn Easy Apply and supported Indeed applications in your Chrome tab.
 It uses a saved profile to fill repeat fields, attach a résumé and requested
 materials, reuse saved screening answers, move through supported steps, and maintain
-an application record. The application stays visible in the user's browser for
-review before submission.
+an application record. The application stays visible in the user's browser.
+Auto-submit is on by default; the user can turn it off in Settings to review and
+submit each application themselves.
 
 ## Beta coverage
 
@@ -40,13 +41,13 @@ not affiliated with or endorsed by LinkedIn or any other job site.
 - Reuse saved answers when the same screening question appears later.
 - Move through supported multi-step application flows.
 - Keep an application record without maintaining a separate tracker.
-- Keep the application visible for review before submission.
+- Keep the application visible, with an auto-submit setting the user can turn off to review before submission.
 
 ## Product
 
-Propel Extension is a Chrome extension in testing. Version 2.1.1 is not yet
-available in the Chrome Web Store. The existing Store listing is an older build,
-not a download for this upcoming version. The user reviews before final submission.
+Propel Extension is a Chrome extension, available in the Chrome Web Store:
+${site.downloads.chrome}
+Auto-submit is on by default; the user can turn it off in Settings to review and submit each application themselves. A waitlist remains open on the homepage for people who are not ready to install.
 
 ## Pricing
 
@@ -63,7 +64,8 @@ ${site.roadmap.map((r) => `- ${r.title}: ${r.body}`).join("\n")}
 ## Key URLs
 
 - Website: ${site.url}
-- Propel Extension preview: ${site.url}/#extension-only
+- Install Propel Extension: ${site.downloads.chrome}
+- Propel Extension on the website (with the waitlist): ${site.url}/#extension-only
 - Pricing: ${site.url}/pricing
 - Privacy policy: ${site.url}/privacy
 - Job application agent guide: ${site.url}/job-application-agent

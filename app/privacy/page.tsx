@@ -40,12 +40,12 @@ export default function Privacy() {
         each of them handles, where that data goes, and the choices you have.
       </p>
 
-      <Section title="Upcoming extension-only version">
-        <p>This disclosure describes Propel Chrome extension version 2.1.1, which is not yet available in the Chrome Web Store. The sections below continue to describe the currently published Mac app and Propel Bridge until this extension update is published.</p>
-        <p>The extension reads application form labels, choices, surrounding text, and field state on a page you choose to work on. It stores your sign-in session and local task and answer records in Chrome, and gets your account's saved profile and answers from Propel's Supabase service. When you request AI planning, relevant form context is sent through Propel's authenticated Supabase model service to OpenAI. Jev receives reduced context about the step and available controls to help choose among actions. When a page needs visual understanding, Propel can capture the visible application tab and send that screenshot to OpenAI. A screenshot may include personal information and values already visible on the page. Structured model-planning requests do not intentionally include saved-answer values or the résumé file you select. The selected résumé file is attached to the employer's form. You review what Propel prepared; it can perform final submission only after you explicitly authorize that action for the run. Account data and AI requests may also be retained by the service providers under their applicable policies. For questions about your data, contact zachcilwa@gmail.com.</p>
+      <Section title="Propel Chrome extension">
+        <p>This disclosure describes the Propel Chrome extension, which is available in the Chrome Web Store. The sections below also describe the Mac app and Propel Bridge.</p>
+        <p>The extension reads application form labels, choices, surrounding text, and field state on a page you choose to work on. It stores your sign-in session and local task and answer records in Chrome, and gets your account's saved profile and answers from Propel's Supabase service. When you request AI planning, relevant form context is sent through Propel's authenticated Supabase model service to OpenAI. Jev receives reduced context about the step and available controls to help choose among actions. When a page needs visual understanding, Propel can capture the visible application tab and send that screenshot to OpenAI. A screenshot may include personal information and values already visible on the page. Structured model-planning requests do not intentionally include saved-answer values or the résumé file you select. The selected résumé file is attached to the employer's form. Auto-submit is on by default. Turn it off in Settings to review each application and submit it yourself. Account data and AI requests may also be retained by the service providers under their applicable policies. For questions about your data, contact zachcilwa@gmail.com.</p>
       </Section>
 
-      <Section title="Upcoming extension permissions">
+      <Section title="Extension permissions">
         <p>The extension uses storage for your sign-in session and local task records; tabs and webNavigation to identify and follow the application tab and page changes; sidePanel to show application controls; tabGroups to organize job tabs; and offscreen to keep its local agent running. It uses scripting and HTTPS site access to read and fill the application pages you choose, including supported embedded forms on employer domains. The debugger permission lets Propel send trusted clicks and keystrokes, capture the visible application tab when visual planning is needed, and keep a job tab responsive while it works. Access to Propel's Supabase service supports sign-in, saved answers, plan checks, and requested AI planning. The extension does not need a desktop app or native messaging.</p>
       </Section>
 
@@ -112,9 +112,7 @@ export default function Privacy() {
             details, the application&rsquo;s status and outcome, and any questions waiting for you.
           </li>
           <li>
-            <Strong>Run logs:</Strong> which steps Propel took, timing, usage, page field labels and the job details.
-            The values you entered, page text, email addresses and phone numbers are removed before these logs are
-            uploaded, and screenshots are not uploaded.
+            <Strong>Run diagnostics:</Strong> Diagnostics are included in extension 2.3.0 but are currently disabled; this release does not upload user run diagnostics. When the feature is opened in a supported future version, run records may include a pseudonymous account ID; run, task and event IDs; site host and site family; extension version; timings; outcome and reason codes; and step summaries. A summary may contain application-page text, such as field labels or button names. Protected-topic questions are represented by topic only, and selected options are replaced with &ldquo;[option]&rdquo;. Diagnostics do not include answer text, résumé text, screenshots or full page contents. When available, the notice and &ldquo;Share run diagnostics&rdquo; setting appear only while uploads are open; sharing is on by default and can be turned off in Settings. The server accepts uploads only from builds reporting version 2.3.1 or later. Versions are self-reported, so this does not prevent forged requests.
           </li>
           <li>
             <Strong>Plan and usage:</Strong> your plan and how many applications you&rsquo;ve used.
@@ -175,7 +173,7 @@ export default function Privacy() {
           views; it doesn&rsquo;t use cookies. The site is hosted by Vercel, which keeps standard server logs.
         </p>
         <p>
-          If you join the upcoming extension waitlist, we store the email address you enter in Propel&rsquo;s Supabase
+          If you join the extension waitlist, we store the email address you enter in Propel&rsquo;s Supabase
           database. We also store a keyed digest of your network address and a daily request count to limit abusive
           signups. Joining does not create an account, grant access, or subscribe you to marketing emails. We do not
           send an email when you join.

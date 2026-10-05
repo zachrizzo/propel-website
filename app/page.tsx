@@ -25,7 +25,7 @@ const PROPEL_WORK = [
   "Attaches your résumé and requested materials",
   "Reuses saved answers when the question matches",
   "Keeps moving through supported application steps",
-  "Hands you the finished application to review",
+  "Submits the finished application, or hands it to you to review if auto-submit is off",
   "Keeps a record of every application",
 ];
 
@@ -57,7 +57,7 @@ const FEATURES = [
   },
   {
     t: "Asks instead of guessing",
-    d: "When a question needs you, or a page needs a login, 2FA or a CAPTCHA, Propel pauses and asks. Nothing is sent before you review it.",
+    d: "When a question needs you, or a page needs a login, 2FA or a CAPTCHA, Propel pauses and asks you.",
     i: "check",
   },
 ];
@@ -66,7 +66,7 @@ const COVERAGE = [
   {
     label: "LinkedIn Easy Apply",
     title: "Supported application steps",
-    body: "On supported Easy Apply forms, Propel can fill recognized fields and attach your résumé. You review answers and handle unfamiliar steps.",
+    body: "On supported Easy Apply forms, Propel can fill recognized fields and attach your résumé. You answer anything new and handle unfamiliar steps.",
   },
   {
     label: "Indeed",
@@ -76,7 +76,7 @@ const COVERAGE = [
   {
     label: "In your browser",
     title: "Never a black box",
-    body: "Everything happens in your Chrome tab. You can watch Propel work, review what it filled and step in at any point.",
+    body: "Everything happens in your Chrome tab. You can watch Propel work, see what it filled and step in at any point.",
   },
 ];
 
@@ -84,7 +84,7 @@ const COVERAGE = [
 const DATA_POINTS = [
   {
     title: "Where your data lives",
-    body: "Your profile and saved answers live in your Propel account. The upcoming extension stores its sign-in session and local task records in Chrome; you choose the résumé file attached to an application.",
+    body: "Your profile and saved answers live in your Propel account. The extension stores its sign-in session and local task records in Chrome; you choose the résumé file attached to an application.",
   },
   {
     title: "What the AI sees",
@@ -95,16 +95,16 @@ const DATA_POINTS = [
     body: "Propel works in the browser you're already signed into. It never asks for your LinkedIn or Indeed password.",
   },
   {
-    title: "Nothing sent without you",
-    body: "You review every application before it's submitted, and you can pause Propel at any point.",
+    title: "You stay in control",
+    body: "You can pause Propel at any point, and it stops to ask when a question needs you. Auto-submit is on by default; turn it off in Settings to review and submit each application yourself.",
   },
 ];
 
 const STEPS = [
   {
     n: "01",
-    title: "Install Propel Extension when released",
-    body: "The upcoming extension works in your Chrome tab. Version 2.1.1 is still being tested and is not yet available in the Chrome Web Store.",
+    title: "Install Propel Extension from the Chrome Web Store",
+    body: "Add Propel Extension to Chrome from the Chrome Web Store. It works in your Chrome tab, in a side panel next to the application.",
   },
   {
     n: "02",
@@ -118,8 +118,8 @@ const STEPS = [
   },
   {
     n: "04",
-    title: "Answer anything new, then review",
-    body: "If a question needs you, Propel asks and remembers the answer for next time. You check the finished application before it's submitted.",
+    title: "Answer anything new",
+    body: "If a question needs you, Propel asks and remembers the answer for next time. With auto-submit off, you check the finished application and submit it yourself.",
   },
 ];
 
@@ -132,7 +132,7 @@ function homepageJsonLd(faq: readonly { q: string; a: string }[]) {
       "@id": `${site.url}/#howto`,
       name: "How to fill LinkedIn Easy Apply and supported Indeed applications with Propel",
       description:
-        "See how the upcoming Propel Extension is designed to prepare supported applications in Chrome for your review.",
+        "See how Propel Extension prepares supported applications in Chrome.",
       step: STEPS.map((step, index) => ({
         "@type": "HowToStep",
         position: index + 1,
@@ -229,27 +229,29 @@ export default async function Home() {
             <Reveal immediate>
               <span className="inline-flex items-center gap-2 rounded-full border border-iris-400/25 bg-iris-500/10 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-wider text-iris-300">
                 <span className="h-1.5 w-1.5 rounded-full bg-iris-400" />
-                Propel Extension · In testing
+                Propel Extension · Now in the Chrome Web Store
               </span>
             </Reveal>
             <Reveal delay={0.06} immediate>
               <h1 className="mt-6 font-display text-[44px] font-extrabold leading-[1.02] tracking-tight text-cream sm:text-6xl lg:text-[58px]">
-                Propel Extension. <span className="text-gradient">Applications, in your Chrome tab.</span>
+                Your job applications, <span className="text-gradient">prepared in Chrome.</span>
               </h1>
             </Reveal>
             <Reveal delay={0.12} immediate>
               <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-mist sm:mx-0">
-                We&apos;re testing Propel Extension to help prepare job applications in your Chrome tab.
-                Version 2.1.1 is not yet available in the Chrome Web Store. You&apos;ll review the application and submit it yourself.
+                Propel fills supported LinkedIn Easy Apply and Indeed applications using your saved details and answers. Turn off auto-submit to review and submit each application yourself; unsupported steps pause for you.
               </p>
             </Reveal>
             <Reveal delay={0.18} immediate>
               <div className="mt-9 flex flex-col items-center gap-4 sm:flex-row sm:items-start">
-                <a href="#waitlist" className="inline-flex items-center gap-2 rounded-full bg-cream px-7 py-3.5 font-display text-[15px] font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-95">
-                  Join the waitlist
+                <a href={site.downloads.chrome} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-cream px-7 py-3.5 font-display text-[15px] font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-95">
+                  Add to Chrome
                 </a>
                 <a href="/account" className="inline-flex items-center gap-2 rounded-full border border-iris-400/25 px-6 py-3.5 font-display text-[15px] font-semibold text-cream transition-colors hover:border-iris-400/50 hover:bg-iris-500/10">
                   Your account
+                </a>
+                <a href="#waitlist" className="inline-flex items-center gap-2 px-2 py-3.5 font-display text-[14px] font-medium text-mist underline-offset-4 transition-colors hover:text-cream hover:underline">
+                  Or join the waitlist
                 </a>
               </div>
             </Reveal>
@@ -259,40 +261,45 @@ export default async function Home() {
             <div className="relative w-full max-w-[540px]">
               <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-iris-500/10 blur-2xl" />
               <HeroFlow />
-              <p className="mt-3 text-center text-[12px] text-fog">Illustration of the intended application workflow. Propel Extension is still being tested.</p>
+              <p className="mt-3 text-center text-[12px] text-fog">Illustration of the application workflow in Propel Extension.</p>
             </div>
           </Reveal>
         </div>
 
         <Reveal delay={0.26} immediate>
           <div className="mx-auto mt-16 flex max-w-6xl flex-wrap items-center justify-center gap-x-8 gap-y-3 border-y border-iris-400/10 py-5 text-[14px] text-mist">
-            <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-fog">Propel Extension preview</span>
+            <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-fog">Propel Extension for Chrome</span>
             <span className="font-display font-semibold text-cream">LinkedIn Easy Apply</span>
             <span className="font-display font-semibold text-cream">Indeed <span className="font-sans font-normal text-fog">(supported listings)</span></span>
             <span className="hidden h-4 w-px bg-iris-400/20 sm:block" />
-            <span>You review before submit</span>
+            <span>Turn off auto-submit to review first</span>
           </div>
         </Reveal>
       </section>
 
-      {/* ───────────────── UPCOMING EXTENSION RELEASE ───────────────── */}
+      {/* ───────────────── PROPEL EXTENSION ───────────────── */}
       <section id="extension-only" aria-labelledby="extension-only-heading" className="relative scroll-mt-20 px-5 py-12">
         <div className="mx-auto max-w-6xl rounded-2xl border border-iris-400/25 bg-iris-500/10 p-7 sm:p-9">
-          <span className="font-mono text-[11px] uppercase tracking-widest text-iris-300">Upcoming Propel Extension</span>
+          <span className="font-mono text-[11px] uppercase tracking-widest text-iris-300">Propel Extension</span>
           <h2 id="extension-only-heading" className="mt-3 font-display text-2xl font-semibold text-cream">
             One extension for your application workflow
           </h2>
           <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-mist">
-            Propel Extension version 2.1.1 is still being tested and is not yet available in the Chrome Web Store.
-            The existing Store listing is an older build, so it is not a download for this version.
+            Propel Extension is available in the Chrome Web Store.
           </p>
           <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-mist">
-            When it is released, you&apos;ll install Propel Extension in Chrome. Choose a job application, open
-            Propel&apos;s side panel, sign in, and inspect the form. Review suggestions before Propel fills supported
-            fields or attaches a résumé file you select. Answer unfamiliar or consequential questions on the employer
-            page, then submit the final application yourself. Some sites and controls require manual steps.
+            Install Propel Extension in Chrome, then choose a job application, open
+            Propel&apos;s side panel and sign in. Propel fills supported fields, attaches a résumé file you select and asks you about
+            anything unfamiliar. Auto-submit is on by default; turn it off in Settings to review and submit the final
+            application yourself. Some sites and controls require manual steps.
           </p>
-          <div id="waitlist" className="scroll-mt-24">
+          <div className="mt-6">
+            <a href={site.downloads.chrome} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-cream px-7 py-3.5 font-display text-[15px] font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-95">
+              Add to Chrome
+            </a>
+          </div>
+          <div id="waitlist" className="mt-8 scroll-mt-24 border-t border-iris-400/15 pt-6">
+            <p className="text-[13px] font-medium text-fog">Not ready to install? The waitlist is still open.</p>
             <WaitlistForm />
           </div>
         </div>
@@ -350,7 +357,7 @@ export default async function Home() {
           <Reveal>
             <span className="font-mono text-[11px] uppercase tracking-widest text-iris-400">How it works</span>
             <h2 className="mt-4 max-w-3xl font-display text-4xl font-bold tracking-tight text-cream sm:text-5xl balance">
-              From blank form to <span className="text-gradient">ready for review.</span>
+              From blank form to <span className="text-gradient">ready to submit.</span>
             </h2>
           </Reveal>
           <ol className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -414,7 +421,7 @@ export default async function Home() {
               Beta coverage: <span className="text-gradient">Easy Apply and Indeed.</span>
             </h2>
             <p className="mt-5 max-w-3xl text-[16px] leading-relaxed text-mist">
-              The upcoming extension is being tested on LinkedIn Easy Apply and supported Indeed applications. It doesn&apos;t
+              The extension works with LinkedIn Easy Apply and supported Indeed applications. It doesn&apos;t
               cover company career sites or applicant tracking systems yet.{" "}
               <a href="/job-application-agent" className="font-medium text-iris-300 underline-offset-4 hover:underline">
                 See exactly what&apos;s covered
@@ -502,14 +509,16 @@ export default async function Home() {
         <Aurora />
         <div className="mx-auto max-w-4xl text-center">
           <Reveal>
-            <span className="font-mono text-[11px] uppercase tracking-widest text-iris-400">In testing</span>
+            <span className="font-mono text-[11px] uppercase tracking-widest text-iris-400">Available now</span>
             <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-cream sm:text-6xl balance">
-              Propel Extension <span className="text-gradient">is coming to Chrome.</span>
+              Propel Extension <span className="text-gradient">is in the Chrome Web Store.</span>
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-mist">
-              Version 2.1.1 is still being tested and is not available in the Chrome Web Store yet.
-              We&apos;ll update this page when the new extension can be installed.
+              Add it to Chrome, open its side panel on an application page and sign in. Turn off auto-submit in Settings to review and submit each application yourself.
             </p>
+            <a href={site.downloads.chrome} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-2 rounded-full bg-cream px-7 py-3.5 font-display text-[15px] font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-95">
+              Add to Chrome
+            </a>
           </Reveal>
         </div>
       </section>
