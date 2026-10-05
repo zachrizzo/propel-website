@@ -10,7 +10,7 @@ const PATH = "/job-application-agent";
 
 export const metadata = publicPageMetadata({
   title: "Job Application Agent for LinkedIn Easy Apply and Indeed",
-  description: "Explore Propel’s Chrome extension for supported job applications, saved answers and review before submission. Available in the Chrome Web Store.",
+  description: "Explore Propel’s Chrome extension for supported job applications, saved answers and an optional review before submission. Available in the Chrome Web Store.",
   path: PATH,
   article: true,
 });
@@ -18,7 +18,7 @@ export const metadata = publicPageMetadata({
 const SECTIONS = [
   {
     title: "What is a job application agent?",
-    body: "A job application agent completes repetitive work in your browser: entering contact details and work history, attaching a résumé and requested materials, reusing answers you have already provided, and moving through supported application steps. A useful agent should leave role selection and final review with you.",
+    body: "A job application agent completes repetitive work in your browser: entering contact details and work history, attaching a résumé and requested materials, reusing answers you have already provided, and moving through supported application steps. A useful agent should leave role selection with you, and let you choose whether to review each application before it is submitted.",
   },
   {
     title: "Why carrying your context forward matters",
@@ -34,7 +34,7 @@ const SECTIONS = [
   },
   {
     title: "What to look for before using automation",
-    body: "Use a tool that keeps the application visible, makes its data handling clear, maintains a useful record, and gives you a review point before submission. Automation should remove repeated work without replacing your judgment about the role, résumé, or answers you send.",
+    body: "Use a tool that keeps the application visible, makes its data handling clear, maintains a useful record, and lets you choose whether to review before submission. Automation should remove repeated work without replacing your judgment about the role, résumé, or answers you send.",
   },
 ];
 
@@ -44,7 +44,7 @@ const articleJsonLd = {
   "@id": `${site.url}${PATH}#article`,
   headline: "Job Application Agent for LinkedIn Easy Apply and Indeed",
   description:
-    "How Propel fills LinkedIn Easy Apply and supported Indeed applications in your Chrome tab, with review before submission.",
+    "How Propel fills LinkedIn Easy Apply and supported Indeed applications in your Chrome tab, with an auto-submit setting you can turn off to review each application first.",
   mainEntityOfPage: `${site.url}${PATH}`,
   image: `${site.url}/opengraph-image`,
   datePublished: "2026-07-28",
@@ -74,7 +74,7 @@ export default function JobApplicationAgent() {
           </Reveal>
           <Reveal delay={0.12} immediate>
             <p className="mt-5 text-lg leading-relaxed text-mist">
-              Save your profile, résumé, and screening answers once. Propel fills LinkedIn Easy Apply and supported Indeed applications in your Chrome tab—then keeps the result in front of you for review.
+              Save your profile, résumé, and screening answers once. Propel fills LinkedIn Easy Apply and supported Indeed applications in your Chrome tab—and, with auto-submit off, keeps the result in front of you to review and submit.
             </p>
           </Reveal>
 

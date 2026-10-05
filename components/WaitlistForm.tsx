@@ -25,7 +25,7 @@ export default function WaitlistForm() {
       const data: unknown = await response.json();
       const code = data && typeof data === "object" && "code" in data ? (data as { code?: unknown }).code : null;
       if (response.ok && code === "joined") {
-        setOutcome({ kind: "success", text: "You’re on the Propel Extension waitlist. Joining does not grant access yet." });
+        setOutcome({ kind: "success", text: "You’re on the Propel Extension waitlist. The extension is available now in the Chrome Web Store." });
       } else if (response.ok && code === "already_joined") {
         setOutcome({ kind: "duplicate", text: "This email is already on the waitlist." });
       } else if (code === "rate_limited") {
@@ -61,7 +61,7 @@ export default function WaitlistForm() {
           autoComplete="off" tabIndex={-1} />
       </div>
       <p className="mt-3 text-[13px] leading-relaxed text-fog">
-        We’ll use your email to manage interest in the upcoming extension. This does not create an account or subscribe you to marketing emails.
+        Propel Extension is available now. We’ll use your email to manage interest in the extension. This does not create an account or subscribe you to marketing emails.
         See our <a href="/privacy" className="text-iris-300 underline underline-offset-4">privacy policy</a>.
       </p>
       {outcome ? <p role={outcome.kind === "error" ? "alert" : "status"} className={`mt-3 text-[14px] ${outcome.kind === "error" ? "text-rose-300" : "text-emerald-300"}`}>

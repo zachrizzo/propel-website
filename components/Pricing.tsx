@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 const INCLUDED = [
   "LinkedIn Easy Apply and supported Indeed",
   "Your saved profile, résumé and answers",
-  "Review before anything is submitted",
+  "Optional review: turn off auto-submit",
   "A record of every application",
 ];
 

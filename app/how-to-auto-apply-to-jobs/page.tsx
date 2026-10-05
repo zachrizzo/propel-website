@@ -10,7 +10,7 @@ const PATH = "/how-to-auto-apply-to-jobs";
 
 export const metadata = publicPageMetadata({
   title: "How to Auto-Apply to LinkedIn Easy Apply and Indeed",
-  description: "Learn how to use Propel’s Chrome extension: install it from the Chrome Web Store, save your profile, choose a résumé and review supported applications before submission.",
+  description: "Learn how to use Propel’s Chrome extension: install it from the Chrome Web Store, save your profile, choose a résumé and, if you like, review supported applications before submission.",
   path: PATH,
   article: true,
 });
@@ -19,7 +19,7 @@ const SECTIONS = [
   {
     h: "What “auto-apply” actually means",
     p: [
-      "Auto-applying means letting a tool complete the repetitive parts of an application—contact details, work history, links, résumé uploads, and familiar screening questions—from information you have already provided. The goal is to remove repeated typing while you still choose the role and review what will be submitted.",
+      "Auto-applying means letting a tool complete the repetitive parts of an application—contact details, work history, links, résumé uploads, and familiar screening questions—from information you have already provided. The goal is to remove repeated typing while you still choose the role, and can review what will be submitted by turning off auto-submit.",
     ],
   },
   {
@@ -47,9 +47,9 @@ const SECTIONS = [
     ],
   },
   {
-    h: "5. Review before submission",
+    h: "5. Auto-submit, or review first",
     p: [
-      "Check the employer, role, selected résumé, contact details, and screening answers before anything is sent. If a required answer is unknown, or email or login verification, 2FA or CAPTCHA, or an unsupported control appears, take over in the browser and continue when the page is ready.",
+      "Auto-submit is on by default: once the form is filled, Propel presses the final submit. To check the employer, role, selected résumé, contact details, and screening answers before anything is sent, turn auto-submit off in Settings and submit each application yourself. If a required answer is unknown, or email or login verification, 2FA or CAPTCHA, or an unsupported control appears, take over in the browser and continue when the page is ready.",
     ],
   },
 ];
@@ -60,7 +60,7 @@ const howToJsonLd = {
   "@id": `${site.url}${PATH}#howto`,
   name: "How to auto-apply to LinkedIn Easy Apply and Indeed with Propel",
   description:
-    "Save your profile once for LinkedIn Easy Apply and supported Indeed applications, then review before submission.",
+    "Save your profile once for LinkedIn Easy Apply and supported Indeed applications, then let Propel submit, or turn off auto-submit to review each application first.",
   url: `${site.url}${PATH}`,
   step: SECTIONS.slice(1).map((section, index) => ({
     "@type": "HowToStep",
@@ -91,7 +91,7 @@ export default function Guide() {
           </Reveal>
           <Reveal delay={0.12} immediate>
             <p className="mt-5 text-lg leading-relaxed text-mist">
-              Save your profile once, fill LinkedIn Easy Apply and supported Indeed applications in your Chrome tab, and keep the final review in your hands.
+              Save your profile once, fill LinkedIn Easy Apply and supported Indeed applications in your Chrome tab, and choose whether Propel submits or you review and submit each one.
             </p>
           </Reveal>
 
@@ -114,7 +114,7 @@ export default function Guide() {
             <div className="ring-grad glass mt-14 rounded-2xl px-7 py-9 text-center">
               <h2 className="font-display text-2xl font-bold text-cream">Make the next application easier</h2>
               <p className="mx-auto mt-3 max-w-lg text-[15px] leading-relaxed text-mist">
-                Propel Extension is available in the Chrome Web Store for supported applications in Chrome. Save your profile and review what the extension prepares before you submit.
+                Propel Extension is available in the Chrome Web Store for supported applications in Chrome. Save your profile, and turn off auto-submit if you want to review each application before it is submitted.
               </p>
               <p className="mt-6 text-[14px] text-fog">
                 Or read what to expect from a{" "}

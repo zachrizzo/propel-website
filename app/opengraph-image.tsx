@@ -60,7 +60,7 @@ export default function OpenGraphImage() {
         <div style={{ display: "flex", gap: 14 }}>
           {[
             "No desktop app",
-            "Review before submission",
+            "Optional review before submit",
             "In the Chrome Web Store",
           ].map((label) => (
             <div

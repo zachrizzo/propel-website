@@ -68,7 +68,7 @@ export const site = {
   faq: [
     {
       q: "What does Propel take off my plate?",
-      a: "Propel handles the repeat application work: filling from your saved profile and work history, attaching your résumé and requested materials, reusing saved screening answers when they match, moving through supported multi-step forms, and keeping an application record. You choose the role and review before anything is submitted.",
+      a: "Propel handles the repeat application work: filling from your saved profile and work history, attaching your résumé and requested materials, reusing saved screening answers when they match, moving through supported multi-step forms, and keeping an application record. You choose the role. Auto-submit is on by default; turn it off in Settings to review and submit each application yourself.",
     },
     {
       q: "Which job sites does Propel work on?",
@@ -76,7 +76,7 @@ export const site = {
     },
     {
       q: "Do I stay in control of what gets submitted?",
-      a: "Yes. Propel keeps the application visible in your browser so you can check the role, résumé, fields, and answers before submission. You can step in whenever a page needs your judgment.",
+      a: "Yes. You choose the role and the answers Propel uses, and Propel keeps the application visible in your browser so you can watch it work and step in whenever a page needs your judgment. Auto-submit is on by default, so Propel presses the final submit once the form is filled. Turn it off in Settings to review each application and submit it yourself.",
     },
     {
       q: "What happens when Propel cannot complete a step?",
@@ -84,7 +84,7 @@ export const site = {
     },
     {
       q: "Does Propel remember my answers?",
-      a: "Yes. Propel can save an answer to a screening question and reuse it when the same question appears in a later application. You can review the answer before it is submitted.",
+      a: "Yes. Propel can save an answer to a screening question and reuse it when the same question appears in a later application. With auto-submit off, you can review the answer before the application is submitted.",
     },
     {
       q: "What does Propel do with my data?",

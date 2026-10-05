@@ -25,7 +25,7 @@ const PROPEL_WORK = [
   "Attaches your résumé and requested materials",
   "Reuses saved answers when the question matches",
   "Keeps moving through supported application steps",
-  "Hands you the finished application to review",
+  "Submits the finished application, or hands it to you to review if auto-submit is off",
   "Keeps a record of every application",
 ];
 
@@ -57,7 +57,7 @@ const FEATURES = [
   },
   {
     t: "Asks instead of guessing",
-    d: "When a question needs you, or a page needs a login, 2FA or a CAPTCHA, Propel pauses and asks. Nothing is sent before you review it.",
+    d: "When a question needs you, or a page needs a login, 2FA or a CAPTCHA, Propel pauses and asks you.",
     i: "check",
   },
 ];
@@ -66,7 +66,7 @@ const COVERAGE = [
   {
     label: "LinkedIn Easy Apply",
     title: "Supported application steps",
-    body: "On supported Easy Apply forms, Propel can fill recognized fields and attach your résumé. You review answers and handle unfamiliar steps.",
+    body: "On supported Easy Apply forms, Propel can fill recognized fields and attach your résumé. You answer anything new and handle unfamiliar steps.",
   },
   {
     label: "Indeed",
@@ -76,7 +76,7 @@ const COVERAGE = [
   {
     label: "In your browser",
     title: "Never a black box",
-    body: "Everything happens in your Chrome tab. You can watch Propel work, review what it filled and step in at any point.",
+    body: "Everything happens in your Chrome tab. You can watch Propel work, see what it filled and step in at any point.",
   },
 ];
 
@@ -95,8 +95,8 @@ const DATA_POINTS = [
     body: "Propel works in the browser you're already signed into. It never asks for your LinkedIn or Indeed password.",
   },
   {
-    title: "Nothing sent without you",
-    body: "You review every application before it's submitted, and you can pause Propel at any point.",
+    title: "You stay in control",
+    body: "You can pause Propel at any point, and it stops to ask when a question needs you. Auto-submit is on by default; turn it off in Settings to review and submit each application yourself.",
   },
 ];
 
@@ -118,8 +118,8 @@ const STEPS = [
   },
   {
     n: "04",
-    title: "Answer anything new, then review",
-    body: "If a question needs you, Propel asks and remembers the answer for next time. You check the finished application before it's submitted.",
+    title: "Answer anything new",
+    body: "If a question needs you, Propel asks and remembers the answer for next time. With auto-submit off, you check the finished application and submit it yourself.",
   },
 ];
 
@@ -132,7 +132,7 @@ function homepageJsonLd(faq: readonly { q: string; a: string }[]) {
       "@id": `${site.url}/#howto`,
       name: "How to fill LinkedIn Easy Apply and supported Indeed applications with Propel",
       description:
-        "See how Propel Extension prepares supported applications in Chrome for your review.",
+        "See how Propel Extension prepares supported applications in Chrome.",
       step: STEPS.map((step, index) => ({
         "@type": "HowToStep",
         position: index + 1,
@@ -239,8 +239,7 @@ export default async function Home() {
             </Reveal>
             <Reveal delay={0.12} immediate>
               <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-mist sm:mx-0">
-                Propel Extension helps prepare job applications in your Chrome tab, from your saved profile and answers.
-                You&apos;ll review the application and submit it yourself.
+                Propel fills supported LinkedIn Easy Apply and Indeed applications using your saved details and answers. Turn off auto-submit to review and submit each application yourself; unsupported steps pause for you.
               </p>
             </Reveal>
             <Reveal delay={0.18} immediate>
@@ -273,7 +272,7 @@ export default async function Home() {
             <span className="font-display font-semibold text-cream">LinkedIn Easy Apply</span>
             <span className="font-display font-semibold text-cream">Indeed <span className="font-sans font-normal text-fog">(supported listings)</span></span>
             <span className="hidden h-4 w-px bg-iris-400/20 sm:block" />
-            <span>You review before submit</span>
+            <span>Turn off auto-submit to review first</span>
           </div>
         </Reveal>
       </section>
@@ -290,9 +289,9 @@ export default async function Home() {
           </p>
           <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-mist">
             Install Propel Extension in Chrome, then choose a job application, open
-            Propel&apos;s side panel, sign in, and inspect the form. Review suggestions before Propel fills supported
-            fields or attaches a résumé file you select. Answer unfamiliar or consequential questions on the employer
-            page, then submit the final application yourself. Some sites and controls require manual steps.
+            Propel&apos;s side panel and sign in. Propel fills supported fields, attaches a résumé file you select and asks you about
+            anything unfamiliar. Auto-submit is on by default; turn it off in Settings to review and submit the final
+            application yourself. Some sites and controls require manual steps.
           </p>
           <div className="mt-6">
             <a href={site.downloads.chrome} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-cream px-7 py-3.5 font-display text-[15px] font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-95">
@@ -358,7 +357,7 @@ export default async function Home() {
           <Reveal>
             <span className="font-mono text-[11px] uppercase tracking-widest text-iris-400">How it works</span>
             <h2 className="mt-4 max-w-3xl font-display text-4xl font-bold tracking-tight text-cream sm:text-5xl balance">
-              From blank form to <span className="text-gradient">ready for review.</span>
+              From blank form to <span className="text-gradient">ready to submit.</span>
             </h2>
           </Reveal>
           <ol className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
