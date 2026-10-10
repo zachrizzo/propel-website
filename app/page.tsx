@@ -84,11 +84,11 @@ const COVERAGE = [
 const DATA_POINTS = [
   {
     title: "Where your data lives",
-    body: "Your profile and saved answers live in your Propel account. The extension stores its sign-in session and local task records in Chrome; you choose the résumé file attached to an application.",
+    body: "Your saved information, original documents and extracted text, task history, and readable model inputs and outputs live in your Propel account on Supabase. Chrome keeps your sign-in session, local copies, and changes waiting to sync.",
   },
   {
     title: "What the AI sees",
-    body: "For requested AI planning, relevant application-page context is sent through Propel's authenticated Supabase service to OpenAI and Jev. When visual help is needed, a screenshot of the visible application tab may be sent to OpenAI; it may contain personal information visible on that page. See the privacy policy for details.",
+    body: "For requested AI work, relevant page content, saved-answer values, and document text may be sent through Propel's authenticated service to OpenAI and Jev. Visual planning may also send a screenshot containing information visible on the page. Read the privacy policy for storage and provider details.",
   },
   {
     title: "Your job-site accounts",
