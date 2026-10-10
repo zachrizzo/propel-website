@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/privacy" },
 };
 
-const UPDATED = "October 2, 2026";
+const UPDATED = "October 10, 2026";
 
 const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <section className="mt-10">
@@ -35,14 +35,15 @@ export default function Privacy() {
       <p className="mt-3 font-mono text-[12px] text-fog">Last updated: {UPDATED}</p>
 
       <p className="mt-8 text-[15px] leading-relaxed text-mist">
-        Propel Job Agent (&ldquo;Propel&rdquo;) fills out job applications for you. It is made up of the Propel app for
-        Mac, the Propel Bridge extension for Chrome, your Propel account, and this website. This policy explains what
-        each of them handles, where that data goes, and the choices you have.
+        Propel Job Agent (&ldquo;Propel&rdquo;) fills out job applications through the Propel Chrome extension, your
+        Propel account, and this website. This policy explains what data they handle, where it goes, and the choices
+        you have. Sections marked &ldquo;Legacy&rdquo; describe the earlier Mac app and Propel Bridge.
       </p>
 
       <Section title="Propel Chrome extension">
-        <p>This disclosure describes the Propel Chrome extension, which is available in the Chrome Web Store. The sections below also describe the Mac app and Propel Bridge.</p>
-        <p>The extension reads application form labels, choices, surrounding text, and field state on a page you choose to work on. It stores your sign-in session and local task and answer records in Chrome, and gets your account's saved profile and answers from Propel's Supabase service. When you request AI planning, relevant form context is sent through Propel's authenticated Supabase model service to OpenAI. Jev receives reduced context about the step and available controls to help choose among actions. When a page needs visual understanding, Propel can capture the visible application tab and send that screenshot to OpenAI. A screenshot may include personal information and values already visible on the page. Structured model-planning requests do not intentionally include saved-answer values or the résumé file you select. The selected résumé file is attached to the employer's form. Auto-submit is on by default. Turn it off in Settings to review each application and submit it yourself. Account data and AI requests may also be retained by the service providers under their applicable policies. For questions about your data, contact zachcilwa@gmail.com.</p>
+        <p>The standalone extension reads form labels, choices, surrounding page text, and current field values on pages you choose to work on. It uses information you provide, saved answers, and documents to complete the task. Your Propel sign-in session, local task records, and an upload queue are stored in Chrome. Saved information, documents, and task history are also synchronized to your account on Propel&rsquo;s Supabase service. Offline changes wait on your device until synchronization succeeds.</p>
+        <p>Relevant page content, document text, saved-answer values, and supporting information may be sent through Propel&rsquo;s authenticated model service to OpenAI or Jev for retrieval, drafting, and browser planning. When visual understanding is needed, a screenshot of the visible task tab may be sent to OpenAI. Screenshots may include personal information and values visible on the page. The document you select may also be attached to the employer&rsquo;s form. Employer browser-session cookies and credentials remain in the browser; credential headers and secret fields are excluded from task transcripts.</p>
+        <p>Auto-submit is on by default. Turn it off in Settings to review each application and submit it yourself. Service providers may retain data under their own policies. Questions about your data: zachcilwa@gmail.com.</p>
       </Section>
 
       <Section title="Extension permissions">
@@ -51,22 +52,17 @@ export default function Privacy() {
 
       <Section title="The short version">
         <List>
-          <li>Résumé files, saved screenshots and any job-site logins Propel creates are stored only on your Mac.</li>
-          <li>
-            Your profile, saved answers and application history are stored in your Propel account, so every
-            application can use them.
-          </li>
-          <li>
-            To fill an application, Propel sends the application page and the parts of your profile it needs to
-            OpenAI&rsquo;s API. We ask OpenAI not to store these requests.
-          </li>
+          <li>Your profile, original saved answers, document files and extracted text, task history, and readable model inputs and outputs are stored in your Propel account on Supabase, with local copies in Chrome.</li>
+          <li>To complete a task, Propel sends relevant page content and supporting saved information or document text to its AI providers. Visual requests may also include a screenshot.</li>
+          <li>Employer browser-session cookies and credentials stay in the browser.</li>
           <li>We don&rsquo;t sell your data, show you ads, or use your data to train AI models.</li>
           <li>Propel never asks for your LinkedIn or Indeed password.</li>
         </List>
       </Section>
 
-      <Section title="What stays on your computer">
-        <p>The Propel app keeps its files in a private folder on your Mac. That includes:</p>
+      <Section title="Legacy Mac app and Propel Bridge">
+        <p>If you use the earlier Mac app and Propel Bridge, this section describes that legacy setup. The standalone Chrome extension stores account data as described above and below.</p>
+        <p>The legacy Propel app keeps its files in a private folder on your Mac. That includes:</p>
         <List>
           <li>the résumé files you add;</li>
           <li>
@@ -83,7 +79,7 @@ export default function Privacy() {
           never uploaded.
         </p>
         <p>
-          <Strong>The Chrome extension.</Strong> Propel Bridge connects Chrome to the Propel app on your computer and
+          <Strong>The legacy Propel Bridge.</Strong> Propel Bridge connects Chrome to the Propel app on your computer and
           makes no network requests of its own. It can see the titles and addresses of your open tabs, and it reads and
           controls the tabs Propel works in. It stores only its connection state in Chrome.
         </p>
@@ -92,66 +88,33 @@ export default function Privacy() {
       <Section title="What is stored in your Propel account">
         <p>When you sign in, Propel stores the following on our servers, which run on Supabase:</p>
         <List>
-          <li>
-            <Strong>Account:</Strong> your email address, plus your name and photo if you sign in with Google.
-          </li>
-          <li>
-            <Strong>Profile:</Strong> contact details (name, email, phone, address), work authorization, sponsorship,
-            availability, salary expectations, links, and the roles and locations you want.
-          </li>
-          <li>
-            <Strong>Résumé details:</Strong> the work history, education and skills Propel extracts from your résumé.
-            The résumé file itself and its full text are not stored.
-          </li>
-          <li>
-            <Strong>Saved answers</Strong> to screening questions, and a search index of your profile, résumé details
-            and answers, so Propel can find what each application needs.
-          </li>
-          <li>
-            <Strong>Applications:</Strong> each job&rsquo;s address, company, title and location, the posting&rsquo;s
-            details, the application&rsquo;s status and outcome, and any questions waiting for you.
-          </li>
-          <li>
-            <Strong>Run diagnostics:</Strong> Diagnostics are included in extension 2.3.0 but are currently disabled; this release does not upload user run diagnostics. When the feature is opened in a supported future version, run records may include a pseudonymous account ID; run, task and event IDs; site host and site family; extension version; timings; outcome and reason codes; and step summaries. A summary may contain application-page text, such as field labels or button names. Protected-topic questions are represented by topic only, and selected options are replaced with &ldquo;[option]&rdquo;. Diagnostics do not include answer text, résumé text, screenshots or full page contents. When available, the notice and &ldquo;Share run diagnostics&rdquo; setting appear only while uploads are open; sharing is on by default and can be turned off in Settings. The server accepts uploads only from builds reporting version 2.3.1 or later. Versions are self-reported, so this does not prevent forged requests.
-          </li>
-          <li>
-            <Strong>Plan and usage:</Strong> your plan and how many applications you&rsquo;ve used.
-          </li>
-          <li>
-            <Strong>Bug reports</Strong> you choose to send.
-          </li>
+          <li><Strong>Account:</Strong> your email address, plus your name and photo if you sign in with Google.</li>
+          <li><Strong>Profile:</Strong> contact details (name, email, phone, address), work authorization, sponsorship, availability, salary expectations, links, and the roles and locations you want.</li>
+          <li><Strong>Documents:</Strong> original files you add, including résumés, are stored in private Supabase Storage. Extracted text, source locations, file versions, and document references are stored with your account records.</li>
+          <li><Strong>Saved information:</Strong> your original answers, separately derived facts, corrections, conflicts, source references, reuse preferences, and a search index used to find relevant information. If you provide health, disability, accommodation, demographic, or other sensitive answers for an application, those answers may be included in this account data.</li>
+          <li><Strong>Tasks and application history:</Strong> job/page details, status and outcome, pending questions, your task-specific answers and drafts, decisions, browser action receipts, and verification results.</li>
+          <li><Strong>Model transcripts:</Strong> readable inputs sent to models and their returned outputs, kept with the task history. These can include page text, saved-answer values, and document excerpts. Credential fields, raw screenshot image bytes, and embedding vectors are omitted from the readable transcript.</li>
+          <li><Strong>Run diagnostics:</Strong> signed-in runs upload operational records automatically when the service is available. They include account/run/task/event identifiers, site information, extension version, timings, outcome and reason codes, and step summaries and references. Summaries can include labels, file names, answer text, and excerpts of page or document content. Credential values are protected. These operational records are separate from the durable task history and model transcripts.</li>
+          <li><Strong>Plan and usage:</Strong> your plan and how many applications you&rsquo;ve used.</li>
+          <li><Strong>Bug reports</Strong> you choose to send.</li>
         </List>
       </Section>
 
       <Section title="What is sent to AI models">
-        <p>
-          Propel uses OpenAI&rsquo;s API to read application pages and decide what to fill. These requests go through
-          our servers using our OpenAI account. They can include:
-        </p>
+        <p>Propel uses OpenAI and Jev through its authenticated Supabase model service to retrieve supporting information, draft answers under your writing settings, and plan browser actions. Requests can include:</p>
         <List>
-          <li>
-            the content of the application page, including values already in the form (passwords and one-time codes are
-            masked);
-          </li>
-          <li>screenshots of the page;</li>
-          <li>the parts of your profile, résumé details and saved answers relevant to the application;</li>
-          <li>your résumé&rsquo;s text when you import a résumé, so Propel can extract its details.</li>
+          <li>relevant page text, form labels, choices and current values;</li>
+          <li>relevant profile facts, saved answers, task-specific answers, and document text or excerpts;</li>
+          <li>screenshots when visual planning is needed;</li>
+          <li>text used to create a search index for your saved information.</li>
         </List>
-        <p>
-          Requests are sent with OpenAI&rsquo;s response storage turned off, along with an anonymous account identifier.
-          We don&rsquo;t keep the contents of these requests on our servers. OpenAI&rsquo;s handling of API data is
-          described in its{" "}
-          <a href="https://openai.com/policies/api-data-usage-policies" className="text-iris-300 underline underline-offset-4 hover:text-cream">
-            API data usage policies
-          </a>
-          .
-        </p>
+        <p>OpenAI Responses requests set response storage to false. That setting does not prevent all provider retention. OpenAI&rsquo;s handling of API data is described in its <a href="https://developers.openai.com/api/docs/guides/your-data" className="text-iris-300 underline underline-offset-4 hover:text-cream">data-controls documentation</a>. Propel retains readable model inputs and returned outputs as account-owned task history on Supabase. Providers handle requests under their own applicable policies.</p>
         <p>We don&rsquo;t use your data to train AI models.</p>
       </Section>
 
-      <Section title="Gmail (optional)">
+      <Section title="Legacy Mac app: Gmail (optional)">
         <p>
-          You can connect Gmail so Propel can match employer replies to your applications and read verification codes
+          In the legacy Mac app, you can connect Gmail so Propel can match employer replies to your applications and read verification codes
           sent while you apply. Propel asks for read-only access. It reads the sender, subject and a short preview of
           hiring-related emails from the last 30 days onward, and it opens a message only to read a verification code.
           Its access tokens are stored encrypted. Stored email details are deleted after 180 days, and disconnecting
@@ -160,11 +123,7 @@ export default function Privacy() {
       </Section>
 
       <Section title="Payments">
-        <p>
-          Payments are handled by Stripe on Stripe&rsquo;s own checkout page. Propel never sees or stores your card
-          number. We keep the customer and subscription records Stripe sends us, which can include your name, email,
-          billing address, and your card&rsquo;s brand and last four digits.
-        </p>
+        <p>Payments are handled by Stripe on its checkout page. Propel stores account email and Stripe customer, subscription, checkout and payment-reference records, plus plan status, purchase amounts and currency, and application credits to manage access and usage. The Chrome extension does not receive your full payment-card number.</p>
       </Section>
 
       <Section title="This website">
@@ -185,48 +144,36 @@ export default function Privacy() {
         <List>
           <li><Strong>Supabase</Strong> for your account, sign-in and stored data;</li>
           <li><Strong>OpenAI</Strong> for the AI models, as described above;</li>
-          <li><Strong>Jev</Strong> for reduced job-form context used to select browser actions;</li>
+          <li><Strong>Jev (Typesafe AI)</Strong> for selected saved-information retrieval and browser-planning requests;</li>
           <li><Strong>Stripe</Strong> for payments;</li>
-          <li><Strong>Google</Strong> if you sign in with Google or connect Gmail;</li>
+          <li><Strong>Google</Strong> if you sign in with Google or connect Gmail in the legacy Mac app;</li>
           <li><Strong>Vercel</Strong> to host this website and count page views;</li>
+          <li>The employer or application site receives the form values and documents that Propel fills or attaches on your behalf.</li>
           <li>
-            <Strong>GitHub</Strong>, where the Mac app checks for updates (GitHub sees your IP address and app version).
+            <Strong>GitHub</Strong>, where the legacy Mac app checks for updates (GitHub sees your IP address and app version).
           </li>
         </List>
       </Section>
 
       <Section title="How long we keep data">
-        <p>
-          We keep your account data for as long as you have an account. Files on your Mac stay until you delete them or
-          uninstall Propel. Email details from Gmail are deleted after 180 days. We keep payment records as long as we
-          need them for accounting and tax purposes.
-        </p>
+        <p>Durable saved information, documents, task history, model transcripts, and committed record revisions are not subject to the operational diagnostic retention limit. They remain in your account unless removed through the available deletion controls or account deletion. Operational run diagnostics have a 30-day retention policy. Local copies remain until removed from the browser or legacy app. Legacy Gmail email details are deleted after 180 days. We keep payment records as long as we need them for accounting and tax purposes.</p>
+        <p>Stopping reuse does not delete saved information or the original file. &ldquo;Delete file&rdquo; removes the original file from this device and queues its cloud deletion; it is shown as deleted from your account after synchronization is acknowledged. Historical task records, excerpts, and previous record revisions may still contain information drawn from that file. Removing the extension does not delete your cloud account data.</p>
       </Section>
 
       <Section title="Your choices">
         <List>
-          <li>Delete saved answers in the Propel app.</li>
-          <li>Leave automatic sign-in and account creation off, or turn them off at any time.</li>
-          <li>Disconnect Gmail at any time.</li>
-          <li>
-            Remove Propel Bridge from <span className="font-mono text-cream">chrome://extensions</span> to stop its
-            access immediately, and uninstall the Propel app to remove it from your Mac.
-          </li>
-          <li>
-            Delete your Propel account from your{" "}
-            <a href="/account" className="text-iris-300 underline underline-offset-4 hover:text-cream">account page</a>.
-            That cancels your subscription immediately and deletes the data stored in your account. Files on your Mac
-            stay until you uninstall Propel.
-          </li>
+          <li>Inspect and correct saved information, change where it may be reused, or stop using it under Saved information.</li>
+          <li>Stop using a document while retaining its original, or select Delete file to remove the stored original. Offline deletions wait to synchronize.</li>
+          <li>Pause or stop tasks and turn auto-submit off in Settings.</li>
+          <li>Remove the standalone Propel extension from <span className="font-mono text-cream">chrome://extensions</span> to stop its browser access.</li>
+          <li>For the legacy Mac app, leave automatic sign-in and account creation off, disconnect Gmail, or remove Propel Bridge and uninstall the Mac app.</li>
+          <li>Delete your Propel account from your <a href="/account" className="text-iris-300 underline underline-offset-4 hover:text-cream">account page</a>. Local files remain until you remove them from your device.</li>
           <li>To get a copy of the data in your Propel account, email us from your account&rsquo;s address.</li>
         </List>
       </Section>
 
       <Section title="Security">
-        <p>
-          Data travels over encrypted connections, Gmail tokens are stored encrypted, and job-site logins never leave
-          your Mac. No system is perfectly secure, so please tell us if you find a problem.
-        </p>
+        <p>Data travels over encrypted connections. Supabase account records and private document storage use owner-scoped access controls. Browser-session credentials stay in the browser; credential headers and secret fields are excluded from task transcripts. The legacy Mac app&rsquo;s saved job-site logins and Gmail tokens use the protections described in its sections. No system is perfectly secure, so please tell us if you find a problem.</p>
       </Section>
 
       <Section title="Changes and contact">
