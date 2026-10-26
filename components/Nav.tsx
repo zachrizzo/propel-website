@@ -44,12 +44,6 @@ export default function Nav() {
         </nav>
         <div className="flex items-center gap-5">
         <a
-          href="/account"
-          className="text-[14px] font-medium text-mist transition-colors hover:text-cream"
-        >
-          Sign in
-        </a>
-        <a
           href={site.downloads.chrome}
           target="_blank"
           rel="noopener noreferrer"

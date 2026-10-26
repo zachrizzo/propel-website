@@ -19,9 +19,8 @@ const COLUMNS = [
     ],
   },
   {
-    title: "Account",
+    title: "Extension",
     links: [
-      { href: "/account", label: "Sign in" },
       { href: "/#extension-only", label: "Propel Extension" },
     ],
   },

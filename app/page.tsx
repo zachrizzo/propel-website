@@ -247,9 +247,6 @@ export default async function Home() {
                 <a href={site.downloads.chrome} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-cream px-7 py-3.5 font-display text-[15px] font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-95">
                   Add to Chrome
                 </a>
-                <a href="/account" className="inline-flex items-center gap-2 rounded-full border border-iris-400/25 px-6 py-3.5 font-display text-[15px] font-semibold text-cream transition-colors hover:border-iris-400/50 hover:bg-iris-500/10">
-                  Your account
-                </a>
                 <a href="#waitlist" className="inline-flex items-center gap-2 px-2 py-3.5 font-display text-[14px] font-medium text-mist underline-offset-4 transition-colors hover:text-cream hover:underline">
                   Or join the waitlist
                 </a>

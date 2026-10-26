@@ -83,7 +83,7 @@ export default async function PricingPage() {
               </p>
               <p>
                 Upgrade, change or cancel anytime from{" "}
-                <a href="/account" className="font-medium text-iris-300 underline-offset-4 hover:underline">your account</a>.
+                your account.
                 Payments are handled by Stripe.
               </p>
             </div>
