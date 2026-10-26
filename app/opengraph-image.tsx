@@ -53,7 +53,7 @@ export default function OpenGraphImage() {
             <span style={{ color: "#3193e9" }}>application from scratch.</span>
           </div>
           <div style={{ marginTop: 26, color: "#a1afbd", fontSize: 25, lineHeight: 1.35 }}>
-            Prepare applications in Chrome with your saved profile and answers. Get the extension from the Chrome Web Store.
+            Prepare applications in Chrome with your saved profile and answers. Coming soon — join the beta interest list.
           </div>
         </div>
 
@@ -61,7 +61,7 @@ export default function OpenGraphImage() {
           {[
             "No desktop app",
             "Optional review before submit",
-            "In the Chrome Web Store",
+            "Coming soon",
           ].map((label) => (
             <div
               key={label}

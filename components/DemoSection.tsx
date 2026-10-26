@@ -47,7 +47,7 @@ export default function DemoSection() {
           Illustrative demo with synthetic data and a computer-generated voice. Captions are included in the video. No real application was submitted.
         </p>
         <div className="mx-auto mt-5 flex max-w-3xl flex-wrap justify-center gap-x-5 gap-y-2 text-[13px] text-iris-300">
-          <a href={`${MEDIA}transcript.txt`} className="underline-offset-4 hover:underline">Download transcript</a>
+          <a href={`${MEDIA}transcript.txt`} className="underline-offset-4 hover:underline">Read transcript</a>
           <a href={`${MEDIA}${phone ? "propel-demo-mobile-silent.mp4" : "propel-demo-silent.mp4"}`} className="underline-offset-4 hover:underline">Watch without narration</a>
           <a href={`${MEDIA}THIRD_PARTY_NOTICES.txt`} className="underline-offset-4 hover:underline">Media credits</a>
         </div>

@@ -32,7 +32,7 @@ export default function Pricing({ catalog, headingLevel = "h2" }: { catalog: Cat
           mismatches are free, and you can change or cancel your plan anytime.
         </p>
         <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-fog">
-          These are the current Propel account plans. Propel Extension is available in the Chrome Web Store.
+          Propel is coming soon. Join the beta interest list for access updates.
         </p>
       </Reveal>
 
@@ -52,14 +52,14 @@ export default function Pricing({ catalog, headingLevel = "h2" }: { catalog: Cat
                 </p>
                 <div className="flex-1" />
                 <a
-                  href={free ? site.downloads.chrome : "/#waitlist"}
+                  href="/#waitlist"
                   className={`mt-6 inline-flex h-11 items-center justify-center rounded-xl text-[14.5px] font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-iris-300 ${
                     free
                       ? "border border-iris-400/25 text-cream hover:border-iris-400/50 hover:bg-iris-500/10"
                       : "bg-gradient-to-br from-iris-600 to-iris-400 text-white shadow-[0_7px_18px_rgba(35,134,231,0.22)] hover:-translate-y-px"
                   }`}
                 >
-                  {free ? "Add to Chrome" : "Join beta interest list"}
+                  Join beta interest list
                 </a>
               </div>
             </Reveal>

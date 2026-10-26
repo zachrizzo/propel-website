@@ -45,9 +45,8 @@ not affiliated with or endorsed by LinkedIn or any other job site.
 
 ## Product
 
-Propel Extension is a Chrome extension, available in the Chrome Web Store:
-${site.downloads.chrome}
-Auto-submit is on by default; the user can turn it off in Settings to review and submit each application themselves. A waitlist remains open on the homepage for people who are not ready to install.
+Propel Extension is a coming-soon Chrome extension. Register interest at ${site.url}/#waitlist.
+Auto-submit is on by default; the user can turn it off in Settings to review and submit each application themselves. The beta interest list is open on the homepage; this website does not offer public installation.
 
 ## Pricing
 
@@ -64,7 +63,7 @@ ${site.roadmap.map((r) => `- ${r.title}: ${r.body}`).join("\n")}
 ## Key URLs
 
 - Website: ${site.url}
-- Install Propel Extension: ${site.downloads.chrome}
+- Beta interest signup: ${site.url}/#waitlist
 - Propel Extension on the website (with the waitlist): ${site.url}/#extension-only
 - Pricing: ${site.url}/pricing
 - Privacy policy: ${site.url}/privacy

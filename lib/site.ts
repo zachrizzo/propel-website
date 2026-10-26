@@ -28,7 +28,7 @@ export const site = {
   tagline: "Never start another job application from scratch",
   description:
     // Search results show about 155 characters.
-    "Propel Extension for Chrome prepares job applications from your saved profile and answers. Get it from the Chrome Web Store. Turn off auto-submit to review and submit each application yourself.",
+    "Propel Extension for Chrome prepares job applications from your saved profile and answers. Coming soon — join the beta interest list. Turn off auto-submit to review and submit each application yourself.",
   // The public custom domain is the canonical SEO identity for the site.
   url: siteUrl,
   // Website-owned download routes. They never send users directly to GitHub
@@ -91,12 +91,12 @@ export const site = {
       a: "Your profile and saved answers are stored in your Propel account. In the extension, a sign-in session and local task records are stored in Chrome. For requested AI planning, relevant application-page context is sent through Propel's authenticated Supabase service to OpenAI and Jev. When visual help is needed, a screenshot of the visible application tab may be sent to OpenAI; it may contain personal information visible on that page. The details are in the privacy policy at propeljobagent.com/privacy.",
     },
     {
-      q: "Where can I install Propel Extension?",
-      a: "Propel Extension is available in the Chrome Web Store. Add it to Chrome, open its side panel on an application page and sign in to your Propel account. Auto-submit is on by default; turn it off in Settings to review and submit each application yourself. If you would rather wait, the waitlist on the homepage is still open.",
+      q: "When can I try Propel?",
+      a: "Propel Extension is coming soon. Join the beta interest list on the homepage for access updates.",
     },
     {
       q: "Is Propel free?",
-      a: "The Free plan includes a monthly allowance of applications. Paid plans add more; current prices are at propeljobagent.com/pricing. Propel Extension is available in the Chrome Web Store.",
+      a: "The Free plan includes a monthly allowance of applications. Paid plans add more; current prices are at propeljobagent.com/pricing. Propel Extension is coming soon.",
     },
     {
       q: "How much time does it save?",

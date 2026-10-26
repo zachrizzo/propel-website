@@ -10,7 +10,7 @@ const PATH = "/job-application-agent";
 
 export const metadata = publicPageMetadata({
   title: "Job Application Agent for LinkedIn Easy Apply and Indeed",
-  description: "Explore Propel’s Chrome extension for supported job applications, saved answers and an optional review before submission. Available in the Chrome Web Store.",
+  description: "Explore Propel’s Chrome extension for supported job applications, saved answers and an optional review before submission. Coming soon; join the beta interest list.",
   path: PATH,
   article: true,
 });
@@ -93,7 +93,7 @@ export default function JobApplicationAgent() {
             <div className="ring-grad glass mt-14 rounded-2xl px-7 py-9 text-center">
               <h2 className="font-display text-2xl font-bold text-cream">Stop rebuilding the same application</h2>
               <p className="mx-auto mt-3 max-w-lg text-[15px] leading-relaxed text-mist">
-                Propel Extension is available in the Chrome Web Store for supported job applications in Chrome.
+                Propel Extension is coming soon for supported job applications in Chrome. Join the beta interest list for access updates.
               </p>
               <p className="mt-6 text-[14px] text-fog">
                 Want the setup walkthrough?{" "}

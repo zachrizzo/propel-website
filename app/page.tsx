@@ -104,8 +104,8 @@ const DATA_POINTS = [
 const STEPS = [
   {
     n: "01",
-    title: "Install Propel Extension from the Chrome Web Store",
-    body: "Add Propel Extension to Chrome from the Chrome Web Store. It works in your Chrome tab, in a side panel next to the application.",
+    title: "Join the Propel beta interest list",
+    body: "Propel is coming soon. Leave your email on the beta interest list for access updates.",
   },
   {
     n: "02",
@@ -159,7 +159,7 @@ function faqWithPricing(catalog: Catalog) {
   const free = catalog.tiers.find((plan) => plan.kind === "free");
   const paid = catalog.tiers.filter((plan) => plan.kind === "subscription");
   const answer = [
-    free?.monthlyApplications ? `Yes. Propel is free to install, and the Free plan includes ${free.monthlyApplications} applications a month.` : "Propel is free to install.",
+    free?.monthlyApplications ? `Yes. Propel is coming soon, and the Free plan includes ${free.monthlyApplications} applications a month.` : "Propel is coming soon.",
     paid.length ? `Paid plans add more: ${paid.map((plan) => `${plan.name} is ${formatPrice(plan)}/mo for ${plan.monthlyApplications} applications`).join(", ")}.` : "",
     "An application counts only when Propel reaches the final submit step.",
   ].filter(Boolean).join(" ");
@@ -230,7 +230,7 @@ export default async function Home() {
             <Reveal immediate>
               <span className="inline-flex items-center gap-2 rounded-full border border-iris-400/25 bg-iris-500/10 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-wider text-iris-300">
                 <span className="h-1.5 w-1.5 rounded-full bg-iris-400" />
-                Propel Extension · Now in the Chrome Web Store
+                Propel Extension · Coming soon
               </span>
             </Reveal>
             <Reveal delay={0.06} immediate>
@@ -245,8 +245,8 @@ export default async function Home() {
             </Reveal>
             <Reveal delay={0.18} immediate>
               <div className="mt-9 flex flex-col items-center gap-4 sm:flex-row sm:items-start">
-                <a href={site.downloads.chrome} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-cream px-7 py-3.5 font-display text-[15px] font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-95">
-                  Add to Chrome
+                <a href="/#waitlist" className="inline-flex items-center gap-2 rounded-full bg-cream px-7 py-3.5 font-display text-[15px] font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-95">
+                  Join beta interest list
                 </a>
                 <a href="#waitlist" className="inline-flex items-center gap-2 px-2 py-3.5 font-display text-[14px] font-medium text-mist underline-offset-4 transition-colors hover:text-cream hover:underline">
                   Or join the waitlist
@@ -285,21 +285,20 @@ export default async function Home() {
             One extension for your application workflow
           </h2>
           <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-mist">
-            Propel Extension is available in the Chrome Web Store.
+            Propel Extension is coming soon.
           </p>
           <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-mist">
-            Install Propel Extension in Chrome, then choose a job application, open
-            Propel&apos;s side panel and sign in. Propel fills supported fields, attaches a résumé file you select and asks you about
+            The planned beta workflow starts with a job application in Chrome and Propel&apos;s side panel. Propel fills supported fields, attaches a résumé file you select and asks you about
             anything unfamiliar. Auto-submit is on by default; turn it off in Settings to review and submit the final
             application yourself. Some sites and controls require manual steps.
           </p>
           <div className="mt-6">
-            <a href={site.downloads.chrome} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-cream px-7 py-3.5 font-display text-[15px] font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-95">
-              Add to Chrome
+            <a href="/#waitlist" className="inline-flex items-center gap-2 rounded-full bg-cream px-7 py-3.5 font-display text-[15px] font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-95">
+              Join beta interest list
             </a>
           </div>
           <div id="waitlist" className="mt-8 scroll-mt-24 border-t border-iris-400/15 pt-6">
-            <p className="text-[13px] font-medium text-fog">Not ready to install? The waitlist is still open.</p>
+            <p className="text-[13px] font-medium text-fog">Join the beta interest list for access updates.</p>
             <WaitlistForm />
           </div>
         </div>
@@ -509,15 +508,15 @@ export default async function Home() {
         <Aurora />
         <div className="mx-auto max-w-4xl text-center">
           <Reveal>
-            <span className="font-mono text-[11px] uppercase tracking-widest text-iris-400">Available now</span>
+            <span className="font-mono text-[11px] uppercase tracking-widest text-iris-400">Coming soon</span>
             <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-cream sm:text-6xl balance">
-              Propel Extension <span className="text-gradient">is in the Chrome Web Store.</span>
+              Propel Extension <span className="text-gradient">is coming soon.</span>
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-mist">
-              Add it to Chrome, open its side panel on an application page and sign in. Turn off auto-submit in Settings to review and submit each application yourself.
+              Leave your email to register interest. Beta access will open in small groups.
             </p>
-            <a href={site.downloads.chrome} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-2 rounded-full bg-cream px-7 py-3.5 font-display text-[15px] font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-95">
-              Add to Chrome
+            <a href="/#waitlist" className="mt-8 inline-flex items-center gap-2 rounded-full bg-cream px-7 py-3.5 font-display text-[15px] font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-95">
+              Join beta interest list
             </a>
           </Reveal>
         </div>
