@@ -1,0 +1,13 @@
+Final narration was synthesized locally using:
+
+Kokoro 0.9.4 — https://github.com/hexgrad/kokoro
+Model: hexgrad/Kokoro-82M v1.0 — https://huggingface.co/hexgrad/Kokoro-82M
+Generic supplied model voice: af_heart
+License identified by the creators: Apache License, Version 2.0
+https://www.apache.org/licenses/LICENSE-2.0
+
+The model card explicitly describes production deployment of the Apache-licensed weights.
+No real-person voice sample was supplied and no voice clone was created for this demo.
+The generated voice is disclosed in the video, preview and transcript.
+
+The delivery archive contains generated media and handoff documents, not model weights or library code.

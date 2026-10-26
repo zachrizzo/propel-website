@@ -1,6 +1,7 @@
 import Aurora from "@/components/Aurora";
 import Nav from "@/components/Nav";
 import HeroFlow from "@/components/HeroFlow";
+import DemoSection from "@/components/DemoSection";
 import Reveal from "@/components/Reveal";
 import Footer from "@/components/Footer";
 import Pricing from "@/components/Pricing";
@@ -273,6 +274,8 @@ export default async function Home() {
           </div>
         </Reveal>
       </section>
+
+      <DemoSection />
 
       {/* ───────────────── PROPEL EXTENSION ───────────────── */}
       <section id="extension-only" aria-labelledby="extension-only-heading" className="relative scroll-mt-20 px-5 py-12">

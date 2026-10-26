@@ -1,0 +1,15 @@
+Propel — a guided walkthrough
+
+Meet Propel, a Chrome extension that helps with the repetitive parts of job applications.
+
+Add your résumé and choose your submission settings. Then open a role you want, and select Apply here.
+
+Propel fills supported fields from your saved information, and attaches your résumé.
+
+If a question needs you, it pauses. Answer in the side panel, then continue.
+
+With automatic submission switched off before you start, Propel stops before submit. Review the form, and send it yourself.
+
+Your applications stay together in Propel. Some pages and sign-in checks still need you. You stay in control.
+
+Visual description: This illustrative walkthrough uses synthetic data in Propel’s current side-panel design. A fictional applicant adds sample-resume.pdf, switches automatic submission off, then selects Apply here for a fictional Product Designer role. Example name, email and portfolio fields fill in. Propel asks when the applicant could start; a sample answer appears in the panel. Propel stops at Ready for you to submit. The last view shows one pending application. No application is submitted. Computer-generated voice: local Kokoro af_heart.
