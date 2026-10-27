@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Instrument_Sans, JetBrains_Mono } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
+import CampaignAttribution from "@/components/CampaignAttribution";
+import SiteAnalytics from "@/components/SiteAnalytics";
 import { site } from "@/lib/site";
 import "./globals.css";
 import { jsonLd } from "@/lib/json-ld";
@@ -139,7 +140,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: jsonLd(siteJsonLd()) }}
         />
         {children}
-        <Analytics />
+        <CampaignAttribution />
+        <SiteAnalytics />
       </body>
     </html>
   );

@@ -132,6 +132,11 @@ export default function Privacy() {
           views; it doesn&rsquo;t use cookies. The site is hosted by Vercel, which keeps standard server logs.
         </p>
         <p>
+          Campaign links such as /tiktok help us count visits associated with a shared link. We keep the fixed
+          campaign label in the URL and this tab&rsquo;s session storage for up to 30 minutes across navigation.
+          This label is not a personal identifier and does not prove that a visitor came from TikTok.
+        </p>
+        <p>
           If you join the extension waitlist, we store the email address you enter in Propel&rsquo;s Supabase
           database. We also store a keyed digest of your network address and a daily request count to limit abusive
           signups. Joining does not create an account, grant access, or subscribe you to marketing emails. We do not
