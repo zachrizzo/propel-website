@@ -65,7 +65,8 @@ export async function handleWaitlist(req: Request, env = Deno.env, fetchImpl: ty
   try {
     const result = await fetchImpl(`${url}/rest/v1/rpc/join_extension_waitlist`, {
       method: "POST",
-      headers: { apikey: key, Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
+      headers: { apikey: key, Authorization: `Bearer ${key}`, "Content-Type": "application/json",
+        ...(body.source === "tiktok" ? { "x-propel-signup-source": "tiktok" } : {}) },
       body: JSON.stringify({ p_email: email, p_rate_key: await digest(address, key) }),
       signal: AbortSignal.timeout(8_000),
     });

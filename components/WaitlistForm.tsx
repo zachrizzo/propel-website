@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { supabasePublishableKey, supabaseUrl } from "@/lib/supabase/config";
+import { CAMPAIGN_STORAGE_KEY, campaignAt } from "@/lib/campaign";
 
 type Outcome = { kind: "success" | "duplicate" | "error"; text: string } | null;
 
@@ -17,10 +18,13 @@ export default function WaitlistForm() {
     setBusy(true);
     setOutcome(null);
     try {
+      let stored: string | null = null;
+      try { stored = sessionStorage.getItem(CAMPAIGN_STORAGE_KEY); } catch { /* Storage is optional. */ }
+      const source = campaignAt(new URL(window.location.href), stored, Date.now())?.source ?? null;
       const response = await fetch(`${supabaseUrl}/functions/v1/extension-waitlist`, {
         method: "POST",
         headers: { apikey: supabasePublishableKey, "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email.trim(), website }),
+        body: JSON.stringify({ email: email.trim(), website, source }),
       });
       const data: unknown = await response.json();
       const code = data && typeof data === "object" && "code" in data ? (data as { code?: unknown }).code : null;

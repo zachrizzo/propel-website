@@ -42,6 +42,17 @@ test("duplicate and rate limit are distinct states", async () => {
   }
 });
 
+test("only the fixed TikTok source is forwarded to the existing private RPC", async () => {
+  for (const source of ["tiktok", "other", { secret: "not-a-source" }, null]) {
+    const result = await handleWaitlist(request("person@example.com", { body: { source } }), env, async (path, init) => {
+      assert.equal(init.headers["x-propel-signup-source"], source === "tiktok" ? "tiktok" : undefined);
+      assert.deepEqual(Object.keys(JSON.parse(init.body)).sort(), ["p_email", "p_rate_key"]);
+      return mock("joined")(path, init);
+    });
+    assert.equal(result.status, 201);
+  }
+});
+
 test("invalid, bot and foreign-origin submissions never reach storage", async () => {
   const unreachable = () => { throw Error("must not call backend"); };
   assert.equal((await handleWaitlist(request("bad"), env, unreachable)).status, 400);

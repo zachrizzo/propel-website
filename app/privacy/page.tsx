@@ -138,7 +138,7 @@ export default function Privacy() {
         </p>
         <p>
           If you join the extension waitlist, we store the email address you enter in Propel&rsquo;s Supabase
-          database. We also store a keyed digest of your network address and a daily request count to limit abusive
+          database, along with a fixed campaign source when your first signup comes through a tagged link. We also store a keyed digest of your network address and a daily request count to limit abusive
           signups. Joining does not create an account, grant access, or subscribe you to marketing emails. We do not
           send an email when you join.
         </p>
