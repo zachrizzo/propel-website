@@ -164,7 +164,7 @@ export function SignOut() {
       className="text-[13.5px] font-semibold text-iris-300 transition hover:text-cream disabled:opacity-50"
       onClick={async () => {
         setBusy(true);
-        await createClient().auth.signOut();
+        await createClient().auth.signOut({ scope: "local" });
         window.location.assign("/login");
       }}
     >
