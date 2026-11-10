@@ -19,8 +19,11 @@ async function openStripe(fn: "create-checkout-session" | "create-portal-session
       already_on_plan: "You’re already on this plan. Refresh the page to see your current plan.",
       billing_catalog_mismatch: "This plan is temporarily unavailable. Please try again later.",
       plan_not_available: "This plan is unavailable. Refresh the page to see current options.",
+      not_authenticated: "Your session ended. Refresh the page and sign in again.",
+      no_stripe_customer: "There’s no billing history on this account yet.",
     };
-    throw new Error(typeof detail?.error === "string" ? (messages[detail.error] ?? detail.error) : "Stripe didn't open. Please try again.");
+    const code = detail?.error;
+    throw new Error(typeof code === "string" && Object.hasOwn(messages, code) ? messages[code] : "Stripe didn't open. Please try again.");
   }
   if (typeof data?.url !== "string") throw new Error("Stripe didn't open. Please try again.");
   window.location.assign(data.url);
