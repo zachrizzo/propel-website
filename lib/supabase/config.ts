@@ -8,6 +8,12 @@ export const supabasePublishableKey =
 
 /** Where to go after signing in: a path on this site only, never another origin. */
 export function safeNext(value: string | null | undefined, fallback = "/account"): string {
-  if (!value || !value.startsWith("/") || value.startsWith("//") || value.startsWith("/\\")) return fallback;
-  return value;
+  if (!value?.startsWith("/")) return fallback;
+  const origin = "https://propeljobagent.invalid";
+  try {
+    const url = new URL(value, origin);
+    return url.origin === origin ? url.pathname + url.search + url.hash : fallback;
+  } catch {
+    return fallback;
+  }
 }
