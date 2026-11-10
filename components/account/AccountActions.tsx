@@ -17,6 +17,8 @@ async function openStripe(fn: "create-checkout-session" | "create-portal-session
       payment_pending: "A payment is still pending. Open Manage billing to resolve it before changing plans.",
       subscription_not_switchable: "This subscription can’t change plans right now. Open Manage billing to check its status.",
       already_on_plan: "You’re already on this plan. Refresh the page to see your current plan.",
+      already_subscribed: "This account already has a plan. Refresh the page, then switch plans from here or open Manage billing.",
+      quantity_invalid: "Choose between 1 and 500 extra applications.",
       billing_catalog_mismatch: "This plan is temporarily unavailable. Please try again later.",
       plan_not_available: "This plan is unavailable. Refresh the page to see current options.",
       not_authenticated: "Your session ended. Refresh the page and sign in again.",
