@@ -33,8 +33,8 @@ export default function BillingCancel() {
         <h2 className="font-display text-xl font-semibold text-cream">Start again</h2>
         <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-mist">
           <p>
-            Choose a plan from <strong className="text-cream">your account</strong>. Your free
-            monthly applications keep working in the meantime.
+            Choose a plan from <strong className="text-cream">your account</strong>. Your current
+            plan and any extra applications keep working in the meantime.
           </p>
         </div>
       </section>

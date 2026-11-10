@@ -3,7 +3,7 @@ import Logo from "@/components/Logo";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Subscription confirmed",
+  title: "Checkout complete",
   description: "Your Propel purchase went through and is on your account.",
   alternates: { canonical: "/billing/success" },
   // A post-checkout landing page has no business in search results.
@@ -18,22 +18,31 @@ export default function BillingSuccess() {
       </a>
 
       <p className="mt-12 font-mono text-[12px] uppercase tracking-[0.18em] text-ember-400">
-        Payment confirmed
+        Checkout complete
       </p>
       <h1 className="mt-3 font-display text-4xl font-bold tracking-tight text-cream sm:text-5xl">
-        You&rsquo;re subscribed
+        Thanks for your purchase
       </h1>
 
       <p className="mt-8 text-[15px] leading-relaxed text-mist">
-        Your plan is active and your applications have been added to your Propel account. Your
-        receipt is on its way by email.
+        Your new plan or extra applications reach your Propel account within a few seconds of
+        payment. Your receipt is on its way by email.
       </p>
 
       <section className="mt-9">
-        <h2 className="font-display text-xl font-semibold text-cream">If you still see your old plan</h2>
+        <h2 className="font-display text-xl font-semibold text-cream">Back to applying</h2>
         <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-mist">
           <p>
-            Plans usually activate within a few seconds of payment. Reload your account page to
+            Return to the Propel side panel in Chrome and open your credits to see the new balance.
+          </p>
+        </div>
+      </section>
+
+      <section className="mt-9">
+        <h2 className="font-display text-xl font-semibold text-cream">If you still see your old balance</h2>
+        <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-mist">
+          <p>
+            Purchases usually arrive within a few seconds of payment. Reload your account page to
             pull the change through.
           </p>
         </div>
