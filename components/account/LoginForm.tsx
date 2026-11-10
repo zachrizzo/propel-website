@@ -26,6 +26,7 @@ function forgetGoogleDestination() {
 }
 
 export default function LoginForm({ next, initialMode, callbackError }: { next: string; initialMode: Mode; callbackError: string | null }) {
+  const destination = () => (!next.includes("#") && /^#[\w-]+$/.test(window.location.hash) ? next + window.location.hash : next);
   const [mode, setMode] = useState<Mode>(initialMode);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -44,13 +45,13 @@ export default function LoginForm({ next, initialMode, callbackError }: { next: 
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
         // A full navigation, so the server renders the next page with the new session.
-        window.location.assign(next);
+        window.location.assign(destination());
         return;
       }
-      const { data, error } = await supabase.auth.signUp({ email, password, options: { emailRedirectTo: callbackUrl(next) } });
+      const { data, error } = await supabase.auth.signUp({ email, password, options: { emailRedirectTo: callbackUrl(destination()) } });
       if (error) throw error;
       if (data.session) {
-        window.location.assign(next);
+        window.location.assign(destination());
         return;
       }
       setMessage({ tone: "success", text: `Check ${email} for a link to confirm your account.` });
@@ -63,7 +64,7 @@ export default function LoginForm({ next, initialMode, callbackError }: { next: 
   async function google() {
     setBusy("google");
     setMessage(null);
-    rememberGoogleDestination(next);
+    rememberGoogleDestination(destination());
     try {
       const { error } = await createClient().auth.signInWithOAuth({ provider: "google", options: { redirectTo: googleCallbackUrl() } });
       if (error) throw error;
