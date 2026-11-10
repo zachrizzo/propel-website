@@ -83,7 +83,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
   const entitlement = entitlementResult.error ? null : toEntitlement(entitlementResult.data);
   const plans = (plansResult.data ?? []).map(toPlan);
   const subscriptionPlans = plans.filter((plan) => plan.billingKind === "subscription");
-  const extraPlan = plans.find((plan) => plan.billingKind === "prepaid_credit");
+  const extraPlan = entitlement ? plans.find((plan) => plan.billingKind === "prepaid_credit") : undefined;
   // A live subscription changes plan in the Stripe portal, so nobody ends up paying for two.
   const subscribed = Boolean(entitlement && entitlement.hasSubscription && LIVE_SUBSCRIPTION.has(entitlement.subscriptionStatus));
   const switchable = subscribed && entitlement?.subscriptionStatus === "active";
@@ -126,7 +126,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
         )}
       </section>
 
-      {subscriptionPlans.length ? (
+      {entitlement && subscriptionPlans.length ? (
         <section className="mt-12">
           <h2 className="font-display text-xl font-semibold text-cream">{subscribed ? "Change plan" : "Upgrade"}</h2>
           <p className="mt-1.5 text-[14px] text-mist">
