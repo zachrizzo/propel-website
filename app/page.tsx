@@ -161,7 +161,7 @@ function faqWithPricing(catalog: Catalog) {
   const answer = [
     free?.monthlyApplications ? `Yes. Propel is coming soon, and the Free plan includes ${free.monthlyApplications} applications a month.` : "Propel is coming soon.",
     paid.length ? `Paid plans add more: ${paid.map((plan) => `${plan.name} is ${formatPrice(plan)}/mo for ${plan.monthlyApplications} applications`).join(", ")}.` : "",
-    "An application counts only when Propel reaches the final submit step.",
+    "An application counts once Propel starts filling in its form.",
   ].filter(Boolean).join(" ");
   return site.faq
     .filter((item) => !("homepage" in item && item.homepage === false))

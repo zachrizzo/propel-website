@@ -130,7 +130,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
         <section className="mt-12">
           <h2 className="font-display text-xl font-semibold text-cream">{subscribed ? "Change plan" : "Upgrade"}</h2>
           <p className="mt-1.5 text-[14px] text-mist">
-            An application counts only when Propel reaches its final submit. Skipped and mismatched jobs are free.
+            An application counts once Propel starts filling in its form. Skipped and mismatched jobs are free, and so is one that stops before Propel enters anything.
           </p>
           {subscribed ? <p className="mt-2 text-[13px] text-mist">
             Stripe shows the change before you confirm. Upgrades charge a prorated difference now and raise this period&rsquo;s total application limit; used applications still count. Downgrades take effect at renewal, with your current limit until then and no immediate refund.

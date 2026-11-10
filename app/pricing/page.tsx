@@ -72,8 +72,8 @@ export default async function PricingPage() {
             <h2 className="font-display text-2xl font-semibold text-cream">How billing works</h2>
             <div className="mt-4 space-y-4 text-[15.5px] leading-relaxed text-mist">
               <p>
-                An application counts toward your plan only when Propel reaches the final submit step. Jobs you
-                skip, listings that don&apos;t match and forms Propel hands back to you are free.
+                An application counts toward your plan once Propel starts filling in its form. Jobs you skip,
+                listings that don&apos;t match and applications that stop before Propel enters anything are free.
               </p>
               <p>
                 {paid.length

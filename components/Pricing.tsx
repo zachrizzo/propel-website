@@ -28,7 +28,7 @@ export default function Pricing({ catalog, headingLevel = "h2" }: { catalog: Cat
           Start free. <span className="text-gradient">Pay when you apply more.</span>
         </Heading>
         <p className="mt-5 max-w-2xl text-[16px] leading-relaxed text-mist">
-          An application counts only when Propel reaches the final submit step. Skipped jobs and
+          An application counts once Propel starts filling in its form. Skipped jobs and
           mismatches are free, and you can change or cancel your plan anytime.
         </p>
         <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-fog">

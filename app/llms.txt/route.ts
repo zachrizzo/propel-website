@@ -50,7 +50,7 @@ Auto-submit is on by default; the user can turn it off in Settings to review and
 
 ## Pricing
 
-An application counts only when Propel reaches the final submit step.
+An application counts once Propel starts filling in its form. One that stops before Propel enters anything is free.
 
 ${plans}${catalog.extra ? `\n- Extra applications: ${formatPrice(catalog.extra)} each` : ""}
 
