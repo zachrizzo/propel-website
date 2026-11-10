@@ -15,8 +15,8 @@ export default function AccountDeleted() {
       <p className="mt-12 font-mono text-[12px] uppercase tracking-[0.18em] text-iris-400">Account deleted</p>
       <h1 className="mt-3 font-display text-4xl font-bold tracking-tight text-cream sm:text-5xl">Your account is gone</h1>
       <p className="mt-8 max-w-2xl text-[15px] leading-relaxed text-mist">
-        Your subscription is cancelled and the data in your Propel account has been deleted. To remove what&rsquo;s on
-        your Mac, uninstall the Propel app and remove the Propel Bridge extension from Chrome.
+        Your subscription is cancelled and the data in your Propel account has been deleted. To remove what&rsquo;s
+        saved on this device, remove the Propel extension from Chrome.
       </p>
       <a
         href="/"
