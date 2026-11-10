@@ -63,7 +63,7 @@ function Usage({ entitlement }: { entitlement: Entitlement }) {
       ) : null}
       {!entitlement.canApply ? (
         <div className="mt-4">
-          <Notice tone="info">You&rsquo;ve used this period&rsquo;s applications. Upgrade or buy extra applications to keep going.</Notice>
+          <Notice tone="info">You&rsquo;ve used this period&rsquo;s applications. Upgrade or <a className="underline underline-offset-4" href="#extra-applications">buy extra applications</a> to keep going.</Notice>
         </div>
       ) : null}
     </div>
@@ -94,7 +94,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
       <header className="flex items-center justify-between gap-4">
         <a href="/" aria-label="Propel home"><Logo /></a>
         <div className="flex items-center gap-4">
-          <span className="hidden max-w-[240px] truncate text-[13.5px] text-mist sm:inline">{auth.user.email}</span>
+          <span className="max-w-[180px] truncate text-[13.5px] text-mist sm:max-w-[240px]">{auth.user.email}</span>
           <SignOut />
         </div>
       </header>
@@ -114,6 +114,11 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
               </div>
               {entitlement.hasStripeCustomer ? <ManageBilling /> : null}
             </div>
+            {entitlement.subscriptionStatus === "past_due" ? (
+              <div className="mt-5">
+                <Notice tone="error">Your last payment didn&rsquo;t go through. Open Manage billing to update your payment method and keep your plan.</Notice>
+              </div>
+            ) : null}
             <Usage entitlement={entitlement} />
           </>
         ) : (
@@ -153,7 +158,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
       ) : null}
 
       {extraPlan ? (
-        <section className="mt-12 flex flex-col gap-5 rounded-2xl border border-iris-400/15 bg-ink-800/70 p-6 sm:flex-row sm:items-center sm:justify-between">
+        <section id="extra-applications" className="mt-12 flex scroll-mt-8 flex-col gap-5 rounded-2xl border border-iris-400/15 bg-ink-800/70 p-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h2 className="font-display text-lg font-semibold text-cream">Extra applications</h2>
             <p className="mt-1 text-[14px] text-mist">
