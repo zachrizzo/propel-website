@@ -21,6 +21,8 @@ const STATUS: Record<string, { label: string; className: string }> = {
   past_due: { label: "Payment due", className: "border-amber-400/35 bg-amber-500/10 text-amber-300" },
 };
 
+const ENDING = { label: "Ending", className: "border-amber-400/35 bg-amber-500/10 text-amber-300" };
+
 function formatDate(value: string | null): string | null {
   if (!value) return null;
   const date = new Date(value);
@@ -86,8 +88,10 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
   const extraPlan = entitlement ? plans.find((plan) => plan.billingKind === "prepaid_credit") : undefined;
   // A live subscription changes plan in the Stripe portal, so nobody ends up paying for two.
   const subscribed = Boolean(entitlement && entitlement.hasSubscription && LIVE_SUBSCRIPTION.has(entitlement.subscriptionStatus));
-  const switchable = subscribed && entitlement?.subscriptionStatus === "active";
-  const status = STATUS[entitlement?.subscriptionStatus ?? "none"];
+  const ending = subscribed && entitlement?.cancelAtPeriodEnd === true;
+  const switchable = subscribed && entitlement?.subscriptionStatus === "active" && !ending;
+  const ends = formatDate(entitlement?.currentPeriodEnd ?? null);
+  const status = ending ? ENDING : STATUS[entitlement?.subscriptionStatus ?? "none"];
 
   return (
     <main className="relative mx-auto max-w-4xl px-5 pb-20 pt-8">
@@ -117,6 +121,11 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
             {entitlement.subscriptionStatus === "past_due" ? (
               <div className="mt-5">
                 <Notice tone="error">Your last payment didn&rsquo;t go through. Open Manage billing to update your payment method and keep your plan.</Notice>
+              </div>
+            ) : null}
+            {ending ? (
+              <div className="mt-5">
+                <Notice tone="info">Your {entitlement.displayName} plan is cancelled and ends{ends ? ` ${ends}` : " at the end of this period"}. Open Manage billing to keep it.</Notice>
               </div>
             ) : null}
             <Usage entitlement={entitlement} />

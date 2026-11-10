@@ -5,6 +5,8 @@ export type Entitlement = {
   planKey: string;
   displayName: string;
   subscriptionStatus: string;
+  /** The subscription ends at currentPeriodEnd instead of renewing. */
+  cancelAtPeriodEnd: boolean;
   /** null when the plan has no monthly cap. */
   includedAttempts: number | null;
   usedAttempts: number;
@@ -41,6 +43,7 @@ export function toEntitlement(value: unknown): Entitlement {
     planKey: text(rec.planKey, "free"),
     displayName: text(rec.displayName, "Free"),
     subscriptionStatus: text(rec.subscriptionStatus, "none"),
+    cancelAtPeriodEnd: rec.cancelAtPeriodEnd === true,
     includedAttempts: included === null || included < 0 ? null : included,
     usedAttempts: count(rec.usedAttempts) ?? 0,
     remainingIncludedAttempts: count(rec.remainingIncludedAttempts),
